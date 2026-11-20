@@ -1,0 +1,33 @@
+# Открытые источники, которые загружаются при сборке базы знаний.
+#
+# Формат: один URL на строку. Строки, начинающиеся с «#», игнорируются.
+# Эти страницы скачиваются при `python ingest.py` и попадают в индекс
+# как источник с типом «web»; в ответах ссылка ведёт на точный URL страницы.
+#
+# Правила для этого файла:
+#   1. Только официальные страницы компании (домен usergate.com или docs.usergate.com).
+#   2. Только конкретная статья/раздел, а не главная страница.
+#   3. Не добавлять страницы без текста: оболочки SPA и заглушки бесполезны в индексе.
+#   4. После изменения — пересобрать базу: `python ingest.py`.
+#
+# ВАЖНО: usergate.com отдаёт страницы как SPA (текст собирается в браузере)
+# и закрыт Yandex SmartCaptcha, поэтому /products, /academy/courses-exams и
+# /registry-entry автоматически не загружаются — они остаются каноническими
+# адресами для проверки человеком. Портал документации docs.usergate.com
+# отдаёт содержимое сервером, поэтому именно он используется как источник.
+#
+# ---- Документация: терминология и типовые вопросы -------------------------
+
+https://docs.usergate.com/glossary/
+https://docs.usergate.com/chasto-zadavaemye-voprosy-5/
+
+# ---- Документация: функции и безопасность --------------------------------
+
+https://docs.usergate.com/osnovnye-funkcii-usergate_81.html
+https://docs.usergate.com/bezopasnost6-seti-i-zashita-ot-setevyh-ugroz-148/
+
+# ---- Документация: лицензирование, обновления, платформы -----------------
+
+https://docs.usergate.com/licenzirovanie-303/
+https://docs.usergate.com/politika-obnovleniya-programmnogo-obespecheniya-usergate-ngfw_3043.html
+https://docs.usergate.com/ustanovka-po-usergate-na-apparatnyh-platformah-c100-d200-d500-e1000-e3000-f8000_52.html

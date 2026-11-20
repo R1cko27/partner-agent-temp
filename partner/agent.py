@@ -7,7 +7,7 @@ import json
 import re
 from typing import Any, Dict, Iterator, List, Optional, Sequence
 
-from .domain.retriever import Retriever, SearchHit
+from .domain.retriever import Retriever, SearchHit  
 from .engine.answers import AnswerCache
 from .engine.complexity import MODE_PROMPT, heuristic_mode, parse_mode
 from .engine.lang import detect_lang, fallback_text, sanitize_text

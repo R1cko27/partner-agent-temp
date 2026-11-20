@@ -1,0 +1,19 @@
+id;продукт;версия;тип_документа;url;что_берём;статус;дата
+ПРИМЕР-01;UserGate NGFW;6.1.x;руководство администратора;https://docs.usergate.com/ngfw-61x-rukovodstvo-administratora-33/;функции, настройки, ограничения версии;не_начат;2026-11-20
+ПРИМЕР-02;UserGate NGFW;7.0.1;руководство администратора;https://docs.usergate.com/ngfw-701-rukovodstvo-administratora-53/;переход на 7.x, отличия от 6.1.x;не_начат;;
+ПРИМЕР-03;UserGate NGFW;7.x;руководство администратора;https://docs.usergate.com/ngfw-7x-rukovodstvo-administratora-294/;актуальные функции и настройки;в_работе;;
+ПРИМЕР-04;UserGate DCFW;8.x;функциональные возможности;https://docs.usergate.com/funkcional6nye-vozmozhnosti_2248.html;перечень функций DCFW и UGOS 8.0;перенесён;2026-11-20;основа карточки products/dcfw.md
+ПРИМЕР-05;UserGate WAF;7.6.x;руководство администратора;https://docs.usergate.com/;функции WAF, правила, API;не_начат;;
+ПРИМЕР-06;UserGate SWG;7.5.x;руководство администратора;https://docs.usergate.com/;функции SWG, фильтрация;не_начат;;
+ПРИМЕР-07;UserGate SIEM;7.x;руководство администратора;https://docs.usergate.com/siem-666/;коннекторы, корреляция, IRP/SOAR;не_начат;;
+ПРИМЕР-08;UserGate Management Center;7.x;руководство администратора;https://docs.usergate.com/management-center-664/;управление парком, политики;не_начат;;
+ПРИМЕР-09;UserGate Log Analyzer;7.x;руководство администратора;https://docs.usergate.com/log-analyzer-665/;хранение логов, отчёты;не_начат;;
+ПРИМЕР-10;UserGate Client;—;руководство администратора;https://docs.usergate.com/usergate-client-781/;поддерживаемые ОС, режимы работы;не_начат;;
+ПРИМЕР-11;Все продукты;—;матрица совместимости;https://docs.usergate.com/;совместимость версий ПО и аппаратных платформ;не_начат;;закрывает пробел «совместимость»
+ПРИМЕР-12;Все продукты;—;перечень версий и PDF;https://docs.usergate.com/dokumentaciya-k-versiyam-po-v-pdf_769.html;актуальные версии по продуктам;перенесён;2026-11-20;docs/versions-and-platforms.md
+ПРИМЕР-13;Все продукты;—;глоссарий;https://docs.usergate.com/glossary/;термины продуктов;перенесён;2026-11-20;agent.json glossary + faq/security-terms.md
+ПРИМЕР-14;UserGate NGFW;—;сертификация ФСТЭК;https://docs.usergate.com/sertifikaciya-fstek-rossii_570.html;официальная позиция о сертификате;перенесён;2026-11-20;faq/certification.md, products/ngfw.md
+ПРИМЕР-15;Все продукты;—;лицензирование;https://docs.usergate.com/licenzirovanie-303/;модели лицензирования, состав лицензий;в_работе;;закрывает часть пробела «цены и лицензии»
+ПРИМЕР-16;UserGate NGFW;—;политика обновления ПО;https://docs.usergate.com/politika-obnovleniya-programmnogo-obespecheniya-usergate-ngfw_3043.html;сроки поддержки версий, порядок обновления;в_работе;;
+ПРИМЕР-17;Все продукты;—;аппаратные платформы;https://docs.usergate.com/apparatnye-platformy-274/;модели платформ, характеристики;не_начат;;
+ПРИМЕР-18;Все продукты;—;datasheet по модели;https://static.usergate.com/docs/overviews/;производительность, порты, питание;не_начат;;PDF, нужен pypdf

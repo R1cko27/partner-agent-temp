@@ -1,0 +1,6 @@
+id;платформа;url;тип_видео;дата;тема;что_берём;куда;статус
+ПРИМЕР-01;YouTube;https://www.youtube.com/@CHANNEL;вебинар;—;«Обзор UserGate NGFW»;функции, термины, объяснения;faq/, products/;не_начат
+ПРИМЕР-02;YouTube;https://www.youtube.com/@CHANNEL;доклад с конференции;—;«Защита ЦОД»;тезисы доклада, эксперт;docs/;не_начат
+ПРИМЕР-03;YouTube;https://www.youtube.com/@CHANNEL;интервью;—;«О развитии компании»;позиционирование, планы;about/history.md;не_начат
+ПРИМЕР-04;YouTube;https://www.youtube.com/@CHANNEL;запись медиатура;—;«Экскурсия по центру разработки»;факты о производстве и платформах;about/;не_начат
+ПРИМЕР-05;RuTube;https://rutube.ru/channel/ID;вебинар;—;«Академия: как проходит обучение»;форматы обучения;faq/education.md;не_начат
