@@ -1,6 +1,7 @@
 ---
 заголовок: Взаимодействие правил reverse-прокси, DNAT и межсетевого экрана
 url: https://docs.usergate.com/vzaimodejstvie-pravil-reverse-proksi-dnat-i-mezhsetevogo-ekrana_726.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

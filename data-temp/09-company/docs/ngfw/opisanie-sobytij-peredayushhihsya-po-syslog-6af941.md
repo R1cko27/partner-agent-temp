@@ -1,6 +1,7 @@
 ---
 заголовок: Описание событий, передающихся по syslog
 url: https://docs.usergate.com/opisanie-sobytij-peredayushihsya-po-syslog_851.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 6.1.9

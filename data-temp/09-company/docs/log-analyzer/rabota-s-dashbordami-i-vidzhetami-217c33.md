@@ -1,6 +1,7 @@
 ---
 заголовок: Работа с дашбордами и виджетами
 url: https://docs.usergate.com/rabota-s-dashbordami-i-vidzhetami_1172.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Log Analyzer
 версия: 7.x

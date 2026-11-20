@@ -1,6 +1,7 @@
 ---
 заголовок: Разрыв VPN соедниения при переключении активного узла кластера
 url: https://docs.usergate.com/razryv-vpn-soednieniya-pri-pereklyuchenii-aktivnogo-uzla-klastera_882.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 6.x, 7.x

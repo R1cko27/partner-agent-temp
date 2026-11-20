@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка DHCP Relay и особенности работы
 url: https://docs.usergate.com/nastrojka-dhcp-relay-i-osobennosti-raboty_643.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

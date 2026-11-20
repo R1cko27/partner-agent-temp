@@ -1,6 +1,7 @@
 ---
 заголовок: Ошибка: Мало места на разделе для журналов
 url: https://docs.usergate.com/oshibka-malo-mesta-na-razdele-dlya-zhurnalov_593.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: UserGate NGFW, UserGate LogAn
 версия: 6.x, 7.x

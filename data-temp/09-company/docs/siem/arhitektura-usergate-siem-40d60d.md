@@ -1,6 +1,7 @@
 ---
 заголовок: Архитектура UserGate SIEM
 url: https://docs.usergate.com/arhitektura-usergate-siem_1900.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: SIEM
 версия: 7.x

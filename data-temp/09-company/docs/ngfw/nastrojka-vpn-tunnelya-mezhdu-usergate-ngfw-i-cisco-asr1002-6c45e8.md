@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка VPN туннеля между UserGate NGFW и Cisco ASR1002-X
 url: https://docs.usergate.com/nastrojka-vpn-tunnelya-mezhdu-usergate-ngfw-i-cisco-asr1002-x_729.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.x, 7.x

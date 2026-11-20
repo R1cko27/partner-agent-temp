@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Log Analyzer 7.0.0 Release Candidate (build 7.0.0.735RC, 01/09/2022).
 url: https://docs.usergate.com/usergate-log-analyzer-700-release-candidate-(build-700735rc-01092022)_532.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: Log Analyzer
 версия: 7.x

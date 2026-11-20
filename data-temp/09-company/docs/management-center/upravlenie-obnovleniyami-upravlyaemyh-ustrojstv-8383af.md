@@ -1,6 +1,7 @@
 ---
 заголовок: Управление обновлениями управляемых устройств
 url: https://docs.usergate.com/upravlenie-obnovleniyami-upravlyaemyh-ustrojstv_439.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Management Center
 версия: 6.1.9

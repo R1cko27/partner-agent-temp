@@ -1,6 +1,7 @@
 ---
 заголовок: Изменения в UserGate Management Center 7
 url: https://docs.usergate.com/izmeneniya-v-usergate-management-center-7-247/
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: Management Center
 раздел: Изменения в UserGate Management Center 7

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка VPN для удаленного доступа в сеть
 url: https://docs.usergate.com/nastrojka-vpn-dlya-udalennogo-dostupa-v-set6_2381.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 7.x, 7.5.x

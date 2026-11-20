@@ -1,6 +1,7 @@
 ---
 заголовок: Экспорт журналов в формате JSON
 url: https://docs.usergate.com/eksport-zhurnalov-v-formate-json_286.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 6.1.9, 7.0.1

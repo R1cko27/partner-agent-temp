@@ -1,6 +1,7 @@
 ---
 заголовок: Управление сертификатами
 url: https://docs.usergate.com/upravlenie-sertifikatami_447.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Log Analyzer
 версия: 6.1.9

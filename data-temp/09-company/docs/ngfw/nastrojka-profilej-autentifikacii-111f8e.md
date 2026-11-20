@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка профилей аутентификации
 url: https://docs.usergate.com/nastrojka-profilej-autentifikacii_811.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 7.x

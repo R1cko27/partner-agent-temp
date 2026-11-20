@@ -1,6 +1,7 @@
 ---
 заголовок: VPN для удаленного доступа клиентов (Remote access VPN)
 url: https://docs.usergate.com/vpn-dlya-udalennogo-dostupa-klientov-(remote-access-vpn)_1887.html
+источник: портал документации
 получено: 2026-11-20 16:21 +0700
 продукт: DCFW
 версия: 8.x

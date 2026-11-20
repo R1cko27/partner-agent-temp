@@ -1,6 +1,7 @@
 ---
 заголовок: Лицензирование
 url: https://docs.usergate.com/licenzirovanie_2163.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукты: NGFW, UGMC, LogAn, SIEM, DCFW, WAF, SWG
 версия: 6.x, 7.x, 7.5.x

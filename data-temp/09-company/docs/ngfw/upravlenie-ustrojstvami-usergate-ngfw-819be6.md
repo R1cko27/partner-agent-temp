@@ -1,6 +1,7 @@
 ---
 заголовок: Управление устройствами UserGate NGFW
 url: https://docs.usergate.com/upravlenie-ustrojstvami-usergate-ngfw-373/
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 раздел: Управление устройствами UserGate NGFW

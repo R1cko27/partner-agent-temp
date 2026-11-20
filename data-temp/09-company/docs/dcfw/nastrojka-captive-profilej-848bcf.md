@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка Captive-профилей
 url: https://docs.usergate.com/nastrojka-captive-profilej_1708.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: DCFW
 версия: 8.x

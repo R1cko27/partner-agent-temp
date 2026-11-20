@@ -1,6 +1,7 @@
 ---
 заголовок: Примеры настройки правила аналитики
 url: https://docs.usergate.com/primery-nastrojki-pravila-analitiki_947.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: SIEM
 версия: 7.1.x

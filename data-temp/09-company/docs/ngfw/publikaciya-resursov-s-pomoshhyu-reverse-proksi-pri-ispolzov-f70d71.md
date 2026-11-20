@@ -1,6 +1,7 @@
 ---
 заголовок: Публикация ресурсов с помощью reverse-прокси при использовании двух провайдеров
 url: https://docs.usergate.com/publikaciya-resursov-s-pomosh6yu-reverse-proksi-pri-ispol6zovanii-dvuh-provajderov_37.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

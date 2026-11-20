@@ -1,6 +1,7 @@
 ---
 заголовок: Низкая скорость передачи данных в туннеле Site-to-Site VPN между двумя устройствами UserGate
 url: https://docs.usergate.com/nizkaya-skorost6-peredachi-dannyh-v-tunnele-site-to-site-vpn-mezhdu-dvumya-ustrojstvami-usergate_750.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Список поддерживаемых HTTP-заголовков
 url: https://docs.usergate.com/spisok-podderzhivaemyh-http-zagolovkov_1748.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: DCFW
 версия: 8.x

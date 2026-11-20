@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка параметров мониторинга устройства
 url: https://docs.usergate.com/nastrojka-parametrov-monitoringa-ustrojstva_1437.html
+источник: портал документации
 получено: 2026-11-20 16:33 +0700
 продукт: Log Analyzer
 версия: 7.x

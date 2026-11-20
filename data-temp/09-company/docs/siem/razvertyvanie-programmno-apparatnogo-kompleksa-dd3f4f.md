@@ -1,6 +1,7 @@
 ---
 заголовок: Развертывание программно-аппаратного комплекса
 url: https://docs.usergate.com/razvertyvanie-programmno-apparatnogo-kompleksa_1199.html
+источник: портал документации
 получено: 2026-11-20 16:21 +0700
 продукт: SIEM
 версия: 7.1.x

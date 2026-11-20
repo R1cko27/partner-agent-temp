@@ -1,6 +1,7 @@
 ---
 заголовок: Первоначальная инициализация (Описание)
 url: https://docs.usergate.com/pervonachal6naya-inicializaciya-(opisanie)_1397.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Management Center
 версия: 7.x

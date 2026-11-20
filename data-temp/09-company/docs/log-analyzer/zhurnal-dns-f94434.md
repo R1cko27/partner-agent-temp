@@ -1,6 +1,7 @@
 ---
 заголовок: Журнал DNS
 url: https://docs.usergate.com/zhurnal-dns_1182.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

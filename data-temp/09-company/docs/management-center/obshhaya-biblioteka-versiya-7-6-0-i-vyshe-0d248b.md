@@ -1,6 +1,7 @@
 ---
 заголовок: Общая библиотека (версия 7.6.0 и выше)
 url: https://docs.usergate.com/obshaya-biblioteka-(versiya-760-i-vyshe)-1029/
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 7.6

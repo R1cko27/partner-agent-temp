@@ -1,6 +1,7 @@
 ---
 заголовок: Особенности конвертации правил VPN при обновлении до версии 7.5.x
 url: https://docs.usergate.com/osobennosti-konvertacii-pravil-vpn-pri-obnovlenii-do-versii-75x_3081.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Подключение к UserGate DCFW
 url: https://docs.usergate.com/podklyuchenie-k-usergate-dcfw_1601.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: DCFW
 версия: 8.x

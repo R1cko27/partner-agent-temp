@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка фильтрации syslog
 url: https://docs.usergate.com/nastrojka-fil6tracii-syslog_2739.html
+источник: портал документации
 получено: 2026-11-20 16:24 +0700
 продукт: SIEM
 версия: 7.x

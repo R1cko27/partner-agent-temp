@@ -1,6 +1,7 @@
 ---
 заголовок: Управление устройствами UserGate WAF (версия 7.6.0 и выше)
 url: https://docs.usergate.com/upravlenie-ustrojstvami-usergate-waf-(versiya-760-i-vyshe)-1105/
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: WAF
 версия: 7.6

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка GRE over IPsec между UserGate и Cisco
 url: https://docs.usergate.com/nastrojka-gre-over-ipsec-mezhdu-usergate-i-cisco_47.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Log Analyzer 6.1.9 (hotfix сборка 6.1.9.12008R, 25/05/2023) Отозван
 url: https://docs.usergate.com/usergate-log-analyzer-619-(hotfix-sborka-61912008r-25052023)-otozvan_700.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: Log Analyzer
 версия: 6.x, 6.1.9

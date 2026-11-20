@@ -1,6 +1,7 @@
 ---
 заголовок: Совместимость версий UserGate MC с версиями продуктов UserGate
 url: https://docs.usergate.com/sovmestimost6-versij-usergate-mc-s-versiyami-produktov-usergate_974.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 7.x

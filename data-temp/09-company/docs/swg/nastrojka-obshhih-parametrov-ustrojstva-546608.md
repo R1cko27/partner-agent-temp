@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка общих параметров устройства
 url: https://docs.usergate.com/nastrojka-obshih-parametrov-ustrojstva_2652.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: SWG
 версия: 7.5.x

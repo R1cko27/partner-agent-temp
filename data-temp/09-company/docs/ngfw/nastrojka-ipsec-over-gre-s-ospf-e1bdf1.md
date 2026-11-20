@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка IPsec over GRE с OSPF
 url: https://docs.usergate.com/nastrojka-ipsec-over-gre-s-ospf_48.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

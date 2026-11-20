@@ -1,6 +1,7 @@
 ---
 заголовок: Журнал WebSocket (версия ПО 7.4.1 и выше)
 url: https://docs.usergate.com/zhurnal-websocket-(versiya-po-741-i-vyshe)_2307.html
+источник: портал документации
 получено: 2026-11-20 16:21 +0700
 продукт: WAF
 версия: 7.x

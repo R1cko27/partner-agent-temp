@@ -1,6 +1,7 @@
 ---
 заголовок: Некорректная работа правил UserGate NGFW при работе с доменными пользователями
 url: https://docs.usergate.com/nekorrektnaya-rabota-pravil-usergate-ngfw-pri-rabote-s-domennymi-pol6zovatelyami_675.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

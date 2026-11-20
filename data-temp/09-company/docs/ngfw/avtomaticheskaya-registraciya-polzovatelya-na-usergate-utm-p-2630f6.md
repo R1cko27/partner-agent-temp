@@ -1,6 +1,7 @@
 ---
 заголовок: Автоматическая регистрация пользователя на UserGate UTM посредством API
 url: https://docs.usergate.com/avtomaticheskaya-registraciya-pol6zovatelya-na-usergate-utm-posredstvom-api_115.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9, 7.0.0, 7.0.2, 7.1.0, 7.2.0

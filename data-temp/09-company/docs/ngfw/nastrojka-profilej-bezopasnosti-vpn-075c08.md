@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка профилей безопасности VPN
 url: https://docs.usergate.com/nastrojka-profilej-bezopasnosti-vpn_788.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 7.x

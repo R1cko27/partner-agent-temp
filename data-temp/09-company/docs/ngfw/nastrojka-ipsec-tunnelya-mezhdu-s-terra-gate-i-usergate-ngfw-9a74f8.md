@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка IPsec туннеля между S-Terra Gate и UserGate NGFW
 url: https://docs.usergate.com/nastrojka-ipsec-tunnelya-mezhdu-s-terra-gate-i-usergate-ngfw_104.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.x, 7.x

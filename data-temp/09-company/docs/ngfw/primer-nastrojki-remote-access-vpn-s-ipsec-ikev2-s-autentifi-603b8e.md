@@ -1,6 +1,7 @@
 ---
 заголовок: Пример настройки Remote access VPN с IPsec(IKEv2) с аутентификацией через EAP, PEAP для OS Windows
 url: https://docs.usergate.com/primer-nastrojki-remote-access-vpn-s-ipsec(ikev2)-s-autentifikaciej-cherez-eap-peap-dlya-os-windows_2072.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Log Analyzer 7.0.1 (hotfix сборка 7.0.1.1022R, 4/12/2023)
 url: https://docs.usergate.com/usergate-log-analyzer-701-(hotfix-sborka-7011022r-4122023)_1034.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: Log Analyzer
 версия: 7.0.1

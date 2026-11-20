@@ -1,6 +1,7 @@
 ---
 заголовок: Подключение агентов аутентификации для Windows из разных подсетей
 url: https://docs.usergate.com/podklyuchenie-agentov-autentifikacii-dlya-windows-iz-raznyh-podsetej_774.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.9

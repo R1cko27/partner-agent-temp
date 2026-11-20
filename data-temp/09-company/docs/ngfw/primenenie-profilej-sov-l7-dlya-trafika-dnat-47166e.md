@@ -1,6 +1,7 @@
 ---
 заголовок: Применение профилей СОВ/L7 для трафика DNAT
 url: https://docs.usergate.com/primenenie-profilej-sovl7-dlya-trafika-dnat_1571.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 7.1.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Один шаблон и одна группа шаблонов на каждое управляемое устройство
 url: https://docs.usergate.com/odin-shablon-i-odna-gruppa-shablonov-na-kazhdoe-upravlyaemoe-ustrojstvo_418.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 6.1.9

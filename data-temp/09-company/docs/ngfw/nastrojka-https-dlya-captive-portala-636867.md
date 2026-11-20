@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка HTTPS для Captive-портала
 url: https://docs.usergate.com/nastrojka-https-dlya-captive-portala_22.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

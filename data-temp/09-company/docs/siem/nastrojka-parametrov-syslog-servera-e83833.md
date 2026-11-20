@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка параметров syslog-сервера
 url: https://docs.usergate.com/nastrojka-parametrov-syslog-servera_1929.html
+источник: портал документации
 получено: 2026-11-20 16:23 +0700
 продукт: SIEM
 версия: 7.x

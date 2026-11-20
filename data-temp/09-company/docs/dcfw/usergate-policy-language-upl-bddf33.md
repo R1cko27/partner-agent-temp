@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Policy Language (UPL)
 url: https://docs.usergate.com/usergate-policy-language-(upl)-602/
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: DCFW
 версия: 8.x

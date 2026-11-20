@@ -1,6 +1,7 @@
 ---
 заголовок: Пример настройки Site-to-Site VPN с IPSec(IKEv2)
 url: https://docs.usergate.com/primer-nastrojki-site-to-site-vpn-s-ipsec(ikev2)_1341.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 7.x

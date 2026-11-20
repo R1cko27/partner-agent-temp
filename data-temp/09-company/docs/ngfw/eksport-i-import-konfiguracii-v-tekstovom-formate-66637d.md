@@ -1,6 +1,7 @@
 ---
 заголовок: Экспорт и импорт конфигурации в текстовом формате
 url: https://docs.usergate.com/eksport-i-import-konfiguracii-v-tekstovom-formate_2315.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 7.x

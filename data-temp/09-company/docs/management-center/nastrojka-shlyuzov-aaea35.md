@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка шлюзов
 url: https://docs.usergate.com/nastrojka-shlyuzov_428.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: Management Center
 версия: 6.1.9

@@ -1,6 +1,7 @@
 ---
 заголовок: VPN за UserGate
 url: https://docs.usergate.com/vpn-za-usergate_588.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Обновление ПО кластера UserGate MC
 url: https://docs.usergate.com/obnovlenie-po-klastera-usergate-mc_2251.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 версия: 7.x
 раздел: Установка и обновление

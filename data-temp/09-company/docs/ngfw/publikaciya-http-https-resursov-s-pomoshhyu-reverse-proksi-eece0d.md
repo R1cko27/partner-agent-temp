@@ -1,6 +1,7 @@
 ---
 заголовок: Публикация HTTP/HTTPS-ресурсов с помощью reverse-прокси
 url: https://docs.usergate.com/publikaciya-httphttps-resursov-s-pomosh6yu-reverse-proksi_722.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 7.0.1

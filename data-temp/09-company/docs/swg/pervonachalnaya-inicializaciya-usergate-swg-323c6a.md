@@ -1,6 +1,7 @@
 ---
 заголовок: Первоначальная инициализация UserGate SWG
 url: https://docs.usergate.com/pervonachal6naya-inicializaciya-usergate-swg_2649.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: SWG
 версия: 7.5.x

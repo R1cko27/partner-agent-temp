@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка UserID агента
 url: https://docs.usergate.com/nastrojka-userid-agenta_1464.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: SIEM
 версия: 7.1.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка Captive-профилей
 url: https://docs.usergate.com/nastrojka-captive-profilej_2673.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SWG
 версия: 7.5.x

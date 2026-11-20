@@ -1,6 +1,7 @@
 ---
 заголовок: Сканирование пакетов без полезной нагрузки
 url: https://docs.usergate.com/skanirovanie-paketov-bez-poleznoj-nagruzki_1730.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: DCFW
 версия: 8.x

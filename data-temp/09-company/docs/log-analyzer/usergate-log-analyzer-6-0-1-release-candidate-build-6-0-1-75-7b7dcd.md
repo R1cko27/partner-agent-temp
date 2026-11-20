@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Log Analyzer 6.0.1 Release Candidate (build 6.0.1.7588RC, 17/08/2020).
 url: https://docs.usergate.com/usergate-log-analyzer-601-release-candidate-(build-6017588rc-17082020)_529.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: Log Analyzer
 версия: 6.x

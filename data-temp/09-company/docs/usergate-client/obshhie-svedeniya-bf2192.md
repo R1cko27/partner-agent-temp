@@ -1,6 +1,7 @@
 ---
 заголовок: Общие сведения
 url: https://docs.usergate.com/obshie-svedeniya_2241.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: UserGate Client
 версия: 7.5.x

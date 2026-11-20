@@ -1,6 +1,7 @@
 ---
 заголовок: Управление устройствами UserGate DCFW
 url: https://docs.usergate.com/upravlenie-ustrojstvami-usergate-dcfw-811/
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: DCFW
 раздел: Управление устройствами UserGate DCFW

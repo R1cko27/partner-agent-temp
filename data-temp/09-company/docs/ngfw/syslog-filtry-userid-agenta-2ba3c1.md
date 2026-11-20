@@ -1,6 +1,7 @@
 ---
 заголовок: Syslog-фильтры UserID агента
 url: https://docs.usergate.com/syslog-fil6try-userid-agenta_855.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 7.x

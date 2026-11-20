@@ -1,6 +1,7 @@
 ---
 заголовок: Требования к сетевому окружению
 url: https://docs.usergate.com/trebovaniya-k-setevomu-okruzheniyu_1197.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Log Analyzer
 версия: 7.x

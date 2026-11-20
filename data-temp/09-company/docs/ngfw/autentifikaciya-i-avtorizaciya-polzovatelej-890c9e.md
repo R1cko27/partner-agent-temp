@@ -1,6 +1,7 @@
 ---
 заголовок: Аутентификация и авторизация пользователей
 url: https://docs.usergate.com/autentifikaciya-i-avtorizaciya-pol6zovatelej_362.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 6.1.9, 7.0.1

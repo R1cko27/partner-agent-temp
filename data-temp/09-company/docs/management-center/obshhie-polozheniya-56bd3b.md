@@ -1,6 +1,7 @@
 ---
 заголовок: Общие положения
 url: https://docs.usergate.com/obshie-polozheniya-482/
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 7.x

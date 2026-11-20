@@ -1,6 +1,7 @@
 ---
 заголовок: Система обнаружения и предотвращения вторжений
 url: https://docs.usergate.com/sistema-obnaruzheniya-i-predotvrasheniya-vtorzhenij_110.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: NGFW
 версия: 5.x, 6.1.9

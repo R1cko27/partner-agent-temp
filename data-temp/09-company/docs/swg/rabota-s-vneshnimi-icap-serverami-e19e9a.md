@@ -1,6 +1,7 @@
 ---
 заголовок: Работа с внешними ICAP-серверами
 url: https://docs.usergate.com/rabota-s-vneshnimi-icap-serverami_2597.html
+источник: портал документации
 получено: 2026-11-20 16:24 +0700
 продукт: SWG
 версия: 7.5.x

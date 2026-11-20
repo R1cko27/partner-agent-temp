@@ -1,6 +1,7 @@
 ---
 заголовок: Изменения в UserGate SIEM 7
 url: https://docs.usergate.com/izmeneniya-v-usergate-siem-7-412/
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: SIEM
 раздел: Изменения в UserGate SIEM 7

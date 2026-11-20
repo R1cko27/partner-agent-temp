@@ -1,6 +1,7 @@
 ---
 заголовок: Управление срабатываниями правил аналитики
 url: https://docs.usergate.com/upravlenie-srabatyvaniyami-pravil-analitiki_1982.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: SIEM
 версия: 7.x

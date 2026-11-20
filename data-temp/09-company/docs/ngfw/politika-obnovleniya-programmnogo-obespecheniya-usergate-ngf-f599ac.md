@@ -1,6 +1,7 @@
 ---
 заголовок: Политика обновления программного обеспечения UserGate NGFW
 url: https://docs.usergate.com/politika-obnovleniya-programmnogo-obespecheniya-usergate-ngfw_3043.html
+источник: портал документации
 получено: 2026-11-20 16:11 +0700
 продукт: NGFW
 раздел: Политика обновления программного обеспечения UserGate NGFW

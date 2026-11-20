@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка IPsec VPN-туннеля между UserGate и Linux-сервером
 url: https://docs.usergate.com/nastrojka-ipsec-vpn-tunnelya-mezhdu-usergate-i-linux-serverom_564.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

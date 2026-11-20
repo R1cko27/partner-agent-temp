@@ -1,6 +1,7 @@
 ---
 заголовок: Создание сертификата на Windows
 url: https://docs.usergate.com/sozdanie-sertifikata-na-windows_390.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9, 5.x

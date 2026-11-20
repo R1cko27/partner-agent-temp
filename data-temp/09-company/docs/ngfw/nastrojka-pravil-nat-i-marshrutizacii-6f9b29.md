@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка правил NAT и маршрутизации
 url: https://docs.usergate.com/nastrojka-pravil-nat-i-marshrutizacii_227.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 7.0.1

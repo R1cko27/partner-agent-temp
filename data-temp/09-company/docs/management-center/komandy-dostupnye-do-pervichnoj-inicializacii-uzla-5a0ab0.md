@@ -1,6 +1,7 @@
 ---
 заголовок: Команды, доступные до первичной инициализации узла
 url: https://docs.usergate.com/komandy-dostupnye-do-pervichnoj-inicializacii-uzla-483/
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Management Center
 версия: 7.x

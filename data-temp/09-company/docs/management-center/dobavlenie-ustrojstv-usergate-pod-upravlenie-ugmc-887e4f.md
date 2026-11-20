@@ -1,6 +1,7 @@
 ---
 заголовок: Добавление устройств UserGate под управление UGMC
 url: https://docs.usergate.com/dobavlenie-ustrojstv-usergate-pod-upravlenie-ugmc_437.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Management Center
 версия: 6.1.9

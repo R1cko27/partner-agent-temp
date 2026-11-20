@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка правил NAT и маршрутизации
 url: https://docs.usergate.com/nastrojka-pravil-nat-i-marshrutizacii_1716.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: DCFW
 версия: 8.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Создание отказоустойчивого Site-to-Site VPN-соединения через сети двух провайдеров
 url: https://docs.usergate.com/sozdanie-otkazoustojchivogo-site-to-site-vpn-soedineniya-cherez-seti-dvuh-provajderov_42.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

@@ -1,6 +1,7 @@
 ---
 заголовок: Режим конфигурации
 url: https://docs.usergate.com/rezhim-konfiguracii-486/
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Management Center
 версия: 7.x

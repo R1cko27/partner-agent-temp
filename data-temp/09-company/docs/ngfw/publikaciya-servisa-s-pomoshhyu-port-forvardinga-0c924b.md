@@ -1,6 +1,7 @@
 ---
 заголовок: Публикация сервиса с помощью порт-форвардинга
 url: https://docs.usergate.com/publikaciya-servisa-s-pomosh6yu-port-forvardinga_34.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9, 5.x

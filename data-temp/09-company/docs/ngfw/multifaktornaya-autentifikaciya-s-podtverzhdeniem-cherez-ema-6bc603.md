@@ -1,6 +1,7 @@
 ---
 заголовок: Мультифакторная аутентификация с подтверждением через email
 url: https://docs.usergate.com/mul6tifaktornaya-autentifikaciya-s-podtverzhdeniem-cherez-email_17.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

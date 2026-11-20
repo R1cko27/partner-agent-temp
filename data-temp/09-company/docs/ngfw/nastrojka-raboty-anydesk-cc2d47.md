@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка работы AnyDesk
 url: https://docs.usergate.com/nastrojka-raboty-anydesk_673.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

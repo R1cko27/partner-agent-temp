@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка раздела пользователи и устройства
 url: https://docs.usergate.com/nastrojka-razdela-pol6zovateli-i-ustrojstva-515/
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

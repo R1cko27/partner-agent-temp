@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка определения реального IP-адреса
 url: https://docs.usergate.com/nastrojka-opredeleniya-real6nogo-ip-adresa_2949.html
+источник: портал документации
 получено: 2026-11-20 16:21 +0700
 продукт: WAF
 версия: 7.6.x

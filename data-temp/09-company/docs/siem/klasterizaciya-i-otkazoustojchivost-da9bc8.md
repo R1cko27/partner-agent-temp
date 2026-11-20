@@ -1,6 +1,7 @@
 ---
 заголовок: Кластеризация и отказоустойчивость
 url: https://docs.usergate.com/klasterizaciya-i-otkazoustojchivost6_2057.html
+источник: портал документации
 получено: 2026-11-20 16:23 +0700
 продукт: SIEM
 версия: 7.x

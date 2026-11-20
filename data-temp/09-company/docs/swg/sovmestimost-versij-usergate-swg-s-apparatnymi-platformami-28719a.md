@@ -1,6 +1,7 @@
 ---
 заголовок: Совместимость версий UserGate SWG с аппаратными платформами
 url: https://docs.usergate.com/sovmestimost6-versij-usergate-swg-s-apparatnymi-platformami_3405.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: SWG
 раздел: Совместимость версий UserGate SWG с аппаратными платформами

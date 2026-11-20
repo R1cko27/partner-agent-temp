@@ -1,6 +1,7 @@
 ---
 заголовок: Получение лицензии для выполнения учебного проекта
 url: https://docs.usergate.com/poluchenie-licenzii-dlya-vypolneniya-uchebnogo-proekta_709.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn
 версия: 6.x, 7.x

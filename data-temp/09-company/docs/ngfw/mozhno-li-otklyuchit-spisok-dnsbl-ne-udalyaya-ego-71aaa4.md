@@ -1,6 +1,7 @@
 ---
 заголовок: Можно ли отключить список DNSBL не удаляя его?
 url: https://docs.usergate.com/mozhno-li-otklyuchit6-spisok-dnsbl-ne-udalyaya-ego_630.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

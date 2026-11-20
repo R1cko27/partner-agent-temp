@@ -1,6 +1,7 @@
 ---
 заголовок: Как разрешить работу офисной SIP АТС через UserGate?
 url: https://docs.usergate.com/kak-razreshit6-rabotu-ofisnoj-sip-ats-cherez-usergate_642.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 6.x

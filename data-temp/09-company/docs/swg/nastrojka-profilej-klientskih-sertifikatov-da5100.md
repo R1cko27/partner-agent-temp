@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка профилей клиентских сертификатов
 url: https://docs.usergate.com/nastrojka-profilej-klientskih-sertifikatov_2660.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SWG
 версия: 7.5.x

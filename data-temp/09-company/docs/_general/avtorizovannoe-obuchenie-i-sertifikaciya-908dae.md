@@ -1,6 +1,7 @@
 ---
 заголовок: Авторизованное обучение и сертификация
 url: https://docs.usergate.com/avtorizovannoe-obuchenie-i-sertifikaciya_1335.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукты: NGFW, UGMC, LogAn, SIEM, UGC
 версия: 6.x, 7.x, 8.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Чем отличаются варианты резервных копий в Support Menu
 url: https://docs.usergate.com/chem-otlichayutsya-varianty-rezervnyh-kopij-v-support-menu_600.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn
 версия: 6.x, 7.x

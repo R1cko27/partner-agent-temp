@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка зон
 url: https://docs.usergate.com/nastrojka-zon_426.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 6.1.9

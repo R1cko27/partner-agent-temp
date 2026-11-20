@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка управляемых областей
 url: https://docs.usergate.com/nastrojka-upravlyaemyh-oblastej_1416.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Management Center
 версия: 7.x

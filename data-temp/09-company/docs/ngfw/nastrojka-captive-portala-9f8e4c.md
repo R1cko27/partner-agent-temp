@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка Captive-портала
 url: https://docs.usergate.com/nastrojka-captive-portala_918.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 7.x

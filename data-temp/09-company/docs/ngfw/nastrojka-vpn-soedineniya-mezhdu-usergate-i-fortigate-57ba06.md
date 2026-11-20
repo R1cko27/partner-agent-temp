@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка VPN-соединения между UserGate и FortiGate
 url: https://docs.usergate.com/nastrojka-vpn-soedineniya-mezhdu-usergate-i-fortigate_43.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

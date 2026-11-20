@@ -1,6 +1,7 @@
 ---
 заголовок: Кластеризация и отказоустойчивость (версия 7.4.X)
 url: https://docs.usergate.com/klasterizaciya-i-otkazoustojchivost6-(versiya-74x)_2113.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: WAF
 версия: 7.x

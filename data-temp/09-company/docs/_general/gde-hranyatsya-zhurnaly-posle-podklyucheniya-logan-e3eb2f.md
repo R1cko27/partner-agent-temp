@@ -1,6 +1,7 @@
 ---
 заголовок: Где хранятся журналы после подключения LogAn
 url: https://docs.usergate.com/gde-hranyatsya-zhurnaly-posle-podklyucheniya-logan_636.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 версия: 6.x, 7.x
 раздел: Где хранятся журналы после подключения LogAn

@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Log Analyzer 7.0.1 (hotfix сборка 7.0.1.1043R, 13/03/2024)
 url: https://docs.usergate.com/usergate-log-analyzer-701-(hotfix-sborka-7011043r-13032024)_1474.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукты: LogAn, SIEM
 версия: 7.0.1

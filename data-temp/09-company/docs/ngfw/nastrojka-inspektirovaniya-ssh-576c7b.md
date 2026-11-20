@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка инспектирования SSH
 url: https://docs.usergate.com/nastrojka-inspektirovaniya-ssh_826.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 7.x

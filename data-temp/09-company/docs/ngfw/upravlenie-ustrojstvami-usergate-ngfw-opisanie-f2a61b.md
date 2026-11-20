@@ -1,6 +1,7 @@
 ---
 заголовок: Управление устройствами UserGate NGFW (описание)
 url: https://docs.usergate.com/upravlenie-mezhsetevymi-ekranami-usergate-(opisanie)_1307.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 7.x

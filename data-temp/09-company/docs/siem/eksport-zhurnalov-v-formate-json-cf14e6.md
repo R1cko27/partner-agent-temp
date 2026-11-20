@@ -1,6 +1,7 @@
 ---
 заголовок: Экспорт журналов в формате JSON
 url: https://docs.usergate.com/eksport-zhurnalov-v-formate-json_2022.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SIEM
 версия: 7.x

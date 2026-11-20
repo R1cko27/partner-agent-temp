@@ -1,6 +1,7 @@
 ---
 заголовок: Передача отчётов об инцидентах информационной безопасности в ГосСОПКА
 url: https://docs.usergate.com/peredacha-otchetov-ob-incidentah-informacionnoj-bezopasnosti-v-gossopka_1992.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: SIEM
 версия: 7.x

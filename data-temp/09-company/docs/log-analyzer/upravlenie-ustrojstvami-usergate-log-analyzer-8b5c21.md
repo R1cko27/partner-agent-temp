@@ -1,6 +1,7 @@
 ---
 заголовок: Управление устройствами UserGate Log Analyzer
 url: https://docs.usergate.com/upravlenie-ustrojstvami-usergate-log-analyzer-374/
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: Log Analyzer
 раздел: Управление устройствами UserGate Log Analyzer

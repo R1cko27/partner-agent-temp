@@ -1,6 +1,7 @@
 ---
 заголовок: Разделение трафика для применения разных алгоритмов обработки
 url: https://docs.usergate.com/razdelenie-trafika-dlya-primeneniya-raznyh-algoritmov-obrabotki_587.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

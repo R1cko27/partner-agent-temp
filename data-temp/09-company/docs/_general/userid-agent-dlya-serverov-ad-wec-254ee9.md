@@ -1,6 +1,7 @@
 ---
 заголовок: UserID-агент для серверов AD, WEC
 url: https://docs.usergate.com/userid-agent-dlya-serverov-ad-wec_1573.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: NGFW, LogAn
 версия: 7.x

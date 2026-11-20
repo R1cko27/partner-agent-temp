@@ -1,6 +1,7 @@
 ---
 заголовок: Использование групп и пользователей LDAP в политиках безопасности, настраеваемых на Management Center
 url: https://docs.usergate.com/ispol6zovanie-grupp-i-pol6zovatelej-ldap-v-politikah-bezopasnosti-nastraevaemyh-na-management-center_734.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: Management Center
 версия: 7.x

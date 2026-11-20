@@ -1,6 +1,7 @@
 ---
 заголовок: Процесс перехода на UserGate версии 7.x
 url: https://docs.usergate.com/process-perehoda-na-usergate-versii-7x_917.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn
 версия: 7.x

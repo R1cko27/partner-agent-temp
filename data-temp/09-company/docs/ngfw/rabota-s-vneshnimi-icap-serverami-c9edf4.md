@@ -1,6 +1,7 @@
 ---
 заголовок: Работа с внешними ICAP-серверами
 url: https://docs.usergate.com/rabota-s-vneshnimi-icap-serverami_126.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 5.x, 6.1.9, 7.x

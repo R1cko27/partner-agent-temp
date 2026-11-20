@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка защиты почтового трафика
 url: https://docs.usergate.com/nastrojka-zashity-pochtovogo-trafika_829.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка общих параметров
 url: https://docs.usergate.com/nastrojka-obshih-parametrov_1286.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 7.x

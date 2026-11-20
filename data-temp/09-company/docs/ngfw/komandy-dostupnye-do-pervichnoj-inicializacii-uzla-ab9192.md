@@ -1,6 +1,7 @@
 ---
 заголовок: Команды, доступные до первичной инициализации узла
 url: https://docs.usergate.com/komandy-dostupnye-do-pervichnoj-inicializacii-uzla-169/
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: NGFW
 версия: 7.0

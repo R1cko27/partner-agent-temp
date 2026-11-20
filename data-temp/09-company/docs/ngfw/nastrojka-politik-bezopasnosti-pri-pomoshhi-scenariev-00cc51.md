@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка политик безопасности при помощи сценариев
 url: https://docs.usergate.com/nastrojka-politik-bezopasnosti-pri-pomoshi-scenariev_354.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 5.x, 6.1.9, 7.0.1, 7.1.0

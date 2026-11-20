@@ -1,6 +1,7 @@
 ---
 заголовок: При включении DNS-фильтрации начинают блокироваться разрешенные ресурсы
 url: https://docs.usergate.com/pri-vklyuchenii-dns-fil6tracii-nachinayut-blokirovat6sya-razreshennye-resursy_677.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

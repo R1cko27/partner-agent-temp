@@ -1,6 +1,7 @@
 ---
 заголовок: Проблемы с авторизацией при использовании нескольких методов аутентификации
 url: https://docs.usergate.com/problemy-s-avtorizaciej-pri-ispol6zovanii-neskol6kih-metodov-autentifikacii_572.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 6.x, 7.x

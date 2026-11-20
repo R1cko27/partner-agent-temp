@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка правил пропускной способности
 url: https://docs.usergate.com/nastrojka-pravil-propusknoj-sposobnosti_229.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 7.0.1

@@ -1,6 +1,7 @@
 ---
 заголовок: Особенность отображения пользователей на графике
 url: https://docs.usergate.com/osobennost6-otobrazheniya-pol6zovatelej-na-grafike_574.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 6.x, 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Обновление микрокода IPMI на аппаратных платформах E1010, E3010, F8010
 url: https://docs.usergate.com/obnovlenie-mikrokoda-ipmi-na-apparatnyh-platformah-e1010-e3010-f8010_2095.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукты: UserGate E1010/E3010, UserGate F8010
 раздел: Установка и обновление

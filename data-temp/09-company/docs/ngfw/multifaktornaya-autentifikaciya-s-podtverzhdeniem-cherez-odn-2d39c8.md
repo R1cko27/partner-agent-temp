@@ -1,6 +1,7 @@
 ---
 заголовок: Мультифакторная аутентификация с подтверждением через одноразовые временные пароли (TOTP)
 url: https://docs.usergate.com/mul6tifaktornaya-autentifikaciya-s-podtverzhdeniem-cherez-odnorazovye-vremennye-paroli-(totp)_644.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

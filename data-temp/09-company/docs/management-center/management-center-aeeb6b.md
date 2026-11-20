@@ -1,6 +1,7 @@
 ---
 заголовок: Management Center
 url: https://docs.usergate.com/management-center-677/
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: Management Center
 раздел: Management Center

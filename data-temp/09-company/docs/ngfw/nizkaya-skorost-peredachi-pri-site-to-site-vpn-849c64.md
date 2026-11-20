@@ -1,6 +1,7 @@
 ---
 заголовок: Низкая скорость передачи при Site-to-Site VPN
 url: https://docs.usergate.com/nizkaya-skorost6-peredachi-pri-site-to-site-vpn_582.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

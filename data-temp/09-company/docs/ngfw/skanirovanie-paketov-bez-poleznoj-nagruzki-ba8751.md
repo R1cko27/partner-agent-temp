@@ -1,6 +1,7 @@
 ---
 заголовок: Сканирование пакетов без полезной нагрузки
 url: https://docs.usergate.com/skanirovanie-paketov-bez-poleznoj-nagruzki_989.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 7.x

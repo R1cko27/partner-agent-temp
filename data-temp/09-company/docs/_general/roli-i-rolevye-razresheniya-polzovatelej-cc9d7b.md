@@ -1,6 +1,7 @@
 ---
 заголовок: Роли и ролевые разрешения пользователей
 url: https://docs.usergate.com/roli-i-rolevye-razresheniya-pol6zovatelej_295.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукты: LogAn, SIEM
 версия: 7.0.1, 7.1.0

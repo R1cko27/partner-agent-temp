@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка правил защиты DoS
 url: https://docs.usergate.com/nastrojka-pravil-zashity-dos_834.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 7.x

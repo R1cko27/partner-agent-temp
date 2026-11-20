@@ -1,6 +1,7 @@
 ---
 заголовок: Отправка нотификаций UserGate SIEM через Telegram
 url: https://docs.usergate.com/otpravka-notifikacij-usergate-siem-cherez-telegram_1564.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: SIEM
 версия: 7.x

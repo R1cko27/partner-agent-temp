@@ -1,6 +1,7 @@
 ---
 заголовок: Не удается активировать лицензию
 url: https://docs.usergate.com/ne-udaetsya-aktivirovat6-licenziyu_635.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn, UserGate C100, UserGate D200/D500, UserGate E1000/E3000, UserGate F8000, UserGate X1, UserGate Log Analyzer Е6/Е14, UserGate Log Analyzer F25, UserGate Management Center C, UserGate Management Center E, KinderGate Родительский контроль, UserGate C150
 версия: 5.x, 6.x, 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Заблокированные СОВ/L7 IP-адреса
 url: https://docs.usergate.com/zablokirovannye-sovl7-ip-adresa_1658.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: DCFW
 версия: 8.x

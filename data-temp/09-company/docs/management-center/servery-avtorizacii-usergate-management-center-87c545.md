@@ -1,6 +1,7 @@
 ---
 заголовок: Серверы авторизации UserGate Management Center
 url: https://docs.usergate.com/servery-avtorizacii-usergate-management-center_331.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: Management Center
 версия: 6.1.9

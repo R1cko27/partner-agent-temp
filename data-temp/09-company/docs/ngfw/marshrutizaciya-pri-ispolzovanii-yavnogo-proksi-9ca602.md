@@ -1,6 +1,7 @@
 ---
 заголовок: Маршрутизация при использовании явного прокси
 url: https://docs.usergate.com/marshrutizaciya-pri-ispol6zovanii-yavnogo-proksi_585.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Управление доступом к консоли UserGate DCFW
 url: https://docs.usergate.com/upravlenie-dostupom-k-konsoli-usergate-dcfw_1604.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: DCFW
 версия: 8.x

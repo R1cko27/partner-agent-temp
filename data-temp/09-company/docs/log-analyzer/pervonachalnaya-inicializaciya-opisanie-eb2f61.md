@@ -1,6 +1,7 @@
 ---
 заголовок: Первоначальная инициализация (описание)
 url: https://docs.usergate.com/pervonachal6naya-inicializaciya-(opisanie)_1429.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

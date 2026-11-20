@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка параметров управления телеметрией
 url: https://docs.usergate.com/nastrojka-parametrov-upravleniya-telemetriej_2661.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SWG
 версия: 7.5.x

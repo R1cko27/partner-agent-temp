@@ -1,6 +1,7 @@
 ---
 заголовок: Распространение сертификатов UserGate на клиентские компьютеры с помощью групповой политики
 url: https://docs.usergate.com/rasprostranenie-sertifikatov-usergate-na-klientskie-komp6yutery-s-pomosh6yu-gruppovoj-politiki_76.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9, 5.x

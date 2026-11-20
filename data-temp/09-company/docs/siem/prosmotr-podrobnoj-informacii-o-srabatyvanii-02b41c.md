@@ -1,6 +1,7 @@
 ---
 заголовок: Просмотр подробной информации о срабатывании
 url: https://docs.usergate.com/prosmotr-podrobnoj-informacii-o-srabatyvanii_1983.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: SIEM
 версия: 7.x

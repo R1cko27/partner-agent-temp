@@ -1,6 +1,7 @@
 ---
 заголовок: Объекты HIP
 url: https://docs.usergate.com/ob6ekty-hip_413.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Management Center
 версия: 7.0.1

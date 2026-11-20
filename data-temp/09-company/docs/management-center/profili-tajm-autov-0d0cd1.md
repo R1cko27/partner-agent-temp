@@ -1,6 +1,7 @@
 ---
 заголовок: Профили тайм-аутов
 url: https://docs.usergate.com/profili-tajm-autov_3229.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 7.x, 7.6.x

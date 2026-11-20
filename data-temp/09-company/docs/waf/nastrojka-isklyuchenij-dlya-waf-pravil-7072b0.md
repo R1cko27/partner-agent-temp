@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка исключений для WAF-правил
 url: https://docs.usergate.com/nastrojka-isklyuchenij-dlya-waf-pravil_2917.html
+источник: портал документации
 получено: 2026-11-20 16:21 +0700
 продукт: WAF
 версия: 7.6.x

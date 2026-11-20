@@ -1,6 +1,7 @@
 ---
 заголовок: Некорректная работа виртуальной машины с ПО UserGate при использовании динамических MAC-адресов
 url: https://docs.usergate.com/nekorrektnaya-rabota-virtual6noj-mashiny-s-po-usergate-pri-ispol6zovanii-dinamicheskih-mac-adresov_937.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 5.x, 6.1.8, 6.1.9, 7.0.0, 7.0.1, 7.0.2, 7.1.0, 7.2.0, 6.x, 7.x

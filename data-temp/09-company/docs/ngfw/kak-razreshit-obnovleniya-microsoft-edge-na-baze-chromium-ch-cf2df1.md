@@ -1,6 +1,7 @@
 ---
 заголовок: Как разрешить обновления Microsoft Edge (на базе Chromium) через UserGate
 url: https://docs.usergate.com/kak-razreshit6-obnovleniya-microsoft-edge-(na-baze-chromium)-cherez-usergate_31.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 раздел: Как разрешить обновления Microsoft Edge (на базе Chromium) через UserGate

@@ -1,6 +1,7 @@
 ---
 заголовок: Работа с заголовком X-Request-Id
 url: https://docs.usergate.com/rabota-s-zagolovkom-x-request-id_2182.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: WAF
 версия: 7.x

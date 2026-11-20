@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка клиентских правил VPN
 url: https://docs.usergate.com/draft-750-nastrojka-klientskih-pravil-vpn_2383.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 7.x

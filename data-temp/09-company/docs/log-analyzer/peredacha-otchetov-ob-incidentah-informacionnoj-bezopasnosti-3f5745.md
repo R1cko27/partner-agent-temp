@@ -1,6 +1,7 @@
 ---
 заголовок: Передача отчётов об инцидентах информационной безопасности в ГосСОПКА
 url: https://docs.usergate.com/peredacha-otchetov-ob-incidentah-informacionnoj-bezopasnosti-v-gossopka_473.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.0.1

@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Policy Language (UPL)
 url: https://docs.usergate.com/usergate-policy-language-(upl)-1006/
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: WAF
 версия: 7.6

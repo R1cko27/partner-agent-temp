@@ -1,6 +1,7 @@
 ---
 заголовок: Экспорт и импорт политик UserGate через CLI
 url: https://docs.usergate.com/eksport-i-import-politik-usergate-cherez-cli_708.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 7.x

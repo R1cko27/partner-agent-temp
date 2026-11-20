@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка управления доступом к консоли устройства
 url: https://docs.usergate.com/nastrojka-upravleniya-dostupom-k-konsoli-ustrojstva_1432.html
+источник: портал документации
 получено: 2026-11-20 16:33 +0700
 продукт: Log Analyzer
 версия: 7.x

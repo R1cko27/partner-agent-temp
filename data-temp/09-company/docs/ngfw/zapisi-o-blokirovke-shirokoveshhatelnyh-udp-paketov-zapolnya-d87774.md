@@ -1,6 +1,7 @@
 ---
 заголовок: Записи о блокировке широковещательных UDP-пакетов заполняют журнал трафика
 url: https://docs.usergate.com/zapisi-o-blokirovke-shirokoveshatel6nyh-udp-paketov-zapolnyayut-zhurnal-trafika_553.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 раздел: Записи о блокировке широковещательных UDP-пакетов заполняют журнал трафика

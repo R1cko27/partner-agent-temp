@@ -1,6 +1,7 @@
 ---
 заголовок: Профили безопасности SNMP
 url: https://docs.usergate.com/profili-bezopasnosti-snmp_1668.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: DCFW
 версия: 8.x

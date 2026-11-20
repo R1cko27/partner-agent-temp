@@ -1,6 +1,7 @@
 ---
 заголовок: Кластеризация и отказоустойчивость
 url: https://docs.usergate.com/klasterizaciya-i-otkazoustojchivost6_1605.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: DCFW
 версия: 8.x

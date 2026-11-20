@@ -1,6 +1,7 @@
 ---
 заголовок: Установка ПО UserGate на аппаратных платформах E1010, E3010, F8010
 url: https://docs.usergate.com/ustanovka-po-usergate-na-apparatnyh-platformah-e1010-e3010-f8010_2117.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 раздел: Установка ПО UserGate на аппаратных платформах E1010, E3010, F8010

@@ -1,6 +1,7 @@
 ---
 заголовок: Useragent браузеров
 url: https://docs.usergate.com/useragent-brauzerov_2956.html
+источник: портал документации
 получено: 2026-11-20 16:21 +0700
 продукт: WAF
 версия: 7.6.x

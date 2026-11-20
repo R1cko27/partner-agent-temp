@@ -1,6 +1,7 @@
 ---
 заголовок: Список поддерживаемых HTTP-заголовков
 url: https://docs.usergate.com/spisok-podderzhivaemyh-http-zagolovkov_1873.html
+источник: портал документации
 получено: 2026-11-20 16:23 +0700
 продукт: WAF
 версия: 7.x

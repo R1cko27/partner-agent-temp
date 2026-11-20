@@ -1,6 +1,7 @@
 ---
 заголовок: Профили NetFlow
 url: https://docs.usergate.com/profili-netflow_1649.html
+источник: портал документации
 получено: 2026-11-20 16:21 +0700
 продукт: DCFW
 версия: 8.x

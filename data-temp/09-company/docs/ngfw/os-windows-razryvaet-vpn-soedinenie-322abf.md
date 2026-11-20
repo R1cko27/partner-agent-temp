@@ -1,6 +1,7 @@
 ---
 заголовок: ОС Windows разрывает VPN-соединение
 url: https://docs.usergate.com/os-windows-razryvaet-vpn-soedinenie_578.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 6.x, 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Экспорт журналов в формате CEF
 url: https://docs.usergate.com/eksport-zhurnalov-v-formate-cef_475.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.0.1

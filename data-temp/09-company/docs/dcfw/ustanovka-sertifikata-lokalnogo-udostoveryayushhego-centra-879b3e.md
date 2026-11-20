@@ -1,6 +1,7 @@
 ---
 заголовок: Установка сертификата локального удостоверяющего центра
 url: https://docs.usergate.com/ustanovka-sertifikata-lokal6nogo-udostoveryayushego-centra_1762.html
+источник: портал документации
 получено: 2026-11-20 16:21 +0700
 продукт: DCFW
 версия: 8.x

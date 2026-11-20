@@ -1,6 +1,7 @@
 ---
 заголовок: Поиск и фильтрация данных
 url: https://docs.usergate.com/poisk-i-fil6traciya-dannyh_1188.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

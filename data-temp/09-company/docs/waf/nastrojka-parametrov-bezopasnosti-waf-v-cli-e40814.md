@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка параметров безопасности WAF в CLI
 url: https://docs.usergate.com/nastrojka-parametrov-bezopasnosti-waf-v-cli_2053.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: WAF
 версия: 7.x

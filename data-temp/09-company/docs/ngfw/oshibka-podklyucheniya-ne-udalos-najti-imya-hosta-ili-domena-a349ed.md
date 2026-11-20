@@ -1,6 +1,7 @@
 ---
 заголовок: Ошибка подключения: не удалось найти имя хоста или домена
 url: https://docs.usergate.com/oshibka-podklyucheniya-ne-udalos6-najti-imya-hosta-ili-domena_741.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 6.x, 7.x

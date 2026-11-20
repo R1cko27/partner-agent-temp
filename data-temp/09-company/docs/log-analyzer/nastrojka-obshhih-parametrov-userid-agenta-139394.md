@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка общих параметров UserID-агента
 url: https://docs.usergate.com/nastrojka-obshih-parametrov-userid-agenta_3255.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Log Analyzer
 версия: 7.x

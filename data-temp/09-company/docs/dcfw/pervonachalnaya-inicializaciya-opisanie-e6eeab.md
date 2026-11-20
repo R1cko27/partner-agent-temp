@@ -1,6 +1,7 @@
 ---
 заголовок: Первоначальная инициализация (Описание)
 url: https://docs.usergate.com/pervonachal6naya-inicializaciya-(opisanie)_1688.html
+источник: портал документации
 получено: 2026-11-20 16:23 +0700
 продукт: DCFW
 версия: 8.x

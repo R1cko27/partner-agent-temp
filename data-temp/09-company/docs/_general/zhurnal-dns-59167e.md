@@ -1,6 +1,7 @@
 ---
 заголовок: Журнал DNS
 url: https://docs.usergate.com/zhurnal-dns_966.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: NGFW, LogAn, SIEM
 версия: 7.x

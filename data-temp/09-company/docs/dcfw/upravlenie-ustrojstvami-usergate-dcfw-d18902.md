@@ -1,6 +1,7 @@
 ---
 заголовок: Управление устройствами UserGate DCFW
 url: https://docs.usergate.com/upravlenie-ustrojstvami-usergate-dcfw_2428.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: DCFW
 версия: 7.x

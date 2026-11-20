@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка серверов reverse-прокси
 url: https://docs.usergate.com/nastrojka-serverov-reverse-proksi_1860.html
+источник: портал документации
 получено: 2026-11-20 16:24 +0700
 продукт: WAF
 версия: 7.x

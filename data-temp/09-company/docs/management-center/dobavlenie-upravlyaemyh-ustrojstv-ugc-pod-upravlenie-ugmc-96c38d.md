@@ -1,6 +1,7 @@
 ---
 заголовок: Добавление управляемых устройств UGC под управление UGMC
 url: https://docs.usergate.com/dobavlenie-upravlyaemyh-ustrojstv-ugc-pod-upravlenie-ugmc_411.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Management Center
 версия: 7.0.1

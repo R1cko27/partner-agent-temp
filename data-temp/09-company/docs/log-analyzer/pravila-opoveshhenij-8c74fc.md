@@ -1,6 +1,7 @@
 ---
 заголовок: Правила оповещений
 url: https://docs.usergate.com/pravila-opoveshenij_1176.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

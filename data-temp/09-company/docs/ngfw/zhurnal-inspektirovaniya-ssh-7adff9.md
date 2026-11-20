@@ -1,6 +1,7 @@
 ---
 заголовок: Журнал инспектирования SSH
 url: https://docs.usergate.com/zhurnal-inspektirovaniya-ssh_1138.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 7.x

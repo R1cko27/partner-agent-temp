@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка применения политик к пользователям
 url: https://docs.usergate.com/nastrojka-primeneniya-politik-k-pol6zovatelyam_2679.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: SWG
 версия: 7.5.x

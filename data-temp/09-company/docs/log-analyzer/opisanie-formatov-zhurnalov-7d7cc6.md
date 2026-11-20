@@ -1,6 +1,7 @@
 ---
 заголовок: Описание форматов журналов
 url: https://docs.usergate.com/prilozhenie-2-opisanie-formatov-zhurnalov-359/
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Примеры генерации сертификатов для IKEv2 VPN
 url: https://docs.usergate.com/primery-generacii-sertifikatov-dlya-ikev2-vpn_997.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 7.x

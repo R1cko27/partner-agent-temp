@@ -1,6 +1,7 @@
 ---
 заголовок: Создание сертификатов с помощью программы OpenSSL
 url: https://docs.usergate.com/sozdanie-sertifikatov-s-pomosh6yu-programmy-openssl_70.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 5.x, 6.1.8, 6.1.9

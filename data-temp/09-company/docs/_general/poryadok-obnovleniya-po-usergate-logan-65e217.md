@@ -1,6 +1,7 @@
 ---
 заголовок: Порядок обновления ПО UserGate LogAn
 url: https://docs.usergate.com/poryadok-obnovleniya-po-usergate-logan_1052.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукты: UserGate LogAn, UserGate SIEM
 версия: 7.0.1, 7.1.0, 7.x

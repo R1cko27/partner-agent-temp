@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка VPN для удалённого доступа клиентов (Remote access VPN) при использовании двух провайдеров
 url: https://docs.usergate.com/nastrojka-vpn-dlya-udalennogo-dostupa-klientov-(remote-access-vpn)-pri-ispol6zovanii-dvuh-provajdero_44.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

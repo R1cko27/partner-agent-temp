@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка серверов аутентификации
 url: https://docs.usergate.com/nastrojka-serverov-autentifikacii_2000.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SIEM
 версия: 7.x

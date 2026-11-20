@@ -1,6 +1,7 @@
 ---
 заголовок: Команды, доступные до первичной инициализации узла (Описание)
 url: https://docs.usergate.com/komandy-dostupnye-do-pervichnoj-inicializacii-uzla-(opisanie)_1841.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: WAF
 версия: 7.x

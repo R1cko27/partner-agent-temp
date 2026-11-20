@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка фильтрации syslog
 url: https://docs.usergate.com/nastrojka-fil6tracii-syslog_3219.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

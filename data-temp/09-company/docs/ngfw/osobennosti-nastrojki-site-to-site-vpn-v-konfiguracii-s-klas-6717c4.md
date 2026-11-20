@@ -1,6 +1,7 @@
 ---
 заголовок: Особенности настройки Site-to-Site VPN в конфигурации с кластером отказоустойчивости
 url: https://docs.usergate.com/osobennosti-nastrojki-site-to-site-vpn-v-konfiguracii-s-klasterom-otkazoustojchivosti_739.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.x, 7.x

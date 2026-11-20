@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка роутера MikroTik для установки VPN-соединения с UserGate
 url: https://docs.usergate.com/nastrojka-routera-mikrotik-dlya-ustanovki-vpn-soedineniya-s-usergate_41.html
+источник: портал документации
 получено: 2026-11-20 16:11 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

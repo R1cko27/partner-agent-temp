@@ -1,6 +1,7 @@
 ---
 заголовок: Персонализация страницы Captive-портала
 url: https://docs.usergate.com/personalizaciya-stranicy-captive-portala_580.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

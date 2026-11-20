@@ -1,6 +1,7 @@
 ---
 заголовок: Публикация ресурсов с помощью reverse-прокси
 url: https://docs.usergate.com/publikaciya-resursov-s-pomosh6yu-reverse-proksi_920.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 7.x

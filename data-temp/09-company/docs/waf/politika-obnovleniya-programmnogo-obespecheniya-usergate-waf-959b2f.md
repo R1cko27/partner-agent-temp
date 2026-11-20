@@ -1,6 +1,7 @@
 ---
 заголовок: Политика обновления программного обеспечения UserGate WAF
 url: https://docs.usergate.com/politika-obnovleniya-programmnogo-obespecheniya-usergate-waf_3093.html
+источник: портал документации
 получено: 2026-11-20 16:11 +0700
 продукт: WAF
 версия: 7.6.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Описание форматов журналов
 url: https://docs.usergate.com/opisanie-formatov-zhurnalov_1311.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Management Center
 версия: 7.0.1

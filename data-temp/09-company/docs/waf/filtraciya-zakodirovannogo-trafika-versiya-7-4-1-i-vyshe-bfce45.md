@@ -1,6 +1,7 @@
 ---
 заголовок: Фильтрация закодированного трафика (версия 7.4.1 и выше)
 url: https://docs.usergate.com/nastrojka-fil6tracii-zakodirovannogo-trafika-(versiya-75h)_2294.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: WAF
 версия: 7.x

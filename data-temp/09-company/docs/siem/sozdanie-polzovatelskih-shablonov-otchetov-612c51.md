@@ -1,6 +1,7 @@
 ---
 заголовок: Создание пользовательских шаблонов отчетов
 url: https://docs.usergate.com/sozdanie-pol6zovatel6skih-shablonov-otchetov_1970.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: SIEM
 версия: 7.x

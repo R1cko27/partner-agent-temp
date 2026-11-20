@@ -1,6 +1,7 @@
 ---
 заголовок: Агент аутентификации для Windows
 url: https://docs.usergate.com/agent-autentifikacii-dlya-windows_773.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 5.x, 6.1.9, 7.0.1

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка профилей MFA (мультифакторной аутентификации)
 url: https://docs.usergate.com/nastrojka-profilej-mfa-(mul6tifaktornoj-autentifikacii)_225.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 7.0.1

@@ -1,6 +1,7 @@
 ---
 заголовок: Контроль доступа ко внутренним ресурсам, опубликованным с помощью reverse-прокси
 url: https://docs.usergate.com/kontrol6-dostupa-ko-vnutrennim-resursam-opublikovannym-s-pomosh6yu-reverse-proksi_35.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

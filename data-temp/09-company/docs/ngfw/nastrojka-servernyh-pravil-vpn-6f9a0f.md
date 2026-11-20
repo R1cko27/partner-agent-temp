@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка серверных правил VPN
 url: https://docs.usergate.com/draft-750-nastrojka-servernyh-pravil-vpn_2382.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 7.x, 7.5.x

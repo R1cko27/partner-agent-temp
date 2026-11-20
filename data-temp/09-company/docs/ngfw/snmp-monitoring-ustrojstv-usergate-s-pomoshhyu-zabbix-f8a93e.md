@@ -1,6 +1,7 @@
 ---
 заголовок: SNMP-мониторинг устройств UserGate с помощью Zabbix
 url: https://docs.usergate.com/snmp-monitoring-ustrojstv-usergate-s-pomosh6yu-zabbix_49.html
+источник: портал документации
 получено: 2026-11-20 16:11 +0700
 продукт: NGFW
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Управление гостевыми пользователями
 url: https://docs.usergate.com/upravlenie-gostevymi-pol6zovatelyami_1088.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 7.x

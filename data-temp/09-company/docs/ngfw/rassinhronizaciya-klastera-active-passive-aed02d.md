@@ -1,6 +1,7 @@
 ---
 заголовок: Рассинхронизация кластера Active - Passive
 url: https://docs.usergate.com/rassinhronizaciya-klastera-active-passive_688.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9, 6.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка защиты от DoS для трафика reverse-прокси
 url: https://docs.usergate.com/nastrojka-zashity-ot-dos-dlya-trafika-reverse-proksi_759.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9, 7.0.1

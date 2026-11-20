@@ -1,6 +1,7 @@
 ---
 заголовок: DNS-сервер поддерживает рекурсию запросов.
 url: https://docs.usergate.com/dns-server-podderzhivaet-rekursiyu-zaprosov_1387.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

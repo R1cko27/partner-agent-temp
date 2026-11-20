@@ -1,6 +1,7 @@
 ---
 заголовок: Публикация HTTP/HTTPS-ресурсов с помощью reverse-прокси
 url: https://docs.usergate.com/publikaciya-httphttps-resursov-s-pomosh6yu-reverse-proksi_1810.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: WAF
 версия: 7.x

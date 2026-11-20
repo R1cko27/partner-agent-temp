@@ -1,6 +1,7 @@
 ---
 заголовок: Управление устройством
 url: https://docs.usergate.com/upravlenie-ustrojstvom_445.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: Log Analyzer
 версия: 6.1.9

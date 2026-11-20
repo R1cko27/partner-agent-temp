@@ -1,6 +1,7 @@
 ---
 заголовок: Не удается настроить исключение блокировки рекламы
 url: https://docs.usergate.com/ne-udaetsya-nastroit6-isklyuchenie-blokirovki-reklamy_633.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

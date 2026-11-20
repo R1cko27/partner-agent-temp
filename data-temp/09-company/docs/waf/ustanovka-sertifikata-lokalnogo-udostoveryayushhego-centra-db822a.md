@@ -1,6 +1,7 @@
 ---
 заголовок: Установка сертификата локального удостоверяющего центра
 url: https://docs.usergate.com/ustanovka-sertifikata-lokal6nogo-udostoveryayushego-centra_2994.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: WAF
 версия: 7.6.x

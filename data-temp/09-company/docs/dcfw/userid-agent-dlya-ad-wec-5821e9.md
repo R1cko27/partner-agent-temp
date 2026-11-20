@@ -1,6 +1,7 @@
 ---
 заголовок: UserID-агент для AD/WEC
 url: https://docs.usergate.com/userid-agent-dlya-adwec_1625.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: DCFW
 версия: 8.x

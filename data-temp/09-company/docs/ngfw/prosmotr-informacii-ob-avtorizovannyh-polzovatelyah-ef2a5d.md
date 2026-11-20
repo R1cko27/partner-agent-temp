@@ -1,6 +1,7 @@
 ---
 заголовок: Просмотр информации об авторизованных пользователях
 url: https://docs.usergate.com/prosmotr-informacii-ob-avtorizovannyh-pol6zovatelyah_1526.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 7.x

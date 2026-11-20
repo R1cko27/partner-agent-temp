@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка виртуальных маршрутизаторов
 url: https://docs.usergate.com/nastrojka-virtual6nyh-marshrutizatorov_2667.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: SWG
 версия: 7.5.x

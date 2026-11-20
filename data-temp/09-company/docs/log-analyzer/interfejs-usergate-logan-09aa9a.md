@@ -1,6 +1,7 @@
 ---
 заголовок: Интерфейс UserGate LogAn
 url: https://docs.usergate.com/interfejs-usergate-logan_2316.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Log Analyzer
 версия: 7.x

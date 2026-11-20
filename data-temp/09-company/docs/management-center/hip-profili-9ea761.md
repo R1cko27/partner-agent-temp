@@ -1,6 +1,7 @@
 ---
 заголовок: HIP профили
 url: https://docs.usergate.com/hip-profili_412.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Management Center
 версия: 7.0.1

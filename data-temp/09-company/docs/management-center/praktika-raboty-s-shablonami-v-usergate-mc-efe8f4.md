@@ -1,6 +1,7 @@
 ---
 заголовок: Практика работы с шаблонами в UserGate MC
 url: https://docs.usergate.com/praktika-raboty-s-shablonami-v-usergate-mc_1495.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 7.x

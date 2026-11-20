@@ -1,6 +1,7 @@
 ---
 заголовок: О UserGate DCFW
 url: https://docs.usergate.com/o-usergate-dcfw-563/
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: DCFW
 раздел: О UserGate DCFW

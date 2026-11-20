@@ -1,6 +1,7 @@
 ---
 заголовок: Как добавить сетевые адаптеры к UserGate (Virtual Appliance)?
 url: https://docs.usergate.com/kak-dobavit6-setevye-adaptery-k-usergate-(virtual-appliance)_691.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn
 версия: 5.x, 6.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка серверов аутентификации
 url: https://docs.usergate.com/nastrojka-serverov-autentifikacii_1706.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: DCFW
 версия: 8.x

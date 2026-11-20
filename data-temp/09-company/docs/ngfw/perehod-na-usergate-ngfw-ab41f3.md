@@ -1,6 +1,7 @@
 ---
 заголовок: Переход на UserGate NGFW
 url: https://docs.usergate.com/perehod-na-usergate-ngfw_546.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.x, 7.x

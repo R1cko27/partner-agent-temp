@@ -1,6 +1,7 @@
 ---
 заголовок: Алгоритм настройки защиты почтового трафика
 url: https://docs.usergate.com/algoritm-nastrojki-zashity-pochtovogo-trafika_683.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 6.x

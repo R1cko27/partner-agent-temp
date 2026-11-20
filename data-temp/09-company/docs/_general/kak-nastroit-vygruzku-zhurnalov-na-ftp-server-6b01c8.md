@@ -1,6 +1,7 @@
 ---
 заголовок: Как настроить выгрузку журналов на FTP сервер
 url: https://docs.usergate.com/kak-nastroit6-vygruzku-zhurnalov-na-ftp-server_758.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: UserGate NGFW, UserGate LogAn
 версия: 6.x, 7.x

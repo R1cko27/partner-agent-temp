@@ -1,6 +1,7 @@
 ---
 заголовок: L2TP VPN-подключение между UserGate и macOS
 url: https://docs.usergate.com/l2tp-vpn-podklyuchenie-mezhdu-usergate-i-macos_557.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 раздел: L2TP VPN-подключение между UserGate и macOS

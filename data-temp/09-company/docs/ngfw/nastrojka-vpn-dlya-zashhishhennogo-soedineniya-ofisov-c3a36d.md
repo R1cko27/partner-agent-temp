@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка VPN для защищенного соединения офисов
 url: https://docs.usergate.com/nastrojka-vpn-dlya-zashishennogo-soedineniya-ofisov_2380.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 7.x, 7.5.x

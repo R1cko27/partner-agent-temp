@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка правил reverse-прокси
 url: https://docs.usergate.com/nastrojka-pravil-reverse-proksi_1861.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: WAF
 версия: 7.x

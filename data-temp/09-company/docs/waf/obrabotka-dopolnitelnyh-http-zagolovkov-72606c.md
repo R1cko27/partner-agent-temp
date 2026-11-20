@@ -1,6 +1,7 @@
 ---
 заголовок: Обработка дополнительных HTTP-заголовков
 url: https://docs.usergate.com/obrabotka-dopolnitel6nyh-http-zagolovkov_2460.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: WAF
 версия: 7.6.x

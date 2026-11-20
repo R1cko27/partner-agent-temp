@@ -1,6 +1,7 @@
 ---
 заголовок: Журналы конечных устройств
 url: https://docs.usergate.com/zhurnaly-konechnyh-ustrojstv_968.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Общие положения (описание)
 url: https://docs.usergate.com/interfejs-komandnoj-stroki-(cli)-opisanie_1278.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Application and Security Language (UASL)
 url: https://docs.usergate.com/usergate-application-and-security-language-(uasl)_885.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 7.x

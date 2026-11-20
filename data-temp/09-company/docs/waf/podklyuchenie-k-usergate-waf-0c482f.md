@@ -1,6 +1,7 @@
 ---
 заголовок: Подключение к UserGate WAF
 url: https://docs.usergate.com/podklyuchenie-k-usergate-waf_2929.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: WAF
 версия: 7.6.x

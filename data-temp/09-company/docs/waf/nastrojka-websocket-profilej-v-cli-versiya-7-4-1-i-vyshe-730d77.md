@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка WebSocket-профилей в CLI (версия 7.4.1 и выше)
 url: https://docs.usergate.com/nastrojka-websocket-profilej-v-cli-(versiya-741-i-vyshe)_2351.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: WAF
 версия: 7.x

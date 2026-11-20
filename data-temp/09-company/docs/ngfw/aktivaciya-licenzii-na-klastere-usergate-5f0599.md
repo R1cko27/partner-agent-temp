@@ -1,6 +1,7 @@
 ---
 заголовок: Активация лицензии на кластере UserGate
 url: https://docs.usergate.com/aktivaciya-licenzii-na-klastere-usergate_631.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Policy Language (Описание)
 url: https://docs.usergate.com/usergate-policy-language-(opisanie)_3020.html
+источник: портал документации
 получено: 2026-11-20 16:21 +0700
 продукт: WAF
 версия: 7.6.x

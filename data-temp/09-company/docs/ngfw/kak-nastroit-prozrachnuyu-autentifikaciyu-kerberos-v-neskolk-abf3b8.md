@@ -1,6 +1,7 @@
 ---
 заголовок: Как настроить прозрачную аутентификацию Kerberos в нескольких доменах?
 url: https://docs.usergate.com/kak-nastroit6-prozrachnuyu-autentifikaciyu-kerberos-v-neskol6kih-domenah_1497.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: NGFW
 версия: 6.x, 7.x

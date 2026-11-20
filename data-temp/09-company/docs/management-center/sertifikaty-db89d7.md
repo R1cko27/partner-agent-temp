@@ -1,6 +1,7 @@
 ---
 заголовок: Сертификаты
 url: https://docs.usergate.com/sertifikaty_1288.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 7.x

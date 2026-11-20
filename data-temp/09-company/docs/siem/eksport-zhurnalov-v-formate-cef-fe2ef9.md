@@ -1,6 +1,7 @@
 ---
 заголовок: Экспорт журналов в формате CEF
 url: https://docs.usergate.com/eksport-zhurnalov-v-formate-cef_2021.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SIEM
 версия: 7.x

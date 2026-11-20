@@ -1,6 +1,7 @@
 ---
 заголовок: Использование двухфакторной аутентификации через Контур.ID в настройках UserGate RA VPN
 url: https://docs.usergate.com/ispol6zovanie-dvuhfaktornoj-autentifikacii-cherez-konturid-v-nastrojkah-usergate-ra-vpn_1527.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.x, 7.x

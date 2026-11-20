@@ -1,6 +1,7 @@
 ---
 заголовок: Обновление микрокода IPMI на аппаратных платформах D200, D500, E1000, E3000, F8000
 url: https://docs.usergate.com/obnovlenie-mikrokoda-ipmi-na-apparatnyh-platformah-d200-d500-e1000-e3000-f8000_676.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукты: UserGate D200/D500, UserGate E1000/E3000, UserGate F8000
 раздел: Обновление микрокода IPMI на аппаратных платформах D200, D500, E1000,...

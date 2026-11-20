@@ -1,6 +1,7 @@
 ---
 заголовок: Авторизация с помощью RADIUS
 url: https://docs.usergate.com/avtorizaciya-s-pomosh6yu-radius_641.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 6.x, 7.x

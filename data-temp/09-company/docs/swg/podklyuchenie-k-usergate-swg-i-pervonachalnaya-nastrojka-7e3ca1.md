@@ -1,6 +1,7 @@
 ---
 заголовок: Подключение к UserGate SWG и первоначальная настройка
 url: https://docs.usergate.com/podklyuchenie-k-usergate-swg-i-pervonachal6naya-nastrojka_2558.html
+источник: портал документации
 получено: 2026-11-20 16:23 +0700
 продукт: SWG
 версия: 7.5.x

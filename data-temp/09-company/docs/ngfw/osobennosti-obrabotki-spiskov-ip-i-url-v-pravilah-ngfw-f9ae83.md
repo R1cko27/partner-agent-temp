@@ -1,6 +1,7 @@
 ---
 заголовок: Особенности обработки списков IP и URL в правилах NGFW
 url: https://docs.usergate.com/osobennosti-obrabotki-spiskov-ip-i-url-v-pravilah-ngfw_561.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 раздел: Особенности обработки списков IP и URL в правилах NGFW

@@ -1,6 +1,7 @@
 ---
 заголовок: Интерфейс UserGate SWG
 url: https://docs.usergate.com/interfejs-usergate-swg_2559.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: SWG
 версия: 7.5.x

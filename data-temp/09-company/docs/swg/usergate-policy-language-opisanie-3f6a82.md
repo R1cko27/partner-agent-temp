@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Policy Language (Описание)
 url: https://docs.usergate.com/usergate-policy-language-(opisanie)_2695.html
+источник: портал документации
 получено: 2026-11-20 16:23 +0700
 продукт: SWG
 версия: 7.5.x

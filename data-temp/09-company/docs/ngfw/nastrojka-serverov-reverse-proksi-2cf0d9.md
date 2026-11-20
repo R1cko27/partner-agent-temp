@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка серверов reverse-прокси
 url: https://docs.usergate.com/nastrojka-serverov-reverse-proksi_244.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 7.0.1

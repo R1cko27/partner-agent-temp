@@ -1,6 +1,7 @@
 ---
 заголовок: Интерфейс командной строки (CLI)
 url: https://docs.usergate.com/interfejs-komandnoj-stroki-(cli)-191/
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 7.0

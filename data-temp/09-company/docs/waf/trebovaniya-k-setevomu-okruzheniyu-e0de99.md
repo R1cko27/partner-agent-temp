@@ -1,6 +1,7 @@
 ---
 заголовок: Требования к сетевому окружению
 url: https://docs.usergate.com/trebovaniya-k-setevomu-okruzheniyu_1790.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: WAF
 версия: 7.x

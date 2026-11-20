@@ -1,6 +1,7 @@
 ---
 заголовок: Заблокированные СОВ/L7 IP-адреса
 url: https://docs.usergate.com/zablokirovannye-sovl7-ip-adresa_993.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Использование пула IP-адресов для NAT трансляции
 url: https://docs.usergate.com/ispol6zovanie-pula-ip-adresov-dlya-nat-translyacii_596.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

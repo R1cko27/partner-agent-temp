@@ -1,6 +1,7 @@
 ---
 заголовок: Офлайн операции с сервером
 url: https://docs.usergate.com/oflajn-operacii-s-serverom-367/
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: Management Center
 версия: 7.x

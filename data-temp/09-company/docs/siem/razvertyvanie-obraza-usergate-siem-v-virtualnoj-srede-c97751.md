@@ -1,6 +1,7 @@
 ---
 заголовок: Развертывание образа UserGate SIEM в виртуальной среде
 url: https://docs.usergate.com/razvertyvanie-obraza-usergate-siem-v-virtual6noj-srede_1905.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: SIEM
 версия: 7.x

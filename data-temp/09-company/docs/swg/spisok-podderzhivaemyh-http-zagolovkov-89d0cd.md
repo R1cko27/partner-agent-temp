@@ -1,6 +1,7 @@
 ---
 заголовок: Список поддерживаемых HTTP-заголовков
 url: https://docs.usergate.com/spisok-podderzhivaemyh-http-zagolovkov_2703.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: SWG
 версия: 7.5.x

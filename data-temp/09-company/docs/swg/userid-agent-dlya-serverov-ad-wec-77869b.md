@@ -1,6 +1,7 @@
 ---
 заголовок: UserID-агент для серверов AD, WEC
 url: https://docs.usergate.com/userid-agent-dlya-serverov-ad-wec_2796.html
+источник: портал документации
 получено: 2026-11-20 16:24 +0700
 продукт: SWG
 версия: 7.5.x

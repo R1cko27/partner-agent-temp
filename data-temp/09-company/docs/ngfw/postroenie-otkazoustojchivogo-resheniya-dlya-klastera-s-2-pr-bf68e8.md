@@ -1,6 +1,7 @@
 ---
 заголовок: Построение отказоустойчивого решения для кластера с 2 провайдерами и одним внешним IP-адресом на узле
 url: https://docs.usergate.com/postroenie-otkazoustojchivogo-resheniya-dlya-klastera-s-2-provajderami-i-odnim-vneshnim-ip-adresom-n_599.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

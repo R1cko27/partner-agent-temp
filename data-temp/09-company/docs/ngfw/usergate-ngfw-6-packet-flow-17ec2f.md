@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate NGFW 6 Packet Flow
 url: https://docs.usergate.com/usergate-ngfw-6-packet-flow_576.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 6.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Совместимость версий UserGate NGFW с аппаратными платформами
 url: https://docs.usergate.com/sovmestimost6-versij-usergate-ngfw-s-apparatnymi-platformami_3408.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 7.0.1

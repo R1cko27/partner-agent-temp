@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка управления доступом к консоли UserGate SWG
 url: https://docs.usergate.com/nastrojka-upravleniya-dostupom-k-konsoli-usergate-ngfw_2654.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: SWG
 версия: 7.5.x

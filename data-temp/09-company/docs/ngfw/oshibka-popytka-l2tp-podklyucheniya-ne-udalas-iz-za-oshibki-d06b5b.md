@@ -1,6 +1,7 @@
 ---
 заголовок: Ошибка: Попытка L2TP-подключения не удалась из-за ошибки, произошедшей на уровне безопасности, во время согласований с удаленным компьютером
 url: https://docs.usergate.com/oshibka-popytka-l2tp-podklyucheniya-ne-udalas6-iz-za-oshibki-proizoshedshej-na-urovne-bezopasnosti-v_595.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

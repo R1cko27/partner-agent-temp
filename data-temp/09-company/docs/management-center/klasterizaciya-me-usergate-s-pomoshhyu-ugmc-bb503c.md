@@ -1,6 +1,7 @@
 ---
 заголовок: Кластеризация МЭ UserGate с помощью UGMC
 url: https://docs.usergate.com/klasterizaciya-me-usergate-s-pomosh6yu-ugmc_438.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Management Center
 версия: 6.1.9

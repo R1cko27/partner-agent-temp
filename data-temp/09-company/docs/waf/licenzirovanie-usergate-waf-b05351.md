@@ -1,6 +1,7 @@
 ---
 заголовок: Лицензирование UserGate WAF
 url: https://docs.usergate.com/licenzirovanie-usergate-waf_2924.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: WAF
 версия: 7.6.x

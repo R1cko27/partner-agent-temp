@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Management Center 6.1.9 (сборка 6.1.9.11836R, 16/01/2023)
 url: https://docs.usergate.com/usergate-management-center-619-(sborka-61911836r-16012023)_604.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: Management Center
 версия: 6.1.9, 6.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка профилей клиентских сертификатов
 url: https://docs.usergate.com/nastrojka-profilej-klientskih-sertifikatov_1696.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: DCFW
 версия: 8.x

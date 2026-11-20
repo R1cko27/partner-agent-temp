@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка функции определения реального IP-адреса (версия ПО 7.4.0 и выше)
 url: https://docs.usergate.com/nastrojka-funkcii-opredeleniya-real6nogo-ip-adresa-(versiya-po-740-i-vyshe)_2114.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: WAF
 версия: 7.x

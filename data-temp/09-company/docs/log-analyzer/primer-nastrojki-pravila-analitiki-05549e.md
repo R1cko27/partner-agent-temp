@@ -1,6 +1,7 @@
 ---
 заголовок: Пример настройки правила аналитики
 url: https://docs.usergate.com/primer-nastrojki-pravila-analitiki_307.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.0.1

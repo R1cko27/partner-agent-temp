@@ -1,6 +1,7 @@
 ---
 заголовок: Сбой экземпляра отказоустойчивости кластера при добавлении интерфейса
 url: https://docs.usergate.com/sboj-ekzemplyara-otkazoustojchivosti-klastera-pri-dobavlenii-interfejsa_932.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn
 версия: 6.1.8, 6.1.9, 7.0.0, 7.0.1, 7.0.2, 7.1.0, 7.2.0, 6.x, 7.x

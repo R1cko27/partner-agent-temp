@@ -1,6 +1,7 @@
 ---
 заголовок: Лицензирование UserGate SWG
 url: https://docs.usergate.com/licenzirovanie-usergate-swg_2553.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: SWG
 версия: 7.5.x

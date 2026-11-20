@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Management Center 6.1.4 Release (build 6.1.4.11011R, 17/11/2021)
 url: https://docs.usergate.com/usergate-management-center-614-release-(build-61411011r-17112021)_517.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: Management Center
 версия: 6.x

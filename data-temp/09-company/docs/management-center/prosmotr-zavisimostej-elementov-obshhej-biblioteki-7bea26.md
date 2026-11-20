@@ -1,6 +1,7 @@
 ---
 заголовок: Просмотр зависимостей элементов общей библиотеки
 url: https://docs.usergate.com/prosmotr-zavisimostej-elementov-obshej-biblioteki_3171.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Management Center
 версия: 7.x, 7.6.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Статус портов при сканировании Nmap
 url: https://docs.usergate.com/status-portov-pri-skanirovanii-nmap_621.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

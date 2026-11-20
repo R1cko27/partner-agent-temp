@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка серверов аутентификации
 url: https://docs.usergate.com/nastrojka-serverov-autentifikacii_1434.html
+источник: портал документации
 получено: 2026-11-20 16:33 +0700
 продукт: Log Analyzer
 версия: 7.x

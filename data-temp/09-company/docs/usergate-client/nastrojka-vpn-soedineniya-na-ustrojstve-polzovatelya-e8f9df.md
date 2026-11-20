@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка VPN-соединения на устройстве пользователя
 url: https://docs.usergate.com/nastrojka-vpn-soedineniya-na-ustrojstve-pol6zovatelya_2495.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: UserGate Client
 версия: 7.4.1

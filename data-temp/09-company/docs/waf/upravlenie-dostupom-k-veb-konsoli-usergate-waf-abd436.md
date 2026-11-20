@@ -1,6 +1,7 @@
 ---
 заголовок: Управление доступом к веб-консоли UserGate WAF
 url: https://docs.usergate.com/upravlenie-dostupom-k-veb-konsoli-usergate-waf_2933.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: WAF
 версия: 7.6.x

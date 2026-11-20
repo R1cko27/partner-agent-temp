@@ -1,6 +1,7 @@
 ---
 заголовок: Некорректная работа Яндекс Браузера с сервисами Google
 url: https://docs.usergate.com/nekorrektnaya-rabota-yandeks-brauzera-s-servisami-google_976.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 6.x, 7.x

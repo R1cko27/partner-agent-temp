@@ -1,6 +1,7 @@
 ---
 заголовок: Как разрешить работу клиента Dropbox
 url: https://docs.usergate.com/kak-razreshit6-rabotu-klienta-dropbox_30.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 раздел: Как разрешить работу клиента Dropbox

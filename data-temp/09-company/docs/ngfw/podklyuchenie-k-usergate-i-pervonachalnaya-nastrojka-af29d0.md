@@ -1,6 +1,7 @@
 ---
 заголовок: Подключение к UserGate и первоначальная настройка
 url: https://docs.usergate.com/podklyuchenie-k-usergate-i-pervonachal6naya-nastrojka_381.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: NGFW
 версия: 5.x, 6.1.9

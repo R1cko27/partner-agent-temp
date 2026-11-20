@@ -1,6 +1,7 @@
 ---
 заголовок: Управление SNMP MIB
 url: https://docs.usergate.com/upravlenie-snmp-mib_1222.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: SIEM
 версия: 7.1.x

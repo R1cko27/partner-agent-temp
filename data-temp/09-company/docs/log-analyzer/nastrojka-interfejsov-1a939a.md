@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка интерфейсов
 url: https://docs.usergate.com/nastrojka-interfejsov_1156.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Log Analyzer
 версия: 7.x

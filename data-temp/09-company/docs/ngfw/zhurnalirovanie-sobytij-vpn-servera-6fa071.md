@@ -1,6 +1,7 @@
 ---
 заголовок: Журналирование событий VPN-сервера
 url: https://docs.usergate.com/zhurnalirovanie-sobytij-vpn-servera_2389.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 7.x, 7.5.x

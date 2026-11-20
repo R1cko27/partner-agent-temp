@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Management Center 7.4.1(build 7.4.1.297822R, 16/12/2025)
 url: https://docs.usergate.com/usergate-management-center-741(build-741297822r-16122025)_2471.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: Management Center
 версия: 7.4.x

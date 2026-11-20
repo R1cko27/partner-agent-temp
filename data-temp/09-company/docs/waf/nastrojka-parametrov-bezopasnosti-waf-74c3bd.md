@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка параметров безопасности WAF
 url: https://docs.usergate.com/nastrojka-parametrov-bezopasnosti-waf_3015.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: WAF
 версия: 7.6.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Архитектура UserGate NGFW
 url: https://docs.usergate.com/arhitektura-usergate-ngfw_4.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 раздел: Архитектура UserGate NGFW

@@ -1,6 +1,7 @@
 ---
 заголовок: Первоначальная инициализация (описание)
 url: https://docs.usergate.com/pervonachal6naya-inicializaciya-(opisanie)_1449.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: SIEM
 версия: 7.1.x

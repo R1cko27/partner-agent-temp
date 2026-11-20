@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка VPN туннеля между UserGate и NSX Edge
 url: https://docs.usergate.com/nastrojka-vpn-tunnelya-mezhdu-usergate-i-nsx-edge_697.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.x, 7.x

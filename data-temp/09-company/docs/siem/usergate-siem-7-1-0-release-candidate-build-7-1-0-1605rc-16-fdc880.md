@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate SIEM 7.1.0 Release Candidate (build 7.1.0.1605RC, 16/11/2023)
 url: https://docs.usergate.com/usergate-siem-710-release-candidate-(build-7101605rc-16112023)_1001.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: SIEM
 версия: 7.1.0

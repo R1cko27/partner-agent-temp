@@ -1,6 +1,7 @@
 ---
 заголовок: Профили MFA (мультифакторной аутентификации)
 url: https://docs.usergate.com/profili-mfa-(mul6tifaktornoj-autentifikacii)_1623.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: DCFW
 версия: 8.x

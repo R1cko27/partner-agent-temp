@@ -1,6 +1,7 @@
 ---
 заголовок: Создание сертификатов с помощью программы XCA
 url: https://docs.usergate.com/sozdanie-sertifikatov-s-pomosh6yu-programmy-xca_68.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9, 5.x

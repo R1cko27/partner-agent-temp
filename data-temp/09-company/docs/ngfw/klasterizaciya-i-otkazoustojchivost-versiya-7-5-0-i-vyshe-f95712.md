@@ -1,6 +1,7 @@
 ---
 заголовок: Кластеризация и отказоустойчивость (версия 7.5.0 и выше)
 url: https://docs.usergate.com/klasterizaciya-i-otkazoustojchivost6-(versiya-750-i-vyshe)_2274.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 7.x, 7.5.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Процессы конечных устройств
 url: https://docs.usergate.com/processy-konechnyh-ustrojstv_668.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.0.1

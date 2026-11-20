@@ -1,6 +1,7 @@
 ---
 заголовок: Radius accounting
 url: https://docs.usergate.com/radius-accounting_102.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 5.x, 6.1.9, 7.0.1

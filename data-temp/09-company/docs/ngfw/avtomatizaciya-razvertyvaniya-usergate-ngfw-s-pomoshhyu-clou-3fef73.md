@@ -1,6 +1,7 @@
 ---
 заголовок: Автоматизация развертывания UserGate NGFW с помощью Cloud-init
 url: https://docs.usergate.com/avtomatizaciya-razvertyvaniya-usergate-ngfw-s-pomosh6yu-cloud-init_393.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 7.0.1, 7.1.0

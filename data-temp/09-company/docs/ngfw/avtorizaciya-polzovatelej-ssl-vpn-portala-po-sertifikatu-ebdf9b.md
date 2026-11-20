@@ -1,6 +1,7 @@
 ---
 заголовок: Авторизация пользователей SSL VPN портала по сертификату
 url: https://docs.usergate.com/avtorizaciya-pol6zovatelej-ssl-vpn-portala-po-sertifikatu_19.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9, 5.x

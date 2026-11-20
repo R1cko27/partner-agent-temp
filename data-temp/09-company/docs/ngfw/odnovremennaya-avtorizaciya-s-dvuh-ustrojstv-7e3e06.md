@@ -1,6 +1,7 @@
 ---
 заголовок: Одновременная авторизация с двух устройств
 url: https://docs.usergate.com/odnovremennaya-avtorizaciya-s-dvuh-ustrojstv_568.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

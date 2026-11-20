@@ -1,6 +1,7 @@
 ---
 заголовок: Пример настройки Remote access VPN с IPsec(IKEv2) с аутентификацией через EAP для OS Linux
 url: https://docs.usergate.com/primer-nastrojki-remote-access-vpn-s-ipsec(ikev2)-s-autentifikaciej-cherez-eap-dlya-os-linux_1539.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 7.x

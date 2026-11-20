@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка виртуальных маршрутизаторов
 url: https://docs.usergate.com/nastrojka-virtual6nyh-marshrutizatorov_3010.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: WAF
 версия: 7.6.x

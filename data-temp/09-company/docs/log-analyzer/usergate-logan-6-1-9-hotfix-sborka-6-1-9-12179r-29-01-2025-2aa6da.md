@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate LogAn 6.1.9 (hotfix сборка 6.1.9.12179R, 29/01/2025)
 url: https://docs.usergate.com/usergate-logan-619-(hotfix-sborka-61912179r-29012025)_2064.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Log Analyzer
 версия: 6.1.9

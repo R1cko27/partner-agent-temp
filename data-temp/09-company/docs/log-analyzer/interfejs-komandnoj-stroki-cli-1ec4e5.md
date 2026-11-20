@@ -1,6 +1,7 @@
 ---
 заголовок: Интерфейс командной строки (CLI)
 url: https://docs.usergate.com/interfejs-komandnoj-stroki-(cli)-217/
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Log Analyzer
 версия: 6.1

@@ -1,6 +1,7 @@
 ---
 заголовок: Профили Netflow
 url: https://docs.usergate.com/profili-netflow_1820.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: WAF
 версия: 7.x

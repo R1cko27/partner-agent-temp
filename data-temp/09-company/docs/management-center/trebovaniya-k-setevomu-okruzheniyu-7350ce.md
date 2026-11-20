@@ -1,6 +1,7 @@
 ---
 заголовок: Требования к сетевому окружению
 url: https://docs.usergate.com/prilozhenie-1-trebovaniya-k-setevomu-okruzheniyu_1308.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Management Center
 версия: 7.x

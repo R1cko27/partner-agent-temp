@@ -1,6 +1,7 @@
 ---
 заголовок: Периодические разрывы связи при работе с потоковыми сервисами
 url: https://docs.usergate.com/periodicheskie-razryvy-svyazi-pri-rabote-s-potokovymi-servisami_682.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

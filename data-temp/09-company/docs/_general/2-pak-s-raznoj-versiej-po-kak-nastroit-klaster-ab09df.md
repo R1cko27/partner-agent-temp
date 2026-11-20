@@ -1,6 +1,7 @@
 ---
 заголовок: 2 ПАК с разной версией ПО. Как настроить кластер?
 url: https://docs.usergate.com/2-pak-s-raznoj-versiej-po-kak-nastroit6-klaster_602.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукты: UserGate C100, UserGate D200/D500, UserGate E1000/E3000, UserGate F8000, UserGate X1, UserGate Management Center C, UserGate Management Center E
 версия: 6.x

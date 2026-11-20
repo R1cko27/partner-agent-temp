@@ -1,6 +1,7 @@
 ---
 заголовок: Отсутствует лицензия на одном из узлов кластера
 url: https://docs.usergate.com/otsutstvuet-licenziya-na-odnom-iz-uzlov-klastera_632.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

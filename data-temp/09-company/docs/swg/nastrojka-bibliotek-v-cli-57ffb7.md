@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка библиотек в CLI
 url: https://docs.usergate.com/nastrojka-bibliotek-(opisanie)_2692.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: SWG
 версия: 7.5.x

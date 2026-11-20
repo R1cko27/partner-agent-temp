@@ -1,6 +1,7 @@
 ---
 заголовок: Изменения в UserGate WAF 7
 url: https://docs.usergate.com/izmeneniya-v-usergate-waf-7-784/
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: WAF
 раздел: Изменения в UserGate WAF 7

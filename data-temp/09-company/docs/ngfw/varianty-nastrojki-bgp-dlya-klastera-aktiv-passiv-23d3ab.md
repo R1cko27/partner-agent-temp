@@ -1,6 +1,7 @@
 ---
 заголовок: Варианты настройки BGP для кластера Актив-Пассив
 url: https://docs.usergate.com/varianty-nastrojki-bgp-dlya-klastera-aktiv-passiv_25.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

@@ -1,6 +1,7 @@
 ---
 заголовок: Yandex Browser vs SSL inspection
 url: https://docs.usergate.com/yandex-browser-vs-ssl-inspection_551.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 раздел: Yandex Browser vs SSL inspection

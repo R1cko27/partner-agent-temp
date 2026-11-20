@@ -1,6 +1,7 @@
 ---
 заголовок: VPN в режиме полного туннелирования
 url: https://docs.usergate.com/vpn-v-rezhime-polnogo-tunnelirovaniya_2472.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 7.x, 7.5.x

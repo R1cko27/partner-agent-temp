@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка правил управления пропускной способностью
 url: https://docs.usergate.com/nastrojka-pravil-upravleniya-propusknoj-sposobnost6yu_2683.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SWG
 версия: 7.5.x

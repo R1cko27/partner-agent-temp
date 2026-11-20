@@ -1,6 +1,7 @@
 ---
 заголовок: Управление VPN-сессиями в CLI
 url: https://docs.usergate.com/upravlenie-vpn-sessiyami-v-cli_3258.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: NGFW
 версия: 7.x

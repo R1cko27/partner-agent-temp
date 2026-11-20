@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка профилей аутентификации
 url: https://docs.usergate.com/nastrojka-profilej-autentifikacii_1435.html
+источник: портал документации
 получено: 2026-11-20 16:33 +0700
 продукт: Log Analyzer
 версия: 7.x

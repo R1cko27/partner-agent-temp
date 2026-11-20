@@ -1,6 +1,7 @@
 ---
 заголовок: Команды диагностики и мониторинга (Описание)
 url: https://docs.usergate.com/komandy-diagnostiki-i-monitoringa-(opisanie)_790.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 7.x

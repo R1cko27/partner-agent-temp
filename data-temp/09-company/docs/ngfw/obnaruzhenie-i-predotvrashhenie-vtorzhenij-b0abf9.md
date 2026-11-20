@@ -1,6 +1,7 @@
 ---
 заголовок: Обнаружение и предотвращение вторжений
 url: https://docs.usergate.com/obnaruzhenie-i-predotvrashenie-vtorzhenij_348.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: NGFW
 версия: 7.0.1, 6.1.9, 5.x

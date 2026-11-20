@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка сервисов на UserGate 6.x.x
 url: https://docs.usergate.com/nastrojka-servisov-na-usergate-6xx_742.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 6.x

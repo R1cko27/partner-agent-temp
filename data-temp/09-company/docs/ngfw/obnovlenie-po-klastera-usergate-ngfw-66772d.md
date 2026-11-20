@@ -1,6 +1,7 @@
 ---
 заголовок: Обновление ПО кластера UserGate NGFW
 url: https://docs.usergate.com/obnovlenie-po-klastera-usergate-ngfw_586.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

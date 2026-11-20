@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка LogAn
 url: https://docs.usergate.com/nastrojka-logan-214/
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Log Analyzer
 версия: 6.1

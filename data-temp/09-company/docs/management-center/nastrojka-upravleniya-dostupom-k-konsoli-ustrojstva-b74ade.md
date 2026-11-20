@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка управления доступом к консоли устройства
 url: https://docs.usergate.com/nastrojka-upravleniya-dostupom-k-konsoli-ustrojstva_1402.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Management Center
 версия: 7.x

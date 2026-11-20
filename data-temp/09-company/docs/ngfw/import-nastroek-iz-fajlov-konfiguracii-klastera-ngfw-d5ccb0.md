@@ -1,6 +1,7 @@
 ---
 заголовок: Импорт настроек из файлов конфигурации кластера NGFW
 url: https://docs.usergate.com/import-nastroek-iz-fajlov-konfiguracii-klastera-ngfw_1496.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 7.x

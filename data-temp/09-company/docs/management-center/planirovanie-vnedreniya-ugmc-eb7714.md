@@ -1,6 +1,7 @@
 ---
 заголовок: Планирование внедрения UGMC
 url: https://docs.usergate.com/planirovanie-vnedreniya-ugmc-364/
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: Management Center
 версия: 7.x

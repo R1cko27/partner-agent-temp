@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка работы с вышестоящими прокси-серверами
 url: https://docs.usergate.com/nastrojka-raboty-s-vyshestoyashimi-proksi-serverami_2658.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SWG
 версия: 7.5.x

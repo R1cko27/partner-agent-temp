@@ -1,6 +1,7 @@
 ---
 заголовок: Подключение к CLI-консоли UserGate
 url: https://docs.usergate.com/podklyuchenie-k-cli-konsoli-usergate_565.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукты: UserGate NGFW, NGFW
 версия: 6.x, 7.x, 8.x

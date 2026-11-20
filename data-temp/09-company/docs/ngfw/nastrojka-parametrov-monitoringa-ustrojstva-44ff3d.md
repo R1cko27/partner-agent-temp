@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка параметров мониторинга устройства
 url: https://docs.usergate.com/nastrojka-parametrov-monitoringa-ustrojstva_1394.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 7.x

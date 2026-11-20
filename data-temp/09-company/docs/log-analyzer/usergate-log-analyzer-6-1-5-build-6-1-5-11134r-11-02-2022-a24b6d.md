@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Log Analyzer 6.1.5 (build 6.1.5.11134R, 11/02/2022)
 url: https://docs.usergate.com/usergate-log-analyzer-615-(build-61511134r-11022022)_524.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: Log Analyzer
 версия: 6.x

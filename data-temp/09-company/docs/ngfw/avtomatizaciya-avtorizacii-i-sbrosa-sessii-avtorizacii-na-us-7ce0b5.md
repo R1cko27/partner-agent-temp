@@ -1,6 +1,7 @@
 ---
 заголовок: Автоматизация авторизации и сброса сессии авторизации на UserGate для доменного пользователя
 url: https://docs.usergate.com/avtomatizaciya-avtorizacii-i-sbrosa-sessii-avtorizacii-na-usergate-dlya-domennogo-pol6zovatelya_202.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

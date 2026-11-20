@@ -1,6 +1,7 @@
 ---
 заголовок: Не удаётся создать 2 моста L2 и L3 на одном устройстве
 url: https://docs.usergate.com/ne-udaetsya-sozdat6-2-mosta-l2-i-l3-na-odnom-ustrojstve_583.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

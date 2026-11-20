@@ -1,6 +1,7 @@
 ---
 заголовок: Установка сертификата локального удостоверяющего центра
 url: https://docs.usergate.com/ustanovka-sertifikata-lokal6nogo-udostoveryayushego-centra_2643.html
+источник: портал документации
 получено: 2026-11-20 16:24 +0700
 продукт: SWG
 версия: 7.5.x

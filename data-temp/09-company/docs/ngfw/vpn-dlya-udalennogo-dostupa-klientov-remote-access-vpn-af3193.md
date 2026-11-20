@@ -1,6 +1,7 @@
 ---
 заголовок: VPN для удаленного доступа клиентов (Remote access VPN)
 url: https://docs.usergate.com/vpn-dlya-udalennogo-dostupa-klientov-(remote-access-vpn)_133.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: NGFW
 версия: 6.1.9, 7.0.1

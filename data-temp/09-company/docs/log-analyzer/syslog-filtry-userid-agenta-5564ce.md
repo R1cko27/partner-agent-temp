@@ -1,6 +1,7 @@
 ---
 заголовок: Syslog фильтры UserID агента
 url: https://docs.usergate.com/syslog-fil6try-userid-agenta_869.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

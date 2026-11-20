@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка подключения отказоустойчивого кластера к двум провайдерам
 url: https://docs.usergate.com/nastrojka-podklyucheniya-otkazoustojchivogo-klastera-k-dvum-provajderam_13.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9, 5.x

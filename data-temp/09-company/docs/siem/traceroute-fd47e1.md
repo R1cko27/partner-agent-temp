@@ -1,6 +1,7 @@
 ---
 заголовок: Traceroute
 url: https://docs.usergate.com/traceroute_1238.html
+источник: портал документации
 получено: 2026-11-20 16:23 +0700
 продукт: SIEM
 версия: 7.1.x

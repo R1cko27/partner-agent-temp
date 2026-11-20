@@ -1,6 +1,7 @@
 ---
 заголовок: Таблица соответствий категорий, указанных в требованиях Министерства Образования РФ к СКФ для образовательных учреждений, с категориями UserGate URL...
 url: https://docs.usergate.com/tablica-sootvetstvij-kategorij-ukazannyh-v-trebovaniyah-ministerstva-obrazovaniya-rf-k-skf-dlya-obra_2646.html
+источник: портал документации
 получено: 2026-11-20 16:24 +0700
 продукт: SWG
 версия: 7.5.x

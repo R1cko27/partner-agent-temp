@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка ICAP-серверов
 url: https://docs.usergate.com/nastrojka-icap-serverov_832.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 7.x

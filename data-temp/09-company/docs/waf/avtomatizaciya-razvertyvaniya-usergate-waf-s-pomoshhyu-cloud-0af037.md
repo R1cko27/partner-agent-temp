@@ -1,6 +1,7 @@
 ---
 заголовок: Автоматизация развертывания UserGate WAF с помощью Cloud-init
 url: https://docs.usergate.com/avtomatizaciya-razvertyvaniya-usergate-waf-s-pomosh6yu-cloud-init_2930.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: WAF
 версия: 7.6.x

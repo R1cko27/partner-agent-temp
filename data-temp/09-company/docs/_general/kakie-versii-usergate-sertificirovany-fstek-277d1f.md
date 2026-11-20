@@ -1,6 +1,7 @@
 ---
 заголовок: Какие версии UserGate сертифицированы ФСТЭК?
 url: https://docs.usergate.com/kakie-versii-usergate-sertificirovany-fstek_1031.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn, UserGate SIEM
 версия: 7.0.1, 7.1.0

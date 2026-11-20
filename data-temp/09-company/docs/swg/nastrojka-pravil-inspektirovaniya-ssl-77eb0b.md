@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка правил инспектирования SSL
 url: https://docs.usergate.com/nastrojka-pravil-inspektirovaniya-ssl_2686.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SWG
 версия: 7.5.x

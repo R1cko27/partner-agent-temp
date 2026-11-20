@@ -1,6 +1,7 @@
 ---
 заголовок: Ошибки VPN-подключений
 url: https://docs.usergate.com/oshibki-vpn-podklyuchenij_2805.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: UserGate Client
 версия: 7.4.1

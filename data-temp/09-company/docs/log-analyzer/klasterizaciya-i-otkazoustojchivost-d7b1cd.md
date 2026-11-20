@@ -1,6 +1,7 @@
 ---
 заголовок: Кластеризация и отказоустойчивость
 url: https://docs.usergate.com/klasterizaciya-i-otkazoustojchivost6_2071.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Log Analyzer
 версия: 7.x

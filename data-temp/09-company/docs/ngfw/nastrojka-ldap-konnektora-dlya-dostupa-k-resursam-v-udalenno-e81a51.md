@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка LDAP коннектора для доступа к ресурсам в удаленной сети
 url: https://docs.usergate.com/nastrojka-ldap-konnektora-dlya-dostupa-k-resursam-v-udalennoj-seti_737.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.x, 7.x

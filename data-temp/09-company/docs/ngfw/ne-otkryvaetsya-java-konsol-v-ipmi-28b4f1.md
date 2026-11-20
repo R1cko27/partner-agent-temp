@@ -1,6 +1,7 @@
 ---
 заголовок: Не открывается JAVA консоль в IPMI
 url: https://docs.usergate.com/ne-otkryvaetsya-java-konsol6-v-ipmi_544.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 раздел: Не открывается JAVA консоль в IPMI

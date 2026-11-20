@@ -1,6 +1,7 @@
 ---
 заголовок: Как расширить системный раздел устройства UserGate 7.x.x
 url: https://docs.usergate.com/kak-rasshirit6-sistemnyj-razdel-ustrojstva-usergate-7xx_747.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn
 версия: 7.x

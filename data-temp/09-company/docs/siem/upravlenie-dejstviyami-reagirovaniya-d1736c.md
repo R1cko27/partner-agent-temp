@@ -1,6 +1,7 @@
 ---
 заголовок: Управление действиями реагирования
 url: https://docs.usergate.com/upravlenie-dejstviyami-reagirovaniya_1981.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: SIEM
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка применения политик к пользователям
 url: https://docs.usergate.com/nastrojka-primeneniya-politik-k-pol6zovatelyam_1713.html
+источник: портал документации
 получено: 2026-11-20 16:24 +0700
 продукт: DCFW
 версия: 8.x

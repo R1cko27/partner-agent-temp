@@ -1,6 +1,7 @@
 ---
 заголовок: Кластер Актив-Пассив не использует виртуальный адрес для отправки трафика
 url: https://docs.usergate.com/klaster-aktiv-passiv-ne-ispol6zuet-virtual6nyj-adres-dlya-otpravki-trafika_692.html
+источник: портал документации
 получено: 2026-11-20 16:18 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

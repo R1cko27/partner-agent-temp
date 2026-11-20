@@ -1,6 +1,7 @@
 ---
 заголовок: Отсутствует доступ из локальной сети к ресурсам, опубликованным с помощью reverse-прокси, по внешнему URL
 url: https://docs.usergate.com/otsutstvuet-dostup-iz-lokal6noj-seti-k-resursam-opublikovannym-s-pomosh6yu-reverse-proksi-po-vneshne_581.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 версия: 7.0.0, 6.x
 раздел: Отсутствует доступ из локальной сети к ресурсам, опубликованным с...

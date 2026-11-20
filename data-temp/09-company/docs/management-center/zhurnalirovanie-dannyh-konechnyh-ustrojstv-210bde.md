@@ -1,6 +1,7 @@
 ---
 заголовок: Журналирование данных конечных устройств
 url: https://docs.usergate.com/zhurnalirovanie-dannyh-konechnyh-ustrojstv_908.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Management Center
 версия: 7.x

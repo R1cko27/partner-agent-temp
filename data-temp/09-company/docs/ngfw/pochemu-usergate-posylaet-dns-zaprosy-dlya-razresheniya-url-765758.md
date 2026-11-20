@@ -1,6 +1,7 @@
 ---
 заголовок: Почему UserGate посылает DNS-запросы для разрешения URL-адреса из списка угроз
 url: https://docs.usergate.com/pochemu-usergate-posylaet-dns-zaprosy-dlya-razresheniya-url-adresa-iz-spiska-ugroz_935.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 5.x, 6.1.8, 6.1.9, 7.0.0, 7.0.1, 7.0.2, 7.1.0, 7.2.0, 6.x, 7.x

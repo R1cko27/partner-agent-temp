@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка маршрутизации
 url: https://docs.usergate.com/nastrojka-marshrutizacii_1441.html
+источник: портал документации
 получено: 2026-11-20 16:33 +0700
 продукт: Log Analyzer
 версия: 7.x

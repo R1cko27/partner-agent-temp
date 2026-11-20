@@ -1,6 +1,7 @@
 ---
 заголовок: Перенос объектов из библиотек шаблонов в общую библиотеку
 url: https://docs.usergate.com/perenos-ob6ektov-iz-bibliotek-shablonov-v-obshuyu-biblioteku_3265.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: Management Center
 версия: 7.x, 7.6.x

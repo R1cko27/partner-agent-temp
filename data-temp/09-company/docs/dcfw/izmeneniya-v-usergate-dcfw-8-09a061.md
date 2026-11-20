@@ -1,6 +1,7 @@
 ---
 заголовок: Изменения в UserGate DCFW 8
 url: https://docs.usergate.com/izmeneniya-v-usergate-dcfw-8-815/
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: DCFW
 раздел: Изменения в UserGate DCFW 8

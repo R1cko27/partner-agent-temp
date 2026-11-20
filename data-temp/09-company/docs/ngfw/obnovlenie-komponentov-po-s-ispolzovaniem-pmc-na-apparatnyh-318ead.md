@@ -1,6 +1,7 @@
 ---
 заголовок: Обновление компонентов ПО с использованием PMC на аппаратных платформах B50, C150, C151, D250, FG, X10
 url: https://docs.usergate.com/obnovlenie-komponentov-po-s-ispol6zovaniem-pmc-na-apparatnyh-platformah-b50-c150-c151-d250-fg-x10_1334.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: VPN для защищенного соединения офисов (Site-to-Site VPN)
 url: https://docs.usergate.com/vpn-dlya-zashishennogo-soedineniya-ofisov-(site-to-site-vpn)_1326.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 7.x

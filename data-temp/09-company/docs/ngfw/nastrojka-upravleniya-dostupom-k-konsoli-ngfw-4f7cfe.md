@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка управления доступом к консоли NGFW
 url: https://docs.usergate.com/nastrojka-upravleniya-dostupom-k-konsoli-usergate_205.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 7.0.1

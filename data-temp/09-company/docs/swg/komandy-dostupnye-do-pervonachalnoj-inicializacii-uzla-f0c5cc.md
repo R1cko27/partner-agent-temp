@@ -1,6 +1,7 @@
 ---
 заголовок: Команды, доступные до первоначальной инициализации узла
 url: https://docs.usergate.com/komandy-dostupnye-do-pervonachal6noj-inicializacii-uzla-915/
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: SWG
 версия: 7.5

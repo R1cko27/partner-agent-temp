@@ -1,6 +1,7 @@
 ---
 заголовок: Пересылка журналов межсетевого экрана на внешний syslog-сервер
 url: https://docs.usergate.com/peresylka-zhurnalov-mezhsetevogo-ekrana-na-vneshnij-syslog-server_2273.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: DCFW
 версия: 8.x

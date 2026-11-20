@@ -1,0 +1,9 @@
+id;продукт;версия;тип_документа;url;что_берём;статус;дата
+AUTO-products-0001;;;Все продукты;https://usergate.com/products/;Все продукты;собрано_автоматически;2026-11-20
+AUTO-products-0002;NGFW;;Все продукты;https://usergate.com/products/next-generation-firewall/;UserGate Next-Generation Firewall (NGFW) | Межсетевой экран следующего поколения;собрано_автоматически;2026-11-20
+AUTO-products-0003;UserGate Client;;Все продукты;https://usergate.com/products/client/;UserGate Client;собрано_автоматически;2026-11-20
+AUTO-products-0004;NGFW;;Все продукты;https://usergate.com/products/data-center-firewall/;UserGate Data Center Firewall | NGFW для задач уровня ЦОД;собрано_автоматически;2026-11-20
+AUTO-products-0005;;;Все продукты;https://usergate.com/products/logan/;Система сбора логов;собрано_автоматически;2026-11-20
+AUTO-products-0006;;;Все продукты;https://usergate.com/products/management-center/;Управление устройствами;собрано_автоматически;2026-11-20
+AUTO-products-0007;SIEM;;Все продукты;https://usergate.com/products/siem/;UserGate SIEM (Security Information and Event Management);собрано_автоматически;2026-11-20
+AUTO-products-0008;WAF;;Все продукты;https://usergate.com/products/web-application-firewall/;UserGate WAF;собрано_автоматически;2026-11-20

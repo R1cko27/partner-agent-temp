@@ -1,6 +1,7 @@
 ---
 заголовок: Отображение страницы блокировки
 url: https://docs.usergate.com/otobrazhenie-stranicy-blokirovki_575.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 6.x, 7.x

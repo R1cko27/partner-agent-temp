@@ -1,6 +1,7 @@
 ---
 заголовок: Изменения в UserGate NGFW 6
 url: https://docs.usergate.com/izmeneniya-v-usergate-ngfw-6-240/
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 раздел: Изменения в UserGate NGFW 6

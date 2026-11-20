@@ -1,6 +1,7 @@
 ---
 заголовок: GRE over IPsec
 url: https://docs.usergate.com/gre-over-ipsec_136.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 7.0.1, 6.1.9

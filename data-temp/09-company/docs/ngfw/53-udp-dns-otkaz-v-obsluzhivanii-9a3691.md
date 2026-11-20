@@ -1,6 +1,7 @@
 ---
 заголовок: 53(UDP)-DNS Отказ в обслуживании.
 url: https://docs.usergate.com/53(udp)-dns-otkaz-v-obsluzhivanii_1386.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

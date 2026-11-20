@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка подключения к серверу регистрации доверенных браузеров
 url: https://docs.usergate.com/nastrojka-podklyucheniya-k-serveru-registracii-doverennyh-brauzerov_2882.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SWG
 версия: 7.5.x

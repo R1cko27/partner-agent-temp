@@ -1,6 +1,7 @@
 ---
 заголовок: Первоначальная инициализация NGFW
 url: https://docs.usergate.com/pervonachal6naya-inicializaciya-(opisanie)_789.html
+источник: портал документации
 получено: 2026-11-20 16:11 +0700
 продукт: NGFW
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Загрузка сертификатов на клиентское устройство с ОС Windows 11
 url: https://docs.usergate.com/zagruzka-sertifikatov-na-klientskoe-ustrojstvo-s-os-windows-11_1053.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 раздел: Авторизация и аутентификация
 id_статьи: 1053

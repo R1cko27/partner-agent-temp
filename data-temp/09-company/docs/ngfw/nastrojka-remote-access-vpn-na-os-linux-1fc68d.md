@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка Remote Access VPN на ОС Linux
 url: https://docs.usergate.com/nastrojka-remote-access-vpn-na-os-linux_38.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.x, 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Профили безопасности SNMP
 url: https://docs.usergate.com/profili-bezopasnosti-snmp_986.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 7.x

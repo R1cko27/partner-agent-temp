@@ -1,6 +1,7 @@
 ---
 заголовок: Управление устройством UGC из консоли UGMC
 url: https://docs.usergate.com/upravlenie-ustrojstvom-ugc-iz-konsoli-ugmc_414.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Management Center
 версия: 7.0.1

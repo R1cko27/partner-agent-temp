@@ -1,6 +1,7 @@
 ---
 заголовок: Требования к сетевому окружению
 url: https://docs.usergate.com/prilozhenie-4-trebovaniya-k-setevomu-okruzheniyu_345.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 5.x, 6.1.9

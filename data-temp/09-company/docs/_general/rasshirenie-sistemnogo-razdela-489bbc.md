@@ -1,6 +1,7 @@
 ---
 заголовок: Расширение системного раздела
 url: https://docs.usergate.com/rasshirenie-sistemnogo-razdela_1292.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: NGFW, UGMC, LogAn, SIEM
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Log Analyzer 7.5.0(build 7.5.0.463917R, 20/05/2026)
 url: https://docs.usergate.com/usergate-log-analyzer-750(build-750463917r-20052026)_3062.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: Log Analyzer
 версия: 7.5.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Авторизация с помощью FreeIPA
 url: https://docs.usergate.com/avtorizaciya-s-pomosh6yu-freeipa_686.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

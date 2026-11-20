@@ -1,6 +1,7 @@
 ---
 заголовок: Улучшение производительности и надежности интернета
 url: https://docs.usergate.com/uluchshenie-proizvoditel6nosti-i-nadezhnosti-interneta-156/
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: NGFW
 версия: 7.0

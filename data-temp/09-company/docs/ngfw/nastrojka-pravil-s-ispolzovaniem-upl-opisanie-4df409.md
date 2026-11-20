@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка правил с использованием UPL (Описание)
 url: https://docs.usergate.com/nastrojka-pravil-s-ispol6zovaniem-upl-(opisanie)_217.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 7.0.1

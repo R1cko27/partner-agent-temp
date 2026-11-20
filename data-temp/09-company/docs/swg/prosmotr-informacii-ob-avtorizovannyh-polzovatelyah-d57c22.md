@@ -1,6 +1,7 @@
 ---
 заголовок: Просмотр информации об авторизованных пользователях
 url: https://docs.usergate.com/prosmotr-informacii-ob-avtorizovannyh-pol6zovatelyah_2678.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: SWG
 версия: 7.5.x

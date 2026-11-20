@@ -1,6 +1,7 @@
 ---
 заголовок: Выбор протокола PAP на MacOs
 url: https://docs.usergate.com/vybor-protokola-pap-na-macos_559.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 раздел: Выбор протокола PAP на MacOs

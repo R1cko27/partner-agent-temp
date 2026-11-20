@@ -1,6 +1,7 @@
 ---
 заголовок: Защита WebSocket-соединений
 url: https://docs.usergate.com/zashita-websocket-soedinenij_2953.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: WAF
 версия: 7.6.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Интерпретация результатов сканирования
 url: https://docs.usergate.com/interpretaciya-rezul6tatov-skanirovaniya_1391.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn, UserGate SIEM
 версия: 5.x, 6.x, 7.x

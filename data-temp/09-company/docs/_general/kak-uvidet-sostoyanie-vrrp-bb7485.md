@@ -1,6 +1,7 @@
 ---
 заголовок: Как увидеть состояние VRRP
 url: https://docs.usergate.com/kak-uvidet6-sostoyanie-vrrp_910.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn
 версия: 6.x, 7.x

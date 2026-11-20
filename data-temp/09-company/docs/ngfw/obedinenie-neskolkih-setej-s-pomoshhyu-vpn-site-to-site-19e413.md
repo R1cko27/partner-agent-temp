@@ -1,6 +1,7 @@
 ---
 заголовок: Объединение нескольких сетей с помощью VPN site-to-site
 url: https://docs.usergate.com/ob6edinenie-neskol6kih-setej-s-pomosh6yu-vpn-site-to-site_705.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

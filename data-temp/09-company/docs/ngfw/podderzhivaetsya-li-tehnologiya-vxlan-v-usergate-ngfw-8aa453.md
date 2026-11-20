@@ -1,6 +1,7 @@
 ---
 заголовок: Поддерживается ли технология VxLAN в UserGate NGFW
 url: https://docs.usergate.com/podderzhivaetsya-li-tehnologiya-vxlan-v-usergate-ngfw_725.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 6.x, 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Пример настройки site-to-site VPN с IPSec (IKEv2) и аутентификацией посредством сертификатов
 url: https://docs.usergate.com/primer-nastrojki-site-to-site-vpn-s-ipsec-(ikev2)-i-autentifikaciej-posredstvom-sertifikatov_2499.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 7.x, 7.5.x

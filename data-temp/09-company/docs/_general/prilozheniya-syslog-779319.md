@@ -1,6 +1,7 @@
 ---
 заголовок: Приложения syslog
 url: https://docs.usergate.com/prilozheniya-syslog_466.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукты: LogAn, SIEM
 версия: 7.0.1, 7.1.0

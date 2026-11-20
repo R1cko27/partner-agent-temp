@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка правил межсетевого экрана
 url: https://docs.usergate.com/nastrojka-pravil-mezhsetevogo-ekrana_1715.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: DCFW
 версия: 8.x

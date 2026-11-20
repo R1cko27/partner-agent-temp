@@ -1,6 +1,7 @@
 ---
 заголовок: Первоначальная инициализация (Описание)
 url: https://docs.usergate.com/pervonachal6naya-inicializaciya-(opisanie)_2997.html
+источник: портал документации
 получено: 2026-11-20 16:24 +0700
 продукт: WAF
 версия: 7.6.x

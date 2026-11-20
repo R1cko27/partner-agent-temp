@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка управления доступом к консоли UserGate DCFW
 url: https://docs.usergate.com/nastrojka-upravleniya-dostupom-k-konsoli-usergate-ngfw_1692.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: DCFW
 версия: 8.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Профили оповещений
 url: https://docs.usergate.com/profili-opoveshenij_1170.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Log Analyzer
 версия: 7.x

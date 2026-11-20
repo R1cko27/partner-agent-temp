@@ -1,6 +1,7 @@
 ---
 заголовок: Команды диагностики и мониторинга (Описание)
 url: https://docs.usergate.com/komandy-diagnostiki-i-monitoringa-(opisanie)_1687.html
+источник: портал документации
 получено: 2026-11-20 16:23 +0700
 продукт: DCFW
 версия: 8.x

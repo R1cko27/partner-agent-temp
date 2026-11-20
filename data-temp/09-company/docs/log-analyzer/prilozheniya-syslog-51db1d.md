@@ -1,6 +1,7 @@
 ---
 заголовок: Приложения syslog
 url: https://docs.usergate.com/prilozheniya-syslog_1171.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

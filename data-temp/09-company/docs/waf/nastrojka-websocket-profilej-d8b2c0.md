@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка WebSocket-профилей
 url: https://docs.usergate.com/nastrojka-websocket-profilej_3017.html
+источник: портал документации
 получено: 2026-11-20 16:27 +0700
 продукт: WAF
 версия: 7.6.x

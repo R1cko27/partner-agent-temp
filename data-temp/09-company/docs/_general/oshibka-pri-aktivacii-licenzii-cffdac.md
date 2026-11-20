@@ -1,6 +1,7 @@
 ---
 заголовок: Ошибка при активации лицензии
 url: https://docs.usergate.com/oshibka-pri-aktivacii-licenzii_584.html
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn
 версия: 5.x, 6.x, 7.x

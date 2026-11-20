@@ -1,6 +1,7 @@
 ---
 заголовок: Офлайн-операции с узлом
 url: https://docs.usergate.com/oflajn-operacii-s-uzlom_1152.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Log Analyzer
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Требования к сетевому окружению
 url: https://docs.usergate.com/trebovaniya-k-setevomu-okruzheniyu_1760.html
+источник: портал документации
 получено: 2026-11-20 16:21 +0700
 продукт: DCFW
 версия: 8.x

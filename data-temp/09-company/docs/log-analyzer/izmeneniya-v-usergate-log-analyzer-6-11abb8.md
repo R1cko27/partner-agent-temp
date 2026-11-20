@@ -1,6 +1,7 @@
 ---
 заголовок: Изменения в UserGate Log Analyzer 6
 url: https://docs.usergate.com/izmeneniya-v-usergate-log-analyzer-6-242/
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: Log Analyzer
 раздел: Изменения в UserGate Log Analyzer 6

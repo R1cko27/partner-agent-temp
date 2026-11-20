@@ -1,6 +1,7 @@
 ---
 заголовок: Прокси-агент для Windows
 url: https://docs.usergate.com/proksi-agent-dlya-windows_1087.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка правил межсетевого экрана
 url: https://docs.usergate.com/nastrojka-pravil-mezhsetevogo-ekrana_816.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: NGFW
 версия: 7.x

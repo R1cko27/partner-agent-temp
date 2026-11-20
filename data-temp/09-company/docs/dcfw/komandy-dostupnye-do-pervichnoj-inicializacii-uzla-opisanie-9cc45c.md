@@ -1,6 +1,7 @@
 ---
 заголовок: Команды, доступные до первичной инициализации узла (Описание)
 url: https://docs.usergate.com/komandy-dostupnye-do-pervichnoj-inicializacii-uzla-(opisanie)_1686.html
+источник: портал документации
 получено: 2026-11-20 16:23 +0700
 продукт: DCFW
 версия: 8.x

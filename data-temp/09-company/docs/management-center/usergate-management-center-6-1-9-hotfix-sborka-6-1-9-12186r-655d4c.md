@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Management Center 6.1.9 (hotfix сборка 6.1.9.12186R, 04/03/2025)
 url: https://docs.usergate.com/usergate-management-center-619-(hotfix-sborka-61912186r-04032025)_2081.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: Management Center
 версия: 6.1.9

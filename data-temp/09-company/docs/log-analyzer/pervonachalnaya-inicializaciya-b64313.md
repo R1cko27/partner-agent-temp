@@ -1,6 +1,7 @@
 ---
 заголовок: Первоначальная инициализация
 url: https://docs.usergate.com/pervonachal6naya-inicializaciya-510/
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Log Analyzer
 версия: 7.x

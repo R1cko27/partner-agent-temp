@@ -1,6 +1,7 @@
 ---
 заголовок: Мастер первоначальной настройки узла
 url: https://docs.usergate.com/master-pervonachal6noj-nastrojki-uzla_2421.html
+источник: портал документации
 получено: 2026-11-20 16:14 +0700
 продукт: NGFW
 версия: 7.x

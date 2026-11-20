@@ -1,6 +1,7 @@
 ---
 заголовок: Приборная панель (DashBoard)
 url: https://docs.usergate.com/pribornaya-panel6-(dashboard)_1755.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: DCFW
 версия: 8.x

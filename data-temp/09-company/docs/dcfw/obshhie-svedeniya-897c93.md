@@ -1,6 +1,7 @@
 ---
 заголовок: Общие сведения
 url: https://docs.usergate.com/usergate-application-and-security-language-(uasl)_1725.html
+источник: портал документации
 получено: 2026-11-20 16:23 +0700
 продукт: DCFW
 версия: 8.x

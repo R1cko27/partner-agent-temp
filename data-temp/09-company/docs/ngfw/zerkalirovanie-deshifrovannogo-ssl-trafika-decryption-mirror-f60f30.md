@@ -1,6 +1,7 @@
 ---
 заголовок: Зеркалирование дешифрованного SSL трафика (Decryption Mirroring)
 url: https://docs.usergate.com/zerkalirovanie-deshifrovannogo-ssl-trafika-(decryption-mirroring)_80.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

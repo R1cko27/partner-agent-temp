@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка виртуальных маршрутизаторов
 url: https://docs.usergate.com/nastrojka-virtual6nyh-marshrutizatorov_1702.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: DCFW
 версия: 8.x

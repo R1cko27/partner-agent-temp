@@ -1,6 +1,7 @@
 ---
 заголовок: Пользовательская нормализация логов
 url: https://docs.usergate.com/pol6zovatel6skaya-normalizaciya-logov_964.html
+источник: портал документации
 получено: 2026-11-20 16:25 +0700
 продукт: SIEM
 версия: 7.2.x

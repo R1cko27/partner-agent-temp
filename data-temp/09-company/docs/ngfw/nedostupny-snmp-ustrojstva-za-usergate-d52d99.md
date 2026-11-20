@@ -1,6 +1,7 @@
 ---
 заголовок: Недоступны SNMP устройства за UserGate
 url: https://docs.usergate.com/nedostupny-snmp-ustrojstva-za-usergate_547.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 раздел: Недоступны SNMP устройства за UserGate

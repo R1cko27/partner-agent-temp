@@ -1,6 +1,7 @@
 ---
 заголовок: О UserGate SWG
 url: https://docs.usergate.com/o-usergate-swg-891/
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: SWG
 раздел: О UserGate SWG

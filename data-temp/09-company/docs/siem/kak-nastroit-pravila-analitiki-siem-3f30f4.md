@@ -1,6 +1,7 @@
 ---
 заголовок: Как настроить правила аналитики SIEM
 url: https://docs.usergate.com/kak-nastroit6-pravila-analitiki-siem_756.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: SIEM
 версия: 7.x

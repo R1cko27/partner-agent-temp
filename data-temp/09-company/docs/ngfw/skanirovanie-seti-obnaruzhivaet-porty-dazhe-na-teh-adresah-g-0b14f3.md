@@ -1,6 +1,7 @@
 ---
 заголовок: Сканирование сети обнаруживает порты даже на тех адресах, где нет соответствующих сервисов
 url: https://docs.usergate.com/skanirovanie-seti-obnaruzhivaet-porty-dazhe-na-teh-adresah-gde-net-sootvetstvuyushih-servisov_622.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

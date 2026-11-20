@@ -1,6 +1,7 @@
 ---
 заголовок: UserGate Management Center 7.0.1 (hotfix сборка 7.0.1.989R, 31/08/2023)
 url: https://docs.usergate.com/usergate-management-center-701-(hotfix-sborka-701989r-31082023)_765.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: Management Center
 версия: 7.0.1

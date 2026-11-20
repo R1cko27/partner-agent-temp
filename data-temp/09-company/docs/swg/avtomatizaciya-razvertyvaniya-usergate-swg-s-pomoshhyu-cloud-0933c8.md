@@ -1,6 +1,7 @@
 ---
 заголовок: Автоматизация развертывания UserGate SWG с помощью Cloud-init
 url: https://docs.usergate.com/avtomatizaciya-razvertyvaniya-usergate-swg-s-pomosh6yu-cloud-init_2556.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: SWG
 версия: 7.5.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Параметры SNMP
 url: https://docs.usergate.com/parametry-snmp_1299.html
+источник: портал документации
 получено: 2026-11-20 16:32 +0700
 продукт: Management Center
 версия: 7.x

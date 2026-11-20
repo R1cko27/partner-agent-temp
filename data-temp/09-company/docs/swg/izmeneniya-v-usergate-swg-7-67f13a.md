@@ -1,6 +1,7 @@
 ---
 заголовок: Изменения в UserGate SWG 7
 url: https://docs.usergate.com/izmeneniya-v-usergate-swg-7-965/
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: SWG
 раздел: Изменения в UserGate SWG 7

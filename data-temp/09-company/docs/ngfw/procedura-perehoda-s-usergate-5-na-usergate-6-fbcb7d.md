@@ -1,6 +1,7 @@
 ---
 заголовок: Процедура перехода с UserGate 5 на UserGate 6
 url: https://docs.usergate.com/procedura-perehoda-s-usergate-5-na-usergate-6_51.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 5.x, 6.1.8, 6.1.9

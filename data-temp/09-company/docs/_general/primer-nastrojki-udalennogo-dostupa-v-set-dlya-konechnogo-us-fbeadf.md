@@ -1,6 +1,7 @@
 ---
 заголовок: Пример настройки удаленного доступа в сеть для конечного устройства на Astra Linux
 url: https://docs.usergate.com/primer-nastrojki-udalennogo-dostupa-v-set6-dlya-konechnogo-ustrojstva-na-astra-linux_2496.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукты: NGFW, UserGate Client
 версия: 7.x, 7.5.x

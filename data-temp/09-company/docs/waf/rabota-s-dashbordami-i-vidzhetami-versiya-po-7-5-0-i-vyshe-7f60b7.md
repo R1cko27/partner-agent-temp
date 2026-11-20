@@ -1,6 +1,7 @@
 ---
 заголовок: Работа с дашбордами и виджетами (версия ПО 7.5.0 и выше)
 url: https://docs.usergate.com/rabota-s-dashbordami-i-vidzhetami-(versiya-po-750-i-vyshe)_1880.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: WAF
 версия: 7.x

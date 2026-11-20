@@ -1,6 +1,7 @@
 ---
 заголовок: Набор шаблонов с настройками каждого модуля. Специфичные настройки для некоторых модулей для определенной группы управляемых устройств. Сеть...
 url: https://docs.usergate.com/nabor-shablonov-s-nastrojkami-kazhdogo-modulya-specifichnye-nastrojki-dlya-nekotoryh-modulej-dlya-op_419.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Management Center
 версия: 6.1.9

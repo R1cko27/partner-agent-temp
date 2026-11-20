@@ -1,6 +1,7 @@
 ---
 заголовок: Ошибки при взаимодействии UserGate и Cisco ASA
 url: https://docs.usergate.com/oshibki-pri-vzaimodejstvii-usergate-i-cisco-asa_50.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9

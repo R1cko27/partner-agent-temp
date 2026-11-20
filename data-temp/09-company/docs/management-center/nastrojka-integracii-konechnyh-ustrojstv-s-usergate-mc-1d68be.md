@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка интеграции конечных устройств с UserGate MC
 url: https://docs.usergate.com/nastrojka-integracii-konechnyh-ustrojstv-s-usergate-mc_904.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Management Center
 версия: 7.x

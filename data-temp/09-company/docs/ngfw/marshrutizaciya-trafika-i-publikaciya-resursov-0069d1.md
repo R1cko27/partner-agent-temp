@@ -1,6 +1,7 @@
 ---
 заголовок: Маршрутизация трафика и публикация ресурсов
 url: https://docs.usergate.com/marshrutizaciya-trafika-i-publikaciya-resursov_360.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 6.1.9, 7.0.1, 7.1.0

@@ -1,6 +1,7 @@
 ---
 заголовок: Слабый криптографический ключ
 url: https://docs.usergate.com/slabyj-kriptograficheskij-klyuch_1389.html
+источник: портал документации
 получено: 2026-11-20 16:19 +0700
 продукт: NGFW
 версия: 5.x, 6.x, 7.x

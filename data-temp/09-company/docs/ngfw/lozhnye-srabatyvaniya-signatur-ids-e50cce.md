@@ -1,6 +1,7 @@
 ---
 заголовок: Ложные срабатывания сигнатур IDS
 url: https://docs.usergate.com/lozhnye-srabatyvaniya-signatur-ids_32.html
+источник: портал документации
 получено: 2026-11-20 16:20 +0700
 продукт: NGFW
 версия: 6.x, 7.x

@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка прокси-сервера
 url: https://docs.usergate.com/nastrojka-proksi-servera_2321.html
+источник: портал документации
 получено: 2026-11-20 16:31 +0700
 продукт: Management Center
 версия: 7.x

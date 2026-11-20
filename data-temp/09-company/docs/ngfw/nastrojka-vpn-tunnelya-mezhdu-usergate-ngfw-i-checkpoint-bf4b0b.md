@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка VPN туннеля между UserGate NGFW и CheckPoint
 url: https://docs.usergate.com/nastrojka-vpn-tunnelya-mezhdu-usergate-ngfw-i-checkpoint_730.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.x, 7.x

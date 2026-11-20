@@ -1,6 +1,7 @@
 ---
 заголовок: Platform Management Controller Command Line Interface
 url: https://docs.usergate.com/platform-management-controller-command-line-interface-276/
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукт: NGFW
 версия: 7.0

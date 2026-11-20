@@ -1,6 +1,7 @@
 ---
 заголовок: Как разрешить работу клиента Yandex.Disk
 url: https://docs.usergate.com/kak-razreshit6-rabotu-klienta-yandexdisk_29.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 раздел: Как разрешить работу клиента Yandex.Disk

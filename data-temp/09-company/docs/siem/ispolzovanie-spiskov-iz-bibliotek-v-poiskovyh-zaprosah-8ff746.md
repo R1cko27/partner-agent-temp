@@ -1,6 +1,7 @@
 ---
 заголовок: Использование списков из библиотек в поисковых запросах
 url: https://docs.usergate.com/ispol6zovanie-spiskov-iz-bibliotek-v-poiskovyh-zaprosah_1556.html
+источник: портал документации
 получено: 2026-11-20 16:22 +0700
 продукт: SIEM
 версия: 7.2.x, 7.3.x

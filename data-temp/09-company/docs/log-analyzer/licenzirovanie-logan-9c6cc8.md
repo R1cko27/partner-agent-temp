@@ -1,6 +1,7 @@
 ---
 заголовок: Лицензирование LogAn
 url: https://docs.usergate.com/licenzirovanie-logan-225/
+источник: портал документации
 получено: 2026-11-20 16:30 +0700
 продукт: Log Analyzer
 версия: 7.0

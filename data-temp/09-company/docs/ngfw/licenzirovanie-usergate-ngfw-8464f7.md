@@ -1,6 +1,7 @@
 ---
 заголовок: Лицензирование UserGate NGFW
 url: https://docs.usergate.com/licenzirovanie-usergate-ngfw_748.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 7.x

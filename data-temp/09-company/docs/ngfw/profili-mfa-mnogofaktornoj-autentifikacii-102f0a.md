@@ -1,6 +1,7 @@
 ---
 заголовок: Профили MFA (многофакторной аутентификации)
 url: https://docs.usergate.com/profili-mfa-(mnogofaktornoj-autentifikacii)_1085.html
+источник: портал документации
 получено: 2026-11-20 16:13 +0700
 продукт: NGFW
 версия: 7.x

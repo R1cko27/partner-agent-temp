@@ -1,6 +1,7 @@
 ---
 заголовок: Log Analyzer, SIEM
 url: https://docs.usergate.com/log-analyzer-siem-678/
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: Log Analyzer
 раздел: Log Analyzer, SIEM

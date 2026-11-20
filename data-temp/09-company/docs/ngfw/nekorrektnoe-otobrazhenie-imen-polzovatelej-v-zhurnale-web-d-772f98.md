@@ -1,6 +1,7 @@
 ---
 заголовок: Некорректное отображение имен пользователей в журнале Web-доступа
 url: https://docs.usergate.com/nekorrektnoe-otobrazhenie-imen-pol6zovatelej-v-zhurnale-web-dostupa_620.html
+источник: портал документации
 получено: 2026-11-20 16:15 +0700
 продукт: NGFW
 версия: 5.x, 6.1.8, 6.1.9, 7.0.0, 7.0.2, 7.1.0, 7.2.0, 6.x, 7.x

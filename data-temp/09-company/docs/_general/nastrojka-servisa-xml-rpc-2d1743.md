@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка сервиса XML-RPC
 url: https://docs.usergate.com/nastrojka-servisa-xml-rpc_800.html
+источник: портал документации
 получено: 2026-11-20 16:29 +0700
 продукты: UserGate NGFW, UserGate MC, UserGate LogAn
 версия: 6.x, 7.x

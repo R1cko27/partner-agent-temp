@@ -1,6 +1,7 @@
 ---
 заголовок: Интерфейс UserGate NGFW
 url: https://docs.usergate.com/interfejs-usergate-ngfw_2281.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 7.x

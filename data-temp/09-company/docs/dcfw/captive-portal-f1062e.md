@@ -1,6 +1,7 @@
 ---
 заголовок: Captive-портал
 url: https://docs.usergate.com/captive-portal_1709.html
+источник: портал документации
 получено: 2026-11-20 16:26 +0700
 продукт: DCFW
 версия: 8.x

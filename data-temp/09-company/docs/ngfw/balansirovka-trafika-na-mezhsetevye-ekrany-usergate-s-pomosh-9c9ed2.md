@@ -1,6 +1,7 @@
 ---
 заголовок: Балансировка трафика на межсетевые экраны UserGate с помощью брокера сетевых пакетов DS Integrity
 url: https://docs.usergate.com/balansirovka-trafika-na-mezhsetevye-ekrany-usergate-s-pomosh6yu-brokera-setevyh-paketov-ds-integrity_346.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.1.8, 6.1.9, 6.x, 7.0.0

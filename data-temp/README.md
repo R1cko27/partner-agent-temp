@@ -72,8 +72,11 @@ python tools/crawl_site.py --profile usergate-docs --dry
 # пробный обход на 30 страницах
 python tools/crawl_site.py --profile usergate-docs --limit 30
 
-# полный обход портала документации
+# полный обход портала документации (HTML отдаётся сервером)
 python tools/crawl_site.py --profile usergate-docs
+
+# основной сайт: только через рендер в браузере
+python tools/crawl_site.py --profile usergate-main
 
 # продолжить после остановки (состояние сохраняется)
 python tools/crawl_site.py --profile usergate-docs
@@ -82,7 +85,16 @@ python tools/crawl_site.py --profile usergate-docs
 python tools/crawl_site.py --profile usergate-docs --fresh
 ```
 
-Что он делает:
+### Два профиля — два способа получения страниц
+
+| Профиль | Сайт | Как берём | Скорость |
+|---|---|---|---|
+| `usergate-docs` | `docs.usergate.com` | обычный HTTP: сервер отдаёт готовый HTML, 3181 URL из `sitemap.xml` | ~3,5 стр/с |
+| `usergate-main` | `usergate.com` | headless-браузер (Chrome или Edge): 150 URL из `sitemap.xml` | ~1 стр / 10 с |
+
+Основной сайт — SPA: без выполнения JavaScript приходит пустая оболочка на 2997 байт. Поэтому `--profile usergate-main` открывает каждую страницу в установленном браузере (`--headless=new --dump-dom`) и забирает уже отрендеренный DOM. Подменять user-agent под Googlebot не нужно и не следует: сервер отдаёт содержимое поисковым роботам, но выдавать себя за них — не наш случай.
+
+Что делает инструмент:
 
 1. читает `robots.txt`, соблюдает запреты и `crawl-delay`;
 2. берёт список страниц из `sitemap.xml` (у `docs.usergate.com` — 3191 URL), при отсутствии карты обходит по ссылкам;
@@ -98,7 +110,7 @@ python tools/crawl_site.py --profile usergate-docs --fresh
 | Чистый Markdown по страницам | `09-company/docs/<продукт>/<slug>.md` |
 | Реестр обхода (URL, статус, символы, продукт, файл) | `00-meta/crawl-report-<профиль>-<дата>.csv` |
 | Готовые строки для каталога | `01-web/docs.crawled-<дата>.csv` |
-| Дерево разделов | `09-company/docs/site-map.md` |
+| Дерево разделов | `09-company/docs/site-map-usergate-docs.md` и `site-map-usergate-main.md` |
 | Состояние для продолжения | `00-meta/.crawl-state-<профиль>.json` |
 | Лог запуска | `00-meta/crawl-full.log` |
 

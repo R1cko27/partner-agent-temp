@@ -1,6 +1,7 @@
 ---
 заголовок: Управление устройствами UserGate SIEM (описание)
 url: https://docs.usergate.com/upravlenie-ustrojstvami-usergate-siem-(opisanie)_2277.html
+источник: портал документации
 получено: 2026-11-20 16:16 +0700
 продукт: SIEM
 версия: 7.x

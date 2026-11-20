@@ -1,6 +1,6 @@
 """Обход сайта и раскладка материалов по структуре data-temp.
 
-Инструмент внешний по отношению к RAG-движку: он только собирает и раскладывает
+�?нструмент внешний по отношению к RAG-движку: он только собирает и раскладывает
 исходники, ничего не пишет в `data/company/` и не меняет индекс.
 
     python tools/crawl_site.py --profile usergate-docs
@@ -31,7 +31,10 @@ import csv
 import hashlib
 import json
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -63,9 +66,22 @@ PROFILES: Dict[str, Dict[str, object]] = {
         "sitemap": "https://usergate.com/sitemap.xml",
         "hosts": ["usergate.com", "www.usergate.com"],
         "bucket": "site-sections",
-        "note": "основной сайт: SPA за SmartCaptcha, обход даст пустые оболочки",
+        "render": True,
+        "note": "основной сайт: SPA, нужен рендер в настоящем браузере",
     },
 }
+
+# Браузеры, которыми рендерим SPA. �?спользуется уже установленный Chrome или Edge:
+# так страница отдаётся так же, как обычному посетителю, без подмены user-agent.
+BROWSER_CANDIDATES = (
+    r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+    r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+    r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
+    r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+    "/usr/bin/google-chrome",
+    "/usr/bin/chromium",
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+)
 
 # Куда раскладывать по каналам data-temp (ключ → папка + имя файла).
 BUCKETS = {
@@ -90,11 +106,13 @@ NOISE_LINE = re.compile(
     r"Конфиденциальность|Copyright ©.*|Powered by KBPublisher|,|"
     r"Главная|Документация|Описание версий|Глоссарий|FAQ|Загрузки|Обучение|Войти|"
     r"Закреплённый|Помощь в поиске|Расширенный поиск|Все|"
+    r"Отправить запрос|Оставить заявку|Заказать звонок|Подробнее|Читать далее|"
+    r"Скачать|Смотреть все|Показать ещё|Показать еще|Наверх|"
     r"\[\w+\].*|"
     r"\d+\s*/\s*\d+\s*\(Страница.*\)"
     r")$"
 )
-# Строки-индексы алфавита и фильтров: «B D G H I P Q R U V А Б И К М Р С У Ш».
+# Строки-индексы алфавита и фильтров: «B D G H I P Q R U V А Б �? К М Р С У Ш».
 LETTER_INDEX = re.compile(r"^(?:[A-Za-zА-Яа-яЁё]\s+){3,}[A-Za-zА-Яа-яЁё]$")
 # Метаданные статьи: уже вынесены в шапку файла, в тексте дублируются.
 META_LINE = re.compile(r"^(?:Product|Version):\s")
@@ -109,6 +127,13 @@ NOISE_SELECTOR = (
 BOILERPLATE_TAGS = ("script", "style", "nav", "footer", "header", "aside", "form", "noscript")
 
 CAPTCHA_MARKERS = ("smartcaptcha", "captcha.js", "window.onYandexSmartCaptchaLoad")
+
+# SPA отдаёт страницу «не найдено» с кодом 200 — узнаём её по тексту.
+NOT_FOUND_MARKERS = (
+    "ошибка 404",
+    "страница не найдена",
+    "page not found",
+)
 MIN_BODY = 300          # ниже этого страница считается навигационной, файл не пишем
 REPORT_MIN = 120        # ниже этого — пустышка (SPA-оболочка), помечаем отдельно
 
@@ -136,6 +161,16 @@ def slugify(text: str, limit: int = 60) -> str:
 
 def short_hash(text: str, size: int = 6) -> str:
     return hashlib.sha1(text.encode("utf-8", "replace")).hexdigest()[:size]
+
+
+def source_label(url: str) -> str:
+    """Человеческая подпись источника — видна в шапке каждого файла."""
+    host = urlparse(url).netloc.lower()
+    if host.startswith("docs."):
+        return "портал документации"
+    if host.endswith("usergate.com"):
+        return "основной сайт"
+    return host or "—"
 
 
 def canonical_url(url: str) -> str:
@@ -230,6 +265,68 @@ class Fetcher:
 
     def close(self) -> None:
         self.client.close()
+
+
+def find_browser() -> Optional[str]:
+    """Установленный браузер для рендера SPA-страниц."""
+    for candidate in BROWSER_CANDIDATES:
+        if Path(candidate).is_file():
+            return candidate
+    for name in ("chrome", "chromium", "google-chrome", "msedge"):
+        found = shutil.which(name)
+        if found:
+            return found
+    return None
+
+
+def render_page(browser: str, url: str, work_dir: Path, timeout: int = 60) -> Tuple[int, str]:
+    """Открывает страницу в headless-браузере и возвращает отрендеренный HTML.
+
+    �?спользуется именно браузер, а не подмена user-agent: сервер отдаёт
+    содержимое только поисковым роботам, и выдавать себя за них не следует.
+    Вывод пишется в файл, а не в канал: так работает в ограниченном окружении.
+    """
+    work_dir.mkdir(parents=True, exist_ok=True)
+    dump = work_dir / f"render-{short_hash(url, 8)}.html"
+    command = [
+        browser,
+        "--headless=new",
+        "--disable-gpu",
+        # Chrome не может поднять собственную песочницу внутри уже ограниченного
+        # процесса агента (падает с STATUS_BREAKPOINT), поэтому она отключена.
+        # Компенсация: отдельный профиль, временный каталог, только чтение
+        # публичных страниц и никакого ввода данных.
+        "--no-sandbox",
+        "--disable-dev-shm-usage",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "--disable-extensions",
+        "--disable-background-networking",
+        "--disable-sync",
+        "--mute-audio",
+        "--hide-scrollbars",
+        "--virtual-time-budget=6000",
+        f"--user-data-dir={work_dir / 'profile'}",
+        "--dump-dom",
+        url,
+    ]
+    try:
+        with dump.open("wb") as handle:
+            subprocess.run(
+                command,
+                stdout=handle,
+                stderr=subprocess.DEVNULL,
+                timeout=timeout,
+                check=False,
+            )
+    except (subprocess.TimeoutExpired, OSError):
+        dump.unlink(missing_ok=True)
+        return 0, ""
+    if not dump.is_file():
+        return 0, ""
+    html = dump.read_text(encoding="utf-8", errors="replace").lstrip("\ufeff")
+    dump.unlink(missing_ok=True)
+    return (200 if html.strip() else 0), html
 
 
 def urls_from_sitemap(fetcher: Fetcher, sitemap: str, hosts: List[str]) -> List[str]:
@@ -354,8 +451,10 @@ def parse_page(page: Page, html: str, full_url: str) -> None:
     body_node = (
         soup.select_one("#content_div div.contentMain")
         or soup.select_one("div.contentMain")
+        or soup.select_one("main.page-content")
         or soup.select_one("article")
         or soup.select_one("main")
+        or soup.select_one("[role=main]")
         or soup.body
     )
     if body_node is None:
@@ -474,6 +573,7 @@ def write_markdown(page: Page, docs_dir: Path) -> Path:
         "---",
         f"заголовок: {page.title}",
         f"url: {page.url}",
+        f"источник: {source_label(page.url)}",
         f"получено: {datetime.now(timezone.utc).astimezone().strftime('%Y-%m-%d %H:%M %z')}",
     ]
     if page.product:
@@ -494,17 +594,19 @@ def write_markdown(page: Page, docs_dir: Path) -> Path:
         header.append(f"крошки: {' / '.join(page.crumbs)}")
     header.append("---")
 
-    text = "\n".join(header) + f"\n\n# {page.title}\n\n{page.body}\n\n## Источник\n\n{page.url}\n"
+    text = "\n".join(header) + f"\n\n# {page.title}\n\n{page.body}\n\n## �?сточник\n\n{page.url}\n"
     path.write_text(text, encoding="utf-8")
     return path
 
 
+REPORT_COLUMNS = [
+    "url", "статус", "код", "символов", "заголовок", "продукт", "версия",
+    "раздел", "id_статьи", "обновлено", "ревизия", "бакет", "файл", "хэш", "примечание",
+]
+
+
 def write_report(rows: List[Dict[str, str]], path: Path) -> None:
     """Пишет реестр, сохраняя результаты прошлых запусков (докатка не теряет данные)."""
-    columns = [
-        "url", "статус", "код", "символов", "заголовок", "продукт", "версия",
-        "раздел", "id_статьи", "обновлено", "ревизия", "бакет", "файл", "хэш", "примечание",
-    ]
     merged: Dict[str, Dict[str, str]] = {}
     order: List[str] = []
     if path.is_file():
@@ -523,13 +625,14 @@ def write_report(rows: List[Dict[str, str]], path: Path) -> None:
             continue
         if url not in merged:
             order.append(url)
-        merged[url] = {**merged.get(url, {}), **row}
+        # Строка приходит целиком, поэтому старые значения полей не «просвечивают».
+        merged[url] = {key: row.get(key, "") for key in REPORT_COLUMNS}
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=columns, delimiter=";")
+        writer = csv.DictWriter(handle, fieldnames=REPORT_COLUMNS, delimiter=";")
         writer.writeheader()
         for url in order:
-            writer.writerow({key: merged[url].get(key, "") for key in columns})
+            writer.writerow({key: merged[url].get(key, "") for key in REPORT_COLUMNS})
 
 
 def read_report(path: Path) -> List[Dict[str, str]]:
@@ -616,17 +719,21 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--workers", type=int, default=2, help="параллельных загрузок")
     parser.add_argument("--dry", action="store_true", help="только показать список URL")
     parser.add_argument("--fresh", action="store_true", help="игнорировать состояние обхода")
+    parser.add_argument("--render", action="store_true",
+                        help="рендерить страницы в браузере (для SPA)")
     args = parser.parse_args(argv)
 
     if not args.profile and not args.url:
         parser.error("нужен --profile или --url")
 
+    render_mode = args.render
     if args.profile:
         profile = PROFILES[args.profile]
         start = str(profile["start"])
         sitemap = str(profile["sitemap"])
         hosts = list(profile["hosts"])          # type: ignore[arg-type]
         default_bucket = str(profile["bucket"])
+        render_mode = render_mode or bool(profile.get("render"))
         log(f"Профиль: {args.profile} — {profile['note']}")
     else:
         parsed = urlparse(args.url)
@@ -642,6 +749,20 @@ def main(argv: Optional[List[str]] = None) -> int:
     stamp = datetime.now().strftime("%Y-%m-%d")
     state_path = meta_dir / f".crawl-state-{args.profile or 'custom'}.json"
     state = {} if args.fresh else load_state(state_path)
+
+    browser: Optional[str] = None
+    # Профиль браузера держим в системном временном каталоге: Chrome активно
+    # создаёт и удаляет файлы у себя в профиле, а в рабочей папке это упирается
+    # в ограничения файловой системы.
+    render_dir = Path(tempfile.gettempdir()) / "partner-crawler-render"
+    if render_mode:
+        browser = find_browser()
+        if not browser:
+            log("! не найден Chrome или Edge — рендер невозможен")
+            return 2
+        log(f"Рендер браузером: {browser}")
+        log("  режим однопоточный: у браузера один профиль и одна страница за раз")
+        args.workers = 1
 
     fetcher = Fetcher(delay=args.delay)
     try:
@@ -702,7 +823,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         errors: List[str] = []
         # Продолжаем только с тех страниц, которые уже дали результат:
         # ошибки и пустышки пробуем снова.
-        DONE_STATES = {"собрано", "навигация", "дубль"}
+        DONE_STATES = {"собрано", "навигация", "дубль", "404"}
         queue = [url for url in prepared if state.get(url) not in DONE_STATES]
         log(f"  уже собрано ранее: {len(prepared) - len(queue)}, в очереди: {len(queue)}")
 
@@ -712,29 +833,47 @@ def main(argv: Optional[List[str]] = None) -> int:
 
         def work(url: str) -> Dict[str, str]:
             page = Page(url=url)
-            row: Dict[str, str] = {"url": url, "бакет": default_bucket}
-            try:
-                response = fetcher.get(url)
-            except RuntimeError as exc:
-                row.update({"статус": "ошибка", "примечание": str(exc)[:80]})
-                return row
-            page.status = response.status_code
-            row["код"] = str(response.status_code)
-            if response.status_code != 200:
-                row["статус"] = "ошибка"
-                row["примечание"] = f"HTTP {response.status_code}"
-                return row
-            if len(response.content) > MAX_BYTES:
-                row["статус"] = "пропуск"
-                row["примечание"] = "файл больше лимита"
-                return row
-            content_type = response.headers.get("content-type", "")
-            if "html" not in content_type:
-                row["статус"] = "пропуск"
-                row["примечание"] = f"тип {content_type[:30]}"
-                return row
+            # Все поля задаём сразу: при слиянии реестра не остаётся старых значений.
+            row: Dict[str, str] = {key: "" for key in REPORT_COLUMNS}
+            row["url"] = url
+            row["бакет"] = default_bucket
 
-            parse_page(page, response.text, url)
+            if render_mode:
+                status, html = render_page(browser or "", url, render_dir)
+                page.status = status
+                row["код"] = "render"
+                if not html or status != 200:
+                    row["статус"] = "ошибка"
+                    row["примечание"] = "браузер не отрендерил страницу"
+                    return row
+                if len(html) > MAX_BYTES * 4:
+                    row["статус"] = "пропуск"
+                    row["примечание"] = "страница больше лимита"
+                    return row
+            else:
+                try:
+                    response = fetcher.get(url)
+                except RuntimeError as exc:
+                    row.update({"статус": "ошибка", "примечание": str(exc)[:80]})
+                    return row
+                page.status = response.status_code
+                row["код"] = str(response.status_code)
+                if response.status_code != 200:
+                    row["статус"] = "ошибка"
+                    row["примечание"] = f"HTTP {response.status_code}"
+                    return row
+                if len(response.content) > MAX_BYTES:
+                    row["статус"] = "пропуск"
+                    row["примечание"] = "файл больше лимита"
+                    return row
+                content_type = response.headers.get("content-type", "")
+                if "html" not in content_type:
+                    row["статус"] = "пропуск"
+                    row["примечание"] = f"тип {content_type[:30]}"
+                    return row
+                html = response.text
+
+            parse_page(page, html, url)
             page.bucket = classify(page, default_bucket)
             detect_product(page, hosts)
             row.update({
@@ -757,6 +896,13 @@ def main(argv: Optional[List[str]] = None) -> int:
                 if done % 25 == 0 or done == len(queue):
                     speed = done / max(time.monotonic() - started, 0.1)
                     log(f"  {done}/{len(queue)} · {speed:.1f} стр/с")
+
+            # Мёртвая ссылка из карты сайта: SPA отдаёт «Ошибка 404» с кодом 200.
+            probe = f"{page.title} {page.body[:400]}".lower()
+            if any(marker in probe for marker in NOT_FOUND_MARKERS):
+                row["статус"] = "404"
+                row["примечание"] = "страница не найдена на сайте"
+                return row
 
             if len(page.body) < REPORT_MIN:
                 row["статус"] = "пустышка"
@@ -803,9 +949,12 @@ def main(argv: Optional[List[str]] = None) -> int:
     write_report(rows, report_path)
     all_rows = read_report(report_path)
     bucket_files = write_bucket_rows(all_rows, out_dir, stamp)
-    sitemap_path = docs_dir / "site-map.md"
+    # Карта отдельная на каждый сайт: иначе обход одного профиля затирает карту другого.
+    sitemap_path = docs_dir / f"site-map-{args.profile or 'custom'}.md"
     write_site_map(all_rows, sitemap_path)
     save_state(state_path, state)
+    if render_mode and render_dir.is_dir():
+        shutil.rmtree(render_dir, ignore_errors=True)   # профиль браузера больше не нужен
 
     counts: Dict[str, int] = {}
     for row in rows:
@@ -829,3 +978,4 @@ def main(argv: Optional[List[str]] = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+

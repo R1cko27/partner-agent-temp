@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка работы с вышестоящими прокси-серверами
 url: https://docs.usergate.com/nastrojka-raboty-s-vyshestoyashimi-proksi-serverami_972.html
+источник: портал документации
 получено: 2026-11-20 16:17 +0700
 продукт: NGFW
 версия: 7.x

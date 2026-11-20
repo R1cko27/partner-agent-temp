@@ -1,6 +1,7 @@
 ---
 заголовок: Настройка VPN с передачей маршрутов по OSPF для своевременного переключения активного туннеля
 url: https://docs.usergate.com/nastrojka-vpn-s-peredachej-marshrutov-po-ospf-dlya-svoevremennogo-pereklyucheniya-aktivnogo-tunnelya_1316.html
+источник: портал документации
 получено: 2026-11-20 16:12 +0700
 продукт: NGFW
 версия: 6.x, 7.x
