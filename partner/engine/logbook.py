@@ -49,7 +49,11 @@ def _rotate_if_needed(path: Path) -> None:
 
 def write_log(text: str) -> None:
     """Печатает строку в консоль и дописывает в файл лога."""
-    print(text, flush=True)
+    try:
+        print(text, flush=True)
+    except (UnicodeEncodeError, OSError):
+        # Консоль с однобайтовой кодировкой не должна ронять сборку индекса.
+        pass
     path = log_path()
     if path is None:
         return

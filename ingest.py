@@ -20,6 +20,13 @@ import sys
 import time
 from pathlib import Path
 
+# Русская консоль Windows отдаёт cp1251, а логи содержат «→» и «·».
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except (AttributeError, ValueError):
+        pass
+
 from partner import compat  # noqa: F401  (патчи временных каталогов)
 from partner.config import Settings
 from partner.domain.loaders import build_knowledge
