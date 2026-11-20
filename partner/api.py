@@ -64,7 +64,7 @@ class Runtime:
     def load(self) -> None:
         index_dir = self.settings.index_dir
         if not (index_dir / "chunks.json").exists():
-            raise RuntimeError("Индекс не найден. Соберите его: python ingest.py")
+            raise RuntimeError("Индекс не найден. Соберать индекс: python ingest.py")
 
         if self.settings.use_dense:
             try:
