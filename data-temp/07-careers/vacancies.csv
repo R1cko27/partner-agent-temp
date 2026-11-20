@@ -1,7 +1,28 @@
-id;дата;направление;город;формат;требования_кратко;url;что_берём;куда;статус
-ПРИМЕР-01;—;Инженер по информационной безопасности;Новосибирск;офис;опыт с NGFW;https://usergate.com/careers;направления найма;about/;не_начат
-ПРИМЕР-02;—;Разработчик C++;Новосибирск;офис/гибрид;системное программирование;https://usergate.com/careers;технологический стек;about/;не_начат
-ПРИМЕР-03;—;Инженер технической поддержки;Москва;офис;знание продуктов;https://usergate.com/careers;структура поддержки;about/;не_начат
-ПРИМЕР-04;—;Стажировка для студентов;Новосибирск;офис;вуз-партнёр;https://usergate.com/careers;условия стажировок;faq/education.md;не_начат
-ПРИМЕР-05;—;Менеджер по работе с партнёрами;Москва;офис;опыт в канале;https://usergate.com/careers;структура партнёрского направления;about/partners.md;не_начат
-ПРИМЕР-06;—;Преподаватель Академии;—;гибрид;практический опыт;https://usergate.com/academy;кто ведёт курсы;faq/education.md;не_начат
+1;2026-11-20;Программист 1С;Новосибирск;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+2;2026-11-20;Системный программист ядра (Linux-like);Новосибирск;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+3;2026-11-20;Системный программист ядра (Linux-like systems);Санкт-Петербург;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+4;2026-11-20;Senior QA Automation Engineer (Python);Санкт-Петербург;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+5;2026-11-20;Сетевой инженер службы технической поддержки UserGate;Москва;Полная;Опыт работы: От 1 года до 3 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+6;2026-11-20;Сетевой инженер службы технической поддержки UserGate;Новосибирск;Полная;Опыт работы: От 1 года до 3 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+7;2026-11-20;Системный программист ядра (Linux-like) в г. Минск;Минск;Полная;Опыт работы: Более 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+8;2026-11-20;Системный программист (Linux-like systems, kernel);Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+9;2026-11-20;Сетевой инженер службы технической поддержки;Санкт-Петербург;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+10;2026-11-20;Сетевой инженер (Senior);Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+11;2026-11-20;Application Security Engineer;Новосибирск;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+12;2026-11-20;Application Security Engineer;Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+13;2026-11-20;Application Security Engineer;Санкт-Петербург;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+14;2026-11-20;Эксперт по сертификации СЗИ (по линии ФСТЭК России);Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+15;2026-11-20;Сервис-менеджер;Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+16;2026-11-20;Rust-developer;Минск;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+17;2026-11-20;Методолог-преподаватель корпоративных курсов (uAcademy, UserGate);Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+18;2026-11-20;Product Marketing Manager (SIEM);Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+19;2026-11-20;Менеджер продукта в ИБ;Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+20;2026-11-20;Менеджер продукта в ИБ;Санкт-Петербург;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+21;2026-11-20;Менеджер продукта в ИБ;Новосибирск;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+22;2026-11-20;Scrum - мастер;Новосибирск;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+23;2026-11-20;Network Control Plane Developer;Москва;Полная;Опыт работы: Более 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+24;2026-11-20;Network Control Plane Developer;Новосибирск;Полная;Опыт работы: Более 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+25;2026-11-20;System Analyst;Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+26;2026-11-20;Scrum - мастер;Санкт-Петербург;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+27;2026-11-20;Solution Sales Manager / Менеджер по развитию продаж ГОСТ VPN и СКЗИ;Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
+28;2026-11-20;Инженер виртуализации;Москва;Полная;Опыт работы: От 3 до 6 лет;https://usergate.com/company/career;Название вакансии, город, опыт и формат работы;mailto:job@usergate.com;Актуально
