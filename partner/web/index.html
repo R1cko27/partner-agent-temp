@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Partner-Agent — ассистент по компании-партнёру</title>
+  <script>
+    try {
+      if (localStorage.getItem('partner.notes') === '0') {
+        document.documentElement.classList.add('notes-off');
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/static/app.css?v=46" />
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <span class="brand-mark">PA</span>
+          <span class="brand-name">partner&nbsp;agent</span>
+        </div>
+        <button class="icon-btn" id="collapseBtn" title="Свернуть панель" aria-label="Свернуть панель">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M4 6h16M4 12h10M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <button class="new-chat" id="newChatBtn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+        Новый чат
+      </button>
+
+      <nav class="sessions" id="sessions" aria-label="История чатов"></nav>
+
+      <div class="sidebar-foot">
+        <div class="mode-switch" id="modeSwitch" role="group" aria-label="Режим ответа">
+          <button type="button" class="mode-option active" data-mode="auto" title="Сложность определит модель: простой вопрос — быстро, сложный — с размышлением">Авто</button>
+          <button type="button" class="mode-option" data-mode="thinking">Мышление</button>
+          <button type="button" class="mode-option" data-mode="fast" title="Быстрый ответ без размышлений и плана, с экономией токенов">Быстро</button>
+        </div>
+        <label class="switch-row" for="notesToggle" title="Выключить — клиентский режим: без источников, размышлений и действий">
+          <span>Служебные примечания</span>
+          <span class="switch">
+            <input type="checkbox" id="notesToggle" checked />
+            <span class="slider"></span>
+          </span>
+        </label>
+        <label class="switch-row" for="cacheToggle" title="Выключить — каждый вопрос заново идёт в модель, без готовых ответов из кэша">
+          <span>Кэш ответов</span>
+          <span class="switch">
+            <input type="checkbox" id="cacheToggle" checked />
+            <span class="slider"></span>
+          </span>
+        </label>
+        <div class="kb-line" id="kbLine">загрузка…</div>
+        <div class="mode-line">
+          <span class="dot" id="modeDot"></span>
+          <span id="modeText">проверка…</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn" id="menuBtn" aria-label="Меню">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <div class="topbar-title" id="topbarTitle">Новый чат</div>
+        <div class="topbar-right">
+          <button class="icon-btn theme-toggle" id="themeToggle" type="button" title="Переключить тему" aria-label="Переключить тему">
+            <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+            </svg>
+          </button>
+          <span class="chip" id="modelChip">—</span>
+        </div>
+      </header>
+
+      <div class="thread" id="thread">
+        <div class="empty" id="empty">
+          <span class="empty-mark" id="emptyMark" aria-hidden="true">VS</span>
+          <h1>Чем помочь?</h1>
+          <p>Спросите о компании: продукты, команда, условия работы, новости и частые вопросы.</p>
+          <div class="examples" id="examples"></div>
+        </div>
+      </div>
+
+      <div class="composer-wrap">
+        <form class="composer" id="composer" autocomplete="off">
+          <button class="scroll-bottom hidden" id="scrollBottom" type="button" aria-label="К последнему сообщению">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <textarea id="input" rows="1" maxlength="4000"
+            placeholder="Спросите о компании, продуктах или условиях работы…"></textarea>
+          <button type="submit" class="send" id="sendBtn" title="Отправить (Enter)">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 18V6M6.5 11.5 12 6l5.5 5.5" />
+            </svg>
+          </button>
+          <button type="button" class="stop hidden" id="stopBtn" title="Остановить">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2" /></svg>
+          </button>
+        </form>
+        <div class="composer-hint">
+          <span id="hintText">Ассистент может допускать ошибки. Уточняйте важную информацию.</span>
+          <span id="thinkingHint" class="thinking-hint hidden" role="status">агент думает…</span>
+        </div>
+      </div>
+    </main>
+
+    <aside class="question-nav" id="questionNav" aria-label="Вопросы в чате">
+      <div class="question-rail" id="questionRail" aria-hidden="true"></div>
+      <div class="question-panel">
+        <nav class="question-list" id="questionList"></nav>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="backdrop hidden" id="backdrop"></div>
+  <div class="lightbox hidden" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">&times;</button>
+    <img id="lightboxImg" alt="" />
+  </div>
+  <script src="/static/app.js?v=46"></script>
+</body>
+</html>
