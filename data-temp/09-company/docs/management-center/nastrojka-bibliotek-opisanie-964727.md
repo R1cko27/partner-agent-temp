@@ -1,0 +1,303 @@
+---
+заголовок: Настройка библиотек (Описание)
+url: https://docs.usergate.com/nastrojka-bibliotek-(opisanie)_1410.html
+получено: 2026-11-20 16:31 +0700
+продукт: Management Center
+версия: 7.x
+раздел: Настройка библиотек
+id_статьи: 1410
+обновлено: 21 Mar, 2024
+ревизия: 8
+крошки: Главная / Документация / Management Center / Management Center 7.x Руководство администратора / Интерфейс командной строки / Настройка библиотек / Настройка библиотек (Описание)
+---
+
+# Настройка библиотек (Описание)
+
+Содержание:
+Documentation:
+Настройка IP-адресов
+Данный раздел находится на уровне
+libraries ip-list
+Для создания группы IP-адресов используется следующая команда:
+Admin/system@nodename# create libraries ip-list <parameter>
+Далее необходимо задать следующие параметры:
+Параметр
+Описание
+name
+Название списка адресов.
+description
+Описание списка.
+threat-lvl
+Уровень угрозы:
+very-low
+— очень низкий уровень угрозы.
+low
+— низкий уровень угрозы.
+medium
+— средний уровень угрозы.
+high
+— высокий уровень угрозы.
+very-high
+— высокий уровень угрозы.
+type
+Тип списка:
+local
+— локальный.
+updatable
+— если cписок является обновляемым, то необходимо указать адрес, с которого загружаются обновления (
+url
+). Периодичность обновления списка указывается параметром
+shedule
+в формате crontab.
+Crontab-формат: (минуты: 0-59) (часы: 0-23) (дни месяца: 1-31) (месяц: 1-12) (день недели: 0-6; 0 — вс). Каждое из поле может быть задано следующим образом:
+Звездочка (*) — обозначает весь диапазон (от первого до последнего).
+Дефис (-) — обозначает диапазон чисел. Например, "5-7" будет означать 5,6 и 7.
+Списки. Это числа (или диапазоны), разделенные запятыми. Например, "1,5,10,11" или "1-11,19-23".
+Звездочка или диапазон с шагом. Используется для пропусков в диапазонах. Шаг указывается после косой черты. Например, "2-10/2" будет значить "2,4,6,8,10", а выражение "*/2" в поле "часы" будет означать "каждые два часа".
+lists
+Выбор существующих IP-листов для добавления в создаваемый лист.
+ips
+IP-адреса или диапазон IP-адресов, которые необходимо включить в список. Указывается в формате: <ip>, <ip/mask> или <ip_range_start-ip_range_end>.
+Для редактирования списка (список параметров, доступных для обновления, аналогичен списку параметров команды создания списка):
+Admin/system@nodename# set libraries ip-list <ip-list-name> <parameter>
+Чтобы добавить в список новые адреса:
+Admin/system@nodename# set libraries ip-list <ip-list-name> [ <ip1> <ip2> ... ]
+Следующие команды используются для удаления всего списка адресов или IP-адресов, содержащихся в нём:
+Admin/system@nodename# delete libraries ip-list <ip-list-name>
+Admin/system@nodename# delete libraries ip-list <ip-list-name> ips [ <ip1> <ip2>... ]
+Команда отображения информации о всех имеющихся списках:
+Admin/system@nodename# show libraries ip-list
+Чтобы отобразить информацию об определённом списке, необходимо указать название интересующего списка IP-адресов:
+Admin/system@nodename# show libraries ip-list <ip-list-name>
+Также доступен просмотр содержимого списка IP-адресов:
+Admin/system@nodename# show libraries ip-list <ip-list-name> items
+Настройка почтовых адресов
+Раздел находится на уровне
+libraries email-list
+Чтобы добавить новую группу почтовых адресов используется следующая команда:
+Admin/system@nodename#& create libraries email-list <parameter>
+Далее указываются параметры:
+Параметр
+Описание
+name
+Название группы почтовых адресов.
+description
+Описание группы почтовых адресов.
+type
+Тип списка:
+local
+— локальный.
+updatable
+— если cписок является обновляемым, то необходимо указать адрес, с которого загружаются обновления (
+url
+). Периодичность обновления списка указывается параметром
+shedule
+в формате crontab.
+Crontab-формат: (минуты: 0-59) (часы: 0-23) (дни месяца: 1-31) (месяц: 1-12) (день недели: 0-6; 0 — вс). Каждое из поле может быть задано следующим образом:
+Звездочка (*) — обозначает весь диапазон (от первого до последнего).
+Дефис (-) — обозначает диапазон чисел. Например, "5-7" будет означать 5,6 и 7.
+Списки. Это числа (или диапазоны), разделенные запятыми. Например, "1,5,10,11" или "1-11,19-23".
+Звездочка или диапазон с шагом. Используется для пропусков в диапазонах. Шаг указывается после косой черты. Например, "2-10/2" будет значить "2,4,6,8,10", а выражение "*/2" в поле "часы" будет означать "каждые два часа".
+emails
+Почтовые адреса, которые необходимо добавить в данную группу.
+Команда, предназначенная для редактирования информации о группе почтовых адресов:
+Admin/system@nodename# set libraries email-list <email-list-name> <parameter>
+Параметры, доступные для обновления, аналогичны параметрам, доступным при создании группы почтовых адресов.
+Для удаления группы или почтовых адресов из неё используются следующие команды:
+Admin/system@nodename# delete libraries email-list <email-list-name>
+Admin/system@nodename# delete libraries email-list <email-list-name> emails [ <email> ... ]
+Следующие команды используются для просмотра информации о всех созданных группах, об определённых группах или для просмотра почтовых адресов, входящих в группу:
+Admin/system@nodename# show libraries email-list
+Admin/system@nodename# show libraries email-list <email-list-name>
+Admin/system@nodename# show libraries email-list <email-list-name> emails
+Настройка номеров телефонов
+Настройка раздела
+Номера телефонов
+производится на уровне
+libraries phone-list
+Для создания группы телефонных номеров:
+Admin/system@nodename# create libraries phone-list <parameter>
+Далее необходимо указать следующие данные:
+Параметр
+Описание
+name
+Название группы телефонных номеров.
+description
+Описание группы телефонных номеров.
+type
+Тип списка:
+local
+— локальный.
+updatable
+— если cписок является обновляемым, то необходимо указать адрес, с которого загружаются обновления (
+url
+). Периодичность обновления списка указывается параметром
+shedule
+в формате crontab.
+Crontab-формат: (минуты: 0-59) (часы: 0-23) (дни месяца: 1-31) (месяц: 1-12) (день недели: 0-6; 0 — вс). Каждое из поле может быть задано следующим образом:
+Звездочка (*) — обозначает весь диапазон (от первого до последнего).
+Дефис (-) — обозначает диапазон чисел. Например, "5-7" будет означать 5,6 и 7.
+Списки. Это числа (или диапазоны), разделенные запятыми. Например, "1,5,10,11" или "1-11,19-23".
+Звездочка или диапазон с шагом. Используется для пропусков в диапазонах. Шаг указывается после косой черты. Например, "2-10/2" будет значить "2,4,6,8,10", а выражение "*/2" в поле "часы" будет означать "каждые два часа".
+phones
+Номера телефонов, которые необходимо добавить в данную группу.
+Для редактирования информации о группе телефонных номеров используется команда:
+Admin/system@nodename# set libraries phone-list <phone-list-name> <parameter>
+Параметры, доступные для обновления, представлены в таблице выше.
+Для удаления группы или номеров телефонов из неё используются следующие команды:
+Admin/system@nodename# delete libraries phone-list <phone-list-name>
+Admin/system@nodename# delete libraries phone-list <phone-list-name> phones [ <phone> ... ]
+Следующие команды используются для просмотра информации о всех созданных группах:
+Admin/system@nodename# show libraries phone-list
+или об определённых группах телефонных номеров:
+Admin/system@nodename# show libraries phone-list <phone-list-name>
+Для просмотра номеров, содержащихся в группе, используется команда:
+Admin/system@nodename# show libraries phone-list <phone-list-name> phones
+Настройка профилей оповещений
+Профили оповещений SMTP (по email) и SMPP (по SMS) настраиваются на уровне
+libraries notification-profiles
+Для добавления нового профиля оповещения SMTP:
+Admin/system@nodename# create libraries notification-profiles smtp <parameter>
+Далее необходимо указать:
+Параметр
+Описание
+name
+Название профиля.
+description
+Описание профиля.
+host
+IP-адрес или FQDN сервера SMTP, который будет использоваться для отсылки почтовых сообщений.
+port
+Порт TCP, используемый сервером SMTP. Обычно для протокола SMTP используется порт 25, для SMTP с использованием SSL — 465. Уточните данное значение у администратора почтового сервера.
+connection-security
+Варианты безопасности отправки почты; возможны варианты:
+none
+starttls
+ssl
+authentication
+Включение/отключение авторизации при подключении к серверу SMTP:
+off
+login
+Имя учётной записи для подключения к SMTP-серверу.
+password
+Пароль учётной записи для подключения к SMTP-серверу.
+Для создания профиля оповещения по SMS (SMPP):
+Admin/system@nodename# create libraries notification-profiles smpp <parameter>
+Далее необходимо указать значения следующих параметров:
+Параметр
+Описание
+name
+Название профиля.
+description
+Описание профиля.
+host
+IP-адрес или FQDN сервера SMPP, который будет использоваться для отсылки SMS.
+port
+Порт TCP, который используется для подключения к серверу SMPP. Обычно для протокола SMPP используется порт 2775; при использовании SSL — 3550.
+ssl
+Включение/отключение шифрования SSL:
+off
+login
+Имя учётной записи для подключения к SMPP-серверу.
+password
+Пароль учётной записи для подключения к SMPP-серверу.
+phone-translation-rules
+Правила трансляции телефонных номеров. Правила используются для соответствия требованиям провайдера.
+Например, если необходимо заменить все номера, начинающиеся на +7, на 8:
+Admin/system@nodename# set libraries notification-profiles smpp <profile-name> phone-translation-rules + [ +7¦8 ]
+source-ton
+Тип номера (Type of Number) для источника сообщения:
+0
+— Unknown (Неизвестный).
+1
+— International (Международный).
+2
+— National (Государственный).
+3
+— Network Specific (Сетевой Специальный).
+4
+— Subscriber Number (Номер абонента).
+5
+— Alphanumeric (Алфавитно-цифровой).
+6
+— Abbreviated (Сокращённый).
+dest-ton
+Тип номера (Type of Number) для адресата:
+0
+— Unknown (Неизвестный).
+1
+— International (Международный).
+2
+— National (Государственный).
+3
+— Network Specific (Сетевой Специальный).
+4
+— Subscriber Number (Номер абонента).
+5
+— Alphanumeric (Алфавитно-цифровой).
+6
+— Abbreviated (Сокращённый).
+source-npi
+Индикатор схемы присвоения номеров (Numbering Plan Indicator) для источника:
+0
+— Unknown.
+1
+— ISDN/telephone numbering plan (E.163/E.164).
+3
+— Data numbering plan (X.121).
+4
+— Telex numbering plan (F.69).
+6
+— Land Mobile (E.212).
+8
+— National numbering plan.
+9
+— Private numbering plan.
+10
+— ERMES numbering plan (ETSI DE/PS 3 01-3).
+13
+— Internet (IP).
+18
+— WAP Client Id (to be defined by WAP Forum).
+dest-npi
+Индикатор схемы присвоения номеров (Numbering Plan Indicator) для адресата:
+0
+— Unknown.
+1
+— ISDN/telephone numbering plan (E.163/E.164).
+3
+— Data numbering plan (X.121).
+4
+— Telex numbering plan (F.69).
+6
+— Land Mobile (E.212).
+8
+— National numbering plan.
+9
+— Private numbering plan.
+10
+— ERMES numbering plan (ETSI DE/PS 3 01-3).
+13
+— Internet (IP).
+18
+— WAP Client Id (to be defined by WAP Forum).
+Для редактирования профиля оповещения используется команда:
+Admin/system@nodename# set libraries notification-profiles <smtp | smpp> <profile-name> <parameter>
+Параметры профилей SMTP и SMPP, доступные для изменения, представлены в соответствующих таблицах выше.
+Для удаления профиля:
+Admin/system@nodename# delete libraries notification-profiles <smtp | smpp> <profile-name>
+Также для профилей оповещений SMPP доступно удаления правил трансляции номеров:
+Admin/system@nodename# delete libraries notification-profiles smpp <profile-name> phone-translation-rules [ phone1¦phone2 ]
+Следующие команды предназначены для отображения информации о всех имеющихся профилях оповещений:
+Admin/system@nodename# show libraries notification-profiles
+о всех профилях одного типа:
+Admin/system@nodename# show libraries notification-profiles <smtp | smpp>
+об определённом профиле оповещения:
+Admin/system@nodename#show libraries notification-profiles <smtp | smpp> <profile-name>
+v7.x
+Настройка библиотек
+Управление областями
+
+## Источник
+
+https://docs.usergate.com/nastrojka-bibliotek-(opisanie)_1410.html

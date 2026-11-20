@@ -43,6 +43,7 @@ partner-agent/
 │   ├── 09-company/           # «сырые» материалы по папкам как в data/company
 │   └── 10-templates/         # шаблоны карточек и JSON-конфигов
 ├── tools/data_audit.py       # проверка базы перед сборкой индекса
+├── tools/crawl_site.py       # обход сайта и раскладка материалов в data-temp
 ├── partner/
 │   ├── config.py           # настройки, провайдер модели, пути
 │   ├── engine/             # RAG-движок
@@ -113,6 +114,24 @@ python tools/data_audit.py --check-urls  # плюс доступность URL �
 
 Скрипт ловит невалидный JSON, битые Q/A-пары, запрещённые артефакты вроде
 обрывков поисковой выдачи и падение числа продуктов или FAQ.
+
+### Обход сайта
+
+`tools/crawl_site.py` собирает материалы сайта в `data-temp/` — в `data/company/`
+он не пишет и индекс не меняет:
+
+```bash
+python tools/crawl_site.py --profile usergate-docs --dry      # что будет обойдено
+python tools/crawl_site.py --profile usergate-docs --limit 30 # пробный обход
+python tools/crawl_site.py --profile usergate-docs            # полный обход
+```
+
+Инструмент соблюдает `robots.txt`, берёт список страниц из `sitemap.xml`,
+вычищает шаблон страницы (меню, «Поделиться», подсказки BBCode, счётчики),
+вытаскивает продукт, версию, раздел, `ID статьи` и ревизию, отбрасывает дубли
+и пустые SPA-оболочки. Результат: чистый Markdown по продуктам, реестр обхода,
+карта разделов и готовые строки CSV для каталогов `data-temp/01-web/`.
+Повторный запуск продолжает с места остановки.
 
 ## Гибридность: профиль компании в `agent.json`
 
