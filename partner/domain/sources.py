@@ -23,6 +23,10 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 SUPPORTED_EXTENSIONS = {".md", ".txt", ".html", ".htm", ".pdf", ".docx", ".json", ".csv"}
 
+# Ссылка внутри материала — это адрес источника. Из неё извлекается и адрес
+# страницы, и канал (t.me/канал/123 → канал), если он есть в тексте.
+_URL_RE = re.compile(r"https?://[^\s)\]>»«\"']+")
+
 # Папка → тип документа. Если папки нет, документ считается материалом.
 FOLDER_KIND = {
     "about": "about",
@@ -64,6 +68,22 @@ def _clean(text: str) -> str:
     text = _WS_RE.sub(" ", text)
     text = _BLANK_RE.sub("\n\n", text)
     return text.strip()
+
+
+def _first_url(text: str) -> str:
+    """Адрес источника: сначала строка «Источник: …», иначе первый URL в тексте.
+
+    Именно строка «Источник» указывает на страницу или пост, тогда как первый
+    URL может быть внутренней ссылкой из середины материала.
+    """
+    marker = re.search(r"(?im)^\s*(?:источник|ссылка|url)\s*:\s*(https?://\S+)", text or "")
+    if marker:
+        return marker.group(1).rstrip(".,;:»\"'")
+    for match in _URL_RE.findall(text or ""):
+        clean = match.rstrip(".,;:»\"'")
+        if clean.startswith(("http://", "https://")):
+            return clean
+    return ""
 
 
 def kind_for_path(path: Path, root: Path) -> str:
@@ -158,7 +178,7 @@ def read_file(path: Path, root: Path) -> Optional[RawSource]:
         text=text,
         kind=kind_for_path(path, root),
         origin=path.relative_to(root).as_posix(),
-        metadata={"size": path.stat().st_size},
+        metadata={"size": path.stat().st_size, "url": _first_url(text)},
     )
 
 

@@ -32,6 +32,7 @@ class Entities:
     products: Dict[str, Dict[str, Any]] = field(default_factory=dict)
     people: Dict[str, Dict[str, Any]] = field(default_factory=dict)
     faq: List[Dict[str, Any]] = field(default_factory=list)
+    glossary: List[Dict[str, Any]] = field(default_factory=list)
     news: List[Dict[str, Any]] = field(default_factory=list)
 
     def as_dict(self) -> Dict[str, Any]:
@@ -40,6 +41,7 @@ class Entities:
             "products": self.products,
             "people": self.people,
             "faq": self.faq,
+            "glossary": self.glossary,
             "news": self.news,
         }
 
@@ -117,13 +119,16 @@ def company_document(profile: Dict[str, Any], sources: List[RawSource]) -> Optio
 
 def _product_document(source: RawSource) -> Document:
     name = source.title
+    # Карточка идёт в индекс целиком: версии, кластеры и параметры живут
+    # в нижних разделах, а не в первом абзаце.
     return Document(
         doc_id=f"product-{_slug(name)}",
-        text=f"Продукт {name}\n{_first_paragraph(source.text, 1200)}\nИсточник: {source.origin}",
+        text=f"Продукт {name}\n{source.text.strip()}\nИсточник: {source.origin}",
         kind="product",
         title=f"Продукт {name}",
         source=source.origin,
         entities={"product": name},
+        metadata={"url": str(source.metadata.get("url") or "")},
     )
 
 
@@ -180,11 +185,15 @@ def _faq_documents(source: RawSource) -> List[Document]:
 
 def _news_document(source: RawSource) -> Document:
     date = _date_of(source.text) or _date_of(source.origin)
+    link = str(source.metadata.get("url") or "")
     return Document(
         doc_id=f"news-{_slug(source.title)}",
         text=(
             f"Новость: {source.title}\n"
             + (f"Дата: {date}\n" if date else "")
+            # Ссылка идёт до текста: она обрезается при сжатии карточки, а из неё
+            # выводится и адрес страницы, и канал (t.me/канал/123 → канал).
+            + (f"Ссылка: {link}\n" if link else "")
             + _first_paragraph(source.text, 900)
             + f"\nИсточник: {source.origin}"
         ),
@@ -192,7 +201,7 @@ def _news_document(source: RawSource) -> Document:
         title=source.title,
         source=source.origin,
         entities={"news": source.title},
-        metadata={"date": date},
+        metadata={"date": date, "url": link},
     )
 
 
@@ -205,6 +214,54 @@ def _plain_document(source: RawSource) -> Document:
         source=source.origin,
         entities={},
     )
+
+
+def _is_glossary(source: RawSource) -> bool:
+    marker = f"{source.title} {source.origin}".lower()
+    # glossar покрывает и «glossary», и транслит «glossarij» из краулера
+    return "глоссар" in marker or "glossar" in marker
+
+
+def _glossary_entries(text: str) -> List[Dict[str, str]]:
+    """Разбирает страницу глоссария на пары «термин — определение».
+
+    Формат страницы: строка термина без точки, затем одна или несколько строк
+    определения. Навигацию по алфавиту и одиночные буквы отбрасываем.
+    """
+    body = text
+    if body.startswith("---"):
+        parts = body.split("---", 2)
+        if len(parts) >= 3:
+            body = parts[2]
+
+    entries: List[Dict[str, str]] = []
+    term = ""
+    buffer: List[str] = []
+
+    def flush() -> None:
+        nonlocal term, buffer
+        definition = " ".join(part.strip() for part in buffer).strip()
+        if term and len(definition) > 20 and len(term) > 1:
+            entries.append({"term": term, "definition": definition[:600]})
+        buffer = []
+
+    for raw in body.splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        looks_like_term = (
+            len(line) <= 70
+            and not line.endswith((".", "!", "?", ":", ";"))
+            and line[:1].isupper()
+            and not line.lower().startswith(("все", "главная", "документация"))
+        )
+        if looks_like_term:
+            flush()
+            term = line
+        elif term:
+            buffer.append(line)
+    flush()
+    return entries
 
 
 def build_documents(
@@ -259,6 +316,14 @@ def build_documents(
                 )
             else:
                 documents.append(_plain_document(source))
+        elif _is_glossary(source):
+            # Глоссарий разбираем на термины: в общем поиске определение тонет
+            # среди 35 тысяч фрагментов, а вопрос «что такое X» ждёт его сразу.
+            entries = _glossary_entries(source.text)
+            for entry in entries:
+                entry["source"] = source.origin
+            entities.glossary.extend(entries)
+            documents.append(_plain_document(source))
         elif source.kind == "news":
             document = _news_document(source)
             entities.news.append(

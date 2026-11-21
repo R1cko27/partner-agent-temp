@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import os
+
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, Optional
@@ -102,6 +104,8 @@ class Settings:
     log_prompts: bool = False
     log_tokens: bool = False
     auto_context: bool = True
+    judge_enabled: bool = False
+    chroma_subdir: str = "chroma"
     top_k: int = 6
     max_steps: int = 3
     host: str = "127.0.0.1"
@@ -146,6 +150,8 @@ class Settings:
             log_prompts=_get_bool("LOG_PROMPTS", True),
             log_tokens=_get_bool("LOG_TOKENS", True),
             auto_context=_get_bool("AUTO_CONTEXT", True),
+            judge_enabled=_get_bool("JUDGE_ENABLED", False),
+            chroma_subdir=(os.environ.get("CHROMA_SUBDIR") or "chroma"),
             top_k=max(1, _get_int("RAG_TOP_K", 6)),
             max_steps=max(2, _get_int("AGENT_MAX_STEPS", 6)),
             host=_get("APP_HOST", "127.0.0.1"),
@@ -192,7 +198,7 @@ class Settings:
 
     @property
     def chroma_dir(self) -> Path:
-        return self.storage_dir / "chroma"
+        return self.storage_dir / (self.chroma_subdir or "chroma")
 
     @property
     def db_path(self) -> Path:

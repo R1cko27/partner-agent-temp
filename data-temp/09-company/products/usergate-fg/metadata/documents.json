@@ -1,0 +1,63 @@
+{
+  "product": "UserGate FG",
+  "slug": "usergate-fg",
+  "vendor": "UserGate",
+  "source_page": "https://docs.usergate.com/usergate-fg_2106.html",
+  "retrieved_at": "2026-11-21",
+  "documents": [
+    {
+      "id": "usergate-fg-datasheet-ru",
+      "label": "Технические характеристики",
+      "kind": "datasheet",
+      "title": "UserGate FG — Технические характеристики",
+      "url": "https://static.usergate.com/docs/overviews/usergate-fg-datasheet-ru.pdf",
+      "source_file": "source/usergate-fg-datasheet-ru.pdf",
+      "parsed_file": "parsed/usergate-fg-datasheet-ru.md",
+      "pages": 8,
+      "size_bytes": 868123,
+      "sha256": "5076f87acf711bd688a0a691800a9f34b47b4a0e57b2a4bfbe42720ebaac5e4e",
+      "has_text_layer": false,
+      "extraction": "Windows.Media.Ocr (ru), 300 dpi",
+      "version": "не указана",
+      "document_date": "не указана",
+      "parsed_chars": 7774,
+      "needs_review": true
+    },
+    {
+      "id": "instruction-usergate-fg",
+      "label": "Руководство по эксплуатации",
+      "kind": "manual",
+      "title": "UserGate FG — руководство по эксплуатации",
+      "url": "https://docs.usergate.com/hardware/instruction-usergate-fg.pdf",
+      "source_file": "source/instruction-usergate-fg.pdf",
+      "parsed_file": "parsed/instruction-usergate-fg.md",
+      "pages": 14,
+      "size_bytes": 2126120,
+      "sha256": "d7d7aa27d5d9f8978106025eb3fe22096bbfbefb6edb43023b48da2e6b7d63c3",
+      "has_text_layer": true,
+      "extraction": "pypdf 7.0.1, layout",
+      "version": "7.x",
+      "document_date": "2026/07/27",
+      "parsed_chars": 18810,
+      "needs_review": false
+    },
+    {
+      "id": "sw-update-over-pmc",
+      "label": "Обновление компонентов ПО через PMC",
+      "kind": "sw-update",
+      "title": "UserGate FG — Обновление компонентов ПО через PMC",
+      "url": "https://docs.usergate.com/hardware/sw-update-over-pmc.pdf",
+      "source_file": "source/sw-update-over-pmc.pdf",
+      "parsed_file": "parsed/sw-update-over-pmc.md",
+      "pages": 15,
+      "size_bytes": 251879,
+      "sha256": "f4c153b6cc9b96057554a344e02dd66605d8d77e1b609f3e2affe4805d5fee12",
+      "has_text_layer": true,
+      "extraction": "pypdf 7.0.1, layout",
+      "version": "7.x",
+      "document_date": "2026/07/08",
+      "parsed_chars": 14910,
+      "needs_review": false
+    }
+  ]
+}

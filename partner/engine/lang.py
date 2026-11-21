@@ -48,17 +48,26 @@ CONTEXT_HEADERS = {
 
 
 def detect_lang(text: str) -> str:
-    """'ru', 'zh' или 'latin' — по преобладающей письменности."""
+    """'ru', 'zh' или 'latin' — по преобладающей письменности.
+
+    Считаем слова, а не буквы: в русском вопросе с латинским термином
+    («Что такое Hairpin NAT?») букв латиницы больше, но язык — русский.
+    """
     text = text or ""
-    cyrillic = len(_CYRILLIC_RE.findall(text))
-    cjk = len(_CJK_RE.findall(text))
-    latin = len(_LATIN_RE.findall(text))
-    if cyrillic and cyrillic >= max(cjk, latin):
-        return "ru"
-    if cjk and cjk >= latin:
+    words = re.findall(r"[A-Za-z\u0400-\u04FF\u3040-\u30FF\u3400-\u4DBF\u4E00-\u9FFF]+", text)
+    ru_words = sum(1 for word in words if _CYRILLIC_RE.search(word))
+    zh_words = sum(1 for word in words if _CJK_RE.search(word))
+    latin_words = sum(
+        1 for word in words if not _CYRILLIC_RE.search(word) and not _CJK_RE.search(word)
+    )
+
+    if zh_words and zh_words >= max(ru_words, latin_words):
         return "zh"
-    if latin:
+    if ru_words and ru_words >= 0.5 * max(latin_words, 1):
+        return "ru"
+    if latin_words:
         return "latin"
+    # цифры и символы без букв — считаем русским по умолчанию
     return "ru"
 
 
