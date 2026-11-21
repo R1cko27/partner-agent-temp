@@ -14,6 +14,16 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 COLLECTION = "s2ze_kb"
 
 
+def _plain_vector(vector: Any) -> List[float]:
+    """Вектор в виде обычных float: Chroma не принимает np.float32 в метаданных."""
+    try:
+        import numpy as np
+
+        return np.asarray(vector, dtype="float32").reshape(-1).tolist()
+    except Exception:  # noqa: BLE001
+        return [float(value) for value in vector]
+
+
 class VectorStore:
     def __init__(self, path: Path | str, collection: str = COLLECTION) -> None:
         import chromadb
@@ -61,7 +71,7 @@ class VectorStore:
             self.collection.add(
                 ids=[chunk.id for chunk in batch_chunks],
                 documents=[chunk.text for chunk in batch_chunks],
-                embeddings=[list(vector) for vector in batch_vectors],
+                embeddings=[_plain_vector(vector) for vector in batch_vectors],
                 metadatas=[self._metadata(chunk) for chunk in batch_chunks],
             )
             added += len(batch_chunks)
@@ -79,6 +89,60 @@ class VectorStore:
         if chunk.entities:
             meta["entities"] = json.dumps(chunk.entities, ensure_ascii=False)[:1000]
         return meta
+
+    def upsert(
+        self,
+        chunks: Sequence[Any],
+        embeddings: Sequence[Sequence[float]],
+        batch_size: int = 256,
+    ) -> int:
+        """Добавляет и обновляет записи: для инкрементальной сборки.
+
+        Реализовано как delete + add: `collection.upsert` в части версий Chroma
+        падает на валидации метаданных, а `add` работает стабильно.
+        """
+        if not chunks or not embeddings:
+            return 0
+        ids = [chunk.id for chunk in chunks]
+        for start in range(0, len(ids), 500):
+            try:
+                self.collection.delete(ids=ids[start:start + 500])
+            except Exception:  # noqa: BLE001 — старых записей может не быть
+                pass
+        return self.add(chunks, embeddings, batch_size)
+
+    def delete_ids(self, ids: Sequence[str], batch_size: int = 500) -> int:
+        clean = [str(item) for item in ids if item]
+        removed = 0
+        for start in range(0, len(clean), batch_size):
+            batch = clean[start:start + batch_size]
+            try:
+                self.collection.delete(ids=batch)
+                removed += len(batch)
+            except Exception:  # noqa: BLE001
+                continue
+        return removed
+
+    def all_vectors(self, batch_size: int = 1000) -> List[Tuple[str, Any]]:
+        """Выгружает все векторы: нужен для первичного заполнения кеша."""
+        result: List[Tuple[str, Any]] = []
+        total = self.count()
+        offset = 0
+        while offset < total:
+            try:
+                page = self.collection.get(
+                    include=["embeddings"], limit=batch_size, offset=offset
+                )
+            except Exception:  # noqa: BLE001
+                break
+            ids = list(page.get("ids") or [])
+            embeddings = page.get("embeddings")
+            if embeddings is None or len(ids) == 0:
+                break
+            for chunk_id, vector in zip(ids, embeddings):
+                result.append((chunk_id, vector))
+            offset += len(ids)
+        return result
 
     # --- чтение ---------------------------------------------------------
     def count(self) -> int:
@@ -124,3 +188,62 @@ class VectorStore:
             chunk_id: document or ""
             for chunk_id, document in zip(result.get("ids", []), result.get("documents", []))
         }
+
+
+class NumpyVectorStore:
+    """Плотный поиск по vectors.npz: замена Chroma, если та недоступна."""
+
+    supports_where = False
+
+    def __init__(self, path: Path) -> None:
+        import numpy as np
+
+        payload = np.load(path, allow_pickle=False)
+        self.path = Path(path)
+        self.ids = [str(item) for item in payload["ids"]]
+        matrix = np.asarray(payload["vectors"], dtype="float32")
+        norms = np.linalg.norm(matrix, axis=1, keepdims=True)
+        self.matrix = matrix / np.maximum(norms, 1e-8)
+        self._np = np
+
+    def count(self) -> int:
+        return len(self.ids)
+
+    def all_vectors(self):
+        return [(chunk_id, self.matrix[index]) for index, chunk_id in enumerate(self.ids)]
+
+    def query(
+        self,
+        embedding: Sequence[float],
+        k: int = 20,
+        where: Optional[Dict[str, Any]] = None,
+    ) -> List[Tuple[str, float]]:
+        if not embedding or not self.ids:
+            return []
+        query = self._np.asarray(embedding, dtype="float32").reshape(-1)
+        norm = float(self._np.linalg.norm(query))
+        if norm <= 0:
+            return []
+        query = query / norm
+        scores = self.matrix @ query
+        # where не поддерживаем: метаданных в npz нет, поэтому отдаём больше
+        # кандидатов, а фильтр по типам применяет ретривер.
+        take = max(1, int(k)) * (3 if where else 1)
+        top = self._np.argsort(-scores)[:take]
+        return [(self.ids[int(index)], float(scores[int(index)])) for index in top]
+
+
+def open_vector_store(path: Path | str, collection: str = COLLECTION):
+    """Chroma, а при её недоступности — чтение векторов из npz рядом с индексом."""
+    try:
+        return VectorStore(path, collection)
+    except Exception:  # noqa: BLE001
+        base = Path(path).parent
+        candidates = [base / "vectors.npz", base / "index" / "vectors.npz", Path(path) / "vectors.npz"]
+        cache = next((item for item in candidates if item.is_file()), None)
+        if cache is not None:
+            try:
+                return NumpyVectorStore(cache)
+            except Exception:  # noqa: BLE001
+                return None
+        return None

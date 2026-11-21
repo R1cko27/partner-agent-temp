@@ -93,6 +93,17 @@ class TestAgentProfile(unittest.TestCase):
         names = [tool["function"]["name"] for tool in tools_for(profile)]
         self.assertEqual(sorted(names), ["find_product", "search_knowledge"])
 
+    def test_followup_tool_is_not_offered_to_the_model(self):
+        # Кнопки продолжения собираются локально после ответа (partner/followups.py).
+        # Инструмент остаётся в профиле для совместимости, но модели не показывается:
+        # иначе она тратит шаг и предлагает вопросы не по теме.
+        config = dict(CONFIG, tools=["search_knowledge", "offer_followups"])
+        self._write(config)
+        profile = build_profile(self.data)
+        self.assertIn("offer_followups", profile.tools)
+        names = [tool["function"]["name"] for tool in tools_for(profile)]
+        self.assertEqual(names, ["search_knowledge"])
+
     def test_prompt_uses_company_config_not_hardcode(self):
         self._write(CONFIG)
         profile = build_profile(self.data)

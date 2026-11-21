@@ -74,9 +74,15 @@ def _as_int(value: Any, default: int, low: int, high: int) -> int:
     return max(low, min(high, number))
 
 
+def _as_float(value: Any, default: float, low: float, high: float) -> float:
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return default
+    return max(low, min(high, number))
+
+
 def _as_bool(value: Any, default: bool) -> bool:
-    if isinstance(value, bool):
-        return value
     if isinstance(value, str):
         return value.strip().lower() in {"1", "true", "yes", "on", "да"}
     if value is None:
@@ -90,6 +96,45 @@ def _as_list(value: Any) -> List[str]:
     if isinstance(value, str):
         return [value.strip()] if value.strip() else []
     return [str(item).strip() for item in value if str(item).strip()]
+
+
+def _views(value: Any) -> Dict[str, List[str]]:
+    """Разбор retrieval.views: {имя режима: [исключённые kind]}."""
+    if not isinstance(value, dict):
+        return {}
+    return {
+        str(name): _as_list(kinds)
+        for name, kinds in value.items()
+        if str(name).strip()
+    }
+
+
+def _view_by_mode(value: Any) -> Dict[str, str]:
+    """Разбор retrieval.view_by_mode: {режим ответа: имя режима просмотра}."""
+    if not isinstance(value, dict):
+        return {}
+    result: Dict[str, str] = {}
+    for mode, name in value.items():
+        mode_key = str(mode).strip().lower()
+        name_key = str(name).strip()
+        if mode_key and name_key:
+            result[mode_key] = name_key
+    return result
+
+
+def _kind_weights(value: Any) -> Dict[str, float]:
+    """Разбор retrieval.kind_weights: {тип фрагмента: вес}."""
+    if not isinstance(value, dict):
+        return {}
+    result: Dict[str, float] = {}
+    for kind, weight in value.items():
+        try:
+            number = float(weight)
+        except (TypeError, ValueError):
+            continue
+        if 0.1 <= number <= 3.0:
+            result[str(kind)] = number
+    return result
 
 
 @dataclass
@@ -126,6 +171,21 @@ class Retrieval:
     top_k: int = 6
     context_hits: int = 3
     excerpt_chars: int = 500
+    # Режимы просмотра базы: имя → типы фрагментов, которые не ищем.
+    views: Dict[str, List[str]] = field(default_factory=dict)
+    view: str = ""
+    view_by_mode: Dict[str, str] = field(default_factory=dict)
+    # Чистка выдачи от повторов и бюджет контекста.
+    dedupe: bool = True
+    max_per_doc: int = 2
+    dedupe_threshold: float = 0.75
+    context_budget_chars: int = 6000
+    # Приоритет типов фрагментов при слиянии каналов поиска.
+    kind_weights: Dict[str, float] = field(default_factory=dict)
+    # Приоритет самих каналов: bm25, dense, entity.
+    channel_weights: Dict[str, float] = field(default_factory=dict)
+    # Типы фрагментов второго уровня: подключаются, когда карточек не хватило.
+    secondary_kinds: List[str] = field(default_factory=list)
 
 
 @dataclass
@@ -156,6 +216,7 @@ class AgentProfile:
     style: Style = field(default_factory=Style)
     citations: Citations = field(default_factory=Citations)
     rules: List[str] = field(default_factory=list)
+    context: List[str] = field(default_factory=list)
     topics: Topics = field(default_factory=Topics)
     labels: Dict[str, str] = field(default_factory=lambda: dict(DEFAULT_LABELS))
     fallback: str = (
@@ -283,6 +344,7 @@ def build_profile(
             section_title=str(citations_raw.get("section_title") or "Источники"),
         ),
         rules=_as_list(config.get("rules")),
+        context=_as_list(config.get("context")),
         topics=Topics(
             focus=_as_list(topics_raw.get("focus")),
             avoid=_as_list(topics_raw.get("avoid")),
@@ -303,6 +365,18 @@ def build_profile(
             top_k=_as_int(retrieval_raw.get("top_k"), 6, 2, 12),
             context_hits=_as_int(retrieval_raw.get("context_hits"), 3, 1, 6),
             excerpt_chars=_as_int(retrieval_raw.get("excerpt_chars"), 500, 200, 1200),
+            views=_views(retrieval_raw.get("views")),
+            view=str(retrieval_raw.get("view") or ""),
+            view_by_mode=_view_by_mode(retrieval_raw.get("view_by_mode")),
+            dedupe=_as_bool(retrieval_raw.get("dedupe"), True),
+            max_per_doc=_as_int(retrieval_raw.get("max_per_doc"), 2, 1, 5),
+            dedupe_threshold=_as_float(retrieval_raw.get("dedupe_threshold"), 0.75, 0.3, 0.99),
+            context_budget_chars=_as_int(
+                retrieval_raw.get("context_budget_chars"), 6000, 1000, 20000
+            ),
+            kind_weights=_kind_weights(retrieval_raw.get("kind_weights")),
+            channel_weights=_kind_weights(retrieval_raw.get("channel_weights")),
+            secondary_kinds=_as_list(retrieval_raw.get("secondary_kinds")),
         ),
         limits=Limits(
             max_tokens=_as_int(merged_limits.get("max_tokens"), 2500, 300, 8000),
