@@ -1,10 +1,1 @@
-id;курс_или_экзамен;продукт;версия;url;формат;длительность;стоимость;статус;дата
-ПРИМЕР-01;Каталог курсов и экзаменов;все;6.x–8.x;https://usergate.com/academy/courses-exams;каталог;—;—;в_работе;2026-11-20;главная страница каталога, копию снять вручную
-ПРИМЕР-02;Авторизованное обучение и сертификация;NGFW, UGMC, LogAn, SIEM, UGC;6.x–8.x;https://docs.usergate.com/avtorizirovannoe-obuchenie-i-sertifikaciya_1335.html;описание программы;—;—;перенесён;2026-11-20;faq/education.md, about/partners.md
-ПРИМЕР-03;Раздел «Обучение» документации;все;—;https://docs.usergate.com/obuchenie-546/;навигация;—;—;перенесён;2026-11-20;
-ПРИМЕР-04;Курс по администрированию NGFW;NGFW;7;https://usergate.com/academy/courses-exams;курс;уточнить;уточнить;не_начат;;взять точное название и адрес из каталога
-ПРИМЕР-05;Сертификационный экзамен по NGFW;NGFW;7;https://usergate.com/academy/courses-exams;экзамен;уточнить;уточнить;не_начат;;условия допуска и формат
-ПРИМЕР-06;Курс по Management Center;UGMC;7;https://usergate.com/academy/courses-exams;курс;уточнить;уточнить;не_начат;;
-ПРИМЕР-07;Курс по SIEM;SIEM;7;https://usergate.com/academy/courses-exams;курс;уточнить;уточнить;не_начат;;
-ПРИМЕР-08;Educational Partnership для вузов;все;—;https://usergate.com/academy;программа;—;—;перенесён;2026-11-20;about/partners.md
-ПРИМЕР-09;Вебинар или открытый урок;—;—;https://usergate.com/events;мероприятие;—;—;не_начат;;источник для news/
+id;курс_или_экзамен;продукт;версия;url;формат;длительность;стоимость;статус;дата;куда_переносим
