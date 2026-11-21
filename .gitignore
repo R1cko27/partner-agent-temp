@@ -8,3 +8,6 @@ __pycache__/
 fast_test/
 hacaton_data/
 .dsh-acl-report/
+chroma-probe/
+chrome-diag/
+_batch_work/

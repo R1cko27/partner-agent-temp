@@ -74,34 +74,27 @@ function applyBranding(profile) {
   }
 }
 
+// Запасные варианты, если профиль компании не загрузился.
+// Основные приходят из data/company/agent.json → branding.
+// Правило: в подсказках только вопросы, на которые в базе есть ответ.
 let EXAMPLE_QUESTIONS = [
-  "Чем занимается компания и какие у неё продукты?",
-  "Какие условия сотрудничества и как начать работу?",
-  "Кто отвечает за продажи и как с ним связаться?",
-  "Какие новости и обновления были за последнее время?",
+  "Чем NGFW отличается от WAF?",
+  "Что выбрать для защиты веб-приложения?",
+  "Сертифицирован ли UserGate NGFW по ФСТЭК?",
+  "Где студенту научиться работе с UserGate?",
 ];
 
 let TYPING_EXAMPLES = [
-  "Какие направления обучения есть?",
-  "Сколько стоит Python-разработчик?",
-  "Есть ли рассрочка на обучение?",
-  "Подберите курс для новичка",
-  "Как проходит обучение?",
-  "Нужно обучение для IT-команды",
-  "Есть программы для школьников?",
-  "Как записаться на консультацию?",
-  "Помогите выбрать профессию в IT",
-  "Какие форматы обучения доступны?",
-  "Сколько длится обучение?",
-  "Можно ли учиться онлайн?",
-  "Есть ли бесплатный вводный курс?",
-  "Поможете с трудоустройством?",
-  "Какие документы выдают после курса?",
-  "Сколько стоит корпоративное обучение?",
-  "Кто преподаватели на курсах?",
-  "Как проходит поступление?",
-  "Можно ли совмещать обучение с работой?",
-  "Есть ли программа для ребёнка 14 лет?",
+  "Чем NGFW отличается от WAF?",
+  "Какие продукты входят в экосистему SUMMA?",
+  "Что такое UGOS?",
+  "Сертифицирован ли UserGate NGFW по ФСТЭК?",
+  "Есть ли UserGate в реестре российского ПО?",
+  "Где студенту научиться работе с UserGate?",
+  "Что такое Академия UserGate?",
+  "Есть ли курсы и экзамены по NGFW?",
+  "Как связаться с UserGate?",
+  "Где прочитать документацию по WAF?",
 ];
 let typingTimer = null;
 let typingIndex = 0;
@@ -195,19 +188,37 @@ function imageFigure(alt, url) {
   return `<figure class="inline-shot"><img src="${src}" alt="${alt}" data-full="${src}" loading="lazy" referrerpolicy="no-referrer" title="${alt || 'Открыть'}"></figure>`;
 }
 
+const LINK_PATTERN = /(\[[^\]]+\]\((https?:\/\/[^\s)]+)\))|(https?:\/\/[^\s<]+)/g;
+
+function linkifyOrMarkdown(text) {
+  return text.replace(LINK_PATTERN, (match, markdown, markdownUrl, bare) => {
+    if (markdown) {
+      const href = String(markdownUrl || '').replace(/&amp;/g, '&');
+      const label = markdown.replace(/\]\(.*$/, ']').slice(1, -1);
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    }
+    // «Голый» URL: хвостовую пунктуацию оставляем текстом, чтобы ссылка открывалась.
+    const clean = String(bare).replace(/[.,;:!?»)\]]+$/, '');
+    const tail = String(bare).slice(clean.length);
+    const href = clean.replace(/&amp;/g, '&');
+    return `<a href="${href}" target="_blank" rel="noopener noreferrer">${clean}</a>${tail}`;
+  });
+}
+
 function inlineMarkup(text) {
-  let out = text;
-  out = out.replace(/`([^`\n]+)`/g, (_, code) => `<code>${code}</code>`);
+  // Код прячем, чтобы URL внутри него не превращался в ссылку.
+  const codes = [];
+  let out = text.replace(/`([^`\n]+)`/g, (_, code) => {
+    codes.push(code);
+    return `\u0000CODE${codes.length - 1}\u0000`;
+  });
   out = out.replace(
     /!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)/g,
     (_, alt, url) => imageFigure(alt, url)
   );
   out = out.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
-  out = out.replace(
-    /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
-    (_, label, url) =>
-      `<a href="${url.replace(/&amp;/g, '&')}" target="_blank" rel="noopener">${label}</a>`
-  );
+  out = linkifyOrMarkdown(out);
+  out = out.replace(/\u0000CODE(\d+)\u0000/g, (_, index) => `<code>${codes[Number(index)]}</code>`);
   return out;
 }
 
@@ -820,7 +831,10 @@ function buildAssistantMessage() {
 
   if (state.showNotes) body.append(reasoning, steps);
   body.append(answer, gallery, followups, clarify);
-  if (state.showNotes) body.append(sources, tokens);
+  // Источники показываем всегда: по условиям кейса ссылки на материалы обязательны.
+  // Клиентский режим убирает размышления, шаги и токены, но не происхождение фактов.
+  body.append(sources);
+  if (state.showNotes) body.append(tokens);
   body.append(cacheBadge, actions);
   wrap.appendChild(body);
 
@@ -837,21 +851,6 @@ function showCacheBadge(ui, sourceQuestion) {
   ui.cacheBadge.title = sourceQuestion
     ? `Сохранённый ответ на вопрос: «${sourceQuestion}»`
     : 'Сохранённый ответ из кэша';
-}
-
-function fallbackFollowups(text) {
-  const body = String(text || '').toLowerCase();
-  if (body.length < 180) return [];
-  if (/тариф|стоим|цен/.test(body)) {
-    return ['Что входит в тариф?', 'Чем тарифы отличаются?', 'Как получить расчёт?'];
-  }
-  if (/пилот|внедрен|миграц/.test(body)) {
-    return ['Сколько длится внедрение?', 'Что нужно подготовить?', 'Кто отвечает за запуск?'];
-  }
-  if (/интеграц|1с|gps|трекер/.test(body)) {
-    return ['Какие интеграции есть?', 'Как настроить интеграцию?', 'Как с вами связаться?'];
-  }
-  return ['Расскажите подробнее о продуктах', 'Как проходит пилот?', 'Как с вами связаться?'];
 }
 
 function setClarificationActive(active) {
@@ -1160,6 +1159,16 @@ function renderSources(container, items) {
     head.appendChild(el('span', 's-title', item.title || item.id));
     if (item.score) head.appendChild(el('span', 's-score', Number(item.score).toFixed(3)));
     card.appendChild(head);
+    const link = item.url || (String(item.source || '').startsWith('http') ? item.source : '');
+    if (link) {
+      const anchor = el('a', 's-link', link.replace(/^https?:\/\//, '').slice(0, 64));
+      anchor.href = link;
+      anchor.target = '_blank';
+      anchor.rel = 'noopener noreferrer';
+      card.appendChild(anchor);
+    } else if (item.source) {
+      card.appendChild(el('div', 's-src', String(item.source)));
+    }
     card.appendChild(el('div', 's-excerpt', item.excerpt || ''));
     list.appendChild(card);
   });
@@ -1256,9 +1265,6 @@ function renderStoredMessage(message, meta = {}) {
     const args = call.arguments || {};
     (args.items || []).forEach((item) => storedFollowups.push(item));
   });
-  if (!storedFollowups.length) {
-    storedFollowups.push(...fallbackFollowups(message.content));
-  }
   renderFollowups(ui, storedFollowups);
   renderSources(ui.sources, message.sources);
   if (message.tokens) setTokenBadge(ui, Number(message.tokens));
