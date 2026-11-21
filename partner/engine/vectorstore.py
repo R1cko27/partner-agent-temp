@@ -233,17 +233,23 @@ class NumpyVectorStore:
         return [(self.ids[int(index)], float(scores[int(index)])) for index in top]
 
 
-def open_vector_store(path: Path | str, collection: str = COLLECTION):
-    """Chroma, а при её недоступности — чтение векторов из npz рядом с индексом."""
+def open_vector_store(path: Path | str, collection: str = COLLECTION, prefer_chroma: bool = False):
+    """Chroma, а если она пуста или недоступна — векторы из vectors.npz."""
     try:
-        return VectorStore(path, collection)
+        store = VectorStore(path, collection)
+        # При сборке пустая Chroma — это нормально: её нужно наполнить.
+        # При чтении пустую базу считаем нерабочей и берём vectors.npz.
+        if prefer_chroma or store.count() > 0:
+            return store
     except Exception:  # noqa: BLE001
-        base = Path(path).parent
-        candidates = [base / "vectors.npz", base / "index" / "vectors.npz", Path(path) / "vectors.npz"]
-        cache = next((item for item in candidates if item.is_file()), None)
-        if cache is not None:
-            try:
-                return NumpyVectorStore(cache)
-            except Exception:  # noqa: BLE001
-                return None
+        pass
+
+    base = Path(path).parent
+    candidates = [base / "vectors.npz", base / "index" / "vectors.npz", Path(path) / "vectors.npz"]
+    cache = next((item for item in candidates if item.is_file()), None)
+    if cache is None:
+        return None
+    try:
+        return NumpyVectorStore(cache)
+    except Exception:  # noqa: BLE001
         return None

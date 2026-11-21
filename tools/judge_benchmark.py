@@ -35,6 +35,19 @@ from partner.engine.style_lint import style_lint
 from partner.engine.llm import DeepSeekClient
 
 
+ANCHOR_RE = re.compile(r"\b\d+[.,]?\d*\b|\b[A-ZА-Я]{2,}\b|\b[A-Za-z]+[0-9][A-Za-z0-9.]*\b")
+
+
+def _anchor_completeness(reference: str, answer: str) -> Optional[float]:
+    """Полнота без must_contain: доля чисел, кодов и аббревиатур эталона."""
+    anchors = [item for item in ANCHOR_RE.findall(reference or "") if len(item) >= 2]
+    anchors = list(dict.fromkeys(anchors))[:12]
+    if not anchors:
+        return None
+    body = (answer or "").lower()
+    return round(sum(1 for item in anchors if item.lower() in body) / len(anchors), 2)
+
+
 def load_cases(path: Path) -> List[Dict[str, Any]]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     rows = payload["questions"] if isinstance(payload, dict) else payload
@@ -50,6 +63,7 @@ def load_cases(path: Path) -> List[Dict[str, Any]]:
                 "no_data": "say_no_data",
                 "injection": "refuse",
             }.get(str(row.get("category") or ""), "answer")
+        must = [str(item) for item in (row.get("must_contain") or []) if str(item).strip()]
         cases.append(
             {
                 "id": str(row.get("id") or f"#{len(cases)+1}"),
@@ -57,6 +71,7 @@ def load_cases(path: Path) -> List[Dict[str, Any]]:
                 "reference": str(row.get("answer") or ""),
                 "behavior": behavior,
                 "category": str(row.get("category") or ""),
+                "must": must,
             }
         )
     return cases
@@ -95,25 +110,34 @@ def main(argv: Optional[List[str]] = None) -> int:
     report: List[Dict[str, Any]] = []
     for index, case in enumerate(cases, 1):
         started = time.perf_counter()
+        t_retr = time.perf_counter()
         candidates = agent.candidates(case["question"], limit=8)
+        t_retrieval = time.perf_counter() - t_retr
         candidate_verdict = judge.judge_candidates(case["question"], candidates)
         done: Dict[str, Any] = {}
+        t_answer = time.perf_counter()
         for event in agent.run(
             case["question"], history=[], show_notes=True, use_cache=False, mode="auto"
         ):
             if event.get("type") == "done":
                 done = event
+        t_answer = time.perf_counter() - t_answer
         answer = str(done.get("text") or "")
         context = ""
         sources: List[Dict[str, Any]] = []
         context_verdict = None
+        t_ctx = time.perf_counter()
         if not args.no_context:
             context, sources = agent._auto_context(case["question"], True)
             expect_absent = case["behavior"] in ("say_no_data", "refuse")
             context_verdict = judge.judge_context(
                 case["question"], context, expect_absent=expect_absent
             )
-        verdict = judge.judge_answer(case["question"], case["reference"], answer, context)
+        t_context = time.perf_counter() - t_ctx
+        judge_mode = "refusal" if case["behavior"] in ("say_no_data", "refuse") else "answer"
+        verdict = judge.judge_answer(
+            case["question"], case["reference"], answer, context, mode=judge_mode
+        )
         style = style_lint(answer, case["question"], expects_absent=case["behavior"] != "answer")
 
         # Где потерялся факт: поиск → отбор в контекст → генерация.
@@ -127,10 +151,28 @@ def main(argv: Optional[List[str]] = None) -> int:
                 context_ids = {item.get("id") for item in (sources or [])}
                 stage = "отбор" if best_id and best_id not in context_ids else "генерация"
 
+        # Полнота: доля обязательных элементов эталона, попавших в ответ.
+        must = case.get("must") or []
+        covered = [item for item in must if item.lower() in answer.lower()]
+        completeness = round(len(covered) / len(must), 2) if must else None
+        if completeness is None:
+            completeness = _anchor_completeness(case.get("reference") or "", answer)
+        t_total = time.perf_counter() - started
+        t_answer_total = round(t_retrieval + t_answer, 2)
+
         row = {
             **case,
             "answer_text": answer,
             "judge": verdict.as_dict(),
+            "completeness": completeness,
+            "tokens": int((done.get("usage_total") or {}).get("total_tokens") or 0),
+            "missing_must": [item for item in must if item not in covered],
+            "timing": {
+                "retrieval_s": round(t_retrieval, 2),
+                "context_s": round(t_context, 2),
+                "answer_s": t_answer_total,
+                "total_s": round(t_total, 2),
+            },
             "candidate_judge": candidate_verdict.as_dict(),
             "candidates": candidates,
             "stage": stage,
@@ -149,7 +191,10 @@ def main(argv: Optional[List[str]] = None) -> int:
                 f" · контекст: {'достаточно' if context_verdict.enough else 'мало'}"
                 f"{'/шум' if not context_verdict.relevant else ''}"
             )
-        style_note = f" · стиль: {len(style)} наруш." if style else " · стиль: ok"
+        style_note = (
+            f" · полн. {completeness:.0%} · {t_total:.1f} с" if completeness is not None
+            else f" · {t_total:.1f} с"
+        )
         stage_note = "" if stage == "ok" else f" · этап: {stage}"
         print(f"  {index:2}. {case['id']:5} {flag} {verdict.score:4.2f} {verdict.comment[:44]}{extra}{style_note}{stage_note}")
 
@@ -165,6 +210,27 @@ def main(argv: Optional[List[str]] = None) -> int:
     wrong = sum(1 for row in report if row["judge"]["verdict"] == "wrong")
     invented = sum(1 for row in report if row["judge"]["verdict"] == "invented")
     print(f"\nОтветы: ok {ok} · частично {partial} · неверно {wrong} · выдумки {invented} · всего {total}")
+    def percentile(values, share):
+        if not values:
+            return 0.0
+        ordered = sorted(values)
+        index = min(len(ordered) - 1, int(round(share * (len(ordered) - 1))))
+        return ordered[index]
+
+    totals = [(row["timing"].get("answer_s") or row["timing"]["total_s"]) for row in report if row.get("timing")]
+    retrievals = [row["timing"]["retrieval_s"] for row in report if row.get("timing")]
+    completes = [row["completeness"] for row in report if row.get("completeness") is not None]
+    if totals:
+        print(
+            f"Время ответа: p50 {percentile(totals, 0.5):.1f} с · p95 {percentile(totals, 0.95):.1f} с"
+            f" · поиск p50 {percentile(retrievals, 0.5):.2f} с"
+        )
+    if completes:
+        good = sum(1 for value in completes if value >= 0.9)
+        print(
+            f"Полнота: средняя {sum(completes)/len(completes):.0%}"
+            f" · ≥90% у {good}/{len(completes)}"
+        )
     style_total = sum(len(row.get("style") or []) for row in report)
     clean_style = sum(1 for row in report if not row.get("style"))
     print(f"Стиль: без нарушений {clean_style}/{total} · всего замечаний {style_total}")

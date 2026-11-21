@@ -106,6 +106,7 @@ class Settings:
     auto_context: bool = True
     judge_enabled: bool = False
     chroma_subdir: str = "chroma"
+    api_token: str = ""
     top_k: int = 6
     max_steps: int = 3
     host: str = "127.0.0.1"
@@ -122,6 +123,10 @@ class Settings:
     answer_cache_threshold: float = 0.93
     answer_cache_ttl_days: int = 7
     answer_cache_max_entries: int = 500
+    # Кешируем только дорогие ответы: дешёвые быстрее сгенерировать заново.
+    answer_cache_min_tokens: int = 5000
+    # Перед выдачей кеша модель адаптирует сохранённый ответ к текущему диалогу.
+    answer_cache_recheck: bool = True
 
     used_env_file: bool = field(default=False, repr=False)
 
@@ -152,6 +157,7 @@ class Settings:
             auto_context=_get_bool("AUTO_CONTEXT", True),
             judge_enabled=_get_bool("JUDGE_ENABLED", False),
             chroma_subdir=(os.environ.get("CHROMA_SUBDIR") or "chroma"),
+            api_token=(os.environ.get("API_TOKEN") or ""),
             top_k=max(1, _get_int("RAG_TOP_K", 6)),
             max_steps=max(2, _get_int("AGENT_MAX_STEPS", 6)),
             host=_get("APP_HOST", "127.0.0.1"),
@@ -168,6 +174,8 @@ class Settings:
             ),
             answer_cache_ttl_days=max(0, _get_int("ANSWER_CACHE_TTL_DAYS", 7)),
             answer_cache_max_entries=max(10, _get_int("ANSWER_CACHE_MAX_ENTRIES", 500)),
+            answer_cache_min_tokens=max(0, _get_int("ANSWER_CACHE_MIN_TOKENS", 5000)),
+            answer_cache_recheck=_get_bool("ANSWER_CACHE_RECHECK", True),
             used_env_file=used,
         )
 

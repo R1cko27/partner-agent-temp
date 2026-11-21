@@ -1,42 +1,35 @@
-# Академия UserGate: сертификационные экзамены
+# Академия UserGate — экзамены и цены
 
-Источник: каталог Академии https://usergate.com/academy/courses-exams, снимок от 2026-07-19 (выгрузка — `data-temp/01-web/academy.crawled-2026-11-20.csv`). Цены и длительности — на дату снимка; актуальные подтверждает academy@usergate.com.
+Проверено 2026-11-21. Источник: страница каталога https://usergate.com/academy/courses-exams (снимок от 2026-07-19, живая страница закрыта Yandex SmartCaptcha).
 
-## Таблица экзаменов с кодами
+## Сертификационные экзамены по продуктам
 
-| Код | Экзамен | Продукт | Формат | Длительность | Цена | Ссылка |
-|---|---|---|---|---|---|---|
-| UG.ECU | Сертифицированный пользователь UserGate NGFW | NGFW | дистанционно | 60 минут | 9 000 ₽ | https://usergate.com/academy/courses-exams/sertificirovannyj-polzovatel-ngfw-11972 |
-| UG.NGFW7.EC.1 | Сертифицированный специалист UserGate NGFW 7.X | NGFW | очно или дистанционно | 120 минут | 17 500 ₽ | https://usergate.com/academy/courses-exams/sertificirovannyj-specialist-ngfw-7-11970 |
-| — | Сертифицированный профессионал UserGate NGFW 7.X | NGFW | дистанционно | 120 минут | 17 500 ₽ | https://usergate.com/academy/courses-exams/sertificirovannyj-professional-ngfw-7-12403 |
-| UG.TSHOOT.EC | Сертифицированный специалист по устранению неисправностей в работе NGFW 7 | NGFW | очно или дистанционно | 150 минут | 17 500 ₽ | https://usergate.com/academy/courses-exams/sertificirovannyj-tshoot-specialist-ngfw-7-11974 |
-| UG.SUMMA7.EC.1 | Сертифицированный специалист SUMMA | SUMMA | дистанционно | 120 минут | 17 500 ₽ | https://usergate.com/academy/courses-exams/sertificirovannyj-professional-ngfw-11973 |
-| UG.NGFW60.EC.1 | Сертифицированный специалист UserGate 6.0 | NGFW | очно или дистанционно | 120 минут | 17 500 ₽ | https://usergate.com/academy/courses-exams/sertificirovannyj-specialist-ngfw-6-11964 |
-| UG.WAF7.EC | Сертифицированный специалист UserGate WAF 7.Х | WAF | дистанционно | 60 минут | 9 000 ₽ | https://usergate.com/academy/courses-exams/sertificirovannyj-specialist-waf-7x-12040 |
-| UG.SIEM.EC | Сертифицированный специалист UserGate SIEM | SIEM | дистанционно | 60 минут | 9 000 ₽ | https://usergate.com/academy/courses-exams/sertificirovannyj-specialist-siem-12113 |
-| UG.SALES.SPEC | Сертифицированный специалист по продажам UserGate (Registered — Bronze — Silver) | — | дистанционно | 60 минут | по запросу | https://usergate.com/academy/courses-exams/sertificirovannyj-specialist-po-prodazham-usergate-11971 |
-| UG.SALES.PROF | Сертифицированный профессионал по продажам UserGate (Gold — Platinum — Universe) | — | дистанционно | 60 минут | по запросу | https://usergate.com/academy/courses-exams/sertificirovannyj-professional-po-prodazham-usergate-12121 |
+| Продукт | Экзамен | Код | Формат | Длительность | Стоимость |
+|---|---|---|---|---|---|
+| NGFW | Сертифицированный пользователь UserGate NGFW | UG.ECU | дистанционно | 60 минут | 9 000 ₽ |
+| NGFW | Сертифицированный специалист UserGate NGFW 7.X | UG.NGFW7.EC.1 | очно или дистанционно | 120 минут | 17 500 ₽ |
+| NGFW | **Сертифицированный профессионал UserGate NGFW 7.X** | — | дистанционно | 120 минут | **17 500 ₽** |
+| NGFW | Сертифицированный специалист по устранению неисправностей в работе NGFW 7 | UG.TSHOOT.EC | очно или дистанционно | 150 минут | 17 500 ₽ |
+| NGFW | Сертифицированный специалист UserGate 6.0 | UG.NGFW60.EC.1 | очно или дистанционно | 120 минут | 17 500 ₽ |
+| SIEM | **Сертифицированный специалист UserGate SIEM** | UG.SIEM.EC | дистанционно | 60 минут | **9 000 ₽** |
+| WAF | Сертифицированный специалист UserGate WAF 7.Х | UG.WAF7.EC | дистанционно | 60 минут | 9 000 ₽ |
+| SUMMA | Сертифицированный специалист SUMMA | UG.SUMMA7.EC.1 | дистанционно | 120 минут | 17 500 ₽ |
+| Продажи | Сертифицированный специалист по продажам UserGate | UG.SALES.SPEC | дистанционно | 60 минут | по запросу |
+| Продажи | Сертифицированный профессионал по продажам UserGate | UG.SALES.PROF | дистанционно | 60 минут | по запросу |
 
-## Что важно из таблицы
+## Проверка запрошенных позиций
 
-- Всего 10 сертификационных экзаменов. Код вида `UG.*.EC.*` есть у четырёх: UG.NGFW7.EC.1, UG.TSHOOT.EC, UG.SUMMA7.EC.1, UG.NGFW60.EC.1. Ещё у четырёх код без `.EC.`: UG.ECU, UG.WAF7.EC, UG.SIEM.EC, UG.SALES.SPEC / UG.SALES.PROF.
-- Один экзамен — «Сертифицированный профессионал UserGate NGFW 7.X» — вообще без кода в названии на сайте.
-- Длительность: 60 минут у UG.ECU, UG.WAF7.EC, UG.SIEM.EC и обоих экзаменов по продажам; 120 минут у четырёх; самый длинный — UG.TSHOOT.EC, 150 минут.
-- Цены: 9 000 ₽ за 60-минутные экзамены (UG.ECU, UG.WAF7.EC, UG.SIEM.EC), 17 500 ₽ за 120–150-минутные, два экзамена по продажам — по запросу.
-- Шесть экзаменов относятся к NGFW разных версий и уровней, по одному — к SUMMA, WAF и SIEM, два — к продажам.
-- Экзаменов по DCFW, SWG, UserGate Client, Management Center и Log Analyzer в каталоге нет, хотя курсы по DCFW и uOS существуют.
-- UG.SUMMA7.EC.1: адрес страницы содержит `professional-ngfw`, а название относится к SUMMA — расхождение самого сайта.
-- Курсы Академии вынесены в отдельную карточку: `docs/academy-courses.md`.
+- **NGFW** — подтверждено: «Сертифицированный профессионал UserGate NGFW 7.X», 17 500 ₽.
+- **SIEM** — подтверждено: «Сертифицированный специалист UserGate SIEM», 9 000 ₽.
+- **WAF 7.Х** — в каталоге **есть** экзамен UG.WAF7.EC, 9 000 ₽. Утверждение, что экзамена по WAF на странице Академии нет, источником не подтверждается.
+- **DCFW** — экзамена по DCFW в каталоге **нет**. При этом DCFW упоминается внутри курса UG.NGFW7 II «Расширенное администрирование NGFW 7.X и DCFW 8.Х».
 
-## Быстрый указатель кодов
+## Оговорки
 
-- UG.ECU — Сертифицированный пользователь UserGate NGFW — 60 минут — 9 000 ₽
-- UG.NGFW7.EC.1 — Сертифицированный специалист UserGate NGFW 7.X — 120 минут — 17 500 ₽
-- без кода — Сертифицированный профессионал UserGate NGFW 7.X — 120 минут — 17 500 ₽
-- UG.TSHOOT.EC — Сертифицированный специалист по устранению неисправностей в работе NGFW 7 — 150 минут — 17 500 ₽
-- UG.SUMMA7.EC.1 — Сертифицированный специалист SUMMA — 120 минут — 17 500 ₽
-- UG.NGFW60.EC.1 — Сертифицированный специалист UserGate 6.0 — 120 минут — 17 500 ₽
-- UG.WAF7.EC — Сертифицированный специалист UserGate WAF 7.Х — 60 минут — 9 000 ₽
-- UG.SIEM.EC — Сертифицированный специалист UserGate SIEM — 60 минут — 9 000 ₽
-- UG.SALES.SPEC — Сертифицированный специалист по продажам UserGate — 60 минут — по запросу
-- UG.SALES.PROF — Сертифицированный профессионал по продажам UserGate — 60 минут — по запросу
+- Цены и длительности — на дату снимка (2026-07-19). При переносе в базу их нужно помечать датой.
+- У экзамена «Сертифицированный профессионал UserGate NGFW 7.X» на сайте нет кода UG.* в названии — в таблице оставлено прочерк.
+- У экзамена UG.SUMMA7.EC.1 адрес страницы содержит `professional-ngfw`, а название относится к SUMMA: расхождение самого сайта, требует ручной проверки.
+
+## Дополнительно
+
+- Стоимость: курсы — от 35 000 до 161 000 ₽, экзамены — от 9 000 до 17 500 ₽.

@@ -92,9 +92,23 @@ class Embedder:
             return [_normalize(list(map(float, vector))) for vector in vectors]
         return []
 
+    _query_cache: dict = {}
+
     def embed_query(self, text: str) -> List[float]:
-        vectors = self.embed_documents([text])
-        return vectors[0] if vectors else []
+        key = (text or "").strip()
+        if not key:
+            return []
+        cached = self._query_cache.get(key)
+        if cached is not None:
+            return cached
+        vectors = self.embed_documents([key])
+        if not vectors:
+            return []
+        vector = vectors[0]
+        self._query_cache[key] = vector
+        if len(self._query_cache) > 200:
+            self._query_cache.pop(next(iter(self._query_cache)))
+        return vector
 
     def describe(self) -> str:
         if not self.available:

@@ -15,6 +15,7 @@
 from __future__ import annotations
 
 import json
+import os
 import time
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
@@ -63,12 +64,18 @@ class VectorCache:
             hashes = [self._items[key][0] for key in ids]
             vectors = np.asarray([self._items[key][1] for key in ids], dtype="float32")
             self.path.mkdir(parents=True, exist_ok=True)
+            # Пишем во временный файл и подменяем атомарно: оборванная сборка
+            # не должна оставить повреждённый vectors.npz — теперь это
+            # единственное хранилище плотных векторов.
+            target = self.path / "vectors.npz"
+            temp = self.path / "vectors.tmp.npz"
             np.savez_compressed(
-                self.path / "vectors.npz",
+                temp,
                 ids=np.array(ids, dtype="U"),
                 hashes=np.array(hashes, dtype="U64"),
                 vectors=vectors,
             )
+            os.replace(temp, target)
             meta = {
                 "version": VERSION,
                 "stamp": self.stamp,
