@@ -13,10 +13,13 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 from ..engine.bm25 import BM25
 from ..engine.embeddings import Embedder
 from ..engine.tokenize import clean_text, query_terms, tokenize
-from ..engine.vectorstore import VectorStore
+from ..engine.vectorstore import VectorStore, open_vector_store
 
 RRF_K = 60
 FUZZY = 0.72
+# Справочные материалы (глоссарий, термины) не уводим во второй уровень:
+# они отвечают на вопрос «что такое X» точнее любой карточки.
+_REFERENCE_RE = re.compile(r"глоссар|glossary|termin|термин", re.I)
 
 
 @dataclass
@@ -44,6 +47,20 @@ def _ratio(a: str, b: str) -> float:
     return SequenceMatcher(None, a, b).ratio()
 
 
+_WORD_RE = re.compile(r"\w{4,}", re.UNICODE)
+
+
+def _content_words(text: str) -> set:
+    """Слова для сравнения фрагментов: короткие и служебные не считаем."""
+    return set(_WORD_RE.findall((text or "").lower()))
+
+
+def _jaccard(first: set, second: set) -> float:
+    if not first or not second:
+        return 0.0
+    return len(first & second) / len(first | second)
+
+
 class Retriever:
     def __init__(
         self,
@@ -60,9 +77,34 @@ class Retriever:
         self.meta = meta or {}
         self.embedder = embedder
         self.vectors = vectors
+        self._exclude_kinds: set[str] = set()
+        self._dedupe_enabled = True
+        self._max_per_doc = 2
+        self._dedupe_threshold = 0.75
+        self._kind_weights: Dict[str, float] = {}
+        self._channel_weights: Dict[str, float] = {}
+        self._faq_index = None      # BM25 по вопросам FAQ, строится по требованию
+        self._secondary_kinds: set[str] = set()   # документация — во вторую очередь
         self._by_id = {chunk["id"]: chunk for chunk in chunks}
         self._name_index: List[Tuple[str, str, Dict[str, Any]]] = []
         self._build_name_index()
+
+    def set_view(self, exclude_kinds: Optional[Iterable[str]] = None) -> None:
+        """Режим просмотра: какие типы фрагментов не участвуют в поиске.
+
+        «Кратко» исключает тяжёлую документацию (kind=doc/web), «полно» — ищет
+        по всей базе. Фильтр применяется и к плотному поиску (через where в
+        Chroma), и к BM25, и к бусту по сущностям, поэтому выдача не размывается.
+        """
+        self._exclude_kinds = {str(kind) for kind in (exclude_kinds or []) if kind}
+
+    def _kind_allowed(self, chunk: Dict[str, Any]) -> bool:
+        return not self._exclude_kinds or chunk.get("kind") not in self._exclude_kinds
+
+    def _where(self) -> Optional[Dict[str, Any]]:
+        if not self._exclude_kinds:
+            return None
+        return {"kind": {"$nin": sorted(self._exclude_kinds)}}
 
     def _build_name_index(self) -> None:
         products = (self.entities.get("products") or {}).values()
@@ -96,7 +138,7 @@ class Retriever:
         vectors = None
         if chroma_dir is not None and (chroma_dir / "chroma.sqlite3").exists():
             try:
-                vectors = VectorStore(chroma_dir)
+                vectors = open_vector_store(chroma_dir)
             except Exception:  # noqa: BLE001
                 vectors = None
 
@@ -119,7 +161,15 @@ class Retriever:
             return []
         if not vector:
             return []
-        return self.vectors.query(vector, k=limit)
+        raw = self.vectors.query(vector, k=limit, where=self._where())
+        excluded = set(self._exclude_kinds)
+        if excluded:
+            raw = [
+                (chunk_id, score)
+                for chunk_id, score in raw
+                if str((self._by_id.get(chunk_id) or {}).get("kind") or "") not in excluded
+            ]
+        return raw[:limit]
 
     def _sparse_ranking(self, query: str, limit: int = 40) -> List[Tuple[str, float]]:
         terms = query_terms(query)
@@ -127,11 +177,17 @@ class Retriever:
             return []
         scores = self.bm25.scores(terms)
         ranked = sorted(enumerate(scores), key=lambda pair: pair[1], reverse=True)
-        return [
-            (self.chunks[index]["id"], score)
-            for index, score in ranked[:limit]
-            if score > 0 and index < len(self.chunks)
-        ]
+        hits: List[Tuple[str, float]] = []
+        for index, score in ranked:
+            if score <= 0 or index >= len(self.chunks):
+                continue
+            chunk = self.chunks[index]
+            if not self._kind_allowed(chunk):
+                continue
+            hits.append((chunk["id"], score))
+            if len(hits) >= limit:
+                break
+        return hits
 
     def _entity_ranking(self, query: str, limit: int = 20) -> List[Tuple[str, float]]:
         text = clean_text(query)
@@ -144,11 +200,50 @@ class Retriever:
             if score < FUZZY and name_clean not in text:
                 continue
             for chunk in self.chunks:
+                if not self._kind_allowed(chunk):
+                    continue
                 entities = chunk.get("entities") or {}
                 if kind in entities and clean_text(str(entities[kind])) == name_clean:
                     boosted[chunk["id"]] = max(boosted.get(chunk["id"], 0.0), score)
         ranked = sorted(boosted.items(), key=lambda pair: pair[1], reverse=True)
         return ranked[:limit]
+
+    # --- веса источников ------------------------------------------------
+    def set_kind_weights(self, weights: Optional[Dict[str, float]] = None) -> None:
+        """Приоритет типов фрагментов при слиянии.
+
+        Курируемые карточки (faq, product, about, company) должны обгонять
+        сырые страницы документации: они короче, свежее и уже проверены.
+        Вес умножает вклад канала в RRF, а не отбрасывает документы.
+        """
+        clean: Dict[str, float] = {}
+        for kind, value in (weights or {}).items():
+            try:
+                weight = float(value)
+            except (TypeError, ValueError):
+                continue
+            if 0.1 <= weight <= 3.0:
+                clean[str(kind)] = weight
+        self._kind_weights = clean
+
+    def _weight_for(self, chunk: Dict[str, Any]) -> float:
+        return self._kind_weights.get(str(chunk.get("kind") or ""), 1.0)
+
+    def set_channel_weights(self, weights: Optional[Dict[str, float]] = None) -> None:
+        """Приоритет каналов поиска при слиянии: bm25, dense, entity.
+
+        Точный термин («политика сети», «7.7») лексический поиск ловит надёжнее
+        плотного, поэтому вес BM25 по умолчанию выше.
+        """
+        clean: Dict[str, float] = {}
+        for channel, value in (weights or {}).items():
+            try:
+                weight = float(value)
+            except (TypeError, ValueError):
+                continue
+            if 0.1 <= weight <= 3.0:
+                clean[str(channel)] = weight
+        self._channel_weights = clean
 
     def search(self, query: str, k: int = 6) -> List[SearchHit]:
         query = (query or "").strip()
@@ -158,10 +253,13 @@ class Retriever:
         reasons: Dict[str, List[str]] = {}
 
         def add(ranking: Sequence[Tuple[str, float]], label: str) -> None:
+            channel = self._channel_weights.get(label, 1.0)
             for rank, (chunk_id, _score) in enumerate(ranking):
-                if chunk_id not in self._by_id:
+                chunk = self._by_id.get(chunk_id)
+                if chunk is None:
                     continue
-                fused[chunk_id] = fused.get(chunk_id, 0.0) + 1.0 / (RRF_K + rank + 1)
+                weight = self._weight_for(chunk) * channel
+                fused[chunk_id] = fused.get(chunk_id, 0.0) + weight / (RRF_K + rank + 1)
                 reasons.setdefault(chunk_id, []).append(f"{label}#{rank + 1}")
 
         add(self._dense_ranking(query), "dense")
@@ -175,11 +273,89 @@ class Retriever:
                 for chunk in fallback
             ]
 
-        ordered = sorted(fused.items(), key=lambda pair: pair[1], reverse=True)[:k]
+        ordered = sorted(fused.items(), key=lambda pair: pair[1], reverse=True)
+        ordered = self._order_by_tier(ordered)
+        selected = self._dedupe(ordered, k)
         return [
             SearchHit(chunk=self._by_id[chunk_id], score=score, why=reasons.get(chunk_id, []))
-            for chunk_id, score in ordered
+            for chunk_id, score in selected
         ]
+
+    # --- уровни источников ----------------------------------------------
+    def set_secondary_kinds(self, kinds: Optional[Iterable[str]] = None) -> None:
+        """Типы фрагментов, которые идут во вторую очередь.
+
+        Курируемые карточки (FAQ, продукт, контакты) отвечают на вопрос клиента
+        точнее, чем глава руководства администратора. Документация подключается
+        только на свободные места — когда карточек не хватило.
+        """
+        self._secondary_kinds = {str(kind) for kind in (kinds or []) if kind}
+
+    def _order_by_tier(
+        self, ordered: Sequence[Tuple[str, float]]
+    ) -> List[Tuple[str, float]]:
+        if not self._secondary_kinds:
+            return list(ordered)
+        primary: List[Tuple[str, float]] = []
+        secondary: List[Tuple[str, float]] = []
+        for chunk_id, score in ordered:
+            chunk = self._by_id.get(chunk_id) or {}
+            kind = chunk.get("kind")
+            # Справочник терминов — не глава руководства: он отвечает на вопрос
+            # «что такое X» точнее любой карточки, поэтому остаётся в первом уровне.
+            reference = _REFERENCE_RE.search(
+                f"{chunk.get('title') or ''} {chunk.get('source') or ''}"
+            )
+            if kind in self._secondary_kinds and not reference:
+                secondary.append((chunk_id, score))
+            else:
+                primary.append((chunk_id, score))
+        return primary + secondary
+
+    # --- дедупликация выдачи ---------------------------------------------
+    def set_dedupe(
+        self,
+        max_per_doc: int = 2,
+        threshold: float = 0.75,
+        enabled: bool = True,
+    ) -> None:
+        """Насколько строго вычищать повторы в выдаче.
+
+        Одни и те же статьи документации лежат в деревьях разных продуктов,
+        поэтому без этого в контекст попадали почти одинаковые фрагменты и
+        вытесняли полезные.
+        """
+        self._dedupe_enabled = bool(enabled)
+        self._max_per_doc = max(1, int(max_per_doc))
+        self._dedupe_threshold = min(0.99, max(0.3, float(threshold)))
+
+    def _dedupe(self, ordered: Sequence[Tuple[str, float]], k: int) -> List[Tuple[str, float]]:
+        if not self._dedupe_enabled or k <= 0:
+            return list(ordered[:k])
+        selected: List[Tuple[str, float]] = []
+        per_doc: Dict[str, int] = {}
+        word_sets: List[set] = []
+        for chunk_id, score in ordered:
+            chunk = self._by_id.get(chunk_id)
+            if chunk is None:
+                continue
+            doc_id = str(chunk.get("doc_id") or "")
+            if doc_id and per_doc.get(doc_id, 0) >= self._max_per_doc:
+                continue
+            words = _content_words(str(chunk.get("text") or ""))
+            duplicate = False
+            for other in word_sets:
+                if _jaccard(words, other) >= self._dedupe_threshold:
+                    duplicate = True
+                    break
+            if duplicate:
+                continue
+            per_doc[doc_id] = per_doc.get(doc_id, 0) + 1
+            word_sets.append(words)
+            selected.append((chunk_id, score))
+            if len(selected) >= k:
+                break
+        return selected
 
     # --- справочники ----------------------------------------------------
     def company(self) -> Dict[str, Any]:
@@ -211,21 +387,89 @@ class Retriever:
                 partial.append(record)
         return (exact or partial)[:limit]
 
-    def find_faq(self, query: str, limit: int = 5) -> List[Dict[str, Any]]:
-        text = clean_text(query or "")
-        tokens = set(tokenize(query or "", drop_stopwords=True, unique=False))
-        scored: List[Tuple[float, Dict[str, Any]]] = []
-        for item in self.entities.get("faq") or []:
-            question = clean_text(str(item.get("question") or ""))
-            if not question:
+    def find_term(self, query: str, limit: int = 2) -> List[Dict[str, Any]]:
+        """Точный поиск термина в глоссарии: «что такое X» → определение.
+
+        Термин считается найденным, если он входит в запрос целыми словами.
+        Длинные термины приоритетнее: «BFD profile» точнее, чем «BFD».
+        """
+        entries = self.entities.get("glossary") or []
+        if not entries:
+            return []
+        haystack = " " + clean_text(query or "").lower() + " "
+        matches: List[Tuple[int, Dict[str, Any]]] = []
+        for entry in entries:
+            term = clean_text(str(entry.get("term") or "")).lower()
+            if not term or len(term) < 2:
                 continue
-            overlap = len(tokens & set(question.split()))
-            ratio = _ratio(text, question)
-            score = max(ratio, min(1.0, overlap / max(1, len(tokens))))
-            if score >= 0.45:
-                scored.append((score, item))
-        scored.sort(key=lambda pair: pair[0], reverse=True)
-        return [item for _score, item in scored[:limit]]
+            # «BFD (Bidirectional…)» проверяем и по части до скобки.
+            variants = {term, term.split("(")[0].strip()}
+            for variant in variants:
+                if len(variant) >= 2 and f" {variant} " in haystack:
+                    matches.append((len(variant), entry))
+                    break
+        matches.sort(key=lambda pair: pair[0], reverse=True)
+        seen: set[str] = set()
+        result: List[Dict[str, Any]] = []
+        for _length, entry in matches:
+            key = str(entry.get("term") or "").lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            result.append(entry)
+            if len(result) >= limit:
+                break
+        return result
+
+    def chunks_by_source(self, pattern: str, limit: int = 3) -> List[SearchHit]:
+        """Фрагменты из конкретного документа: нужно, когда ответ живёт в одной карточке."""
+        needle = (pattern or "").lower()
+        if not needle:
+            return []
+        hits: List[SearchHit] = []
+        for chunk in self._by_id.values():
+            source = str(chunk.get("source") or "").lower()
+            if needle in source:
+                hits.append(SearchHit(chunk=chunk, score=0.05, why=["source-match"]))
+                if len(hits) >= limit:
+                    break
+        return hits
+
+    def faq_items(self) -> List[Dict[str, Any]]:
+        """Все карточки FAQ.
+
+        Нужны продолжениям: канал, названный в ответе, ищется по ответам FAQ,
+        а не по одному вопросу пользователя.
+        """
+        return list(self.entities.get("faq") or [])
+
+    def glossary_items(self) -> List[Dict[str, Any]]:
+        """Все термины глоссария: продолжение «что такое X» берёт соседние."""
+        return list(self.entities.get("glossary") or [])
+
+    def find_faq(self, query: str, limit: int = 5) -> List[Dict[str, Any]]:
+        """Поиск по вопросам FAQ: BM25 по самим вопросам, а не по длинному тексту.
+
+        Раньше сравнивались целые строки, и короткий вопрос вроде «где ваш офис»
+        не находил карточку «Есть ли офис в Новосибирске?».
+        """
+        faq = list(self.entities.get("faq") or [])
+        if not faq:
+            return []
+        terms = query_terms(query or "")
+        if not terms:
+            return []
+        if self._faq_index is None:
+            self._faq_index = BM25().fit(
+                [tokenize(str(item.get("question") or ""), unique=False) for item in faq]
+            )
+        scores = self._faq_index.scores(terms)
+        ranked = sorted(
+            ((index, score) for index, score in enumerate(scores) if score > 0),
+            key=lambda pair: pair[1],
+            reverse=True,
+        )
+        return [faq[index] for index, _score in ranked[:limit]]
 
     # --- служебное ------------------------------------------------------
     def stats(self) -> Dict[str, Any]:

@@ -34,3 +34,15 @@
 - «Функциональные возможности», DCFW 8.x: https://docs.usergate.com/funkcional6nye-vozmozhnosti_2248.html — обращение 2026-11-20.
 - Перечень версий и руководств: https://docs.usergate.com/dokumentaciya-k-versiyam-po-v-pdf_769.html — обращение 2026-11-20.
 - Раздел Log Analyzer: https://docs.usergate.com/log-analyzer-665/ — обращение 2026-11-20.
+
+## Журналы, агент UserID и передача событий
+
+Log Analyzer собирает журналы устройств, хранит и обрабатывает их, а также передаёт события в UserGate SIEM.
+
+Агент UserID периодически опрашивает настроенные источники и складывает события в служебную базу. В журналах видны его служебные события: `server_added` и `server_delete_failed` (добавление и удаление сервера), `filter_added` и `filter_updated` (Syslog-фильтры), `set_agent_config` и `set_agent_config_failed` (настройки агента), `sharing_profile_added` и `sharing_profile_add_failed` (профили редистрибуции). По ним проверяют, работает ли сбор данных о пользователях.
+
+Syslog-фильтры агента настраиваются в разделе «Библиотеки → Syslog фильтры UserID агента». Для поиска информации о найденных пользователях используется LDAP-коннектор: в разделе «Пользователи и устройства» выбирается каталог, по которому агент сопоставляет логины из журналов.
+
+События передаются по syslog в форматах RFC 3164, 5424 и 6587.
+
+Источники: https://docs.usergate.com/pol6zovateli-i-ustrojstva-623/

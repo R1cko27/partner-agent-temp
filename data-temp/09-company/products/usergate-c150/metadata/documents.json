@@ -1,0 +1,63 @@
+{
+  "product": "UserGate C150",
+  "slug": "usergate-c150",
+  "vendor": "UserGate",
+  "source_page": "https://docs.usergate.com/usergate-c150_624.html",
+  "retrieved_at": "2026-11-21",
+  "documents": [
+    {
+      "id": "usergate-c150-datasheet-ru",
+      "label": "Технические характеристики",
+      "kind": "datasheet",
+      "title": "UserGate C150 — Технические характеристики",
+      "url": "https://static.usergate.com/docs/overviews/usergate-c150-datasheet-ru.pdf",
+      "source_file": "source/usergate-c150-datasheet-ru.pdf",
+      "parsed_file": "parsed/usergate-c150-datasheet-ru.md",
+      "pages": 15,
+      "size_bytes": 10588360,
+      "sha256": "038e260e8982e33d2d69dc1745bb928ecdc4dfd7baf4eb344fe5174cfa3c2003",
+      "has_text_layer": false,
+      "extraction": "Windows.Media.Ocr (ru), 300 dpi",
+      "version": "не указана",
+      "document_date": "не указана",
+      "parsed_chars": 16855,
+      "needs_review": true
+    },
+    {
+      "id": "instruction-usergate-c150",
+      "label": "Руководство по эксплуатации",
+      "kind": "manual",
+      "title": "UserGate C150 — руководство по эксплуатации",
+      "url": "https://docs.usergate.com/hardware/instruction-usergate-c150.pdf",
+      "source_file": "source/instruction-usergate-c150.pdf",
+      "parsed_file": "parsed/instruction-usergate-c150.md",
+      "pages": 14,
+      "size_bytes": 1033043,
+      "sha256": "7b717ab02565085995a8abd4e004a8b7db177c240be2d02a577a3fe038420bcf",
+      "has_text_layer": true,
+      "extraction": "pypdf 7.0.1, layout",
+      "version": "7.x",
+      "document_date": "2026/07/27",
+      "parsed_chars": 17332,
+      "needs_review": false
+    },
+    {
+      "id": "C150-update",
+      "label": "Установка ПО",
+      "kind": "update",
+      "title": "UserGate C150 — Установка ПО",
+      "url": "https://docs.usergate.com/hardware/C150-update.pdf",
+      "source_file": "source/C150-update.pdf",
+      "parsed_file": "parsed/C150-update.md",
+      "pages": 3,
+      "size_bytes": 134818,
+      "sha256": "c6e07b6f318d11f8403189f7f2865bc8838c6bedcf80c0d20f09856c64692672",
+      "has_text_layer": true,
+      "extraction": "pypdf 7.0.1, layout",
+      "version": "не указана",
+      "document_date": "не указана",
+      "parsed_chars": 4485,
+      "needs_review": false
+    }
+  ]
+}
