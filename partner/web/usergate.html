@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UserGate — кибербезопасность и ИИ-ассистент</title>
+<!-- Импортированные стили usergate.com (скачанный бандл) -->
+<link rel="stylesheet" href="usergate/app.css" />
+<!-- Раскладка этой страницы: палитра и типографика сайта -->
+<link rel="stylesheet" href="usergate/layout.css" />
+<link rel="icon" href="static/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="ug-page">
+
+<header class="ug-header">
+  <div class="ug-container ug-header__inner">
+    <a class="ug-logo" href="https://usergate.com/" target="_blank" rel="noopener">
+      <span class="ug-logo__mark">UG</span>
+      UserGate
+    </a>
+    <nav class="ug-nav">
+      <a href="https://usergate.com/products/" target="_blank" rel="noopener">Продукты</a>
+      <a href="https://usergate.com/solutions/" target="_blank" rel="noopener">Решения</a>
+      <a href="https://usergate.com/services/" target="_blank" rel="noopener">Услуги</a>
+      <a href="https://usergate.com/support/" target="_blank" rel="noopener">Поддержка</a>
+      <a href="https://usergate.com/academy" target="_blank" rel="noopener">Академия</a>
+      <a href="#" data-ug-chat>Чат с ассистентом</a>
+    </nav>
+    <div class="ug-header__actions">
+      <button class="ug-button ug-button--ghost" type="button" data-ug-chat>Спросить ИИ</button>
+      <button class="ug-button" type="button" data-ug-chat>Связаться</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="ug-hero">
+    <div class="ug-container ug-hero__grid">
+      <div>
+        <span class="ug-eyebrow">Экосистема кибербезопасности</span>
+        <h1>Защита сети, приложений и данных — с ИИ-ассистентом по продуктам</h1>
+        <p>
+          NGFW, WAF, DCFW, SIEM, SWG и Client работают как одна экосистема SUMMA.
+          Спросите ассистента о различиях продуктов, лицензировании, сертификатах
+          и аппаратных платформах — он ответит по материалам компании и покажет источники.
+        </p>
+        <div class="ug-hero__actions">
+          <button class="ug-button ug-button--chat" type="button" data-ug-chat>
+            <span class="ug-chat-launcher__dot"></span> Открыть чат
+          </button>
+          <a class="ug-button ug-button--ghost" href="https://usergate.com/products/" target="_blank" rel="noopener">Все продукты</a>
+        </div>
+      </div>
+      <aside class="ug-hero__panel">
+        <h3>Что умеет ассистент</h3>
+        <p>Отвечает по документации, карточкам продуктов и FAQ компании.</p>
+        <ul>
+          <li>Различия продуктов и выбор под задачу</li>
+          <li>Версии, лицензирование, сертификаты</li>
+          <li>Аппаратные платформы и характеристики</li>
+          <li>Обучение и экзамены Академии</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="ug-section">
+    <div class="ug-container">
+      <div class="ug-section__head">
+        <h2>Продукты</h2>
+        <p>Каждый закрывает свой участок защиты</p>
+      </div>
+      <div class="ug-cards">
+        <article class="ug-card">
+          <span class="ug-card__tag">Сеть</span>
+          <h3>UserGate NGFW</h3>
+          <p>Межсетевой экран нового поколения: DPI, IPS, контроль приложений и пользователей, VPN.</p>
+        </article>
+        <article class="ug-card">
+          <span class="ug-card__tag">Веб</span>
+          <h3>UserGate WAF</h3>
+          <p>Защита веб-приложений и сайтов от атак на уровне HTTP/HTTPS-запросов.</p>
+        </article>
+        <article class="ug-card">
+          <span class="ug-card__tag">ЦОД</span>
+          <h3>UserGate DCFW</h3>
+          <p>Межсетевой экран для центров обработки данных и высоконагруженных сегментов, кластеры до 4 узлов.</p>
+        </article>
+        <article class="ug-card">
+          <span class="ug-card__tag">Аналитика</span>
+          <h3>UserGate SIEM</h3>
+          <p>Сбор событий, правила аналитики и автоматическое реагирование через коннекторы.</p>
+        </article>
+        <article class="ug-card">
+          <span class="ug-card__tag">Интернет</span>
+          <h3>UserGate SWG</h3>
+          <p>Шлюз веб-безопасности: фильтрация интернет-трафика сотрудников по категориям и правилам.</p>
+        </article>
+        <article class="ug-card">
+          <span class="ug-card__tag">Устройства</span>
+          <h3>UserGate Client</h3>
+          <p>Защита рабочих станций и ноутбуков по модели нулевого доверия.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ug-footer">
+  <div class="ug-container ug-footer__inner">
+    <span>© UserGate. Демонстрационная страница с ИИ-ассистентом.</span>
+    <span>Ответы ассистента опираются на материалы компании и сопровождаются источниками.</span>
+  </div>
+</footer>
+
+<!-- Виджет чата: в меню и на первом экране -->
+<button class="ug-chat-launcher" type="button" data-ug-chat aria-label="Открыть чат с ассистентом">
+  <span class="ug-chat-launcher__dot"></span> Спросить ИИ
+</button>
+
+<!-- Разворачивающийся полноэкранный чат: используется готовый интерфейс -->
+<div class="ug-chat" id="ugChat" role="dialog" aria-modal="true" aria-label="Чат с ассистентом">
+  <div class="ug-chat__window">
+    <div class="ug-chat__bar">
+      <span class="ug-chat__title">Ассистент UserGate</span>
+      <span class="ug-chat__hint">ответы по материалам компании, со ссылками на источники</span>
+      <button class="ug-chat__close" type="button" data-ug-close aria-label="Закрыть чат">×</button>
+    </div>
+    <iframe class="ug-chat__frame" id="ugChatFrame" title="Чат с ассистентом UserGate" loading="lazy"></iframe>
+  </div>
+</div>
+
+<script>
+(function () {
+  const overlay = document.getElementById('ugChat');
+  const frame = document.getElementById('ugChatFrame');
+  let loaded = false;
+
+  function openChat() {
+    // Полноценный чат — готовый интерфейс ассистента в этой же папке.
+    if (!loaded) {
+      frame.src = 'index.html';
+      loaded = true;
+    }
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeChat() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-ug-chat]').forEach(function (node) {
+    node.addEventListener('click', function (event) {
+      event.preventDefault();
+      openChat();
+    });
+  });
+
+  overlay.addEventListener('click', function (event) {
+    if (event.target === overlay) closeChat();
+  });
+
+  overlay.querySelector('[data-ug-close]').addEventListener('click', closeChat);
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeChat();
+  });
+})();
+</script>
+</body>
+</html>

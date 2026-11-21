@@ -205,6 +205,21 @@ function linkifyOrMarkdown(text) {
   });
 }
 
+const BARE_DOMAIN = /(^|[\s(«])((?:[a-z0-9-]+\.)+(?:ru|com|org|net|io|su|by|kz)(?:\/[\w\-./?=&%#+]*)?)/gi;
+
+function linkifyDomains(html) {
+  // Домены без схемы («dreamjob.ru/employers/125535») тоже делаем ссылками.
+  // Готовые <a> не трогаем, иначе получится вложенная ссылка.
+  const parts = html.split(/(<a\b[^>]*>[\s\S]*?<\/a>)/);
+  return parts
+    .map((part, index) => {
+      if (index % 2 === 1) return part;
+      return part.replace(BARE_DOMAIN, (match, prefix, domain) =>
+        `${prefix}<a href="https://${domain}" target="_blank" rel="noopener noreferrer">${domain}</a>`);
+    })
+    .join('');
+}
+
 function inlineMarkup(text) {
   // Код прячем, чтобы URL внутри него не превращался в ссылку.
   const codes = [];
@@ -217,7 +232,7 @@ function inlineMarkup(text) {
     (_, alt, url) => imageFigure(alt, url)
   );
   out = out.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
-  out = linkifyOrMarkdown(out);
+  out = linkifyDomains(linkifyOrMarkdown(out));
   out = out.replace(/\u0000CODE(\d+)\u0000/g, (_, index) => `<code>${codes[Number(index)]}</code>`);
   return out;
 }
@@ -478,10 +493,28 @@ threadEl.addEventListener('scroll', () => {
   updateScrollButton();
 });
 
+// --- связка с удалённым API -------------------------------------------
+// Адрес и токен приходят из config.js: на хостинге лежит статика, а сам агент
+// работает на вашем ПК и доступен через туннель.
+const API_CFG = window.__AGENT_API__ || {};
+const API_BASE = String(API_CFG.base || "").replace(/\/+$/, "");
+const API_TOKEN = String(API_CFG.token || "");
+
+function apiUrl(path) {
+  if (!path.startsWith("/api")) return path;
+  return API_BASE ? `${API_BASE}${path}` : path;
+}
+
+function apiHeaders(extra) {
+  const headers = { "Content-Type": "application/json", ...(extra || {}) };
+  if (API_TOKEN) headers["X-Api-Token"] = API_TOKEN;
+  return headers;
+}
+
 async function api(path, options = {}) {
-  const res = await fetch(path, {
-    headers: { 'Content-Type': 'application/json' },
+  const res = await fetch(apiUrl(path), {
     ...options,
+    headers: apiHeaders(options.headers),
   });
   if (!res.ok) {
     let detail = `HTTP ${res.status}`;
@@ -1440,9 +1473,9 @@ async function sendMessage(text, options = {}) {
   let finished = false;
 
   try {
-    const res = await fetch('/api/chat', {
+    const res = await fetch(apiUrl('/api/chat'), {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: apiHeaders(),
       body: JSON.stringify({
         message: question,
         session_id: state.sessionId,
@@ -1966,3 +1999,19 @@ document.addEventListener('keydown', (event) => {
   }
   inputEl.focus();
 })();
+
+// Приём вопроса из внешней страницы (site.html / usergate.html).
+window.addEventListener('message', (event) => {
+  const data = event.data || {};
+  if (!data || data.type !== 'partner-agent-ask' || typeof data.text !== 'string') return;
+  const value = data.text.trim();
+  if (!value) return;
+  const input = document.getElementById('input');
+  const form = document.getElementById('composer');
+  if (input) {
+    input.value = value;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+  if (form && typeof form.requestSubmit === 'function') form.requestSubmit();
+  else if (form) form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+});
