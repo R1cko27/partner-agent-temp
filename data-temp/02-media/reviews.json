@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "company": "UserGate",
+    "collected_at": "2026-11-21",
+    "scale": { "min": 1, "max": 5, "round": 0.1 },
+    "selection": "Только хорошие отзывы: индивидуальный отзыв включён, если его оценка не ниже 4,5 из 5. Сводные оценки площадок включены отдельно, без фильтра.",
+    "bias_note": "Выборка смещена: положительные отзывы отобраны намеренно, отрицательные в набор не входят. Средняя по файлу не равна реальному рейтингу компании — для честной картины нужен полный набор отзывов."
+  },
+  "sources": [
+    {
+      "id": "dreamjob",
+      "name": "Dream Job",
+      "url": "https://dreamjob.ru/employers/125535",
+      "url_kind": "per_review_param",
+      "review_id_param": "review_id",
+      "checked_at": "2026-11-21",
+      "status": "verified",
+      "note": "У каждого отзыва есть постоянная ссылка вида https://dreamjob.ru/employers/125535?review_id=<id>. На странице 49 отзывов, есть сортировка «Сначала положительные»."
+    },
+    {
+      "id": "trustjob",
+      "name": "TrustJob",
+      "url": "https://trustjob.ru/company/usergate/",
+      "url_kind": "page_only",
+      "review_id_param": null,
+      "checked_at": "2026-11-21",
+      "status": "verified",
+      "note": "Отдельных отзывов с постоянными адресами нет: только сводный обзор компании с оценкой. Прямую ссылку на отдельный отзыв с этой площадки дать нельзя."
+    },
+    {
+      "id": "habr_career",
+      "name": "Хабр Карьера",
+      "url": "https://career.habr.com/companies/usergate",
+      "url_kind": "unknown",
+      "review_id_param": null,
+      "checked_at": "2026-11-21",
+      "status": "not_checked",
+      "note": "Карточка компании существует. Адрес /companies/usergate/reviews отдал 404, поэтому раздел отзывов и постоянные ссылки на отзывы нужно проверить вручную."
+    },
+    {
+      "id": "nerab",
+      "name": "НеРаб.ру",
+      "url": "https://nerab.ru/reviews/usergate-juic",
+      "url_kind": "unknown",
+      "review_id_param": null,
+      "checked_at": "2026-11-21",
+      "status": "not_checked",
+      "note": "Адрес найден в перечне источников TrustJob. Не открывался, наличие прямых ссылок на отзывы не проверено."
+    }
+  ],
+  "aggregates": [
+    {
+      "source": "dreamjob",
+      "url": "https://dreamjob.ru/employers/125535",
+      "rating_raw": { "value": 4.5, "min": 1, "max": 5, "kind": "stars" },
+      "rating_5": 4.5,
+      "reviews_count": 49,
+      "recommend_pct": 88,
+      "tone": { "positive_pct": null, "neutral_pct": null, "negative_pct": null },
+      "distribution": { "4-5": 42, "3-4": 3, "2-3": 3, "1-2": 1 },
+      "categories": [
+        { "name": "Условия труда", "rating_raw": { "value": 4.8, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 4.8 },
+        { "name": "Коллектив", "rating_raw": { "value": 4.7, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 4.7 },
+        { "name": "Руководство", "rating_raw": { "value": 4.3, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 4.3 },
+        { "name": "Уровень дохода", "rating_raw": { "value": 4.5, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 4.5 },
+        { "name": "Условия для отдыха", "rating_raw": { "value": 4.3, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 4.3 },
+        { "name": "Возможности роста", "rating_raw": { "value": 4.2, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 4.2 }
+      ],
+      "checked_at": "2026-11-21"
+    },
+    {
+      "source": "trustjob",
+      "url": "https://trustjob.ru/company/usergate/",
+      "rating_raw": { "value": 7.7, "min": 1, "max": 10, "kind": "numeric" },
+      "rating_5": 4.0,
+      "reviews_count": 50,
+      "recommend_pct": null,
+      "tone": { "positive_pct": 75, "neutral_pct": 0, "negative_pct": 25 },
+      "distribution": null,
+      "categories": [
+        { "name": "Трудоустройство и онбординг (вес 20%)", "rating_raw": { "value": 6.8, "min": 1, "max": 10, "kind": "numeric" }, "rating_5": 3.6 },
+        { "name": "Финансовое вознаграждение (вес 30%)", "rating_raw": { "value": 7.8, "min": 1, "max": 10, "kind": "numeric" }, "rating_5": 4.0 },
+        { "name": "Рабочая среда (вес 30%)", "rating_raw": { "value": 8.3, "min": 1, "max": 10, "kind": "numeric" }, "rating_5": 4.2 },
+        { "name": "Ценность для карьеры (вес 20%)", "rating_raw": { "value": 9, "min": 1, "max": 10, "kind": "numeric" }, "rating_5": 4.6 }
+      ],
+      "checked_at": "2026-11-21"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-dreamjob-4507413",
+      "source": "dreamjob",
+      "source_review_id": "4507413",
+      "url": "https://dreamjob.ru/employers/125535?review_id=4507413",
+      "url_kind": "per_review_param",
+      "rating_raw": { "value": 4.7, "min": 1, "max": 5, "kind": "stars" },
+      "rating_5": 4.7,
+      "rating_subscores": [
+        { "name": "Условия труда", "rating_raw": { "value": 5.0, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 5.0 },
+        { "name": "Коллектив", "rating_raw": { "value": 5.0, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 5.0 },
+        { "name": "Руководство", "rating_raw": { "value": 5.0, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 5.0 },
+        { "name": "Уровень дохода", "rating_raw": { "value": 4.0, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 4.0 },
+        { "name": "Условия для отдыха", "rating_raw": { "value": 4.0, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 4.0 },
+        { "name": "Возможности роста", "rating_raw": { "value": 4.0, "min": 1, "max": 5, "kind": "stars" }, "rating_5": 4.0 }
+      ],
+      "sentiment": "positive",
+      "pros": "Один из лидеров на рынке ИБ, открытость руководства к сотрудникам",
+      "cons": "Сделать прозрачную систему карьерного роста в компании, улучшить процесс онбординга новых сотрудников",
+      "text": null,
+      "author_display": "аноним",
+      "role": "Старший менеджер продукта",
+      "city": "Новосибирск",
+      "employment": "работает меньше года",
+      "date": "2026-03",
+      "company_reply": {
+        "date": "2026-05",
+        "text": "Компания благодарит за отзыв, сообщает, что HR-отдел разрабатывает систему карьерных треков, и предлагает писать предложения на hr-team@usergate.com."
+      },
+      "collected_at": "2026-11-21",
+      "collector": "manual: чтение страницы Dream Job"
+    }
+  ]
+}

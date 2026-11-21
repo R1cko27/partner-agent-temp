@@ -1,0 +1,145 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Отзывы о работодателе UserGate",
+  "description": "Набор отзывов и сводных оценок с прямой ссылкой на источник и единой шкалой 1–5",
+  "type": "object",
+  "required": ["meta", "sources", "aggregates", "reviews"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["company", "collected_at", "scale"],
+      "properties": {
+        "company": { "type": "string" },
+        "collected_at": { "type": "string", "description": "Дата сбора, YYYY-MM-DD" },
+        "scale": {
+          "type": "object",
+          "required": ["min", "max", "round"],
+          "properties": {
+            "min": { "const": 1 },
+            "max": { "const": 5 },
+            "round": { "type": "number", "description": "До скольких знаков округляем rating_5" }
+          }
+        },
+        "selection": { "type": "string", "description": "По какому правилу отобраны отзывы" },
+        "bias_note": { "type": "string", "description": "Чем выборка смещена" }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "url", "url_kind", "checked_at", "status"],
+        "properties": {
+          "id": { "enum": ["dreamjob", "trustjob", "habr_career", "nerab", "hh"] },
+          "name": { "type": "string" },
+          "url": { "type": "string", "pattern": "^https://" },
+          "url_kind": {
+            "enum": ["per_review_param", "per_review_path", "page_plus_anchor", "page_only", "unknown"],
+            "description": "Как устроена прямая ссылка на отдельный отзыв"
+          },
+          "review_id_param": { "type": ["string", "null"], "description": "Имя параметра с id отзыва" },
+          "checked_at": { "type": "string" },
+          "status": { "enum": ["verified", "not_checked", "blocked"] },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "aggregates": {
+      "type": "array",
+      "description": "Сводные оценки площадок. Не отзывы, а рейтинг компании",
+      "items": {
+        "type": "object",
+        "required": ["source", "url", "rating_raw", "rating_5", "checked_at"],
+        "properties": {
+          "source": { "type": "string" },
+          "url": { "type": "string", "pattern": "^https://" },
+          "rating_raw": {
+            "type": "object",
+            "required": ["value", "min", "max", "kind"],
+            "properties": {
+              "value": { "type": "number" },
+              "min": { "type": "number" },
+              "max": { "type": "number" },
+              "kind": { "enum": ["stars", "numeric", "percentage", "binary", "text_only"] }
+            }
+          },
+          "rating_5": { "type": ["number", "null"], "minimum": 1, "maximum": 5 },
+          "reviews_count": { "type": ["integer", "null"] },
+          "recommend_pct": { "type": ["number", "null"] },
+          "tone": {
+            "type": ["object", "null"],
+            "description": "Доли отзывов по тональности; null, если площадка их не публикует",
+            "properties": {
+              "positive_pct": { "type": ["number", "null"] },
+              "neutral_pct": { "type": ["number", "null"] },
+              "negative_pct": { "type": ["number", "null"] }
+            }
+          },
+          "distribution": { "type": ["object", "null"], "description": "Сколько отзывов в каждом диапазоне" },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "rating_raw", "rating_5"],
+              "properties": {
+                "name": { "type": "string" },
+                "rating_raw": { "type": "object" },
+                "rating_5": { "type": ["number", "null"] }
+              }
+            }
+          },
+          "checked_at": { "type": "string" }
+        }
+      }
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "url", "url_kind", "rating_raw", "rating_5", "sentiment"],
+        "properties": {
+          "id": { "type": "string", "description": "sha1(source + source_review_id)[:12]" },
+          "source": { "enum": ["dreamjob", "trustjob", "habr_career", "nerab"] },
+          "source_review_id": { "type": ["string", "null"] },
+          "url": { "type": "string", "pattern": "^https://" },
+          "url_kind": { "enum": ["per_review_param", "per_review_path", "page_plus_anchor", "page_plus_index"] },
+          "rating_raw": {
+            "type": "object",
+            "required": ["value", "min", "max", "kind"],
+            "properties": {
+              "value": { "type": "number" },
+              "min": { "type": "number" },
+              "max": { "type": "number" },
+              "kind": { "enum": ["stars", "numeric", "percentage", "binary", "text_only"] }
+            }
+          },
+          "rating_5": { "type": ["number", "null"], "minimum": 1, "maximum": 5 },
+          "rating_subscores": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "rating_raw", "rating_5"],
+              "properties": {
+                "name": { "type": "string" },
+                "rating_raw": { "type": "object" },
+                "rating_5": { "type": ["number", "null"] }
+              }
+            }
+          },
+          "sentiment": { "enum": ["positive", "neutral", "negative"] },
+          "pros": { "type": ["string", "null"] },
+          "cons": { "type": ["string", "null"] },
+          "text": { "type": ["string", "null"] },
+          "author_display": { "type": ["string", "null"], "description": "Только публичный ник или «аноним», не ФИО" },
+          "role": { "type": ["string", "null"] },
+          "city": { "type": ["string", "null"] },
+          "employment": { "type": ["string", "null"] },
+          "date": { "type": ["string", "null"] },
+          "company_reply": { "type": ["object", "null"] },
+          "collected_at": { "type": "string" },
+          "collector": { "type": "string" }
+        }
+      }
+    }
+  }
+}
