@@ -1,0 +1,4 @@
+[31000:5684:1120/170236.526:ERROR:chrome\installer\util\google_update_settings_win.cc:270] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
+[31000:27928:1120/170236.527:ERROR:chrome\browser\net\system_network_context_manager.cc:1019] Cannot use V8 Proxy resolver in single process mode.
+[31000:27928:1120/170236.539:ERROR:chrome\browser\net\system_network_context_manager.cc:1019] Cannot use V8 Proxy resolver in single process mode.
+[31000:27928:1120/170236.611:ERROR:chrome\browser\net\system_network_context_manager.cc:1019] Cannot use V8 Proxy resolver in single process mode.

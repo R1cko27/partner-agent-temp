@@ -1,0 +1,2604 @@
+---
+заголовок: Описание событий, передающихся по syslog
+url: https://docs.usergate.com/opisanie-sobytij-peredayushihsya-po-syslog_851.html
+источник: портал документации
+получено: 2026-11-20 16:14 +0700
+продукт: NGFW
+версия: 6.1.9
+раздел: Описание событий, передающихся по syslog
+id_статьи: 851
+обновлено: 01 Feb, 2024
+ревизия: 6
+---
+
+# Описание событий, передающихся по syslog
+
+Documentation:
+Компонента
+Событие
+Описание
+2fa
+MFA
+profile_add_failed
+Неуспешное добавление профиля MFA
+profile_added
+Профиль MFA добавлен
+profile_delete_failed
+Неуспешное удаление профиля MFA
+profile_deleted
+Профиль MFA удалён
+profile_update_failed
+Неуспешное изменение профиля MFA
+profile_updated
+Профиль MFA изменён
+accounts
+Аккаунты и группы
+2fa_email_not_set
+Не задан пользовательский email для MFA
+2fa_error_send_notify
+Аутентификация MFA не может послать сообщение пользователю, проверьте настройки оповещения
+2fa_phone_not_set
+Не задан пользовательский телефон для MFA
+administrator_added
+Учётная запись администратора добавлена
+administrator_deleted
+Учётная запись администратора удалена
+administrator_profile_added
+Профиль учётной записи администратора добавлен
+administrator_profile_deleted
+Профиль учётной записи администратора удалён
+administrator_profile_updated
+Профиль учётной записи администратора изменён
+administrator_unlocked
+Учётная запись администратора разблокирована
+administrator_updated
+Учётная запись администратора изменена
+auth_profile_add_failed
+Неуспешное добавление профиля
+auth_profile_added
+Профиль добавлен
+auth_profile_delete_failed
+Неуспешное удаление профиля
+auth_profile_deleted
+Профиль удалён
+auth_profile_fetch_failed
+Неуспешное извлечение данных профиля
+auth_profile_update_failed
+Неуспешное изменение профиля
+auth_profile_updated
+Профиль изменён
+auth_server_add_failed
+Неуспешное добавление сервера аутентификации
+auth_server_added
+Сервер аутентификации добавлен
+auth_server_deleted
+Сервер аутентификации удалён
+auth_server_fetch_failed
+Неуспешное извлечение данных cервера аутентификации
+auth_server_update_failed
+Неуспешное изменение сервера аутентификации
+auth_server_updated
+Сервер аутентификации изменён
+byod_device_deleted
+Устройство BYOD удалено
+byod_device_updated
+Устройство BYOD изменено
+byod_rule_add_failed
+Неуспешное добавление правила BYOD
+byod_rule_added
+Правило BYOD добавлено
+byod_rule_delete_failed
+Неуспешное удаление правила BYOD
+byod_rule_deleted
+Правило BYOD удалено
+byod_rule_move_failed
+Неуспешное перемещение правила BYOD
+byod_rule_moved
+Правило BYOD перемещено
+byod_rule_update_failed
+Неуспешное обновление правила BYOD
+byod_rule_updated
+Правило BYOD изменено
+captiveportal_profile_added
+Профиль Captive-портала добавлен
+captiveportal_profile_deleted
+Профиль Captive-портала удалён
+captiveportal_profile_updated
+Профиль Captive-портала изменён
+captiveportal_register_user_failed
+Неуспешная регистрация пользователя через Captive-портал
+captiveportal_rule_added
+Правило Captive-портала добавлено
+captiveportal_rule_deleted
+Правило Captive-портала удалено
+captiveportal_rule_move_failed
+Неуспешное перемещение правила Captive-портала
+captiveportal_rule_moved
+Правило Captive-портала перемещено
+captiveportal_rule_updated
+Правило Captive-портала изменено
+captiveportal_send_pass
+Captive-портал: пароль успешно отправлен пользователю
+captiveportal_send_pass_failed
+Captive-портал: ошибка отправки пароля пользователю
+ldap_server_disabled
+Ошибка подключения к серверу LDAP. LDAP коннектор выключен
+ldap_server_not_responding
+LDAP сервер недоступен
+ldap_server_unavailable
+Сервер LDAP недоступен
+ldap_user_imported
+Пользователь LDAP/AD импортирован
+ldap_user_is_missing
+LDAP пользователь не найден
+ldap_users_list_failed
+Неуспешная попытка отобраажения пользователей LDAP/AD
+local_group_added
+Локальная группа добавлена
+local_group_deleted
+Локальная группа удалена
+local_group_updated
+Локальная группа изменена
+local_user_added
+Локальный пользователь добавлен
+local_user_deleted
+Локальный пользователь удалён
+ta_user_added
+Гостевой пользователь добавлен
+ta_user_deleted
+Гостевой пользователь удалён
+ta_user_updated
+Гостевой пользователь изменён
+ta_users_added_bulk
+Добавлены гостевые пользователи
+ta_users_deleted_bulk
+Гостевые пользователи удалены
+ta_users_updated_bulk
+Гостевые пользователи изменены
+terminal_agent_add_failed
+Неуспешное добавление агента терминального сервера
+terminal_agent_added
+Агент терминального сервера добавлен
+terminal_agent_delete_failed
+Неуспешное удаление агента терминального сервера
+terminal_agent_deleted
+Агент терминального сервера удалён
+terminal_agent_update_failed
+Неуспешное изменение агента терминального сервера
+terminal_agent_updated
+Агент терминального сервера изменён
+totp_code_already_init
+Токен TOTP уже был успешно инициализирован
+totp_code_reset
+Код TOTP сброшен
+totp_rule_added
+Правило MFA добавлено
+totp_rule_deleted
+Правило MFA удалено
+totp_rule_updated
+Правило MFA изменено
+user_added_to_group
+Пользователь добавлен в группу
+user_deleted_from_group
+Пользователь удалён из группы
+user_updated
+Пользователь изменён
+analytics
+Аналитика
+action_failed
+Действие завершилось неуспешно
+action_finished
+Действие завершилось
+action_rule_add_failed
+Неуспешное добавление действие реагирования
+action_rule_added
+Действие реагирования добавлено
+action_rule_delete_failed
+Неуспешное удаление действия реагирования
+action_rule_deleted
+Действие реагирования удалено
+action_rule_update_failed
+Неуспешное изменение действия реагирования
+action_rule_updated
+Действие реагирования обновлено
+action_started
+Действие запущено
+alert_category_add_failed
+Неуспешная попытка добавления категории срабатывания
+alert_category_added
+Категория срабатывания добавлена
+alert_category_delete_failed
+Неуспешная попытка удаления категории срабатывания
+alert_category_deleted
+Категория срабатывания удалена
+alert_category_update_failed
+Неуспешная попытка изменения категории срабатывания
+alert_category_updated
+Категоряи срабатывания изменена
+enrichment_setting_updated
+Настройка сервисов обогащений обновлена
+enrichment_updated
+Сервисы обогащений обновлены
+rule_add_failed
+Неуспешное добавление правила аналитики
+rule_added
+Правило аналитики добавлено
+rule_delete_failed
+Неуспешное удаление правила аналитики
+rule_deleted
+Правило аналитики удалено
+rule_exec_finished
+Правило аналитики выполнено
+rule_exec_started
+Правило аналитики запущено
+rule_exec_stopped
+Правило аналитики остановлено
+rule_import_failed
+Неуспешный импорт правила аналитики
+rule_imported
+Правило аналитики импортировано
+rule_update_failed
+Неуспешное изменение правила аналитики
+rule_updated
+Правило аналитики изменено
+bandwidth
+Пропускная способность
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_moved
+Правило перемещено
+rule_updated
+Правило изменено
+bgp
+BGP
+filter_added
+BGP-фильтр добавлен
+filter_deleted
+Фильтр BGP удалён
+filter_updated
+BGP фильтр обновлён
+neighbor_added
+BGP-сосед добавлен
+neighbor_deleted
+удалён сосед BGP
+neighbor_updated
+BGP-сосед обновлён
+routemap_added
+BGP-routemap добавлен
+routemap_deleted
+удалён BGP routemap
+routemap_updated
+BGP routemap изменён
+router_updated
+BGP-маршрутизатор обновлён
+captiveportal
+Captive-портал
+login_failed
+Ошибка аутентификации
+login_failed_2fa_code
+Неуспешная аутентификация MFA
+login_failed_anonymous
+Неуспешная аутентификация через Captive-портал
+login_successful
+Аутентификация успешна
+cc_device
+UserGate Management Center
+device_add_failed
+Неуспешное добавление управляемого устройства
+device_added
+Управляемое устройство добавлено
+device_check_license
+Запущена проверка лицензии управляемого устройства
+device_check_license_failed
+Неуспешная проверка лицензии управляемого устройства
+device_delete_failed
+Неуспешное удаление управляемого устройства
+device_deleted
+Управляемое устройство удалено
+device_fetch_failed
+Неуспешное извлечение данных управляемого устройства
+device_reboot
+Управляемое устройство перезагружено
+device_reboot_failed
+Неуспешная попытка перезагрузки управляемого устройства
+device_register
+Управляемое устройство зарегистрировано
+device_register_failed
+Неуспешная попытка регистрации управляемого устройства
+device_shutdown
+Управляемое устройство выключено
+device_shutdown_failed
+Неуспешная попытка выключения управляемого устройства
+device_update_failed
+Неуспешное обновление управляемого устройства
+device_updated
+Управляемое устройство изменено
+template_add_failed
+Неуспешное добавление шаблона
+template_added
+Шаблон добавлен
+template_delete_failed
+Неуспешное удаление шаблона
+template_deleted
+Шаблон удалён
+template_fetch_failed
+Неуспешное извлечение данных шаблона
+template_group_add_failed
+Неуспешное добавление группы шаблонов
+template_group_added
+Группа шаблонов добавлена
+template_group_delete_failed
+Неуспешное удаление группы шаблонов
+template_group_deleted
+Группа шаблонов удалена
+template_group_fetch_failed
+Неуспешное извлечение данных группы шаблонов
+template_group_update_failed
+Неуспешное извлечение данных группы шаблонов
+template_group_updated
+Группа шаблонов обновлена
+template_update_failed
+Неуспешное обновление шаблона
+template_updated
+Шаблон обновлён
+cc_device_lists_update
+Обновление библиотек
+update_fetch_failed
+Неуспешное удаление обновления бибиблиотек
+update_update_failed
+Неуспешное изменение обновления бибиблиотек
+update_updated
+Обновление библиотеки успешно изменено
+cc_device_update
+Обновление ПО
+update_add_failed
+Неуспешная попытка добавления обновления ПО
+update_added
+Обновление ПО добавлено
+update_delete_failed
+Обновление ПО удалено
+update_deleted
+Обновление ПО удалено
+update_fetch_failed
+Неуспешная попытка удаления обновления ПО
+update_update_failed
+Неуспешная попытка изменения обновления ПО
+update_updated
+Обновление ПО изменено
+cc_logan
+LogAn сервер
+device_add_failed
+Неуспешная попытка добавления LogAn сервера
+device_added
+LogAn сервер добавлен
+device_delete_failed
+Неуспешная попытка удаления LogAn сервера
+device_deleted
+LogAn сервер удалён
+device_fetch_failed
+Неуспешная попытка извлечения данных LogAn сервера
+device_update_failed
+Неуспешная попытка обновления LogAn сервера
+device_updated
+LogAn сервер обновлён
+certificates
+Сертификаты
+client_certificate_profile_added
+Профиль клиентского сертификата успешно добавлен
+client_certificate_profile_deleted
+Профиль клиентского сертификата успешно удален
+client_certificate_profile_updated
+Профиль клиентского сертификата успешно изменен
+connectors
+Коннекторы
+add_failed
+Неуспешная попытка добавления коннектора
+added
+Коннектор добавлен
+delete_failed
+Неуспешная попытка удаления коннектора
+deleted
+Коннектор удалён
+exec_failed
+Неуспешная попытка выполнить команду коннектора
+executed
+Команда коннектора выполнена
+fetch_failed
+Неуспешная попытка извлечения данных коннектора
+msg_send_failed
+Неуспешная попытка послать сообщение на коннектор
+msg_sent
+Сообщение успешно отправлено на коннектор
+restore_default
+Успешный сброс коннекторов к значению по умолчанию
+restore_default_failed
+Неуспешная попытка сброса коннекторов к значению по умолчанию
+update_failed
+Неуспешная попытка обновления настроек коннектора
+updated
+Настройки коннектора обновлены
+console_auth
+Консольная аутентификация
+administrator_login
+Успешная аутентификация администратора
+administrator_login_failed
+Неуспешная аутентификация администратора
+administrator_logout
+Успешный выход администратора из системы
+administrator_logout_failed
+Неуспешный выход администратора из системы
+login_failed
+Ошибка аутентификации
+login_successful
+Аутентификация успешна
+content_rules
+Фильтрация контента
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_moved
+Правило перемещено
+rule_updated
+Правило изменено
+core
+Ядро системы
+administrator_add_failed
+Неуспешное добавление учётной записи администратора
+administrator_added
+Учётная запись администратора добавлена
+administrator_change_password
+Пароль учётной записи администратора изменён
+administrator_change_password_failed
+Неуспешное изменение пароля учётной записи администратора
+administrator_delete_failed
+Неуспешное удаление учётной записи администратора
+administrator_deleted
+Учётная запись администратора удалена
+administrator_fetch_failed
+Неуспешное извлечение данных учётной записи администратора
+administrator_login
+Успешная аутентификация администратора
+administrator_login_failed
+Неуспешная аутентификация администратора
+administrator_logout
+Успешный выход администратора из системы
+administrator_logout_failed
+Неуспешный выход администратора из системы
+administrator_profile_add_failed
+Неуспешное добавление профиля администратора
+administrator_profile_added
+Профиль учётной записи администратора добавлен
+administrator_profile_delete_failed
+Неуспешное удаление профиля администратора
+administrator_profile_deleted
+Профиль учётной записи администратора удалён
+administrator_profile_fetch_failed
+Неуспешное извлечение данных профиля администратора
+administrator_profile_update_failed
+Неуспешное добавление профиля администратора
+administrator_profile_updated
+Профиль учётной записи администратора изменён
+administrator_role_add_failed
+Неуспешное добавление роли
+administrator_role_added
+Роль добавлена
+administrator_role_delete_failed
+Неуспешное удаление роли
+administrator_role_deleted
+Роль удалена
+administrator_role_fetch_failed
+Неуспешное извлечение данных роли
+administrator_role_update_failed
+Неуспешное изменение роли
+administrator_role_updated
+Роль изменена
+administrator_roles_restore_default
+Успешный сброс ролевых разрешений к значению по умолчанию
+administrator_roles_restore_default_failed
+Неуспешная попытка сброса ролевых разрешений к значению по умолчанию
+administrator_terminate_session
+Сессия администратора закрыта
+administrator_terminate_session_failed
+Неуспешная попытка закрытия сессии администратора
+administrator_unlock
+Учётная запись администратора разблокирована
+administrator_unlock_failed
+Неуспешная разблокировка учётной записи администратора
+administrator_update_failed
+Неуспешное изменение учётной записи администратора
+administrator_updated
+Учётная запись администратора изменена
+realm_add_failed
+Неуспешное добавление управляемой области
+realm_added
+Управляемая область добавлена
+realm_delete_failed
+Неуспешное удаление управляемой области
+realm_deleted
+Управляемая область удалена
+realm_fetch_failed
+Неуспешное извлечение данных управляемой области
+realm_update_failed
+Неуспешное обновление управляемой области
+realm_updated
+Управляемая область обновлена
+decryption_rules
+Инспектирование
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_moved
+Правило перемещено
+rule_updated
+Правило изменено
+device
+Устройство
+appliance_fault
+Внутренняя ошибка применения конфигурации
+auth_server_update_failed
+Неуспешное изменение сервера аутентификации
+backup_cancelled
+Резервное копирование отменено
+backup_error
+Ошибка создания резервной копии
+backup_export_rule_added
+Правило резервного копирования добавлено
+backup_export_rule_deleted
+Правило резервного копирования удалено
+backup_export_rule_updated
+Правило резервного копирования изменено
+backup_finished
+Резервное копирование успешно завершено
+backup_started
+Резервное копирование запущено
+bootstrap_end
+Сервер загрузился успешно
+cc_server_connection_failed
+Потеряна связь с UserGate MC
+check_checksum_failed
+Контрольная сумма не совпала
+code_change_control_set
+Установлена защита исполняемых файлов от изменения
+code_checksum_failed
+Контрольная сумма исполняемых файлов изменена
+config_change_control_set
+Установлена защита конфигурации от изменения
+config_checksum_failed
+Контрольная сумма конфигурации изменена
+conntrack_table_overload
+Таблица сессий заполнена на 90%
+filesystem_not_clean
+Файловая система повреждена
+high_cpu_usage
+Высокая загрузка процессора
+high_disk_io_utilization
+Высокая загрузка ввода/вывода диска
+iface_configuration_failed
+Неуспешное изменение сетевого интерфейса
+log_rotation_failed
+Ошибка ротации файлов журналов
+low_memory
+Высокое потребление памяти
+low_space_log_partition
+Недостаточно места на разделе для журналов
+network_settings_export
+Экспорт сетевых настроек
+network_settings_export_failed
+Ошибка экспорта сетевых настроек
+network_settings_import
+Импорт сетевых настроек
+network_settings_import_failed
+Ошибка импорта сетевых настроек
+node_info_updated
+Узел обновлён
+poweroff
+Инициировано выключение сервера
+reboot
+Инициирована перезагрузка
+scheduled_export_complete
+Экспорт завершён успешно
+scheduled_export_failed
+Экспорт завершён с ошибкой
+set_log_level
+Уровень журналирования изменён
+settings_export
+Экспортированы настройки
+settings_export_rule_added
+Правило экспорта добавлено
+settings_export_rule_deleted
+Правило экспорта удалено
+settings_export_rule_updated
+Правило экспорта изменено
+settings_import
+Импортированы настройки
+system_logs_clear
+Журналы очищены
+dos
+DoS
+rule_added
+Правило защиты DoS добавлено
+rule_deleted
+Правило защиты DoS удалено
+rule_moved
+Правило защиты DoS перемещено
+rule_profile_added
+Профиль защиты DoS добавлен
+rule_profile_deleted
+Профиль защиты DoS удалён
+rule_profile_updated
+Профиль защиты DoS изменён
+rule_updated
+Правило защиты DoS изменено
+endpoint_devices_lists_update
+Обновление библиотек конечного устройства
+update_fetch_failed
+Неуспешная попытка удаления обновления библиотек конечного устройства
+update_update_failed
+Неуспешная попытка изменения обновления библиотек конечного устройства
+update_updated
+Успешное изменение библиотек конечного устройства
+endpoint_devices_update
+Обновление ПО конечного устройства
+update_add_failed
+Неуспешная попытка добавления обновления ПО конечного устройства
+update_added
+Обновление ПО конечного устройства добавлено
+update_delete_failed
+Обновление ПО конечного устройства удалено
+update_deleted
+Обновление ПО конечного устройства удалено
+update_fetch_failed
+Неуспешная попытка удаления обновления ПО конечного устройства
+update_update_failed
+Неуспешная попытка изменения обновления ПО конечного устройства
+update_updated
+Обновление ПО конечного устройства изменено
+ep_code
+Код конечного устройства
+endpoint_code_add_failed
+Неуспешная попытка добавления кода конечного устройства
+endpoint_code_added
+Код конечного устройства добавлен
+endpoint_code_delete_failed
+Неуспешная попытка удаления кода конечного устройства
+endpoint_code_deleted
+Код конечного устройства удалён
+endpoint_code_fetch_failed
+Неуспешная попытка извлечения данных кода конечного устройства
+endpoint_code_update_failed\
+Неуспешная попытка обновления кода конечного устройства
+endpoint_code_updated
+Код конечного устройства обновлён
+ep_compliance
+Комплаенс конечного устройства
+compliance_add_failed
+Неуспешная попытка добавления настроек комплаенса
+compliance_added
+Добавлены настройки комплаенса
+compliance_delete_failed
+Неуспешная попытка удаления настроек комплаенса
+compliance_deleted
+Удалены настройки комплаенса
+compliance_fetch_failed
+Неуспешная попытка извлечения данных настроек комплаенса
+compliance_update_failed
+Неуспешная попытка изменения настроек комплаенса
+compliance_updated
+Обновлены настройки комплаенса
+ep_device
+Конечное устройство
+endpoint_activated
+Конечное устройство активировано
+endpoint_add_failed
+Неуспешная попытка добавления конечного устройства
+endpoint_added
+Конечное устройство добавлено
+endpoint_deleted
+Конечное устройство удалено
+endpoint_deleted_failed
+Неуспешная попытка удаления конечного устройства
+endpoint_fetch_failed
+Неуспешная попытка извлечения данных конечного устройства
+endpoint_sync
+Синхронизация конечных устройств
+endpoint_sync_failed
+Неуспешная попытка синхронизации конечного устройства
+endpoint_update_failed
+Неуспешная попытка обновления конечного устройства
+endpoint_updated
+Конечное устройство обновлено
+ep_firewall
+Межсетевой экран конечных устройств
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_moved
+Правило перемещено
+rule_updated
+Правило изменено
+ep_hip_object
+HIP объект
+hip_object_add_failed
+Неуспешная попытка добавления HIP объекта
+hip_object_added
+HIP объект добавлен
+hip_object_delete_failed
+Неуспешная попытка удаления HIP объекта
+hip_object_deleted
+HIP объект удален
+hip_object_fetch_failed
+Неуспешная попытка извлечения данных HIP объекта
+hip_object_update_failed
+Неуспешная попытка обновления HIP объекта
+hip_object_updated
+HIP объект обновлен
+ep_hip_profile
+HIP профиль
+hip_profile_add_failed
+Неуспешная попытка добавления HIP профиля
+hip_profile_added
+HIP профиль добавлен
+hip_profile_delete_failed
+Неуспешная попытка удаления HIP профиля
+hip_profile_deleted
+HIP профиль удален
+hip_profile_fetch_failed
+Неуспешная попытка извлечения данных HIP профиля
+hip_profile_update_failed
+Неуспешная попытка обновления HIP профиля
+hip_profile_updated
+HIP профиль обновлен
+ep_libraries
+Библиотеки конечных устройств
+nlist_added
+Список добавлен
+nlist_deleted
+Список удалён
+nlist_exported
+Список экспортирован
+nlist_import_failed
+Ошибка при импорте списка
+nlist_imported
+Список импортирован
+nlist_item_added
+Элемент списка добавлен
+nlist_item_deleted
+Элемент списка удалён
+nlist_item_updated
+Элемент списка изменён
+nlist_items_deleted
+Элементы списка удалены
+nlist_updated
+Список изменён
+service_added
+Сервис добавлен
+service_deleted
+Сервис удалён
+service_updated
+Сервис изменён
+ep_proxy
+Прокси сервер
+proxy_profile_add_failed
+Неуспешная попытка добавления прокси сервера
+proxy_profile_added
+Прокси сервер добавлен
+proxy_profile_delete_failed
+Неуспешная попытка удаления прокси сервера
+proxy_profile_deleted
+Прокси сервер удален
+proxy_profile_fetch_failed
+Неуспешная попытка извлечения данных прокси сервера
+proxy_profile_update_failed
+Неуспешная попытка обновления данных прокси сервера
+proxy_profile_updated
+Прокси сервер обновлен
+ep_settings
+Настройка конечного устройства
+update_failed
+Неуспешная попытка обновления общих настроек конечного устройства
+updated
+Общие настройки конечного устройства обновлены
+ep_template
+Шаблон конечного устройства
+endpoint_template_add_failed
+Неуспешная попытка добавления шаблона конечного устройства
+endpoint_template_added
+Шаблон конечного устройства добавлен
+endpoint_template_delete_failed
+Неуспешная попытка удаления шаблона конечного устройства
+endpoint_template_deleted
+Шаблон конечного устройства удалён
+endpoint_template_fetch_failed
+Неуспешная попытка извлечения данных шаблона конечного устройства
+endpoint_template_update_failed\
+Неуспешная попытка обновления шаблона конечного устройства
+endpoint_template_updated
+Шаблон конечного устройства обновлён
+ep_templates_group
+Группа шаблонов конечного устройства
+endpoint_template_group_add_failed
+Неуспешная попытка добавления группы шаблонов конечного устройства
+endpoint_template_group_added
+Группа шаблонов конечного устройства добавлена
+endpoint_template_group_delete_failed
+Неуспешная попытка удаления группы шаблонов конечного устройства
+endpoint_template_group_deleted
+Группа шаблонов конечного устройства удалена
+endpoint_template_group_fetch_failed
+Неуспешная попытка извлечения данных группы шаблонов конечного устройства
+endpoint_template_group_update_failed
+Неуспешная попытка обновления группы шаблонов конечного устройства
+endpoint_template_group_updated
+Группа шаблонов конечного устройства обновлена
+ep_vpn
+VPN конечного устройства
+vpn_add_failed
+Неуспешная попытка добавления VPN конечного устройства
+vpn_added
+Добавлен VPN конечного устройства
+vpn_delete_failed
+Неуспешная попытка удаления VPN конечного устройства
+vpn_deleted
+Удален VPN конечного устройства
+vpn_fetch_failed
+Неуспешная попытка извлечения данных VPN конечного устройства
+vpn_move_failed
+Неуспешная попытка перемещения VPN конечного устройства
+vpn_moved
+VPN конечного устройства перемещен
+vpn_update_failed
+Неуспешная попытка изменения VPN конечного устройства
+vpn_updated
+VPN конечного устройства обновлен
+firewall
+Межсетевой экран
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_moved
+Правило перемещено
+rule_updated
+Правило изменено
+Отказоустойчивость
+member_down
+Узел кластера выключен
+member_up
+Узел кластера доступен
+status_changed
+Статус изменён
+icap_rules
+ICAP
+profile_added
+Профиль добавлен
+profile_deleted
+Профиль удалён
+profile_updated
+Профиль изменён
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_moved
+Правило перемещено
+rule_updated
+Правило изменено
+idps
+СОВ
+idps_build_failed
+Сборка СОВ завершена неуспешно
+idps_rules
+СОВ
+attack_detected
+Обнаружена атака
+rule_add_failed
+Неуспешное добавление правила
+rule_added
+Правило добавлено
+rule_delete_failed
+Неуспешное удаление правила
+rule_deleted
+Правило удалено
+rule_fetch_failed
+Неуспешное получение информации о правиле
+rule_move_failed
+Неуспешное перемещение правила
+rule_moved
+Правило перемещено
+rule_update_failed
+Неуспешное изменение правила
+rule_updated
+Правило изменено
+incident
+Инциденты
+alert_added
+Срабатывания добавлены в инцидент
+alert_removed
+Срабатывания удалены из инцидента
+comment_added
+Изменён комментарий к инциденту
+incident_added
+Добавлен инцидент
+logs_added
+Логи добавлены в инцидент
+logs_removed
+Логи удалены из инцидента
+observable_updated
+Улики инцидента обновлены
+report_deleted
+Отчёт инцидента удалён
+report_rule_added
+Правило отчёта инцидента добавлено
+report_rule_deleted
+Правило отчёта инцидента удалено
+report_rule_exec
+Правило отчёта инцидента запущено
+report_rule_failed
+Создание отчёта инцидента закончилось с ошибкой
+report_rule_finished
+Создание отчёта инцидента закончилось успешно
+report_rule_started
+Началось создание отчёта инцидента
+report_rule_updated
+Правило отчёта инцидента изменено
+report_template_added
+Шаблон отчёта инцидента добавлен
+report_template_deleted
+Шаблон отчёта инцидента удалён
+report_template_updated
+Шаблон отчёта инцидента изменён
+resolution_add_failed
+Неуспешная попытка добавления решения инцидента
+resolution_added
+Добавлено решение инцидента
+resolution_delete_failed
+Неуспешная попытка удаления решения инцидента
+resolution_deleted
+Удалено решение инцидента
+resolution_fetch_failed
+Неуспешная попытка извлечения данных о решении инцидента
+resolution_restore_default
+Восстановлены решения инцидентов по умолчанию
+resolution_update_failed
+Неуспешная попытка изменения решения инцидента
+resolution_updated
+Изменено решение инцидента
+schema_added
+Добавлена схема инцидента
+schema_deleted
+Удалена схема инцидента
+schema_restore_default
+Восстановлены схемы инцидентов по умолчанию
+schema_updated
+Изменена схема инцидента
+state_add_failed
+Неуспешная попытка добавления состояния инцидента
+state_added
+Добавлено состояние инцидента
+state_delete_failed
+Неуспешная попытка удаления состояния инцидента
+state_deleted
+Удалено состояние инцидента
+state_fetch_failed
+Неуспешная попытка извлечения данных о состоянии инцидента
+state_restore_default
+Восстановлены состояния инцидентов по умолчанию
+state_update_failed
+Неуспешная попытка изменения состояния инцидента
+state_updated
+Изменено состояние инцидента
+status_added
+Изменён статус инцидента
+type_add_failed
+Неуспешная попытка добавления типа инцидента
+type_added
+Добавлен тип инцидента
+type_delete_failed
+Неуспешная попытка удаления типа инцидента
+type_deleted
+удалён тип инцидента
+type_fetch_failed
+Неуспешная попытка извлечения данных о типе инцидента
+type_restore_default
+Восстановлены типы инцидентов по умолчанию
+type_update_failed
+Неуспешная попытка изменения типа инцидента
+type_updated
+Изменён тип инцидента
+ipvs
+Балансировка
+server_add_failed
+Неуспешное добавление сервера балансировки нагрузки
+server_added
+Сервер балансировки нагрузки добавлен
+server_delete_failed
+Неуспешное удаление сервера балансировки нагрузки
+server_deleted
+Сервер балансировки нагрузки удалён
+server_fetch_failed
+Неуспешное извлечение данных сервера балансировки нагрузки
+server_update_failed
+Неуспешное изменение сервера балансировки нагрузки
+server_updated
+Сервер балансировки нагрузки изменён
+libraries
+Библиотеки
+ips_profile_add_failed
+Неуспешная попытка добавления профиля СОВ
+ips_profile_added
+Профиль СОВ успешно добавлен
+ips_profile_delete_failed
+Неуспешная попытка удаления профиля СОВ
+ips_profile_deleted
+Профиль СОВ успешно удален
+ips_profile_update_failed
+Неуспешная попытка изменения профиля СОВ
+ips_profile_updated
+Профиль СОВ успешно изменен
+ips_signature_add_failed
+Неуспешная попытка добавления сигнатуры СОВ
+ips_signature_added
+Сигнатура СОВ успешно добавлена
+ips_signature_delete_failed
+Неуспешная попытка удаления сигнатуры СОВ
+ips_signature_deleted
+Сигнатура СОВ успешно удалена
+ips_signature_restore_settings_failed
+Неуспешная попытка восстановления настроек сигнатуры СОВ
+ips_signature_restored_settings
+Настройки сигнатуры СОВ восстановлены успешно
+ips_signature_update_failed
+Неуспешная попытка изменения сигнатуры СОВ
+ips_signature_updated
+Сигнатура СОВ успешно изменена
+l7_profile_add_failed
+Неуспешная попытка добавления профиля приложения
+l7_profile_added
+Профиль приложения успешно добавлен
+l7_profile_delete_failed
+Неуспешная попытка удаления профиля приложения
+l7_profile_deleted
+Профиль приложения успешно удален
+l7_profile_update_failed
+Неуспешная попытка обновления профиля приложения
+l7_profile_updated
+Профиль приложения успешно обновлен
+l7_signature_add_failed
+Неуспешная попытка добавления приложения
+l7_signature_added
+Приложение успешно добавлено
+l7_signature_delete_failed
+Неуспешная попытка удаления приложения
+l7_signature_deleted
+Приложение успешно удалено
+l7_signature_update_failed
+Неуспешная попытка обновления приложения
+l7_signature_updated
+Приложение успешно обновлено
+lldp_profile_add_failed
+Неуспешная попытка добавления профиля LLDP
+lldp_profile_added
+Профиль LLDP добавлен
+lldp_profile_delete_failed
+Неуспешная попытка удаления профиля LLDP
+lldp_profile_deleted
+Профиль LLDP удален
+lldp_profile_fetch_failed
+Неуспешная попытка извлечения данных профиля LLDP
+lldp_profile_update_failed
+Неуспешная попытка изменения профиля LLDP
+lldp_profile_updated
+Профиль LLDP изменен
+netflow_profile_add_failed
+Неуспешное добавление профиля Netflow
+netflow_profile_added
+Профиль Netflow добавлен
+netflow_profile_delete_failed
+Неуспешное удаление профиля Netflow
+netflow_profile_deleted
+Профиль Netflow удалён
+netflow_profile_fetch_failed
+Неуспешное извлечение данных профиля Netflow
+netflow_profile_update_failed
+Неуспешное изменение профиля Netflow
+netflow_profile_updated
+Профиль Netflow изменён
+nlist_added
+Список добавлен
+nlist_deleted
+Список удалён
+nlist_exported
+Список экспортирован
+nlist_import_failed
+Ошибка при импорте списка
+nlist_imported
+Список импортирован
+nlist_item_added
+Элемент списка добавлен
+nlist_item_deleted
+Элемент списка удалён
+nlist_item_updated
+Элемент списка изменён
+nlist_items_deleted
+Элементы списка удалены
+nlist_updated
+Список изменён
+resp_page_template_add_failed
+Неуспешное добавление шаблона страницы блокировки
+resp_page_template_added
+Шаблон страницы добавлен
+resp_page_template_delete_failed
+Неуспешное удаление шаблона страницы блокировки
+resp_page_template_deleted
+Шаблон страницы удалён
+resp_page_template_import_failed
+Неуспешный импорт шаблона страницы блокировки
+resp_page_template_imported
+Шаблон страницы импортирован
+resp_page_template_update_failed
+Неуспешное изменение шаблона страницы блокировки
+resp_page_template_updated
+Шаблон страницы изменён
+service_added
+Сервис добавлен
+service_deleted
+Сервис удалён
+service_updated
+Сервис изменён
+shaper_pool_added
+Полоса пропускания добавлена
+shaper_pool_deleted
+Полоса пропускания удалена
+shaper_pool_updated
+Полоса пропускания изменена
+snmp_security_profile_added
+Профиль безопасности SNMP добавлен
+snmp_security_profile_deleted
+Профиль безопасности SNMP удален
+snmp_security_profile_updated
+Неуспешная попытка удаления профиля безопасности SNMP
+ssl_forward_profile_add_failed
+Неуспешное добавление профиля пересылки SSL
+ssl_forward_profile_added
+Профиль пересылки SSL добавлен
+ssl_forward_profile_delete_failed
+Неуспешное удаление профиля пересылки SSL
+ssl_forward_profile_deleted
+Профиль пересылки SSL удалён
+ssl_forward_profile_fetch_failed
+Неуспешное извлечение данных профиля пересылки SSL
+ssl_forward_profile_update_failed
+Неуспешное изменение профиля пересылки SSL
+ssl_forward_profile_updated
+Профиль пересылки SSL обновлён
+ssl_profile_add_failed
+Неуспешное добавление профиля SSL
+ssl_profile_added
+Профиль SSL добавлен
+ssl_profile_delete_failed
+Неуспешное удаление профиля SSL
+ssl_profile_deleted
+Профиль SSL удалён
+ssl_profile_fetch_failed
+Неуспешное извлечение данных профиля SSL
+ssl_profile_update_failed
+Неуспешное изменение профиля SSL
+ssl_profile_updated
+Профиль SSL изменён
+license
+Лицензия
+activation_failed
+Ошибка активации
+activation_failed_constraints
+Ошибка активации, несоответствие оборудования
+activation_started
+Начало активации
+activation_successfull
+Активация успешно завершилась
+check_failed
+Ошибка проверки
+check_successfull
+Проверка успешно завершилась
+connections_limit_reached
+Достигнуто максимальное количество сессий
+remove_node
+Узел кластера удалён
+status_off
+Лицензия приостановлена
+log_collector
+Сборщик логов
+connection_failed
+Ошибка подключения сборщика логов
+connection_succeeded
+Сборщик логов подключен
+rsyslog_rule_add_failed
+Неуспешное добавление правила syslog
+rsyslog_rule_added
+Правило syslog добавлено
+rsyslog_rule_delete_failed
+Неуспешное удаление правила syslog
+rsyslog_rule_deleted
+Правило syslog удалено
+rsyslog_rule_move_failed
+Неуспешное перемещение правила syslog
+rsyslog_rule_moved
+Правило syslog перемещено
+rsyslog_rule_updated
+Правило syslog изменено
+rsyslog_rule_updated_failed
+Неуспешное изменение правила syslog
+rsyslog_set_config
+Конфигурация сервера syslog изменена
+rsyslog_set_config_failed
+Неуспешное изменение конфигурации сервера syslog
+syslog_app_name_add_failed
+Неуспешное добавление приложений syslog
+syslog_app_name_added
+Приложение syslog добавлено
+syslog_app_name_delete_failed
+Неуспешное удаление приложений syslog
+syslog_app_name_deleted
+Приложение syslog удалено
+syslog_app_name_updated
+Приложение syslog изменено
+syslog_app_name_updated_failed
+Неуспешное изменение приложений syslog
+logan_accounts
+События LogAn
+administrator_added
+Учётная запись администратора добавлена
+administrator_deleted
+Учётная запись администратора удалена
+administrator_profile_added
+Профиль учётной записи администратора добавлен
+administrator_profile_delete_failed
+Неуспешное удаление профиля администратора
+administrator_profile_deleted
+Профиль учётной записи администратора удалён
+administrator_profile_updated
+Профиль учётной записи администратора изменён
+administrator_role_add_failed
+Неуспешное добавление роли
+administrator_role_added
+Роль добавлена
+administrator_role_delete_failed
+Неуспешное удаление роли
+administrator_role_deleted
+Роль удалена
+administrator_role_fetch_failed
+Неуспешное извлечение данных роли
+administrator_role_update_failed
+Неуспешное изменение роли
+administrator_role_updated
+Роль изменена
+administrator_updated
+Учётная запись администратора изменена
+auth_server_add_failed
+Неуспешное добавление сервера аутентификации
+auth_server_added
+Сервер аутентификации добавлен
+auth_server_deleted
+Сервер аутентификации удалён
+auth_server_update_failed
+Неуспешное изменение сервера аутентификации
+auth_server_updated
+Сервер аутентификации изменён
+local_group_added
+Локальная группа добавлена
+local_group_deleted
+Локальная группа удалена
+local_group_updated
+Локальная группа изменена
+local_user_added
+Локальный пользователь добавлен
+local_user_deleted
+Локальный пользователь удалён
+user_added_to_group
+Пользователь добавлен в группу
+user_deleted_from_group
+Пользователь удалён из группы
+user_updated
+Пользователь изменён
+logan_alertcategories
+Категории событий LogAn
+category_add_failed
+Неуспешная попытка добавления категории срабатывания
+category_added
+Категория срабатывания добавлена
+category_delete_failed
+Неуспешная попытка удаления категории срабатывания
+category_deleted
+Категория срабатывания удалена
+category_fetch_failed
+Неуспешная попытка извлечения данных о категории срабатывания
+category_updated
+Категоряи срабатывания изменена
+category_updated_failed
+Неуспешная попытка изменения категории срабатывания
+logan_devices
+Устройства LogAn
+backup_export_rule_added
+Правило резервного копирования добавлено
+backup_export_rule_deleted
+Правило резервного копирования удалено
+backup_export_rule_updated
+Правило резервного копирования изменено
+device_add_failed
+Неуспешное добавлеие устройства LogAn
+device_added
+Добавлено устройство LogAn
+device_check_license
+Проверка лицензии LogAn
+device_check_license_failed
+Неуспешная проверка лицензии LogAn
+device_delete_failed
+Неуспешное удаление устройства LogAn
+device_deleted
+Удалено устройство LogAn
+device_fetch_failed
+Неуспешное извлечение данных об устройстве LogAn
+device_reboot
+Устройство LogAn перезагружено
+device_reboot_failed
+Неуспешная попытка перезагрузки устройства LogAn
+device_register
+Устройство LogAn зарегистрировано
+device_register_failed
+Неуспешная попытка регистрации устройства LogAn
+device_shutdown
+Устройство LogAn выключено
+device_shutdown_failed
+Неуспешная попытка выключения устройства LogAn
+device_update_failed
+Неуспешная попытка обновления устройства LogAn
+device_updated
+Устройство LogAn обновлено
+settings_export_rule_added
+Правило экспорта добавлено
+settings_export_rule_deleted
+Правило экспорта удалено
+settings_export_rule_updated
+Правило экспорта изменено
+logan_devices_lists_update
+Обновление списков LogAn
+update_fetch_failed
+Неуспешное удаление обновляемого списка устройства LogAn
+update_update_failed
+Неуспешное обновление обновляемого списка устройства LogAn
+update_updated
+Обновляемый список устройства LogAn обновлён
+logan_devices_update
+Обновление LogAn
+update_add_failed
+Неуспешная попытка добавления обновления для устройства LogAn
+update_added
+Добавлено обновление для устройства LogAn
+update_delete_failed
+Удалено обновление для устройства LogAn
+update_deleted
+Удалено обновление для устройства LogAn
+update_fetch_failed
+Неуспешная попытка удаления обновления для устройства LogAn
+update_update_failed
+Неуспешная попытка изменения обновления устройства LogAn
+update_updated
+Обновления для устройства LogAn изменено
+logan_group
+Группа шаблонов LogAn
+template_group_add_failed
+Неуспешное добавление группы шаблонов
+template_group_added
+Группа шаблонов добавлена
+template_group_delete_failed
+Неуспешное удаление группы шаблонов
+template_group_deleted
+Группа шаблонов удалена
+template_group_fetch_failed
+Неуспешное извлечение данных группы шаблонов
+template_group_update_failed
+Неуспешное извлечение данных группы шаблонов
+template_group_updated
+Группа шаблонов обновлена
+logan_incident_resolutions
+Решения инцидентов LogAn
+incident_resolution_add_failed
+Неуспешная попытка добавления решения инцидента
+incident_resolution_added
+Добавлено решение инцидента
+incident_resolution_delete_failed
+Неуспешная попытка удаления решения инцидента
+incident_resolution_deleted
+Удалено решение инцидента
+incident_resolution_fetch_failed
+Неуспешная попытка извлечения данных о решении инцидента
+incident_resolution_update_failed
+Неуспешная попытка изменения решения инцидента
+incident_resolution_updated
+Изменено решение инцидента
+logan_incident_schemas
+Схема инцидентов LogAn
+incident_schema_add_failed
+Неуспешная попытка добавления схемы инцидентов
+incident_schema_added
+Добавлена схема инцидента
+incident_schema_delete_failed
+Неуспешная попытка удаления схемы инцидентов
+incident_schema_deleted
+Удалена схема инцидента
+incident_schema_fetch_failed
+Неуспешная попытка извлечения данных о схеме инцидентов
+incident_schema_update_failed
+Неуспешная попытка изменения схемы инцидентов
+incident_schema_updated
+Изменена схема инцидента
+logan_incident_states
+Состояния инцидентов LogAn
+incident_state_add_failed
+Неуспешная попытка добавления состояния инцидента
+incident_state_added
+Добавлено состояние инцидента
+incident_state_delete_failed
+Неуспешная попытка удаления состояния инцидента
+incident_state_deleted
+Удалено состояние инцидента
+incident_state_fetch_failed
+Неуспешная попытка извлечения данных о состоянии инцидента
+incident_state_update_failed
+Неуспешная попытка изменения состояния инцидента
+incident_state_updated
+Изменено состояние инцидента
+logan_incident_types
+Типы инцидентов LogAn
+incident_type_add_failed
+Неуспешная попытка добавления типа инцидента
+incident_type_added
+Добавлен тип инцидента
+incident_type_delete_failed
+Неуспешная попытка удаления типа инцидента
+incident_type_deleted
+удалён тип инцидента
+incident_type_fetch_failed
+Неуспешная попытка извлечения данных о типе инцидента
+incident_type_update_failed
+Неуспешная попытка изменения типа инцидента
+incident_type_updated
+Изменён тип инцидента
+logan_libraries
+Библиотеки LogAn
+nlist_added
+Список добавлен
+nlist_deleted
+Список удалён
+nlist_exported
+Список экспортирован
+nlist_import_failed
+Ошибка при импорте списка
+nlist_imported
+Список импортирован
+nlist_item_added
+Элемент списка добавлен
+nlist_item_deleted
+Элемент списка удалён
+nlist_item_updated
+Элемент списка изменён
+nlist_items_deleted
+Элементы списка удалены
+nlist_updated
+Список изменён
+logan_log_collector
+Сборщик логов LogAn
+rsyslog_rule_add_failed
+Неуспешное добавление правила syslog
+rsyslog_rule_added
+Правило syslog добавлено
+rsyslog_rule_delete_failed
+Неуспешное удаление правила syslog
+rsyslog_rule_deleted
+Правило syslog удалено
+rsyslog_rule_move_failed
+Неуспешное перемещение правила syslog
+rsyslog_rule_moved
+Правило syslog перемещено
+rsyslog_rule_updated
+Правило syslog изменено
+rsyslog_rule_updated_failed
+Неуспешное изменение правила syslog
+rsyslog_set_config
+Конфигурация сервера syslog изменена
+rsyslog_set_config_failed
+Неуспешное изменение конфигурации сервера syslog
+syslog_app_name_add_failed
+Неуспешное добавление приложений syslog
+syslog_app_name_added
+Приложение syslog добавлено
+syslog_app_name_delete_failed
+Неуспешное удаление приложений syslog
+syslog_app_name_deleted
+Приложение syslog удалено
+syslog_app_name_updated
+Приложение syslog изменено
+syslog_app_name_updated_failed
+Неуспешное изменение приложений syslog
+logan_network
+Сеть LogAn
+adapter_added
+Сетевой порт успешно добавлен
+bond_added
+Бонд интерфейс добавлен
+default_gw_changed
+Шлюз по умолчанию был изменён
+failover_update_failed
+Неуспешное обновление настройки отказоустойчивости
+failover_updated
+Изменена настройка отказоустойчивости
+gateway_add_failed
+Неуспешное добавление сетевого шлюза
+gateway_added
+Сетевой шлюз добавлен
+gateway_delete_failed
+Неуспешное удаление сетевого шлюза
+gateway_deleted
+Сетевой шлюз удалён
+gateway_fetch_failed
+Неуспешное извлечение данных сетевого шлюза
+gateway_update_failed
+Неуспешное обновление сетевого шлюза
+gateway_updated
+Сетевой шлюз изменён
+iface_add_failed
+Неуспешное добавление интерфейса
+iface_delete_failed
+Неуспешное удаление интерфейса
+iface_deleted
+Сетевой интерфейс удалён
+iface_fetch_failed
+Неуспешное извлечение данных интерфейса
+iface_update_failed
+Неуспешное обновление интерфейса
+iface_updated
+Сетевой интерфейс изменён
+route_add_failed
+Неуспешное добавление маршрута
+route_added
+Маршрут добавлен
+route_delete_failed
+Неуспешное удаление маршрута
+route_deleted
+Маршрут удалён
+route_fetch_failed
+Неуспешное извлечение данных маршрута
+route_update_failed
+Неуспешное обновление маршрута
+route_updated
+Маршрут изменён
+vlan_added
+VLAN добавлен
+zone_add_failed
+Неуспешное добавление зоны
+zone_added
+Зона добавлена
+zone_delete_failed
+Неуспешное удаление зоны
+zone_deleted
+Зона удалена
+zone_fetch_failed
+Неуспешное извлечение данных зоны
+zone_update_failed
+Неуспешное обновление зоны
+zone_updated
+Зона изменена
+logan_notification
+Оповещения LogAn
+smpp_profile_added
+Профиль SMPP добавлен
+smpp_profile_deleted
+Профиль SMPP удалён
+smpp_profile_updated
+Профиль SMPP изменён
+smtp_profile_added
+Профиль оповещения SMTP добавлен
+smtp_profile_deleted
+Профиль оповещения SMTP удалён
+smtp_profile_updated
+Профиль оповещения SMTP изменён
+logan_sensors
+Сенсоры LogAn
+mib_file_add_failed
+Неуспешное добавление MIB файла
+mib_file_added
+MIB файл добавлен
+mib_file_delete_failed
+Неуспешное удаление MIB файла
+mib_file_deleted
+MIB файл удалён
+snmp_sensor_add_failed
+Неуспешное добавление SNMP сенсора
+snmp_sensor_added
+SNMP сенсор добавлен
+snmp_sensor_delete_failed
+Неуспешное удаление SNMP сенсора
+snmp_sensor_deleted
+SNMP сенсор удалён
+snmp_sensor_fetch_failed
+Неуспешное извлечение данных SNMP сенсора
+snmp_sensor_update_failed
+Неуспешное изменение SNMP сенсора
+snmp_sensor_updated
+SNMP сенсор изменён
+utm_sensor_add_failed
+Неуспешное добавление UserGate сенсора
+utm_sensor_added
+UserGate сенсор добавлен
+utm_sensor_delete_failed
+Неуспешное удаление UserGate сенсора
+utm_sensor_deleted
+UserGate сенсор удалён
+utm_sensor_fetch_failed
+Неуспешное извлечение данных UserGate сенсора
+utm_sensor_update_failed
+Неуспешное изменение UserGate сенсора
+utm_sensor_updated
+UserGate сенсор изменён
+wmi_sensor_add_failed
+Неуспешное добавление WMI сенсора
+wmi_sensor_added
+WMI сенсор добавлен
+wmi_sensor_delete_failed
+Неуспешное удаление WMI сенсора
+wmi_sensor_deleted
+WMI сенсор удалён
+wmi_sensor_fetch_failed
+Неуспешное извлечение данных WMI сенсора
+wmi_sensor_update_failed
+Неуспешное изменение WMI сенсора
+wmi_sensor_updated
+WMI сенсор изменён
+logan_settings
+Настройки LogAn
+certificate_add
+Сертификат добавлен
+certificate_add_failed
+Неуспешная попытка добавления сертификата
+certificate_added
+Сертификат добавлен
+certificate_copied
+Сертификат скопирован
+certificate_csr_generated
+CSR создан
+certificate_deleted
+Сертификат удалён
+certificate_export
+Сертификат экспортирован
+certificate_generate_failed
+Неуспешная попытка создания сертификата
+certificate_generated
+Сертификат создан
+certificate_set_active
+Сертификат активирован
+certificate_updated
+Изменена роль сертификата
+update_failed
+Обновление завершилось неуспешно
+updated
+Обновлено
+utm_update_schedule_updated
+Расписание проверки обновлений изменено
+logan_template
+Шаблоны LogAn
+template_add_failed
+Неуспешное добавление шаблона
+template_added
+Шаблон добавлен
+template_delete_failed
+Неуспешное удаление шаблона
+template_deleted
+Шаблон удалён
+template_fetch_failed
+Неуспешное извлечение данных шаблона
+template_update_failed
+Неуспешное обновление шаблона
+template_updated
+Шаблон обновлён
+logan_user_catalogs
+Каталог пользователей LogAn
+user_catalog_add_failed
+Неуспешная попытка добавления каталога пользователей
+user_catalog_added
+Каталог пользователей успешно добавлен
+user_catalog_delete_failed
+Неуспешная попытка удаления каталога пользователей
+user_catalog_deleted
+Каталог пользователей успешно удален
+user_catalog_fetch_failed
+Неуспешная попытка извлечения данных каталога пользователей
+user_catalog_update_failed
+Неуспешная попытка обновления каталога пользователей
+user_catalog_updated
+Каталог пользователей успешно обновлен
+logan_user_id_agent
+Агент UserID LogAn
+filter_add_failed
+Неуспешная попытка добавления syslog фильтра UserID агента
+filter_added
+Добавлен syslog фильтр UserID агента
+filter_delete_failed
+Неуспешная попытка удаления syslog фильтра UserID агента
+filter_deleted
+Удален syslog фильтр UserID агента
+filter_fetch_failed
+Неуспешная попытка получения syslog фильтра UserID агента
+filter_update_failed
+Неуспешная попытка обновления syslog фильтра UserID агента
+filter_updated
+Изменен syslog фильтр UserID агента
+server_add_failed
+Неуспешная попытка добавления сервера UserID агента
+server_added
+Добавлен сервер UserID агента
+server_delete_failed
+Неуспешная попытка удаления сервера UserID агента
+server_deleted
+Удален сервер UserID агента
+server_fetch_failed
+Неуспешная попытка получения сервера UserID агента
+server_update_failed
+Неуспешная попытка изменения сервера UserID агента
+server_updated
+Изменен сервер UserID агента
+set_agent_config
+Настройки UserID агента успешно обновлены
+set_agent_config_failed
+Неуспешная попытка обновления настроек UserID агента
+sharing_profile_add_failed
+Неуспешная попытка добавления профиля редистрибуции UserID
+sharing_profile_added
+Профиль редистрибуции UserID успешно добавлен
+sharing_profile_delete_failed
+Неуспешная попытка удаления профиля редистрибуции UserID
+sharing_profile_deleted
+Профиль редистрибуции UserID успешно удален
+sharing_profile_fetch_failed
+Неуспешная попытка получения профиля редистрибуции UserID
+sharing_profile_update_failed
+Неуспешная попытка обновления профиля редистрибуции UserID
+sharing_profile_updated
+Профиль редистрибуции UserID успешно обновлен
+mailsecurity
+Защита почтового трафика
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_moved
+Правило перемещено
+rule_updated
+Правило изменено
+nat
+NAT и маршрутизация
+rule_add_failed
+Неуспешное добавление правила
+rule_added
+Правило добавлено
+rule_delete_failed
+Неуспешное удаление правила
+rule_deleted
+Правило удалено
+rule_move_failed
+Неуспешное перемещение правила
+rule_moved
+Правило перемещено
+rule_update_failed
+Неуспешное изменение правила
+rule_updated
+Правило изменено
+network
+Сеть
+adapter_added
+Сетевой порт успешно добавлен
+bond_added
+Бонд интерфейс добавлен
+bridge_added
+Мост интерфейс добавлен
+conntrack_overflow
+Переполнение таблицы соединений (conntrack overflow)
+default_gw_changed
+Шлюз по умолчанию был изменён
+device_cable_status_changed
+Статус порта изменён
+device_driver_status
+Состояние драйвера сетевой карты
+dhcp_added
+DHCP сервер добавлен
+dhcp_deleted
+DHCP сервер удалён
+dhcp_lease_deleted
+Настройка аренды адресов DHCP сервера удалена
+dhcp_updated
+DHCP сервер изменён
+dns_rule_added
+Добавлено правило DNS
+dns_rule_deleted
+Удалено правило DNS
+dns_rule_updated
+Изменено правило DNS
+dns_static_rec_added
+Статическая запись DNS добавлена
+dns_static_rec_deleted
+Статическая запись DNS удалена
+dns_static_rec_updated
+Статическая запись DNS изменена
+failover_update_failed
+Неуспешное обновление настройки отказоустойчивости
+failover_updated
+Изменена настройка отказоустойчивости
+gateway_add_failed
+Неуспешное добавление сетевого шлюза
+gateway_added
+Сетевой шлюз добавлен
+gateway_delete_failed
+Неуспешное удаление сетевого шлюза
+gateway_deleted
+Сетевой шлюз удалён
+gateway_fetch_failed
+Неуспешное извлечение данных сетевого шлюза
+gateway_update_failed
+Неуспешное обновление сетевого шлюза
+gateway_updated
+Сетевой шлюз изменён
+ha_cluster_added
+Кластер отказоустойчивости добавлен
+ha_cluster_deleted
+Кластер отказоустойчивости удалён
+ha_cluster_instance_add
+Кластер отказоустойчивости добавлен
+ha_cluster_updated
+Кластер отказоустойчивости изменён
+iface_add_failed
+Неуспешное добавление интерфейса
+iface_delete_failed
+Неуспешное удаление интерфейса
+iface_deleted
+Сетевой интерфейс удалён
+iface_fetch_failed
+Неуспешное извлечение данных интерфейса
+iface_update_failed
+Неуспешное обновление интерфейса
+iface_updated
+Сетевой интерфейс изменён
+pcap_filter_added
+Фильтр захвата пакетов добавлен
+pcap_filter_deleted
+Фильтр захвата пакетов удалён
+pcap_filter_updated
+Фильтр захвата пакетов изменён
+pcap_rule_added
+Правило захвата пакетов добавлено
+pcap_rule_deleted
+Правило захвата пакетов удалено
+pcap_rule_updated
+Правило захвата пакетов изменено
+pppoe_added
+Интерфейс PPPoE добавлен
+reverseproxy_profile_add_failed
+Неуспешное добавление правила reverse-прокси
+reverseproxy_profile_added
+Сервер reverse-прокси добавлен
+reverseproxy_profile_delete_failed
+Неуспешное удаление правила reverse-прокси
+reverseproxy_profile_deleted
+Сервер reverse-прокси удалён
+reverseproxy_profile_update_failed
+Неуспешное обновление правила reverse-прокси
+reverseproxy_profile_updated
+Сервер reverse-прокси изменён
+reverseproxy_rule_add_failed
+Неуспешное добавление правила reverse-прокси
+reverseproxy_rule_added
+Правило reverse-прокси добавлено
+reverseproxy_rule_delete_failed
+Неуспешное удаление правила reverse-прокси
+reverseproxy_rule_deleted
+Правило reverse-прокси удалено
+reverseproxy_rule_fetch_failed
+Неуспешное извлечение данных правила reverse-прокси
+reverseproxy_rule_move_failed
+Неуспешное перемещение правила reverse-прокси
+reverseproxy_rule_moved
+Правило reverse-прокси перемещено
+reverseproxy_rule_update_failed
+Неуспешное обновление правила reverse-прокси
+reverseproxy_rule_updated
+Правило reverse-прокси изменено
+route_add_failed
+Неуспешное добавление маршрута
+route_added
+Маршрут добавлен
+route_delete_failed
+Неуспешное удаление маршрута
+route_deleted
+Маршрут удалён
+route_fetch_failed
+Неуспешное извлечение данных маршрута
+route_update_failed
+Неуспешное обновление маршрута
+route_updated
+Маршрут изменён
+scenario_rule_added
+Правило сценария добавлено
+scenario_rule_deleted
+Правило сценария удалено
+scenario_rule_updated
+Правило сценария изменено
+tunnel_added
+Туннель добавлен
+users_overflow
+Количество лицензий использовано на 90%
+virtual_router_add_failed
+Неуспешное удаление вируального маршрутизатора
+virtual_router_added
+Виртуальный маршрутизатор добавлен
+virtual_router_delete_failed
+Неуспешное удаление вируального маршрутизатора
+virtual_router_deleted
+Виртуальный маршрутизатор удалён
+virtual_router_update_failed
+Неуспешное обновление вируального маршрутизатора
+virtual_router_updated
+Виртуальный маршрутизатор изменён
+vlan_added
+VLAN добавлен
+vpn_added
+VPN адаптер добавлен
+zone_add_failed
+Неуспешное добавление зоны
+zone_added
+Зона добавлена
+zone_delete_failed
+Неуспешное удаление зоны
+zone_deleted
+Зона удалена
+zone_fetch_failed
+Неуспешное извлечение данных зоны
+zone_update_failed
+Неуспешное обновление зоны
+zone_updated
+Зона изменена
+notification
+Оповещения
+alert_rule_added
+Правило оповещения добавлено
+alert_rule_deleted
+Правило оповещения удалено
+alert_rule_updated
+Правило оповещения изменено
+smpp_profile_added
+Профиль SMPP добавлен
+smpp_profile_deleted
+Профиль SMPP удалён
+smpp_profile_updated
+Профиль SMPP изменён
+smtp_notification_failed
+SMTP оповещение завершено с ошибкой
+smtp_profile_added
+Профиль оповещения SMTP добавлен
+smtp_profile_deleted
+Профиль оповещения SMTP удалён
+smtp_profile_updated
+Профиль оповещения SMTP изменён
+ospf
+OSPF
+area_added
+Область добавлена
+area_deleted
+Область OSPF удалена
+area_updated
+Область OSPF обновлена
+interface_added
+OSPF интерфейс добавлен
+interface_deleted
+OSPF интерфейс удалён
+interface_updated
+OSPF интерфейс изменён
+router_updated
+OSPF-маршрутизатор изменён
+override_domains
+Изменённые домены
+override_domain_add_failed
+Неуспешное добавление изменения категории домена
+override_domain_added
+Для домена изменена категория
+override_domain_delete_failed
+Неуспешное удаление категории домена
+override_domain_deleted
+Измененная категория домена удалена
+override_domain_fetch_failed
+Неуспешное извлечение данных категории домена
+override_domain_import
+Импортирован файл со списком доменов
+override_domain_update
+изменён домен с изменённой категорией
+override_domain_update_failed
+Неуспешное изменение категории домена
+pimsm
+Мультикаст маршрутизатор
+interface_added
+Добавлен интерфейс
+interface_deleted
+удалён интерфейс
+interface_updated
+изменён интерфейс
+router_updated
+Изменены настройки маршрутизатора
+rpmapping_added
+Добавлен rendezvous point
+rpmapping_deleted
+удалён rendezvous point
+rpmapping_updated
+изменён rendezvous point
+proxyportal
+Веб-портал
+bookmark_adde_failed
+Неуспешное добавление данных закладки веб-портала
+bookmark_added
+Закладка веб-портала добавлена
+bookmark_delete_failed
+Неуспешное удаление закладки Веб-портала
+bookmark_deleted
+Неуспешное извлечение данных закладки Веб-портала
+bookmark_fetch_failed
+Неуспешное извлечение данных закладки Веб-портала
+bookmark_move_failed
+Неуспешное перемещение закладки веб-портала
+bookmark_moved
+Закладка веб-портала перемещена
+bookmark_update_failed
+Неуспешное обновление закладки веб-портала
+bookmark_updated
+Закладка веб-портала изменена
+config_set
+Настройка веб-портал изменена
+login_failed
+Ошибка аутентификации
+login_failed_2fa_code
+Ошибка аутентификации MFA
+login_successful
+Успешная аутентификация
+radius
+Radius
+accounting_start
+Зарегистрирован пользователь через Radius accounting
+rip
+RIP
+interface_added
+Добавлен интерфейс
+interface_deleted
+удалён интерфейс
+interface_updated
+изменён интерфейс
+router_updated
+Изменены настройки маршрутизатора
+safebrowsing_rules
+Веб-безопасность
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_moved
+Правило перемещено
+rule_updated
+Правило изменено
+scada
+SCADA
+profile_added
+Профиль добавлен
+profile_deleted
+Профиль удалён
+profile_updated
+Профиль изменён
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_moved
+Правило перемещено
+rule_updated
+Правило изменено
+sensors
+Сенсоры
+mib_file_add_failed
+Неуспешное добавление MIB файла
+mib_file_added
+MIB файл добавлен
+mib_file_delete_failed
+Неуспешное удаление MIB файла
+mib_file_deleted
+MIB файл удалён
+snmp_sensor_add_failed
+Неуспешное добавление SNMP сенсора
+snmp_sensor_added
+SNMP сенсор добавлен
+snmp_sensor_delete_failed
+Неуспешное удаление SNMP сенсора
+snmp_sensor_deleted
+SNMP сенсор удалён
+snmp_sensor_fetch_failed
+Неуспешное извлечение данных SNMP сенсора
+snmp_sensor_update_failed
+Неуспешное изменение SNMP сенсора
+snmp_sensor_updated
+SNMP сенсор изменён
+utm_sensor_add_failed
+Неуспешное добавление UserGate сенсора
+utm_sensor_added
+UserGate сенсор добавлен
+utm_sensor_delete_failed
+Неуспешное удаление UserGate сенсора
+utm_sensor_deleted
+UserGate сенсор удалён
+utm_sensor_fetch_failed
+Неуспешное извлечение данных UserGate сенсора
+utm_sensor_offline
+UserGate сенсор потерял соединение
+utm_sensor_online
+UserGate сенсор подключён
+utm_sensor_update_failed
+Неуспешное изменение UserGate сенсора
+utm_sensor_updated
+UserGate сенсор изменён
+wmi_sensor_add_failed
+Неуспешное добавление WMI сенсора
+wmi_sensor_added
+WMI сенсор добавлен
+wmi_sensor_delete_failed
+Неуспешное удаление WMI сенсора
+wmi_sensor_deleted
+WMI сенсор удалён
+wmi_sensor_fetch_failed
+Неуспешное извлечение данных WMI сенсора
+wmi_sensor_update_failed
+Неуспешное изменение WMI сенсора
+wmi_sensor_updated
+WMI сенсор изменён
+settings
+Настройки
+antispam_updated
+Конфигурация защиты почтового трафика обновлена
+batv_config_updated
+Конфигурация BATV модуля защиты почты обновлена
+certificate_add
+Сертификат добавлен
+certificate_add_failed
+Неуспешная попытка добавления сертификата
+certificate_added
+Сертификат добавлен
+certificate_copied
+Сертификат скопирован
+certificate_csr_generated
+CSR создан
+certificate_deleted
+Сертификат удалён
+certificate_deleted_failed
+Неуспешная попытка удаления сертификата
+certificate_export
+Сертификат экспортирован
+certificate_generate_failed
+Неуспешная попытка создания сертификата
+certificate_generated
+Сертификат создан
+certificate_set_active
+Сертификат активирован
+certificate_updated
+Изменена роль сертификата
+conntrack_sync_config_updated
+Изменена настройка синхронизации сессий
+custom_dns_added
+DNS-сервер добавлен
+custom_dns_deleted
+DNS-сервер удалён
+custom_dns_updated
+DNS-сервер изменён
+dashboard_tab_added
+Dashboard добавлена
+dashboard_tab_deleted
+Dashboard удалена
+default_dashboard_created
+Создана дашборд по умолчанию
+default_incident_dashboard_created
+Создана дашборд инцидентов по умолчанию
+dnsbl_config_updated
+Настройка DNSBL изменена
+failover_config_updated
+Изменена настройка отказоустойчивости
+fetch_failed
+Параметр не найден
+idps_config_updated
+Настройка СОВ изменена
+incident_dashboard_tab_added
+Дэшборд инцидентов добавлена
+l7_config_updated
+Конфигурация L7 обновлена
+server_time_changed
+Сервер точного времени изменён
+statserver_config_updated
+Настройка сервера Log Analyzer изменена
+update_failed
+Обновление завершилось неуспешно
+updated
+Обновлено
+utm_update_schedule_updated
+Расписание проверки обновлений изменено
+snmp_engine_id
+SNMP Engine ID
+engine_id_updated
+SNMP Engine ID
+snmp_parameters
+Параметры SNMP
+parameters_add_failed
+Добавление параметров SNMP завершено с ошибкой
+parameters_added
+Параметры SNMP успешно добавлены
+parameters_delete_fail
+Удаление параметров SNMP завершено с ошибкой
+parameters_deleted
+Параметры SNMP успешно удалены
+parameters_update_fail
+Обновление параметров SNMP завершено с ошибкой
+parameters_updated
+Параметры SNMP успешно обновлены
+snmp_rules
+SNMP
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_updated
+Правило изменено
+snmp_security_profile_added
+Профиль безопасности SNMP добавлен
+snmp_security_profile_deleted
+Профиль безопасности SNMP удален
+snmp_security_profile_updated
+Неуспешная попытка удаления профиля безопасности SNMP
+snmp_security_profiles
+Профиль безопасности SNMP
+snmp_security_profile_added
+Профиль безопасности SNMP добавлен
+snmp_security_profile_deleted
+Профиль безопасности SNMP удален
+snmp_security_profile_updated
+Неуспешная попытка удаления профиля безопасности SNMP
+snmp_sys_description
+SNMP описание системы
+sys_description_updated
+SNMP описание системы успешно обновлено
+snmp_sys_location
+SNMP локация системы
+sys_location_updated
+SNMP локация системы успешно обновлено
+snmp_sys_name
+SNMP имя системы
+sys_name_updated
+SNMP имя системы успешно обновлено
+ssh_decryption_rules
+SSH дешифрование
+rule_add_failed
+Неуспешное добавление правила
+rule_added
+Правило добавлено
+rule_delete_failed
+Неуспешное удаление правила
+rule_deleted
+Правило удалено
+rule_fetch_failed
+Неуспешное извлечение данных правила
+rule_move_failed
+Неуспешное перемещение правила
+rule_moved
+Правило перемещено
+rule_update_failed
+Неуспешное изменение правила
+rule_updated
+Правило изменено
+statistics
+Log Analyzer
+account_added
+Учётная запись добавлена
+account_deleted
+Учётная запись удалена
+log_normalization_rule_added
+Правило нормализации журналов добавлено
+log_normalization_rule_deleted
+Правило нормализации журналов удалено
+log_normalization_rule_updated
+Правило нормализации журналов изменено
+logexport_copy_failed
+Ошибка экспорт журналов
+logexport_copy_finished
+Экспорт журналов завершён
+logexport_copy_started
+Экспорт журналов начат
+logexport_logs_cleared
+Журналы очищены
+logexport_rule_added
+Правило экспорта журналов добавлено
+logexport_rule_deleted
+Правило экспорта журналов удалено
+logexport_rule_updated
+Правило экспорта журналов изменено
+remote_server_alarm
+Оповещение удалённого сервера LogAn
+remote_server_config_set
+Удалённый сервер Log Analyzer настроен
+remote_server_connected
+Удалённый сервер Log Analyzer подключён
+remote_server_error
+Ошибка удалённого сервера Log Analyzer
+report_deleted
+Отчёт удалён
+report_rule_added
+Правило отчёта добавлено
+report_rule_deleted
+Правило отчёта удалено
+report_rule_exec
+Правило отчёта запущено
+report_rule_failed
+Создание отчёта закончилось с ошибкой
+report_rule_finished
+Создание отчёта закончилось успешно
+report_rule_started
+Началось создание отчёта
+report_rule_updated
+Правило отчёта изменено
+report_template_added
+Шаблон отчёта добавлен
+report_template_deleted
+Шаблон отчёта удалён
+report_template_updated
+Шаблон отчёта изменён
+rotate_database
+Ротация базы данных
+rotate_database_error
+Ротация базы данных закончилась с ошибкой
+tunnel_inspection_rules
+Инспектирования туннелей
+rule_added
+Правило добавлено
+rule_deleted
+Правило удалено
+rule_moved
+Правило перемещено
+rule_updated
+Правило изменено
+updater
+Обновления
+check_version
+Проверка версии
+download_failed
+Скачивание закончилось неуспешно
+download_finished
+Скачивание закончилось успешно
+download_started
+Скачивание началось
+kavkas_finished
+Обновление эвристического движка завершено
+kavkas_started
+Начато обновление эвристического движка
+offline_update_started
+Начата установка автономного обновления
+security_update_apply
+Установка обновления
+security_update_apply_error
+Установка обновления завершилась неуспешно
+security_update_apply_ok
+Установка обновления завершилась успешно
+security_update_delete
+Обновление отозвано
+security_update_upload
+Загрузка обновления завершилась успешно
+security_update_upload_failed
+Загрузка обновления завершилась неуспешно
+up_to_date
+Установлена последняя версия
+update_failed
+Обновление завершилось неуспешно
+update_finished
+Обновление завершилось успешно
+update_started
+Обновление запущено
+user_catalogs
+Каталог пользователей
+user_catalog_add_failed
+Неуспешная попытка добавления каталога пользователей
+user_catalog_added
+Каталог пользователей успешно добавлен
+user_catalog_delete_failed
+Неуспешная попытка удаления каталога пользователей
+user_catalog_deleted
+Каталог пользователей успешно удален
+user_catalog_fetch_failed
+Неуспешная попытка извлечения данных каталога пользователей
+user_catalog_update_failed
+Неуспешная попытка обновления каталога пользователей
+user_catalog_updated
+Каталог пользователей успешно обновлен
+user_id_agent
+Агент UserID
+filter_add_failed
+Неуспешная попытка добавления syslog фильтра UserID агента
+filter_added
+Добавлен syslog фильтр UserID агента
+filter_delete_failed
+Неуспешная попытка удаления syslog фильтра UserID агента
+filter_deleted
+Удален syslog фильтр UserID агента
+filter_update_failed
+Неуспешная попытка изменения syslog фильтра UserID агента
+filter_updated
+Изменен syslog фильтр UserID агента
+server_add_failed
+Неуспешная попытка добавления сервера UserID агента
+server_added
+Добавлен сервер UserID агента
+server_delete_failed
+Неуспешная попытка удаления сервера UserID агента
+server_deleted
+Удален сервер UserID агента
+server_update_failed
+Неуспешная попытка изменения сервера UserID агента
+server_updated
+Изменен сервер UserID агента
+set_agent_config
+Настройки UserID агента успешно обновлены
+set_agent_config_failed
+Неуспешная попытка обновления настроек UserID агента
+sharing_profile_add_failed
+Неуспешная попытка добавления профиля редистрибуции UserID
+sharing_profile_added
+Профиль редистрибуции UserID успешно добавлен
+sharing_profile_delete_failed
+Неуспешная попытка удаления профиля редистрибуции UserID
+sharing_profile_deleted
+Профиль редистрибуции UserID успешно удален
+sharing_profile_update_failed
+Неуспешная попытка обновления профиля редистрибуции UserID
+sharing_profile_updated
+Профиль редистрибуции UserID успешно обновлен
+vpn
+VPN
+auth_profile_added
+Профиль аутентификации VPN добавлен
+auth_profile_deleted
+Профиль аутентификации VPN удалён
+auth_profile_updated
+Профиль аутентификации VPN изменён
+client_connected
+Подключён клиент VPN
+client_connecting
+Подключение клиента VPN
+client_error
+Ошибка клиента
+client_rule_add_failed
+Неуспешное добавление клиентского правила VPN
+client_rule_added
+Клиентское правило VPN добавлено
+client_rule_delete_failed
+Неуспешное удаление клиентского правила VPN
+client_rule_deleted
+Клиентское правило VPN удалено
+client_rule_fetch_failed
+Неуспешное извлечение данных клиентского правила VPN
+client_rule_update_failed
+Неуспешное обновление клиентского правила VPN
+client_rule_updated
+Клиентское правило VPN изменено
+client_security_profile_added
+Клиентский профиль безопасности VPN добавлен
+client_security_profile_deleted
+Клиентский профиль безопасности VPN удален
+client_security_profile_updated
+Клиентский профиль безопасности VPN обновлен
+client_started
+Клиент запущен
+security_profile_added
+Профиль безопасности VPN добавлен
+security_profile_deleted
+Профиль безопасности VPN удалён
+security_profile_updated
+Профиль безопасности VPN изменён
+server_connected
+Сервер VPN подключён
+server_error
+Ошибка сервера
+server_rule_add_failed
+Неуспешное добавление серверного правила VPN
+server_rule_added
+Серверное правило VPN добавлено
+server_rule_delete_failed
+Неуспешное удаление серверного правила VPN
+server_rule_deleted
+Серверное правило VPN удалено
+server_rule_fetch_failed
+Неуспешное извлечение данных серверного правила VPN
+server_rule_move_failed
+Неуспешное перемещение серверного правила VPN
+server_rule_moved
+Серверное правило VPN перемещено
+server_rule_update_failed
+Неуспешное изменение серверного правила VPN
+server_rule_updated
+Серверное правило VPN изменено
+server_security_profile_added
+Серверный профиль безопасности VPN добавлен
+server_security_profile_deleted
+Серверный профиль безопасности VPN удален
+server_security_profile_updated
+Серверный профиль безопасности VPN обновлен
+server_started
+VPN сервер запущен
+tunnel_added
+Сеть VPN добавлена
+tunnel_deleted
+Сеть VPN удалена
+tunnel_updated
+Сеть VPN изменена
+user_disconnected
+Пользователь VPN отключился
+user_login_failed
+Подключение пользователя к VPN не удалось
+user_login_success
+Подключение пользователя к VPN прошло успешно
+wccp
+WCCP
+rule_add_failed
+Неуспешное добавление правила
+rule_added
+Правило добавлено
+rule_delete_failed
+Неуспешное удаление правила
+rule_deleted
+Правило удалено
+rule_fetch_failed
+Неуспешное извлечение данных правила
+rule_update_failed
+Неуспешное обновление правила
+rule_updated
+Правило обновлено
+wrdp_server
+Веб-портал RDP
+authenticate_failed
+Ошибка входа на сервер RDP
+connection_successful
+Успешное подключение к серверу RDP
+disconnected
+Отключение от сервера RDP
+get_default_template_failed
+Невозможно получить шаблон RDP сервера
+host_not_found
+Сервер RDP не найден
+internal_server_error
+Внутренняя ошибка сервера RDP
+wssh_server
+Веб-портал SSH
+authenticate_failed
+Ошибка входа на сервер SSH
+connection_refused
+Подключение к серверу SSH отклонено
+get_default_template_failed
+Невозможно получить шаблон SSH сервера
+host_not_found
+Сервер SSH не найден
+internal_server_error
+Внутренняя ошибка сервера SSH
+login_successful
+Успешная аутентификация
+Опции DHCP
+NGFW 7.0.1 Руководство администратора
+
+## Источник
+
+https://docs.usergate.com/opisanie-sobytij-peredayushihsya-po-syslog_851.html
