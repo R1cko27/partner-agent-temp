@@ -46,3 +46,11 @@
 В Академии UserGate есть отдельный экзамен «Сертифицированный специалист UserGate WAF 7.Х» — он подтверждает подготовку именно по защите веб-приложений, а не по всей линейке продуктов.
 
 Источники: https://docs.usergate.com/dokumentaciya-k-versiyam-po-v-pdf_769.html, https://usergate.com/academy/courses-exams
+
+## Версии 7.5.0
+
+Кроме веток 7.6.x и 7.7.x, в материалах базы есть анонс версии **7.5.0** (отдельный документ о новой версии UserGate WAF 7.5.0). Полный перечень версий и руководств — в `docs/versions-and-platforms.md`.
+
+В Академии UserGate есть экзамен **«Сертифицированный специалист UserGate WAF 7.Х»**; он подтверждает подготовку по защите веб-приложений, а не по всей линейке продуктов.
+
+Источники: https://docs.usergate.com/dokumentaciya-k-versiyam-po-v-pdf_769.html, https://usergate.com/academy/courses-exams
