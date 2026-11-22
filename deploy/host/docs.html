@@ -1,0 +1,3956 @@
+<!DOCTYPE html>
+<!-- saved from url=(0097)https://docs.usergate.com/politika-obnovleniya-programmnogo-obespecheniya-usergate-ngfw_3043.html -->
+<html lang="ru" data-whatinput="mouse" data-whatintent="mouse" class=" whatinput-types-initial whatinput-types-mouse"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Политика обновления программного обеспечения UserGate NGFW - UserGate :: Портал документации</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="robots" content="ALL">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--[if IE]>
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/common_ie.css?v=c8f98b33" />
+    <![endif]-->
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/common.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/common_table.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/view_left/common_view.css?v=c8f98b33">
+    <link rel="stylesheet" type="text/css" href="https://docs.usergate.com/client/skin/view_left/default/default.css?v=c8f98b33">
+
+    
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/box.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/form.css?v=c8f98b33">
+    
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery/tooltipster/tooltipster.bundle.min.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery/tooltipster/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-kbp.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery/tooltipster/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-kbp_error.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery/tooltipster/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-light.min.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery/jquery.growl.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery-ui/smoothness/jquery-ui.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery-ui/smoothness/custom.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery/jquery.dropdown.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery/ezmodal.css?v=c8f98b33">
+    
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/foundation.css?v=c8f98b33">
+    <link rel="stylesheet" href="https://docs.usergate.com/client/skin/foundation_custom.css?v=c8f98b33">
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="alternate" type="application/rss+xml" title="UserGate Documentation RSS" href="https://docs.usergate.com/rss.php">
+    <style>
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic');
+@import url('https://docs.usergate.com/client/skin/addition.css');
+@font-face {
+  font-family: 'fontawesome5F';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url(https://docs.usergate.com/client/fonts/fa/fa-regular-400.eot);
+  src: url(https://docs.usergate.com/client/fonts/fa/fa-regular-400.eot?#iefix) format("embedded-opentype"),url(https://docs.usergate.com/client/fonts/fa/fa-regular-400.woff2) format("woff2"),url(https://docs.usergate.com/client/fonts/fa/fa-regular-400.woff) format("woff"),url(https://docs.usergate.com/client/fonts/fa/fa-regular-400.ttf) format("truetype"),url(https://docs.usergate.com/client/fonts/fa/fa-regular-400.svg#fontawesome) format("svg");
+}
+@font-face {
+    font-family: 'fontawesome5F';
+    font-style: normal;
+    font-weight: 900;
+    font-display: auto;
+    src: url(https://docs.usergate.com/client/fonts/fa/fa-solid-900.eot);
+    src: url(https://docs.usergate.com/client/fonts/fa/fa-solid-900.eot?#iefix) format("embedded-opentype"),url(https://docs.usergate.com/client/fonts/fa/fa-solid-900.woff2) format("woff2"),url(https://docs.usergate.com/client/fonts/fa/fa-solid-900.woff) format("woff"),url(https://docs.usergate.com/client/fonts/fa/fa-solid-900.ttf) format("truetype"),url(https://docs.usergate.com/client/fonts/fa/fa-solid-900.svg#fontawesome) format("svg");
+}
+body {
+  color: #415463;
+}
+body, td, div {
+  font-family: 'PT Sans', 'Sans Serif', Helvetica, Arial, sans-serif;
+}
+a:link {
+    color: #009ad5;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,154,213,0.2);
+}
+a:visited {
+    color: rgb(0,110,160);
+    border-bottom-color: rgba(0,110,160,0.2);
+}
+a:hover, a:focus {
+    color: rgb(10,161,27);
+    border-bottom-color: rgb(13 201 35);
+}
+a.help_link {
+  border-bottom: 0;
+}
+
+.colorInput {
+  background-color: #f5f8fa;
+}
+.button,
+.button2_grey {
+  color: #fff !important;
+  text-align: center;
+  padding: 10px 20px !important;
+  font-size: 1rem;
+  line-height: 20px;
+  font-weight: 400;
+  display: inline-block;
+  -webkit-transition: background .1s linear;
+  -moz-transition: background .1s linear;
+  -ms-transition: background .1s linear;
+  -o-transition: background .1s linear;
+  transition: background .1s linear;
+  border: none;
+  background: #aac3d2;
+  background-color: #aac3d2;
+}
+.button:hover {
+  background: #5487a4;
+  background-color: #5487a4;
+}
+input.button[type=submit].button:not(.secondary),
+input.button.primary,
+.button.primary {
+  background: #7e9dc0;
+  background-color: #7e9dc0
+}
+input.button[type=submit].button:not(.secondary):hover,
+input.button.primary:hover,
+.button.primary:hover {
+  background: #577aa2;
+  background-color: #577aa2
+}
+
+/* Header */
+
+#header_div {
+  background-color: #2d4560;
+  height: 100px;
+  padding: 12px 37px 0;
+}
+#header_div .in_header {
+  height: 100%;
+}
+#header_div a.header {
+  display: inline-block;
+  background-image: url('https://docs.usergate.com/client/images/usergate.svg');
+  background-size: 190px 41px;
+  background-repeat: no-repeat;
+  padding-left: 220px;
+  font-size: 1.8em;
+  line-height: 1.8em;
+  height: 41px;
+  color: inherit;
+}
+#header_div div.login {
+  align-self: flex-start;
+}
+#header_div div.login svg {
+  width: 15px;
+  height: 15px;
+  fill: #afc3d1;
+}
+#header_div #login_button {
+  border: 0;
+  background: none;
+}
+#header_div a {
+  text-decoration: none;
+  border-bottom: none;
+}
+#header_div #login_button span {
+  color: #afc3d1;
+  margin-right: 0;
+  line-height: 1.1em;
+}
+
+/* Navigation */
+
+#content_div {
+  padding: 0;
+}
+#content_div .in_content {
+  padding: 0;
+}
+.menuBlock {
+  padding: 10px 37px;
+  border: 0;
+  background-color: #2d4560;
+  color: #ffffff;
+  font-weight: normal;
+  font-size: 1.25em;
+  line-height: 1.9em;
+  cursor: default;
+}
+.menuBlock td:first-of-type > div:first-of-type {
+  margin-left: -15px;
+}
+.menuBlock .menuItem,
+.menuBlock .menuItemSelected {
+  border: 0;
+  background: none;
+}
+.menuBlock .menuItemSelected {
+  font-weight: bold;
+}
+.menuBlock .menuItem a,
+.menuBlock .menuItemSelected a {
+  color: #ffffff;
+  display: block;
+  border-bottom: none;
+}
+.menuBlock .menuItemSpace {
+  padding: 0 15px;
+}
+
+/* Left menu */
+
+#content_div .menuBlock ~ table tr:first-of-type td:first-of-type {
+  width: 337px !important;
+}
+#content_div #menu_content {
+  width: 300px !important;
+  margin-left: 37px;
+  padding-bottom: 1em;
+  border: 0;
+  background-color: #5c7998;
+  color: #ffffff;
+}
+#content_div #menu_content .tree_title {
+  background-color: #5c7998;
+  color: #ffffff;
+  border: 0;
+}
+#content_div #menu_content .tree_item {
+  margin-bottom: 0;
+}
+#content_div #menu_content .tree_title a,
+#content_div #menu_content .tree_item a {
+  color: #ffffff;
+  font-size: 1.1em;
+  line-height: 1.25em;
+  display: inline-block;
+  padding: 0.4em 0;
+  border-bottom: none;
+}
+#content_div #menu_content .tree_item img {
+  filter: invert(100%) sepia(52%) saturate(3887%) hue-rotate(181deg) brightness(800%) contrast(115%);
+}
+
+/* Breadcrumbs */
+
+div.navigation {
+  background: #f5f8fa;
+  padding: 20px 10px;
+  border-bottom: 0;
+}
+div.navigation,
+div.navigation a {
+  color: #2ba3e2;
+}
+div.navigation a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,154,213,0.2);
+  display: inline-block;
+}
+div.navigation a:hover {
+  color: rgb(10,161,27);
+  border-bottom-color: rgb(13 201 35);
+}
+div.navigation span.navigation {
+  color: #333e66;
+}
+
+/* FAQ options block */
+
+.tdTitle {
+  background: #f5f8fa;
+  border-bottom: 0;
+  margin: 0 !important;
+  padding: 5px 4px;
+  color: #333E66;
+}
+.tdTitle .menuItemOption a {
+  border-bottom-style: dotted;
+}
+.abbLine {
+  background: #f5f8fa;
+  border-bottom: 0;
+}
+#op_list_action span.smallerText {
+  border-bottom: none !important;
+}
+
+/* Article title */
+
+.tdArticleTitle,
+.tdArticleTitle ~ .smallerText {
+  border-bottom: 1px dotted #c5d0dd !important;
+}
+h1.articleTitle {
+  clear: both;
+  font-size: 30px;
+  margin: 0;
+  padding: 15px 0;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "PT Sans","ProximaNovaBold","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+  display: block;
+  color: #333E66;
+}
+.textBlock h1,
+.textBlock h2,
+.textBlock h3,
+.textBlock h4,
+.textBlock h5,
+.textBlock h6,
+.faqArticleTitle {
+  color: #333E66;
+}
+
+/* Table of content*/
+
+#toc_container {
+  background: #f5f8fa;
+  border: 0;
+}
+#toc_container a.atoc {
+  border-bottom-style: dotted;
+  color: #009ad5;
+}
+#toc_container a.atoc:hover {
+  color: rgb(10,161,27);
+}
+
+/* Article list */
+
+.catDescription,
+.articleDecription {
+  color: #415463;
+}
+
+/* Article */
+
+.textBlock p {
+  margin: 1em 0;
+  line-height: 22px;
+  font-size: 16px;
+  color: #415463;
+  font-family: 'PT Sans',sans-serif;
+}
+/* .textBlock .note {
+  border: 1px solid #537da2;
+  border-radius: 5px;
+} */
+.textBlock .admonition {
+  /*padding: 0 20px 0 20px;
+  line-height: 24px;
+  margin: 24px 0;
+  background: #fcfcfc;*/
+}
+.textBlock .admonition p {
+  /*text-align: justify;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0;*/
+}
+.textBlock .admonition p:last-child {
+/*    margin-bottom: 10px;*/
+}
+.textBlock .admonition-title {
+/*  color: #537da2;
+  margin: 0;
+  padding: 15px 0 5px 0;
+  font-weight: bold;
+  font-size: 16px !important;
+  display: block;*/
+}
+.textBlock .admonition-title:before {
+/*  content: "\f05a";
+  font-family: fontawesome5F;
+  font-size: 20px;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: inherit;
+  margin-right: 8px*/
+}
+table.docutils {
+  border: 1px solid #c5c5c5;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+}
+table.docutils thead {
+  color: #ffff;
+  text-align: left;
+  vertical-align: bottom;
+}
+table.docutils thead th {
+  font-weight: bold;
+  background-color: #537da2;
+  text-align: center;
+  vertical-align: middle;
+  border-color: #b4c8da;
+}
+table.docutils th:last-child {
+    border-right: solid 1px #e1e4e5;
+}
+table.docutils thead th p {
+  margin: 0px;
+  font-size: 14px;
+  color: #fff;
+}
+table.docutils td {
+  font-size: 90%;
+  margin: 0;
+  overflow: visible;
+  padding: 4px 8px;
+  background-color: transparent;
+  vertical-align: middle;
+  border-bottom: 1px solid #c5c5c5;
+  border-left: 1px solid #c5c5c5;
+}
+table.docutils td:first-child {
+  border-left-width: 0;
+}
+table.docutils tbody>tr:last-child td {
+  border-bottom-width: 0;
+}
+table.docutils td p {
+    line-height: 18px;
+    margin: 6px 0 6px 0;
+}
+
+.textBlock blockquote {
+  background: #f0f3f5;
+  border: 1px solid #c5d0dd;
+  border-radius: 5px;
+  padding: 10px;
+}
+.textBlock blockquote p {
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 1em;
+  line-height: 1em;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0.5em 0;
+}
+
+/* Rate block */
+
+.articleContainer .smallerText {
+  border-bottom: none;
+}
+#rateQuery {
+  color: #3d4d5d;
+}
+#rateQuery a,
+#report_block a {
+  border-bottom-style: dotted;
+}
+
+.abBgrDarker {
+  background-color: #f5f8fa;
+  border: 0;
+  color: #3d4d5d;
+  font-size: 0.9em;
+  padding: 7px !important;
+}
+
+/* Content bottom */
+
+.tdSubTitle {
+  border: 0;
+  background-color: #f5f8fa;
+  color: #3d4d5d;
+}
+
+/* Contact form */
+
+.table > .grid-x:not(.skip) > div:first-child,
+.table > .grid-x:not(.skip) > div:nth-child(2) {
+  background: #f5f8fa;
+}
+
+/* Search */
+.search_header,
+.trDarker {
+  background: #f5f8fa;
+}
+.search_header button {
+  padding: 0 !important;
+  
+}
+</style>
+<style type="text/css" media="screen">
+#menu_content, #sidebar {width: 230px;} div.leftBlock #searchq {width: 145px;}
+</style>
+<meta class="foundation-mq"><style id="paq-style">
+/* Виджет: круглый чат и один вопрос слева от него.
+   Все правила ограничены #paqRoot / #paqChat и не меняют стили страницы. */
+
+#paqRoot,
+#paqRoot *,
+#paqChat,
+#paqChat * {
+  box-sizing: border-box;
+}
+
+#paqRoot {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2147483000;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 12px;
+  color: #25384a;
+  color-scheme: light;
+  font-family: "PT Sans", "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+}
+
+#paqRoot[hidden] {
+  display: none !important;
+}
+
+/* Один вопрос в фиксированную строку. Длинный текст уезжает бегущей строкой. */
+#paqRoot .paq-q {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 340px;
+  max-width: calc(100vw - 104px);
+  height: 58px;
+  margin: 0;
+  padding: 0 16px 0 14px;
+  border: 1px solid rgba(37, 56, 74, .12);
+  border-radius: 16px 3px 3px 16px;
+  background: #fff;
+  color: #25384a;
+  font-family: "PT Sans", "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  overflow: visible;
+  box-shadow: 0 10px 28px rgba(19, 42, 70, .14), 0 1px 3px rgba(19, 42, 70, .06);
+  opacity: 0;
+  transform: translateX(18px) scale(.97);
+  transform-origin: right center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Хвостик в сторону круглешка: вопрос выглядит как сообщение от него. */
+#paqRoot .paq-q::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-top: 1px solid rgba(37, 56, 74, .12);
+  border-right: 1px solid rgba(37, 56, 74, .12);
+  border-radius: 2px;
+  transform: translateY(-50%) rotate(45deg);
+  pointer-events: none;
+}
+
+#paqRoot .paq-q[hidden] {
+  display: none !important;
+}
+
+#paqRoot .paq-q.is-in {
+  animation: paqSlideIn .38s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+#paqRoot .paq-q:focus-visible {
+  outline: 2px solid #009fd9;
+  outline-offset: 2px;
+}
+
+#paqRoot .paq-q:disabled {
+  cursor: default;
+}
+
+#paqRoot .paq-q.is-loading {
+  border-style: dashed;
+}
+
+#paqRoot .paq-q.is-loading .paq-q__text {
+  animation: paqPulse 1.4s ease-in-out infinite;
+}
+
+#paqRoot .paq-q__text {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font: inherit;
+}
+
+#paqRoot .paq-q.is-loading .paq-q__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#paqRoot .paq-q__run {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+#paqRoot .paq-q.is-marquee .paq-q__run {
+  /* 2 секунды текст стоит, чтобы его успели начать читать, затем едет. */
+  animation: paqMarquee var(--paq-duration, 2.8s) linear 2s 1 forwards;
+  padding-right: 28px;
+}
+
+#paqRoot .paq-bubble {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #5c7998;
+  color: #fff;
+  cursor: pointer;
+  overflow: visible;
+  box-shadow: 0 4px 12px rgba(24, 36, 52, .18);
+  transition: transform .18s ease, box-shadow .18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#paqRoot .paq-bubble:active {
+  transform: translateY(0) scale(.97);
+}
+
+#paqRoot .paq-bubble:focus-visible {
+  outline: 2px solid #25384a;
+  outline-offset: 3px;
+}
+
+#paqRoot .paq-bubble__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+#paqRoot .paq-bubble__icon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+}
+
+#paqRoot.is-chat-open {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+}
+
+@keyframes paqSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(20px) scale(.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes paqMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  90%, 100% {
+    transform: translateX(var(--paq-shift, 0px));
+  }
+}
+
+@keyframes paqPulse {
+  0%, 100% { opacity: .55; }
+  50% { opacity: 1; }
+}
+
+/* Окно чата: iframe с index.html поверх страницы. */
+#paqChat.paq-chat {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(16, 32, 48, .56);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .24s ease, visibility .24s ease;
+}
+
+#paqChat.paq-chat.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+#paqChat .paq-chat__window {
+  display: flex;
+  flex-direction: column;
+  width: min(1100px, 100%);
+  height: min(780px, 100%);
+  overflow: hidden;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 40px 100px rgba(8, 22, 40, .5);
+  transform: translateY(14px) scale(.985);
+  transition: transform .3s cubic-bezier(.22, 1, .36, 1);
+}
+
+#paqChat.paq-chat.is-open .paq-chat__window {
+  transform: none;
+}
+
+#paqChat .paq-chat__body {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: #fff;
+}
+
+#paqChat .paq-chat__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+#paqChat .paq-chat__loader {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #fff;
+  color: #6b7a89;
+  font-family: "PT Sans", "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+
+#paqChat .paq-chat__loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#paqChat .paq-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #dbe5ee;
+  border-top-color: #009fd9;
+  border-radius: 50%;
+  animation: paqSpin .8s linear infinite;
+}
+
+html.paq-lock,
+body.paq-lock {
+  overflow: hidden !important;
+}
+
+@keyframes paqSpin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 640px) {
+  #paqRoot {
+    right: 14px;
+    bottom: 14px;
+    gap: 10px;
+  }
+
+  #paqRoot .paq-q {
+    width: calc(100vw - 104px);
+    max-width: calc(100vw - 104px);
+    height: 56px;
+    padding-right: 12px;
+    font-size: 13.5px;
+  }
+
+  #paqChat.paq-chat {
+    padding: 0;
+  }
+
+  #paqChat .paq-chat__window {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #paqRoot *,
+  #paqChat * {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  #paqRoot .paq-q {
+    opacity: 1;
+    transform: none;
+  }
+
+  #paqRoot .paq-q.is-marquee .paq-q__run {
+    animation: none !important;
+    padding-right: 0;
+  }
+}
+
+</style>
+</head>
+<body class="">
+
+
+    
+    
+
+<div id="custom_header"></div>
+
+
+
+<div id="header_div" class="header ">
+    
+    <div class="in_header container_width_1">
+        <div class="hide-for-medium hamburger" data-toggle="leftMenu" aria-expanded="false" aria-controls="leftMenu">
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="login" viewBox="0 0 24 24">
+                    <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"></path>
+                </svg></a>
+        </div>
+    
+        
+        
+        
+        <span id="logo_mobile" class="hide-for-medium">
+            <a href="https://docs.usergate.com/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAAaCAYAAACTmvO9AAAACXBIWXMAAAUbAAAFGwF+scIqAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAACAhJREFUaIHtmnmsnUUZh5+X3tLSSm0RKGUTEaFQoNAilCqyBVARJbL9AQ0goiwGoqIgEDWVBOJVICoRkU0RlNVWNMhaBCy2gIAsZZfNSgsEKpbSjcc/Zr7euV/PuefcLnJJ7i/5cmb5zTvvLO/MvDMHVgLq1upkdZ2VkdOPPgz1KhO+/l7r0o/mWKO3BdSR6po5Wv0OWnUq9WNVo1eDrI4H/gVctXrUeX9BXV8dq+6hbqeOUuO91quO3lry5sAA4GP1DHVN9dn8bawelMPX1XiT1Pvzd2ZPlalnFdxDeqnraoE6XP2u+igwB3gImAb8A5gNvKRepO72XupZoqMVQR0JfCAinm1BDdIkqOSuneNzarwNgPE5/GALmR8puOu30nV1Q/08cDkwogfaRsCxwLHqb4FjImLB/0G9pmg5yMBMYKS66epWpi9DPRq4hDSZK9wP/BV4kzR5dwZ2LPJfB95Zwfq+BHw6R8+PiOkrIgfaG+QNM2/dBnl9bv9ZHVB3Ai6kq73PAEc26nh1LHAxcC9wckS4gtXuAFRb1A3Aah3kZ0kDPQcY0wNvRRvzfsA5dHkSLwATI+LVRsSIeFidCCxZiQFepWhnkHcC1oqI17VP6Iy6BXAQac9eBDwFXBMRcxtwdwb2zdyFwCPAtRHxWsH5JDAqR+8A3gaOBMaSJu/ehcjjmg1whYhY3IPu40jL8EbAYJK3MjUiHsj5E4BN6H643UVdmsNPRcTDmRvAbsBeucwC0kHw2oiY15OOTaEenC8/Hsrx63P8NHWAek7+Rqjjc/iEmoxv2YVftqjvyoJ7Yq7jQnWpy2OhelJRdjP1Lw14qvPUwwrujUXeF7NX0AhPr1DHpTq2VGc0kfuuerm6hvq7JpwK52Z525i8jkZ4Vd2vqrud0/XGwNCIeJK0z9wHXFPnRcRS4LQi6YH8rUocD3w1h98huS7DgF1Jy+lo0+z+MGkPGwUsAW4kWfsWwAG5zJXq7Ii4u1bHT0hW1gj3NEpUhwB3NSnzm4g4HziRdDBbBNwCPAFsTFol1iOtHI80a3itvjFZl+GkfpgCvAiMBvYnnZ+mqDtHRGuZ6svqIpMrVc9bZsntKJfLrIwlTyvi+xa8fUod1JsyZ7G6R03mLuo7OX96Tist2Vzvp0yrwW1FemcTPdduYlHLyqihfkfdvFZ2fXV25j6iDjWthBcVMo7JaSNy/sycPt+0/Jfy9rNrpZsK7V2GjAQGAh9qkPdK/v13G3JWBQYW4YkmCyIibo2Ic2DZfl25HjdExJ2lgIiYAfwxR3dV61Y7NSIOj4i7IuJ5koVUGNZEL4E3im85tykijIizI+K5Wvpc4OYc3QpYEBF1GfMj4o2cvj3w8Zx+WUT8vSbvZrpWnM+oQ9s5eHW1JC3dU4CrI6ITOAW4ApjRGzGlTi249fybgE/k8PeAU9WZpMPSFbkDJxb88eqtDeRuWYTH1vIursVnF+FxNEBE/BdY9hKnngWcUedlq5uUddyUZEBlGweS3gF6ujwp27d3i/YNBLbpUEcDRwGvR0Sn6UCyI3BHRNxSKzyBdAM1AOjMNzl/60GhRnirCDdaHUqUvvl/gItIt03HA0NIp9NP5e9M9fs1+R/NX0+oP5O+VovfSdeAjVO3johZLWR2g+mccAFwHL2f2HUML8Kj89cT1ukgdcKpJAe/k7RxT6LrgNBIgcjKDwA2jYh/tqioRMndXR0cEcstb+radJ+1z2XX5JRsKbvn7wDSgaoD+AFwVlHmz8DvW+gzEzish/y7SNvRKNL2dp762Yh4t4XcEoeSJibAXGAyafV5PiIWqPfQtUK1QnlNfB3QyJJLzELdP2/STwOov87xyTm+OMe3UQ/J4cqF6szxth8P1MEmF6bCBdZebkyuxKUF51W1I+d11Lgd6tSC+211SQ4/oC537shtGVzEy4PXhAb84+2OS9Wmz6umh5UKneplRfzgGjdMh9sKQ3L6uUXasQV/6yK9boQVZ7uyn3r7ClVfSqqTYqslsUtAstofFUknANPVk9UDTX9AmAEcXXDOjoglphP+TPXU2mAPKcJPAL/K4XHAJeZ/ruQJcRTJFbxXLffmnvAL0tVihaOBWXlCTVS3UndTj1CvAb5ZK7+0CO9aBUyT+3Qau2zlhcvh6obqWqT9+g85fR/1PNOqhzpI/RppdZqmblJV1BtLPjSHK0v+aY4f3mZnVXV2qH+yPVxvsuxB6uNF+svq7eqLRdrj6lrqMLtfFCxSnzddmJQ4PevToyVnzhC7/gnTG/xQ3beWNku9VX2paEuFypI/10Teuep66pNF2kJT+xYVae+qX1kVgzxI3bFRp7Q50JPVt5o0Zp56hmnfr8rsrj7ThH+7hQ9qGpTz1QUNuM+oRxTcloNccA9VH22iQ4Wl6nT1y+ZtQT1JfbPGe1v9hvrzIq0a5DXUKQ1kVzdew9WL7T6wFR5Tv1DpHOqeJLfhhYjYS/0xcCDws4g4T11MOtSMAbYFrgYejogdVmRwG3TaCNLd8rak0/RrpPvX2xrdv5qWuAkkN2FE5t/b7L1bHU46fW8GzCc9uNydb+gqzhbAB3P0iYiY34beY4A9SI836wLzSE+LjwH3RUT9HR11GLAnyX2aC9wZEXNMz7jrZdqD5aHO9NixPTCU5M5Ni4hXivx1c/s2yTo8lfuj/YcGu1vyTjm+3LVmP97HKAc5x0eqA1uV60ffQTs3XgszbyFAo2WoH30b7QzyJGCDNv7j1Y8+iv8BtOt0/NAE0d0AAAAASUVORK5CYII=" alt=""></a>
+        </span>
+        
+        
+        <span>
+            <a href="https://docs.usergate.com/" class="header"></a>
+        </span>
+        
+        <div class="show-for-small-only" data-toggle="rightMenu" style="margin-left: auto;" aria-expanded="false" aria-controls="rightMenu">
+            
+            
+            
+            <a href="#" class="login">       
+                <svg xmlns="http://www.w3.org/2000/svg" class="login" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z" fill="#1040e2"></path><path d="M24 19h-24v-1h24v1zm0-6h-24v-1h24v1zm0-6h-24v-1h24v1z"></path></svg>
+            </a>
+            
+        </div>
+        
+        
+        <div class="login hide-for-small-only" style="margin-left: auto;">
+            <span style="margin-right: 20px;">
+    <a href="#" title="Поиск">
+        <svg xmlns="http://www.w3.org/2000/svg" class="login" viewBox="0 0 24 24" style="cursor: pointer;display: inline;vertical-align: middle;margin-left: 10px;">
+            <path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"></path>
+        </svg></a>
+</span>
+
+
+
+
+
+
+<a href="https://docs.usergate.com/pool/" class="pool_block login fixed _tooltip tooltipstered" style="display: none;text-decoration: none;position: fixed;bottom: 0;right: 0;padding-right: 35px;z-index: 1;">
+    
+    <div class="round_icon" style="background-color: #4584C1;background-image: url('https://docs.usergate.com/client/images/icons/article_panel/pool.svg');width: 35px;height: 35px;"></div>
+    <span class="pool_num badge" data-badge="" style="top: -32px;">&nbsp;</span>
+</a>
+
+
+
+
+<!-- <span style="margin-right: 0px;">
+    <button id="login_button" 
+        class="button">
+        <span>Войти</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 20px;">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm7.753 18.305c-.261-.586-.789-.991-1.871-1.241-2.293-.529-4.428-.993-3.393-2.945 3.145-5.942.833-9.119-2.489-9.119-3.388 0-5.644 3.299-2.489 9.119 1.066 1.964-1.148 2.427-3.393 2.945-1.084.25-1.608.658-1.867 1.246-1.405-1.723-2.251-3.919-2.251-6.31 0-5.514 4.486-10 10-10s10 4.486 10 10c0 2.389-.845 4.583-2.247 6.305z"/>
+        </svg>
+    </button>
+</span> -->
+
+<span style="margin-right: 0px;">
+    <a href="https://docs.usergate.com/auth.php?init=1">
+    <button id="login_button" class="button">
+        <span>Войти</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 20px;">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm7.753 18.305c-.261-.586-.789-.991-1.871-1.241-2.293-.529-4.428-.993-3.393-2.945 3.145-5.942.833-9.119-2.489-9.119-3.388 0-5.644 3.299-2.489 9.119 1.066 1.964-1.148 2.427-3.393 2.945-1.084.25-1.608.658-1.867 1.246-1.405-1.723-2.251-3.919-2.251-6.31 0-5.514 4.486-10 10-10s10 4.486 10 10c0 2.389-.845 4.583-2.247 6.305z"></path>
+        </svg>
+    </button>
+</a>
+</span>
+
+
+
+
+
+
+
+
+
+
+        </div>
+        
+    </div>
+</div>
+
+<div class="off-canvas-wrapper">
+    <div class="off-canvas position-left hide-for-medium is-transition-push is-closed" id="leftMenu" data-off-canvas="" data-transition="push" data-auto-focus="false" aria-hidden="true" data-e="clot7s-e">
+            <!-- <div style="margin: 0px 0 20px 0; border-bottom: 1px solid #ccc;"></div> -->
+	
+	<ul style="list-style-type: none;margin: 0;padding: 0;">
+        
+	    <li data-toggle="leftMenu" aria-expanded="false" aria-controls="leftMenu">
+            <a href="#">
+                <span style="float: left;width: 30px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="login" viewBox="0 0 24 24" style="width: 15px;height: 15px;">
+                        <path fill="#555555" d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"></path>
+                    </svg>
+                </span>
+                Поиск
+            </a>
+            
+        </li>
+        
+        <li style="margin: 10px 0;"></li>
+        
+        
+        <li>
+            <a href="https://docs.usergate.com/" target="_self">
+                Главная
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://support.usergate.com/ru" target="_self">
+                Поддержка
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://docs.usergate.com/dokumentaciya-120/" target="_self">
+                Документация
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://docs.usergate.com/opisanie-versij-121/" target="_self">
+                Описание версий
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://docs.usergate.com/glossary/" target="_self">
+                Глоссарий
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://docs.usergate.com/chasto-zadavaemye-voprosy-5/" target="_self">
+                FAQ
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://docs.usergate.com/index.php?View=entry&amp;EntryID=769" target="_self">
+                Загрузки
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://docs.usergate.com/avtorizovannoe-obuchenie-i-sertifikaciya_1335.html" target="_self">
+                Обучение
+            </a>
+        </li>
+        
+        
+        
+    </ul>
+<!-- </div> -->
+
+
+    </div><div class="js-off-canvas-overlay is-overlay-fixed"></div>
+    
+    <div class="off-canvas position-right hide-for-medium is-transition-push is-closed" id="rightMenu" data-off-canvas="" data-transition="push" data-auto-focus="false" aria-hidden="true" data-e="9g8ywb-e">
+    	
+
+<ul style="list-style-type: none; margin: 0;padding: 0;">
+    
+
+<li style="margin-top: 20px;" class="rPanel">
+	<a href="https://docs.usergate.com/login/3043/_entry/">
+	    <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path d="M8 9v-4l8 7-8 7v-4h-8v-6h8zm6-7c-1.787 0-3.46.474-4.911 1.295l.228.2 1.395 1.221c1.004-.456 2.115-.716 3.288-.716 4.411 0 8 3.589 8 8s-3.589 8-8 8c-1.173 0-2.284-.26-3.288-.715l-1.395 1.221-.228.2c1.451.82 3.124 1.294 4.911 1.294 5.522 0 10-4.477 10-10s-4.478-10-10-10z"></path>
+            </svg>
+        </span>
+	    Войти
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li class="rPanel pool_block" style="margin-top: 20px; display: none;">
+	<a href="https://docs.usergate.com/pool/" style="display: none; text-decoration: none;">
+		<span>
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+			    <path d="M21.639 14l-1.333 8h-16.612l-1.333-8h19.278zm2.361-2h-24l2 12h20l2-12zm-19.226-2l2.667-8h9.117l2.667 8h2.107l-3.332-10h-12l-3.333 10h2.107zm3.248-5l-.333 1h8.621l-.333-1h-7.955zm-.667 2l-.333 1h9.955l-.333-1h-9.289zm10.29 3l-.333-1h-10.624l-.333 1h11.29zm-8.956-7l-.333 1h7.288l-.334-1h-6.621zm6.311 13h-6v2h6v-2z"></path>
+			</svg>
+		</span>
+		Закреплённый
+		<span class="pool_num badge" data-badge="">&nbsp;</span>
+        <!-- <span class="pool_num badge" style="top: 10px; right: -120px;" data-badge="">&nbsp;</span> -->
+	</a>
+</li>
+
+
+
+
+
+
+
+
+</ul>
+    </div><div class="js-off-canvas-overlay is-overlay-fixed"></div>
+    
+    <div class="off-canvas-content" data-off-canvas-content="">
+        <div class="content" id="content_div">
+            <div class="in_content container_width_1">
+			
+    			
+			
+    			<div class="menuBlock hide-for-small-only">
+    <!-- <table class="sTable" style="margin: 0; padding: 0;"> -->
+        <table class="sTable">
+        <tbody><tr>
+            <td>
+                
+                <div class="menuItemSelected" style="display: inline-block;">
+                    <a href="https://docs.usergate.com/" target="_self">
+						<div class="menuItemSpace" style="display: none;">Главная</div>
+					</a>
+                </div>
+                
+                <div class="menuItem" style="display: inline-block;">
+                    <a href="https://support.usergate.com/ru" target="_self">
+						<div class="menuItemSpace" style="display: inline-block;">Поддержка</div>
+					</a>
+                </div>
+                
+                <div class="menuItem" style="display: inline-block;">
+                    <a href="https://docs.usergate.com/dokumentaciya-120/" target="_self">
+						<div class="menuItemSpace" style="display: inline-block;">Документация</div>
+					</a>
+                </div>
+                
+                <div class="menuItem" style="display: inline-block;">
+                    <a href="https://docs.usergate.com/opisanie-versij-121/" target="_self">
+						<div class="menuItemSpace" style="display: inline-block;">Описание версий</div>
+					</a>
+                </div>
+                
+                <div class="menuItem" style="display: inline-block;">
+                    <a href="https://docs.usergate.com/glossary/" target="_self">
+						<div class="menuItemSpace" style="display: inline-block;">Глоссарий</div>
+					</a>
+                </div>
+                
+                <div class="menuItem" style="display: inline-block;">
+                    <a href="https://docs.usergate.com/chasto-zadavaemye-voprosy-5/" target="_self">
+						<div class="menuItemSpace" style="display: inline-block;">FAQ</div>
+					</a>
+                </div>
+                
+                <div class="menuItem" style="display: inline-block;">
+                    <a href="https://docs.usergate.com/index.php?View=entry&amp;EntryID=769" target="_self">
+						<div class="menuItemSpace" style="display: inline-block;">Загрузки</div>
+					</a>
+                </div>
+                
+                <div class="menuItem" style="display: inline-block;">
+                    <a href="https://docs.usergate.com/avtorizovannoe-obuchenie-i-sertifikaciya_1335.html" target="_self">
+						<div class="menuItemSpace" style="display: inline-block;">Обучение</div>
+					</a>
+                </div>
+                
+
+                
+            </td>
+
+            <td style="padding-right: 5px;text-align: right;">
+                
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+			
+    			<table class="sTable">
+			
+    			
+    			<tbody><tr>
+    			    <td style="width: 220px;height: 1px;"></td>
+    			    <td style="width: 100%;"></td>
+    			</tr>
+    			
+			
+    			<tr>
+			
+    			    
+    			    <td class="content1" style="vertical-align: top;">
+    			        <div id="menu_content" style="display: block;">
+    			            
+<link rel="stylesheet" href="https://docs.usergate.com/client/skin/ajax_tree.css?v=c8f98b33">
+
+
+<div class="tree_title menuItem3" style="margin-bottom: 10px;">
+    <!-- a href="https://docs.usergate.com/">База знаний</a -->
+    
+    
+    
+    <img src="https://docs.usergate.com/client/images/icons/x-mark.svg" class="show-for-small-only" width="10" height="10" title="Закрыть" alt="Закрыть" style="float: right;cursor: pointer;margin-top: 3px;">
+    
+    
+</div>
+
+
+
+<div id="menu_item_120" style="padding-left: 7px;" class="tree_item category_loaded">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_expanded.svg" alt="menu collapse" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/dokumentaciya-120/" class="node " title="Документация" style="">Документация
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item__more_120" style="padding-left: 16px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    <div style="float: left;cursor: pointer;font-size: 0.9em;">
+        ...
+    </div>
+    <div style="clear: both;"></div>
+    
+    
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_7" style="padding-left: 16px;" class="tree_item category_loaded">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_expanded.svg" alt="menu collapse" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/obshie-svedeniya-7/" class="node " title="Общие сведения" style="">Общие сведения
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_289" style="padding-left: 24px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/bystryj-start-289/" class="node " title="Быстрый старт" style="">Быстрый старт
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_275" style="padding-left: 24px;" class="tree_item category_loaded">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_expanded.svg" alt="menu collapse" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/ustanovka-i-obnovlenie-275/" class="node " title="Установка и обновление" style="">Установка и обновление
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_3043" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/politika-obnovleniya-programmnogo-obespecheniya-usergate-ngfw_3043.html" class="node menu_item_selected" title="Политика обновления программного обеспечения UserGate NGFW" style="">Политика обновления программного обеспечения UserG...
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_3093" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/politika-obnovleniya-programmnogo-obespecheniya-usergate-waf_3093.html" class="node " title="Политика обновления программного обеспечения UserGate WAF" style="">Политика обновления программного обеспечения UserG...
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_845" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/obnovlenie-po-usergate_845.html" class="node " title="Обновление ПО UserGate" style="">Обновление ПО UserGate
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_586" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/obnovlenie-po-klastera-usergate-ngfw_586.html" class="node " title="Обновление ПО кластера UserGate NGFW" style="">Обновление ПО кластера UserGate NGFW
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_601" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/obnovlenie-pak-s-vneshnego-usb-nositelya_601.html" class="node " title="Обновление ПАК с внешнего USB-носителя" style="">Обновление ПАК с внешнего USB-носителя
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_51" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/procedura-perehoda-s-usergate-5-na-usergate-6_51.html" class="node " title="Процедура перехода с UserGate 5 на UserGate 6" style="">Процедура перехода с UserGate 5 на UserGate 6
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_917" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/process-perehoda-na-usergate-versii-7x_917.html" class="node " title="Процесс перехода на UserGate версии 7.x" style="">Процесс перехода на UserGate версии 7.x
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_1052" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/poryadok-obnovleniya-po-usergate-logan_1052.html" class="node " title="Порядок обновления ПО UserGate LogAn" style="">Порядок обновления ПО UserGate LogAn
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_23" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/razvertyvanie-obraza-usergate-na-hyper-v_23.html" class="node " title="Развертывание образа UserGate на Hyper-V" style="">Развертывание образа UserGate на Hyper-V
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_689" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/ustanovka-po-usergate-na-platformu-s150_689.html" class="node " title="Установка ПО UserGate на платформу С150" style="">Установка ПО UserGate на платформу С150
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_2251" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/obnovlenie-po-klastera-usergate-mc_2251.html" class="node " title="Обновление ПО кластера UserGate MC" style="">Обновление ПО кластера UserGate MC
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_52" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/ustanovka-po-usergate-na-apparatnyh-platformah-c100-d200-d500-e1000-e3000-f8000_52.html" class="node " title="Установка ПО UserGate на аппаратных платформах C100, D200, D500, E1000, E3000, F8000" style="">Установка ПО UserGate на аппаратных платформах C10...
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_2117" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/ustanovka-po-usergate-na-apparatnyh-platformah-e1010-e3010-f8010_2117.html" class="node " title="Установка ПО UserGate на аппаратных платформах E1010, E3010, F8010" style="">Установка ПО UserGate на аппаратных платформах E10...
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_676" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/obnovlenie-mikrokoda-ipmi-na-apparatnyh-platformah-d200-d500-e1000-e3000-f8000_676.html" class="node " title="Обновление микрокода IPMI на аппаратных платформах D200, D500, E1000, E3000, F8000" style="">Обновление микрокода IPMI на аппаратных платформах...
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_2095" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/obnovlenie-mikrokoda-ipmi-na-apparatnyh-platformah-e1010-e3010-f8010_2095.html" class="node " title="Обновление микрокода IPMI на аппаратных платформах E1010, E3010, F8010" style="">Обновление микрокода IPMI на аппаратных платформах...
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_1334" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/obnovlenie-komponentov-po-s-ispol6zovaniem-pmc-na-apparatnyh-platformah-b50-c150-c151-d250-fg-x10_1334.html" class="node " title="Обновление компонентов ПО с использованием PMC на аппаратных платформах B50, C150, C151, D250, FG, X10" style="">Обновление компонентов ПО с использованием PMC на ...
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_entry_2162" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_entry.svg" alt="menu item">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/oflajn-aktivaciya-licenzij_2162.html" class="node " title="Офлайн-активация лицензий" style="">Офлайн-активация лицензий
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_676" style="padding-left: 32px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/eksport-i-import-nastroek-676/" class="node " title="Экспорт и импорт настроек" style="">Экспорт и импорт настроек
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_273" style="padding-left: 24px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/arhitektura-programmnogo-obespecheniya-usergate-273/" class="node " title="Архитектура программного обеспечения UserGate" style="">Архитектура программного обеспечения UserGate
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_272" style="padding-left: 24px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/osobennosti-raboty-272/" class="node " title="Особенности работы" style="">Особенности работы
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_556" style="padding-left: 24px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/opisanie-funkcij-556/" class="node " title="Описание функций" style="">Описание функций
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_667" style="padding-left: 24px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/primery-nastroek-667/" class="node " title="Примеры настроек" style="">Примеры настроек
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_668" style="padding-left: 24px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/vzaimodejstvie-so-storonnimi-resheniyami-668/" class="node " title="Взаимодействие со сторонними решениями" style="">Взаимодействие со сторонними решениями
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_663" style="padding-left: 16px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/ngfw-663/" class="node " title="NGFW" style="">NGFW
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_662" style="padding-left: 16px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/dcfw-662/" class="node " title="DCFW" style="">DCFW
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_718" style="padding-left: 16px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/waf-718/" class="node " title="WAF" style="">WAF
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_884" style="padding-left: 16px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/swg-884/" class="node " title="SWG" style="">SWG
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_664" style="padding-left: 16px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/management-center-664/" class="node " title="Management Center" style="">Management Center
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_665" style="padding-left: 16px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/log-analyzer-665/" class="node " title="Log Analyzer" style="">Log Analyzer
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_666" style="padding-left: 16px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/siem-666/" class="node " title="SIEM" style="">SIEM
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_781" style="padding-left: 16px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/usergate-client-781/" class="node " title="UserGate Client" style="">UserGate Client
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_722" style="padding-left: 16px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/konvertery-konfiguracij-722/" class="node " title="Конвертеры конфигураций" style="">Конвертеры конфигураций
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_121" style="padding-left: 7px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/opisanie-versij-121/" class="node " title="Описание версий" style="">Описание версий
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_274" style="padding-left: 7px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/apparatnye-platformy-274/" class="node " title="Аппаратные платформы" style="">Аппаратные платформы
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_5" style="padding-left: 7px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/chasto-zadavaemye-voprosy-5/" class="node " title="Часто задаваемые вопросы" style="">Часто задаваемые вопросы
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+<div id="menu_item_546" style="padding-left: 7px;" class="tree_item ">
+    <div style="float: left;margin: 0 5px 5px 0;">
+        <img src="https://docs.usergate.com/client/images/icons/menu_category_collapsed.svg" alt="menu expand" style="cursor: pointer;">
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="float: left; width: 85%;">
+        <a href="https://docs.usergate.com/obuchenie-546/" class="node " title="Обучение" style="">Обучение
+        </a>
+    </div>
+    
+
+    
+    
+    
+    
+    <div style="clear: both;"></div>
+</div>
+
+    			        </div>
+			
+    			    </td>
+    			    
+			
+    			    <td style="vertical-align: top;">
+			
+    			        <div class="navigation view_left">
+    			        	
+    						<div id="mobile_menu_toggle" class="show-for-small-only">
+    							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#666666" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 17h-12v-2h12v2zm0-4h-12v-2h12v2zm0-4h-12v-2h12v2z"></path></svg>
+    						</div>
+    						
+						
+    						<div style="overflow: hidden;">
+    			            	<span class="navigation"><a href="https://docs.usergate.com/" class="navigation">Главная</a></span> / <span class="navigation"><a href="https://docs.usergate.com/dokumentaciya-120/" class="navigation">Документация</a></span> / <span class="navigation"><a href="https://docs.usergate.com/obshie-svedeniya-7/" class="navigation">Общие сведения</a></span> / <span class="navigation"><a href="https://docs.usergate.com/ustanovka-i-obnovlenie-275/" class="navigation">Установка и обновление</a></span> / <span class="navigation">Политика обновления программного обеспечения UserGate NGFW</span>
+    			            </div>
+    			        </div>
+			        
+    			        <div style="clear: both;"></div>
+			
+    			        <div class="contentMain">
+    			            <a id="content"></a>
+    			            
+    			            <div class="articleContainer">
+
+    <div id="top" class="tdArticleTitle" style="overflow: hidden;">
+        
+        
+
+        <div style="overflow: hidden;position: relative;">
+            <h1 id="title_text" class="articleTitle ">Политика обновления программного обеспечения UserGate NGFW</h1>
+            
+            
+        </div>
+
+        <div style="clear: both"></div>
+    </div>
+
+    
+    <div class="smallerText" style="padding: 10px 5px; border-bottom: 1px dotted;">
+        <div style="padding-bottom: 3px;">ID статьи: 3043</div>
+        <div>Последнее обновление: 31 Aug, 2026</div>
+    </div>
+    
+
+    <div style="position: relative;">
+
+        
+
+
+<div id="right_panel">
+    <ul id="social-counters">
+        
+        <li id="save_panel_item" class="_tooltip_fp tooltipstered">
+            <a href="#save">
+                <div class="round_icon hasBadgeIcon " style="background-image: url('https://docs.usergate.com/client/images/icons/article_panel/bookmark.svg');" data-color=""></div>
+            </a>
+        </li>
+        
+        <li id="print_panel_item" class="_tooltip_fp tooltipstered">
+            <a href="https://docs.usergate.com/print/3043/">
+                <div class="round_icon hasBadgeIcon " style="background-image: url('https://docs.usergate.com/client/images/icons/article_panel/print.svg');" data-color=""></div>
+            </a>
+        </li>
+        
+        
+        <li class="_tooltip_fp tooltipstered">
+            <a href="#">
+                <div class="round_icon" data-color="" style="background-image: url('https://docs.usergate.com/client/images/icons/article_panel/more.svg');background-size: auto;">
+                </div>
+            </a>
+        </li>
+        
+        
+    </ul>
+    
+    <div id="panel_more" style="display: none;">
+        <div style="margin-top: 20px;">
+            <div class="jq-dropdown-panel" style="min-width: 350px;">
+    
+    
+    <div style="margin-bottom: 25px;">
+        <div class="more_title">
+            Поделиться
+        </div>
+        
+        <div class="grid-x align-stretch">
+            
+            <div id="twitter_panel_item2" class="medium-6" style="padding: 0 5px;">
+                <a href="#" title="Twitter" style="text-decoration: none;cursor: auto;">
+                    <div class="more_item">
+                        <div class="round_icon" style="background-image: url('https://docs.usergate.com/client/images/icons/social/twitter.svg');" data-color="#55acee"></div>
+                        <div class="icon_title">
+                            <span class="icon">Twitter</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div id="facebook_panel_item2" class="medium-6" style="padding: 0 5px;">
+                <a href="#" title="Facebook" style="text-decoration: none;cursor: auto;">
+                    <div class="more_item">
+                        <div class="round_icon" style="background-image: url('https://docs.usergate.com/client/images/icons/social/facebook.svg');" data-color="#3b5998"></div>
+                        <div class="icon_title">
+                            <span class="icon">Facebook</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div id="send_panel_item2" class="medium-6" style="padding: 0 5px;">
+                <a href="mailto:?subject=%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BE%D1%82%20%D0%92%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D0%B4%D1%80%D1%83%D0%B3%D0%B0&amp;body=%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BE%D1%82%20%D0%92%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D0%B4%D1%80%D1%83%D0%B3%D0%B0%0Ahttps%3A%2F%2Fdocs.usergate.com%2Fentry%2F3043%2F" title="Отправить по email" style="text-decoration: none;cursor: auto;">
+                    <div class="more_item">
+                        <div class="round_icon" style="background-image: url('https://docs.usergate.com/client/images/icons/article_panel/email.svg');" data-color=""></div>
+                        <div class="icon_title">
+                            <span class="icon">Отправить по email</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    
+    <div style="margin-bottom: 25px;">
+        <div class="more_title">
+            Действия
+        </div>
+        
+        <div class="grid-x grid-padding-x">
+            
+            <div id="save_panel_item2" class="medium-6" style="padding: 0 5px;">
+                <a href="#save" title="Сохранить" style="text-decoration: none;cursor: auto;">
+                    <div class="more_item">
+                        <div class="round_icon hasBadgeIcon badgeIconPopup " style="background-image: url('https://docs.usergate.com/client/images/icons/article_panel/bookmark.svg');" data-color=""></div>
+                            
+                        <div class="icon_title">
+                            <span class="icon">Сохранить</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div id="print_panel_item2" class="medium-6" style="padding: 0 5px;">
+                <a href="https://docs.usergate.com/print/3043/" title="Печать" style="text-decoration: none;cursor: auto;">
+                    <div class="more_item">
+                        <div class="round_icon hasBadgeIcon badgeIconPopup " style="background-image: url('https://docs.usergate.com/client/images/icons/article_panel/print.svg');" data-color=""></div>
+                            
+                        <div class="icon_title">
+                            <span class="icon">Печать</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div id="stick_panel_item2" class="medium-6" style="padding: 0 5px;">
+                <a href="#pin" title="Закрепить" style="text-decoration: none;cursor: auto;">
+                    <div class="more_item">
+                        <div class="round_icon hasBadgeIcon badgeIconPopup " style="background-image: url('https://docs.usergate.com/client/images/icons/article_panel/stick.svg');" data-color=""></div>
+                            
+                        <div class="icon_title">
+                            <span class="icon">Закрепить</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div id="comment_panel_item2" class="medium-6" style="padding: 0 5px;">
+                <a href="#add_comment" title="Добавить комментарий" style="text-decoration: none;cursor: auto;">
+                    <div class="more_item">
+                        <div class="round_icon hasBadgeIcon badgeIconPopup " style="background-image: url('https://docs.usergate.com/client/images/icons/article_panel/comment.svg');" data-color=""></div>
+                            
+                        <div class="icon_title">
+                            <span class="icon">Добавить комментарий</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    <div id="permalink_block">
+        <div class="more_title">
+            <div style="float: left;">
+                Постоянная ссылка
+            </div>
+            <a href="#/" class="copy_block smallerText2" style="float: right; font-weight: normal;">Копировать</a>
+            <div class="copied_block smallerText" style="float: right;display: none; font-weight: normal;">Скопировано</div>
+            <div style="clear: both;"></div>
+        </div>
+        <input type="text" class="share_url" value="https://docs.usergate.com/index.php?View=entry&amp;EntryID=3043" style="color: #666;" readonly="readonly">
+    </div>
+</div>
+        </div>
+    </div>
+        
+    <div id="panel_comment" style="display: none;">
+        <div style="margin-top: 20px;">
+            <link rel="stylesheet" href="https://docs.usergate.com/client/skin/search2.css?v=c8f98b33">
+<link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery/magnific-popup.css?v=c8f98b33">
+
+
+
+<style>
+    .table > .grid-x:not(.skip) > div:first-child {
+        text-align: left;
+/*        padding: 12px 12px;*/
+    }
+    
+</style>
+
+
+
+
+ 
+
+<div class="niceForm niceForm100">
+
+<form action="https://docs.usergate.com/comment/3043/post/" method="post" id="aContentForm">
+<input type="hidden" name="id" value="">
+<input type="hidden" name="user_id" value="">
+<input type="hidden" name="entry_id" value="">
+<input type="hidden" name="date_posted" value="">
+<!-- <input type="hidden" id="internal" name="internal" value="0"> -->
+<input type="hidden" name="atoken" id="atoken" value="$2y$07$AAFEdwAAcfAAAHkfAABdLeTg.SHrhraQqunSFJ2sUQB9OhCCyW8k2">
+
+<span style="display: none;">
+    <input type="text" name="captcha2" id="captcha2" value="" class="longText">
+</span>
+
+
+<div class="table">
+
+    
+    <div class="grid-x">
+        <div class="small-12 cell">
+            <input type="text" name="name" id="name" value="" class="longText" placeholder="Имя">
+        </div>
+    </div>
+    
+    <div class="grid-x">
+        <div class="small-12 cell">
+            <input type="text" name="email" id="email" value="" class="longText" placeholder="Email">
+        </div>
+    </div>
+    
+    
+    <div class="grid-x">
+        <div class="small-12 cell">
+            <!--            -->
+            
+            <div style="position:relative">
+                <textarea rows="7" name="comment" id="comment" style="width: 100%;" placeholder="* Комментарий"></textarea>
+                
+                <a id="bbcode_help_link" href="#bbcode_help_block" style="position:absolute; right: 10px; top: 10px;" class="help_link _tooltip" title="">
+                    <img src="https://docs.usergate.com/client/images/icons/help.svg" width="20" height="20">
+                </a>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+
+
+<div class="grid-x">
+    <div class="large-12 cell">
+        <input type="text" name="captcha" id="captcha" value="" placeholder="* Введите символы с изображения ниже" class="longText" autocomplete="off"> 
+        <img src="https://docs.usergate.com/captcha.php" alt="Подтверждения кода изображения" id="captcha_img" style="margin-top: 10px;">
+    </div>
+</div>
+
+
+
+
+
+    
+    <div class="grid-x donotshow">
+        <div class="small-12 cell">
+            <input type="text" name="s_company" value="" class="longText">
+            <input type="checkbox" name="s_company_set" value="">            
+        </div>
+    </div>
+    
+    
+    
+    <div class="grid-x skip">
+        <div class="small-12 cell" style="text-align:center;">
+            <div><br></div>
+            <button type="submit" name="submit" id="submit" class="button primary">
+                Отправить
+            </button>
+    
+            <input type="button" value="Отмена" class="button">
+        </div>  
+    </div>
+</div>
+
+</form>
+</div>
+
+<div id="bbcode_help_block" class="help_block mfp-hide">
+    <h2>BBCode подсказки</h2>
+    <div>
+
+URL-адреса будут обрабатываться автоматически <br>
+<b>http://www.kbpublisher.com</b> - <a href="http://www.kbpublisher.com/">http://www.kbpublisher.com</a>
+<br><br>
+
+<b>[b]</b>text<b>[/b]</b> - <b>Жирный</b> текст.
+<br><br>
+
+<b>[u]</b>text<b>[/u]</b> - <u>Подчеркнутый</u> текст.
+<br><br>
+
+<b>[i]</b>text<b>[/i]</b> - <i>Курсивный</i> текст.
+<br><br>
+
+<b>[s]</b>text<b>[/s]</b> - <s>Зачеркнутый</s> текст.
+<br><br>
+
+<b>[color=green]</b>text<b>[/color]</b> - <font color="green">Цветной</font> текст.
+<br><br>
+
+<b>[url]</b>kbpublisher.com<b>[/url]</b> - <a href="http://www.kbpublisher.com/">kbpublisher.com</a>
+<br><br>
+
+<b>[url=kbpublisher.com]</b>text<b>[/url]</b> - <a href="http://www.kbpublisher.com/">text</a>
+<br><br>
+
+<b>[email]</b>example@example.com<b>[/email]</b> - <a href="mailto:example@example.com">example@example.com</a>
+<br><br>
+
+<b>[quote]</b>text<b>[/quote]</b> - <q>Цитируемый</q> текст
+<br><br>
+
+<b>[h1]</b>text<b>[/h1]</b> - <span style="font-size: 18px;">Заголовок.</span>
+<br><br>
+
+<b>[code]</b>text<b>[/code]</b> - <code>Код</code> text
+<br><br>
+
+
+Нумерованный список:<br><br>
+<div style="float: left; margin-left: 10px;">
+	<b>[list]</b><br><b>[*]</b> пункт1<br><b>[*]</b> пункт2<br><b>[/list]</b>
+</div>
+<div style="float: left;">
+	<ol>
+		<li>пункт 1</li>
+		<li>пункт 2</li>
+	</ol>
+</div>
+<div style="clear: both"></div>
+
+<br><br>
+
+Неупорядоченный список:<br><br>
+<div style="float: left;  margin-left: 10px;">
+	<b>[ulist]</b><br><b>[*]</b> пункт1<br><b>[*]</b> пункт2<br><b>[/ulist]</b>
+</div>
+<div style="float: left;">
+	<ul>
+		<li>пункт 1</li>
+		<li>пункт 2</li>
+	</ul>
+</div>
+<div style="clear: both"></div></div>
+</div>
+        </div>
+    </div>
+        
+</div>
+        
+        <div id="kbp_article_body" class="textBlock ab_padding_class" style="min-height: 143px;">
+
+            <div id="toc_container"><div><a href="#toc" class="atoc">Содержание:</a></div><div id="toc_content" style="display: block;"><ol id="toc" data-toc="#kbp_article_body" data-toc-headings="h1,h2,h3"><li><a href="#%D0%A2%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0_%D1%81%D0%BE%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B9_%D0%B4%D0%BB%D1%8F_%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%B0">Таблица совместимости версий для обновления продукта</a></li><li><a href="#%D0%92%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%D1%8B_%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F">Варианты обновления программного обеспечения</a></li><li><a href="#%D0%9E%D0%B1%D1%89%D0%B8%D0%B5_%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D0%B8%D0%B8_%D0%BF%D0%BE_%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8E_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F">Общие рекомендации по обновлению программного обеспечения</a></li><li><a href="#%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B4%D0%BE_%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8_7.5.1">Обновление до&nbsp;версии 7.5.1</a></li></ol></div></div>
+
+            <div id="custom_block_4" class="customFieldItem">Product: NGFW</div>
+
+            <p>Обновление программного обеспечения — это критически важная процедура, напрямую влияющая на безопасность, стабильность и доступность сети. Своевременная установка обновлений необходима для защиты от новых уязвимостей и получения доступа к актуальным функциям безопасности. Одним из ключевых аспектов этого процесса является соблюдение рекомендованного пути обновления.</p>
+
+<p>Путь обновления — это последовательность версий ПО, через которые необходимо пройти при переходе от текущей версии системы к целевой. В некоторых случаях обновление нельзя выполнить за один шаг, потребуется последовательная установка промежуточных версий с использованием <a href="https://docs.usergate.com/konverter-konfiguracij-usergate-(versiya-4118)_2043.html" target="_blank">конвертера конфигураций</a>.</p>
+
+<p>Рекомендованный путь обновления протестирован и гарантирует корректную миграцию конфигурации и внутренних компонентов системы при соблюдении процедуры обновления.</p>
+
+<h2 id="Таблица_совместимости_версий_для_обновления_продукта"><a id="Compatibility table" name="Compatibility table"></a>Таблица совместимости версий для обновления продукта</h2>
+
+<table border="1" class="docutils colwidths-auto align-default">
+	<thead>
+		<tr>
+			<th colspan="1" rowspan="2" scope="col" style="width: 5%;">
+			<p>Текущая</p>
+
+			<p>версия</p>
+			</th>
+			<th colspan="10" rowspan="1" scope="col" style="width: 5%;">
+			<p>Целевая версия</p>
+			</th>
+		</tr>
+		<tr>
+			<th scope="col" style="width: 5%;">
+			<p>7.1.2</p>
+			</th>
+			<th scope="col" style="width: 5%;">
+			<p>7.2.x</p>
+			</th>
+			<th scope="col" style="width: 5%;">
+			<p>7.3.2</p>
+			</th>
+			<th scope="col" style="width: 5%;">
+			<p>7.3.3</p>
+			</th>
+			<th scope="col" style="width: 5%;">
+			<p>7.4.0</p>
+			</th>
+			<th scope="col" style="width: 5%;">
+			<p>7.4.1</p>
+			</th>
+			<th scope="col" style="width: 5%;">
+			<p>7.4.2</p>
+			</th>
+			<th scope="col" style="width: 5%;">
+			<p>7.4.3</p>
+			</th>
+			<th scope="col" style="width: 5%;">
+			<p>7.5.0</p>
+			</th>
+			<th scope="col" style="width: 5%;">
+			<p>7.5.1</p>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="text-align: center; width: 5%;">
+			<p><strong>6.1.9</strong></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 5%;">
+			<p><strong>7.1.2</strong></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 5%;">
+			<p><strong>7.2.x</strong></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 5%;">
+			<p><strong>7.3.2</strong></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 5%;">
+			<p><strong>7.3.3</strong></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 5%;">
+			<p><strong>7.4.0</strong></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 5%;">
+			<p><strong>7.4.1</strong></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 5%;">
+			<p><strong>7.4.2</strong></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 5%;">
+			<p><strong>7.4.3</strong></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 5%;">
+			<p><strong>7.5.0</strong></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p></p>
+			</td>
+			<td style="text-align: center; width: 5%;">
+			<p><b>+</b></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Прямое обновление программного обеспечения до целевой версии рекомендуется выполнять с совместимых версий. Обновление с остальных версий возможно только после предварительного обновления до указанных совместимых версий в соответствии с данной таблицей.</p>
+
+<h2 id="Варианты_обновления_программного_обеспечения">Варианты обновления программного обеспечения</h2>
+
+<p>Обновление программного обеспечения UserGate NGFW может быть выполнено следующими способами:</p>
+
+<ul>
+	<li>
+	<p>Прямое обновление&nbsp;штатными средствами продукта. Обновление возможно для версий, указанных <a href="#Compatibility%20table">в таблице совместимости</a>. Подробнее — в разделе «<a href="https://docs.usergate.com/obnovlenie-po-usergate_845.html" target="_blank">Обновление ПО UserGate</a>».</p>
+	</li>
+	<li>
+	<p>Чистая установка&nbsp;с импортом конфигурации. Если устройство не используется в продуктивной среде, возможна чистая установка целевой версии&nbsp;программного обеспечения с переносом конфигурации с&nbsp;помощью конвертера конфигурации.</p>
+
+	<p>Подробнее о конвертере —&nbsp;в разделе «<a href="https://docs.usergate.com/konverter-konfiguracij-usergate-(versiya-4117)_2043.html" target="_blank">Конвертер конфигураций UserGate</a>».</p>
+
+	<p>Подробнее о чистой установке ПО UserGate на аппаратных платформах:</p>
+
+	<ul>
+		<li>
+		<p>«<a href="https://docs.usergate.com/ustanovka-po-usergate-na-apparatnyh-platformah-c100-d200-d500-e1000-e3000-f8000_52.html" target="_blank">Установка ПО UserGate&nbsp;на аппаратных платформах C100, D200, D500, E1000, E3000, F8000</a>»;</p>
+		</li>
+		<li>
+		<p>«<a href="https://docs.usergate.com/ustanovka-po-usergate-na-apparatnyh-platformah-e1010-e3010-f8010_2117.html" target="_blank">Установка ПО UserGate&nbsp;на аппаратных платформа&nbsp;E1010, E3010, F8010</a>»;</p>
+		</li>
+		<li>
+		<p>«<a hash="" href="https://docs.usergate.com/obnovlenie-komponentov-po-s-ispol6zovaniem-pmc-na-apparatnyh-platformah-b50-c150-c151-d250-fg_1334.html" rel="noopener noreferrer nofollow" resourcepath="https://docs.usergate.com/obnovlenie-komponentov-po-s-ispol6zovaniem-pmc-na-apparatnyh-platformah-b50-c150-c151-d250-fg_1334.html" target="_self">Обновление компонентов ПО с использованием PMC на аппаратных платформах B50, C150, C151, D250, FG</a>».</p>
+		</li>
+	</ul>
+	</li>
+</ul>
+
+<h2 id="Общие_рекомендации_по_обновлению_программного_обеспечения">Общие рекомендации по обновлению программного обеспечения</h2>
+
+<p>Чтобы минимизировать риски при обновлениях, рекомендуется:</p>
+
+<ul>
+	<li>
+	<p>Проверить текущую и целевую версии&nbsp;ПО устройства.</p>
+	</li>
+	<li>
+	<p>Ознакомиться с информацией о&nbsp;версиях&nbsp;в разделе «<a href="https://docs.usergate.com/opisanie-versij-121/" target="_blank">Описание&nbsp;версий</a>».</p>
+	</li>
+	<li>
+	<p>Сделать <a href="https://docs.usergate.com/upravlenie-ustrojstvom_970.html#%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B5%D0%B7%D0%B5%D1%80%D0%B2%D0%BD%D1%8B%D0%BC%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC" target="_blank">резервную копию конфигурации устройства</a>, чтобы в случае возникновения проблем во время обновления можно было восстановить его предыдущее состояние.</p>
+	</li>
+	<li>
+	<p>Во время установки обновления создать <a href="https://docs.usergate.com/obshie-nastrojki_919.html#SW_upgrade" target="_blank">точку восстановления системы</a>. Это позволит оперативно вернуть систему в рабочее состояние.</p>
+	</li>
+</ul>
+
+<p>В случае возникновения аварийной ситуации при обновлении обратитесь в службу технической поддержки.</p>
+
+<h2 id="Обновление_до_версии_7.5.1">Обновление до&nbsp;версии 7.5.1</h2>
+
+<p>Прямое обновление до версии 7.5.1 возможно с версий 7.3.3, 7.4.1, 7.4.2, 7.4.3 и 7.5.0.</p>
+
+<p>Обновление с остальных версий возможно только после предварительного последовательного обновления до одной из перечисленных выше версий в соответствии <a href="#Compatibility%20table">с таблицей совместимости</a>.</p>
+
+
+            
+
+        </div>
+    </div>
+
+    <div style="clear: both;"></div>
+
+	<div>
+		
+
+<link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery/jquery.rating.css?v=c8f98b33">
+
+
+<div style="clear: both"></div>
+<div class="smallerText" style="padding: 8px 5px;  border-top: 1px solid #D4D4D4;margin-bottom: 20px;">
+    <div style="padding: 5px 3px;">    
+        
+        
+            <span id="spinner" style="margin-left: 5px;display: none;">
+                <img src="https://docs.usergate.com/client/images/ajax/indicator.svg" alt="">
+            </span>
+        
+            <span id="rateQuery" style="float: left;">
+                <span style="float: left; margin-right: 5px;">Эта статья была:&nbsp;&nbsp;</span>
+                <span style="float: left; margin-right: 20px;">
+                
+                    <a href="#rate" class="abbLink" rel="nofollow">Полезна</a> | 
+                
+                    <a href="#rate" class="abbLink" rel="nofollow">Не полезна</a>
+                
+                
+                </span>
+            </span>     
+        
+            <span id="rateResponce" style="display: none;float: left;">
+                Спасибо за Ваш отзыв!
+            </span>
+		
+    		<!-- <span id="currentRating" class="fright">
+                
+            </span> -->
+		
+        
+        
+        <!-- report issue -->
+        
+    
+        
+	
+    </div>
+</div>
+
+
+
+	</div>
+
+    <div class="abbBlock">
+        
+
+
+<div class="grid-x">
+
+    
+    <div class="small-12 medium-3 auto cell abBgrDarker">   
+        <div class="space">
+            ID статьи: 3043
+        </div>
+        
+        <div class="space">
+            Последнее обновление: <span class="date_updated">31 Aug, 2026</span>
+        </div>
+        
+        <div class="space">
+            Ревизия: 43
+        </div>
+        
+        
+        
+    </div>    
+    
+    
+    
+            
+    
+    <div class="small-12 medium-3 auto cell abBgrDarker nowrap">
+        
+            <div class="less_space">Просмотры: 7423</div>
+        
+        
+        
+            <div class="less_space">Комментарии: 0</div>
+        
+    </div>
+    
+    
+    
+    
+</div>
+        
+
+
+    </div>
+
+</div>
+
+<div class="grid-x">
+	<div class="tdSubTitle small-12 medium-3 cell auto hide-for-small-only">
+        <a href="https://docs.usergate.com/ustanovka-i-obnovlenie-275/" title="Установка и обновление" class="nextprev">
+            <span class="smallerText">Пред.</span>
+        </a>
+    </div>
+    <div class="tdSubTitle small-12 medium-3 cell hide-for-small-only" style="text-align: right;">
+    	<a href="https://docs.usergate.com/politika-obnovleniya-programmnogo-obespecheniya-usergate-waf_3093.html" title="Политика обновления программного обеспечения UserGate WAF" class="nextprev">
+            <span class="smallerText">След.</span>
+        </a>
+	</div>
+</div>
+<div class="grid-x">
+    <div class="tdSubTitle small-12 medium-3 cell auto">
+        <a href="https://docs.usergate.com/ustanovka-i-obnovlenie-275/" class="noformat" title="Установка и обновление">
+        	<span class="smallerText show-for-small-only">«</span>
+            <span class="smallerText">Установка и обновление</span>
+        </a>
+    </div>
+    <div class="tdSubTitle small-12 medium-3 cell" style="text-align: right;">
+        <a href="https://docs.usergate.com/politika-obnovleniya-programmnogo-obespecheniya-usergate-waf_3093.html" class="noformat" title="Политика обновления программного обеспечения UserGate WAF">
+            <span class="smallerText">Политика обновления программного обеспечения UserGate WAF</span>
+            <span class="smallerText show-for-small-only">»</span>
+        </a>
+    </div>
+</div>
+<br>
+    			        </div>
+			
+    			    </td>
+    			</tr>
+    			</tbody></table>
+			
+    			<div class="bottom" style="clear: left;">
+			
+    			    
+<!--     			    <div class="fright">
+    			        <a href="https://docs.usergate.com/rssfeed/">
+                            <img src="https://docs.usergate.com/client/images/icons/rss_feed_color.svg" title="RSS"
+                                width="16" height="16" alt="rss" />
+    			        </a>
+    			    </div> -->
+    			    
+                    <!-- Custom Footer -->
+                    <div class="custom_footer">
+                                                <div class="footer_container">
+                            <div class="custom_footer_item">
+                                <a class="dark" href="https://www.usergate.com/ru/company/about-us">О компании</a>
+                            </div>
+                            <div class="custom_footer_item">
+                                <a class="dark" href="https://www.usergate.com/ru/products">Продукты</a>
+                            </div>
+                            <div class="custom_footer_item">
+                                <a class="dark" href="https://support.usergate.com/ru"> Поддержка </a>
+                            </div>
+                            <div class="custom_footer_item">
+                                <a class="dark" href="https://support.usergate.com/ru/technical-documentation">Техническая документация</a>
+                            </div>
+                            <div class="custom_footer_item">
+                                <a class="dark" href="https://docs.usergate.com/avtorizovannoe-obuchenie-i-sertifikaciya_1335.html">Обучение от Академии UserGate</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="non_custom_footer">
+                        <div class="footer_container">
+                            <div class="custom_footer_item line_item">
+                                <a class="white" href="https://www.usergate.com/ru/terms-of-use">
+                                    Условия использования
+                                </a>
+                            </div>
+                            <div class="custom_footer_item">
+                                <a class="white" href="https://www.usergate.com/ru/privacy-policy">
+                                    Конфиденциальность
+                                </a>
+                            </div>
+                            <div class="custom_footer_item white float-right">
+                                <a href="https://usergate.com/ru">Copyright © 2001–2026 </a><a href="https://www.usergate.com/ru/" title="UserGate" target="_blank">UserGate</a>,
+                                <a href="https://www.kbpublisher.com/" title="KBPublisher" target="_blank"> Powered by KBPublisher</a>
+
+                            </div>
+                           
+                    <!--  End Custom Footer -->
+
+
+			
+    			   <!--  <div class="copyright" style="text-align: left;">
+    			        Copyright © 2001&ndash;2026 <a href="https://www.usergate.com/ru/" title="UserGate" target="_blank">UserGate</a>
+    			    </div> -->
+                    
+    			</div>
+                                
+            </div> <!--  in_content  -->
+            
+         </div>
+         
+        <!-- <div id="custom_footer">
+                                    <div class='footer_container'>
+                            <div class='custom_footer_item'>
+                                <a class='dark' href='https://www.usergate.com/ru/company/about-us'>О компании</a>
+                            </div>
+                            <div class='custom_footer_item'>
+                                <a class='dark' href='https://www.usergate.com/ru/products'>Продукты</a>
+                            </div>
+                            <div class='custom_footer_item'>
+                                <a class='dark' href="https://support.usergate.com/ru"> Поддержка </a>
+                            </div>
+                            <div class='custom_footer_item'>
+                                <a class='dark' href="https://support.usergate.com/ru/technical-documentation">Техническая документация</a>
+                            </div>
+                            <div class='custom_footer_item'>
+                                <a class='dark' href="https://docs.usergate.com/avtorizovannoe-obuchenie-i-sertifikaciya_1335.html">Обучение от Академии UserGate</a>
+                            </div>
+                        </div>
+        </div> -->
+         
+    	
+         
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://docs.usergate.com/client/skin/jquery/icheck/skins/square/blue.css?v=c8f98b33">
+<style>
+    #search_bar {
+        z-index: 101;
+        text-align: center;
+        display: none;
+        font-size: 14px;
+        background: transparent !important;
+    }
+    
+    #search_bar_container2 {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    #search_bar_container {
+/*        position: relative;*/
+        padding: 0 5px 0 3px;
+        margin-top: 30px;
+    }
+        
+    #search_bar_container input {
+/*         position: relative;*/
+        width: 90%;
+        margin-top: 0px;
+    }
+    
+    #search_bar_container svg { 
+        float: right;
+/*        position: absolute;*/
+/*        top: 15px;*/
+/*        left: 580px;*/
+    }
+    
+    #search_field {
+        margin-top: 14px;
+/*        padding: 5px 0;*/
+        margin-bottom: 5px;
+        width: 100%;
+        color: black !important;
+        border: 0;
+        color: white;
+        outline: none;
+    }
+    
+    #search_bar input::placeholder {
+        color: #cccccc;
+    }
+    
+    #search_suggestions {
+        z-index: 999999999 !important;
+        width: 750px !important;
+        min-width: 750px;
+        font-family: "Fira Sans", Tahoma, Verdana, Arial, Helvetica, sans-serif !important;
+        border: 0;
+        min-height: 242px;
+    }
+    
+    #search_suggestions h3 {
+        color: #888;
+        padding: 10px 0 10px 79px;
+        font-weight: normal; 
+        opacity: 1;
+    }
+    
+    #search_suggestions li a {
+        margin: 0 81px !important;
+        padding-left: 5px !important;
+    }
+    
+    #search_suggestions li:last-child {
+        padding-bottom: 20px;
+    }
+    
+    #search_menu {
+        background: #fff;
+        border-top: 1px solid #ccc;
+        text-align: left;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin-top: -3px;
+    }
+</style>
+
+
+
+
+<div id="search_bar2" style="display: none;">
+    <div id="search_bar_container2">
+        <form action="https://docs.usergate.com/search/" id="search_form">
+            
+            <input type="hidden" name="s" value="1">
+            
+            <div id="search_bar_container">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="login" viewBox="0 0 24 24" style="cursor: pointer; width: 15px; height: 15px;">
+                    <path fill="#666" d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"></path>
+                </svg>
+                
+                <input type="text" id="search_field" name="q" placeholder="Поиск" class="ui-autocomplete-input" autocomplete="off">
+            </div>
+        
+            <aside id="search_menu">
+                <section style="padding-bottom: 26px;">
+                <h3 style="color: #888;padding: 10px 0 0 7px;font-weight: normal;">Искать в</h3>
+                <ul style="list-style: none;">
+                    
+                    <li class="selected" style="padding-bottom: 7px;">
+                        <div class="iradio_square-blue checked" style="position: relative;"><input type="radio" id="all" name="in" value="all" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                        
+                        <label for="all" style="display: inline;text-align: left;padding-left: 12px;cursor: pointer;">
+                            Все содержимое
+                        </label>
+                    </li>
+                    
+                    <li class="" style="padding-bottom: 7px;">
+                        <div class="iradio_square-blue" style="position: relative;"><input type="radio" id="category" name="in" value="article" data-category="275" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                        
+                        <label for="category" style="display: inline;text-align: left;padding-left: 12px;cursor: pointer;">
+                            В этой категории
+                        </label>
+                    </li>
+                    
+                    <li class="" style="padding-bottom: 7px;">
+                        <div class="iradio_square-blue" style="position: relative;"><input type="radio" id="article" name="in" value="article" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                        
+                        <label for="article" style="display: inline;text-align: left;padding-left: 12px;cursor: pointer;">
+                            Статьи
+                        </label>
+                    </li>
+                    
+                </ul>
+                <div id="advanced_link">
+                    <img src="https://docs.usergate.com/client/images/icons/gear.gif" alt="gear" style="margin: 0 4px 0 5px; vertical-align: middle;">
+                    <a href="https://docs.usergate.com/search/">Расширенный поиск</a>
+                </div>
+                <div style="clear: both;"></div>
+                </section>
+            </aside>
+        
+        </form>
+    </div>
+</div>
+
+
+
+<div id="loading_spinner"><div></div></div>
+
+	
+	
+	
+
+
+
+    <div class="upDown">
+        <!-- Injected UserGate`s Code -->
+        <div id="toTop" class="arrowBtn">&nbsp;</div>
+        <div id="toBottom" class="arrowBtn">&nbsp;</div>
+    </div>
+
+</div></div><ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul><div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
+<!-- Partner-Agent: предложение спросить об этой странице -->
+<div id="paqRoot" class="paq">
+  <button class="paq-q" id="paqQuestion" type="button" hidden
+          aria-label="Задать вопрос об этой странице">
+    <span class="paq-q__text" id="paqQuestionText"><span class="paq-q__run" id="paqQuestionRun"></span></span>
+  </button>
+
+  <button class="paq-bubble" id="paqBubble" type="button"
+          aria-label="Открыть чат с ИИ-ассистентом" title="Спросить об этой странице">
+    <span class="paq-bubble__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3 9 9 0 0 1-3.8-.8L3 21l2-5.2a8.2 8.2 0 0 1-1-4A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z"></path>
+        <circle cx="8.5" cy="11.5" r=".9" fill="currentColor" stroke="none"></circle>
+        <circle cx="12" cy="11.5" r=".9" fill="currentColor" stroke="none"></circle>
+        <circle cx="15.5" cy="11.5" r=".9" fill="currentColor" stroke="none"></circle>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<div class="paq-chat" id="paqChat" role="dialog" aria-modal="true"
+     aria-label="Чат с ИИ-ассистентом UserGate" aria-hidden="true">
+  <div class="paq-chat__window">
+    <div class="paq-chat__body">
+      <div class="paq-chat__loader" id="paqLoader">
+        <span class="paq-spinner" aria-hidden="true"></span>
+        <span id="paqLoaderText">Открываю чат…</span>
+      </div>
+      <iframe class="paq-chat__frame" id="paqFrame"
+              title="Чат с ИИ-ассистентом UserGate"></iframe>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script>
+/* Виджет: круглый чат и один вопрос слева.
+   Через 15 секунд после открытия страницы появляется первый вопрос,
+   затем раз в 5 секунд он меняется на следующий. Клик по вопросу открывает
+   index.html в окне поверх страницы и отправляет вопрос через postMessage. */
+(function () {
+  'use strict';
+
+  var root = document.getElementById('paqRoot');
+  if (!root) return;
+
+  var bubble = document.getElementById('paqBubble');
+  var questionCard = document.getElementById('paqQuestion');
+  var questionText = document.getElementById('paqQuestionText');
+  var questionRun = document.getElementById('paqQuestionRun');
+  var overlay = document.getElementById('paqChat');
+  var frame = document.getElementById('paqFrame');
+  var loader = document.getElementById('paqLoader');
+  var loaderText = document.getElementById('paqLoaderText');
+
+  var config = window.__AGENT_API__ || {};
+  var base = String(config.base || '').replace(/\/+$/, '');
+  var token = String(config.token || '');
+  var endpoint = (base || '') + '/api/page/questions';
+
+  var REVEAL_DELAY = 15000;
+  var ROTATE_DELAY = 5000;
+  var PREFETCH_DELAY = 1200;
+  var MAX_QUESTIONS = 4;
+  var REDUCED = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var LOADING_TEXT = 'Собираю вопросы по этой странице…';
+
+  var questions = [];
+  var questionsReady = false;
+  var questionsPromise = null;
+  var questionIndex = 0;
+  var questionVisible = false;
+  var questionLoading = false;
+  var opened = false;
+  var frameLoaded = false;
+  var pending = [];
+  var revealTimer = null;
+  var rotateTimer = null;
+  var resizeTimer = null;
+  var lastFocus = null;
+  var startedAt = 0;
+
+  window.__PAQ_BUILD = '2026-11-22-2';
+
+  function nodeText(node) {
+    return String((node && node.textContent) || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function addClass(node, name) {
+    if (node) node.classList.add(name);
+  }
+
+  function removeClass(node, name) {
+    if (node) node.classList.remove(name);
+  }
+
+  function canonicalUrl() {
+    try {
+      var url = new URL(window.location.href);
+      url.hash = '';
+      var drop = ['v', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'yclid', 'gclid', 'fbclid'];
+      for (var i = 0; i < drop.length; i += 1) {
+        url.searchParams.delete(drop[i]);
+      }
+      return url.toString();
+    } catch (error) {
+      return String(window.location.href || '').split('#')[0];
+    }
+  }
+
+  function pageInfo(maxText) {
+    var article = document.querySelector('#kbp_article_body') ||
+      document.querySelector('article') ||
+      document.querySelector('main') ||
+      document.body;
+    var titleNode = document.querySelector('h1.articleTitle') ||
+      document.querySelector('h1') ||
+      document.querySelector('title');
+
+    var headings = [];
+    var nodes = article.querySelectorAll('h1,h2,h3');
+    for (var i = 0; i < nodes.length && headings.length < 8; i += 1) {
+      var heading = nodeText(nodes[i]);
+      if (!heading) continue;
+      var duplicate = false;
+      for (var j = 0; j < headings.length; j += 1) {
+        if (headings[j].toLowerCase() === heading.toLowerCase()) {
+          duplicate = true;
+          break;
+        }
+      }
+      if (!duplicate) headings.push(heading);
+    }
+
+    var body = '';
+    try {
+      body = article.innerText || article.textContent || '';
+    } catch (error) {
+      body = article.textContent || '';
+    }
+    body = String(body).replace(/\s+/g, ' ').trim();
+    var cap = maxText || 2400;
+    if (body.length > cap) body = body.slice(0, cap);
+
+    return {
+      url: canonicalUrl(),
+      title: nodeText(titleNode) || document.title || '',
+      headings: headings,
+      text: body
+    };
+  }
+
+  function chatPageInfo() {
+    var titleNode = document.querySelector('h1.articleTitle') ||
+      document.querySelector('h1') ||
+      document.querySelector('title');
+    // Текст страницы уже проиндексирован в базе знаний. Для чата достаточно
+    // названия-якоря: не дублируем содержимое в промпте.
+    return {
+      url: canonicalUrl(),
+      title: nodeText(titleNode) || document.title || ''
+    };
+  }
+
+  function localFallback(info) {
+    var result = [];
+    var seen = {};
+    var title = info.title || 'эта страница';
+    var short = title.replace(/\s*[-–—|:].*$/, '').trim();
+    if (short.length > 70) short = short.slice(0, 69).replace(/\s+\S*$/, '') + '…';
+
+    function add(value) {
+      var question = String(value || '').replace(/\s+/g, ' ').trim();
+      if (!question) return;
+      var key = question.toLowerCase();
+      if (seen[key]) return;
+      seen[key] = true;
+      result.push(question);
+    }
+
+    var rules = [
+      ['совместим', 'Какие версии совместимы при обновлении?'],
+      ['рекомендац', 'Что рекомендуется сделать перед обновлением?'],
+      ['вариант', 'Какие есть варианты обновления?'],
+      ['обновлен', 'Как правильно обновить систему?'],
+      ['таблиц', 'Что показывает таблица на странице?']
+    ];
+
+    (info.headings || []).forEach(function (heading) {
+      var low = String(heading || '').toLowerCase();
+      for (var i = 0; i < rules.length; i += 1) {
+        if (low.indexOf(rules[i][0]) !== -1) {
+          add(rules[i][1]);
+          break;
+        }
+      }
+    });
+
+    add('Что важно знать о странице «' + short + '»?');
+    add('Какие разделы есть на этой странице?');
+    add('Где найти подробности по этой теме?');
+    return result.slice(0, MAX_QUESTIONS);
+  }
+
+  function fetchQuestions() {
+    if (questionsPromise) return questionsPromise;
+
+    var info = pageInfo();
+    if (!window.fetch) {
+      questions = localFallback(info);
+      questionsReady = true;
+      return Promise.resolve(questions);
+    }
+
+    var headers = { 'Content-Type': 'application/json' };
+    if (token) headers['X-Api-Token'] = token;
+
+    var controller = null;
+    var timer = null;
+    if (window.AbortController) {
+      controller = new AbortController();
+      timer = window.setTimeout(function () {
+        try { controller.abort(); } catch (error) { /* уже завершился */ }
+      }, 25000);
+    }
+
+    var options = {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(info),
+      credentials: 'same-origin'
+    };
+    if (controller) options.signal = controller.signal;
+
+    questionsPromise = fetch(endpoint, options)
+      .then(function (response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      })
+      .then(function (data) {
+        var items = (data && data.questions) || [];
+        var clean = [];
+        for (var i = 0; i < items.length; i += 1) {
+          var value = String(items[i] || '').replace(/\s+/g, ' ').trim();
+          if (value.length >= 6) clean.push(value);
+        }
+        if (clean.length < 3) throw new Error('мало вопросов');
+        questions = clean.slice(0, MAX_QUESTIONS);
+        questionsReady = true;
+        return questions;
+      })
+      .catch(function () {
+        // Сервер недоступен или модель не ответила — не оставляем посетителя
+        // без подсказок: собираем вопросы по заголовкам прямо на странице.
+        questions = localFallback(info);
+        questionsReady = true;
+        return questions;
+      })
+      .then(function (items) {
+        if (timer) window.clearTimeout(timer);
+        return items;
+      });
+
+    return questionsPromise;
+  }
+
+  function setQuestionLabel(text) {
+    if (questionRun) questionRun.textContent = text;
+    if (questionCard) {
+      questionCard.setAttribute('aria-label', 'Спросить: ' + text);
+      questionCard.title = text;
+    }
+  }
+
+  function setupMarquee() {
+    if (!questionCard || !questionText || !questionRun) return;
+    if (questionCard.hidden || questionLoading) {
+      questionCard.classList.remove('is-marquee');
+      return;
+    }
+
+    questionCard.classList.remove('is-marquee');
+    questionCard.style.removeProperty('--paq-shift');
+    questionCard.style.removeProperty('--paq-duration');
+    void questionCard.offsetWidth;
+
+    var available = questionText.clientWidth;
+    var needed = questionRun.scrollWidth;
+    if (!available || needed <= available + 4) return;
+
+    var overflow = needed - available;
+    var shift = -(overflow + 10);
+    // 2 секунды строка стоит (animation-delay), остальные ~3 секунды
+    // уходят на проезд до смены вопроса через 5 секунд.
+    var duration = Math.max(2.2, Math.min(2.9, 1.8 + overflow / 150));
+    questionCard.style.setProperty('--paq-shift', shift + 'px');
+    questionCard.style.setProperty('--paq-duration', duration.toFixed(2) + 's');
+    questionCard.classList.add('is-marquee');
+  }
+
+  function scheduleRotation() {
+    if (rotateTimer) {
+      window.clearTimeout(rotateTimer);
+      rotateTimer = null;
+    }
+    rotateTimer = window.setTimeout(function () {
+      rotateTimer = null;
+      if (opened) return;
+      if (questionVisible && questionsReady && questions.length > 1) {
+        showQuestion(questionIndex + 1, true);
+      } else if (questionVisible && questionsReady) {
+        scheduleRotation();
+      }
+    }, ROTATE_DELAY);
+  }
+
+  function showQuestion(index, animate) {
+    if (!questions.length || opened) return;
+    if (rotateTimer) {
+      window.clearTimeout(rotateTimer);
+      rotateTimer = null;
+    }
+
+    var wasVisible = questionVisible && !questionCard.hidden;
+    questionIndex = ((index % questions.length) + questions.length) % questions.length;
+    questionVisible = true;
+    questionLoading = false;
+    questionCard.hidden = false;
+    questionCard.disabled = false;
+    questionCard.removeAttribute('aria-busy');
+    questionCard.classList.remove('is-loading');
+    questionCard.classList.remove('is-marquee');
+    questionCard.style.removeProperty('--paq-shift');
+    questionCard.style.removeProperty('--paq-duration');
+    setQuestionLabel(questions[questionIndex]);
+
+    // Анимация появления — только при первом показе карточки. При смене
+    // вопроса карточка остаётся на месте, меняется только текст внутри.
+    if (animate && !wasVisible) {
+      questionCard.classList.remove('is-in');
+      void questionCard.offsetWidth;
+    }
+    questionCard.classList.add('is-in');
+    window.requestAnimationFrame(setupMarquee);
+    scheduleRotation();
+  }
+
+  function showLoadingQuestion() {
+    if (rotateTimer) {
+      window.clearTimeout(rotateTimer);
+      rotateTimer = null;
+    }
+    questionVisible = true;
+    questionLoading = true;
+    questionCard.hidden = false;
+    questionCard.disabled = true;
+    questionCard.classList.add('is-loading');
+    questionCard.classList.remove('is-marquee');
+    questionCard.style.removeProperty('--paq-shift');
+    questionCard.style.removeProperty('--paq-duration');
+    questionCard.classList.remove('is-in');
+    void questionCard.offsetWidth;
+    setQuestionLabel(LOADING_TEXT);
+    questionCard.setAttribute('aria-busy', 'true');
+    questionCard.classList.add('is-in');
+  }
+
+  function revealQuestion() {
+    if (opened || questionVisible) return;
+
+    if (questionsReady && questions.length) {
+      showQuestion(0, true);
+      return;
+    }
+
+    showLoadingQuestion();
+    fetchQuestions().then(function (items) {
+      if (opened) return;
+      if (items && items.length) {
+        showQuestion(0, true);
+      } else if (questionLoading) {
+        setQuestionLabel('Не удалось собрать вопросы. Нажмите на круг, чтобы открыть чат.');
+      }
+    });
+  }
+
+  function sendPageContext() {
+    if (!frameLoaded || !frame || !frame.contentWindow) return;
+    try {
+      frame.contentWindow.postMessage(
+        { type: 'partner-agent-context', page: chatPageInfo() },
+        '*'
+      );
+    } catch (error) {
+      /* iframe ещё не готов */
+    }
+  }
+
+  function flushPending() {
+    if (!frameLoaded || !pending.length) return;
+    sendPageContext();
+    var target = frame.contentWindow;
+    if (!target) return;
+    var queue = pending.slice();
+    pending = [];
+    for (var i = 0; i < queue.length; i += 1) {
+      try {
+        target.postMessage({ type: 'partner-agent-ask', text: queue[i] }, '*');
+      } catch (error) {
+        pending.push(queue[i]);
+      }
+    }
+    if (pending.length) {
+      window.setTimeout(flushPending, 500);
+    }
+  }
+
+  function focusFrame() {
+    try {
+      var doc = frame.contentDocument;
+      var input = doc && doc.getElementById('input');
+      if (input && !input.disabled) {
+        input.focus();
+        return;
+      }
+      var close = doc && doc.getElementById('embedClose');
+      if (close) close.focus();
+    } catch (error) {
+      /* iframe ещё не готов */
+    }
+  }
+
+  function onFrameLoad() {
+    frameLoaded = true;
+    if (loader) loader.classList.add('is-hidden');
+    sendPageContext();
+    // app.js навешивает обработчик message после инициализации страницы.
+    // Контекст страницы уходит первым, вопрос — следом.
+    window.setTimeout(flushPending, 120);
+    window.setTimeout(focusFrame, 260);
+  }
+
+  function onFrameError() {
+    if (!loader) return;
+    loader.classList.remove('is-hidden');
+    if (loaderText) {
+      loaderText.textContent = 'Не удалось открыть чат. Попробуйте ещё раз.';
+    }
+  }
+
+  function openChat(question) {
+    if (question) pending.push(String(question));
+    if (opened) {
+      if (frameLoaded) {
+        sendPageContext();
+        flushPending();
+      }
+      return;
+    }
+
+    opened = true;
+    lastFocus = document.activeElement;
+    if (rotateTimer) {
+      window.clearTimeout(rotateTimer);
+      rotateTimer = null;
+    }
+    addClass(root, 'is-chat-open');
+    if (overlay) {
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+    addClass(document.documentElement, 'paq-lock');
+    addClass(document.body, 'paq-lock');
+
+    if (!frame.getAttribute('src')) {
+      if (loader) loader.classList.remove('is-hidden');
+      if (loaderText) loaderText.textContent = 'Открываю чат…';
+      frame.addEventListener('load', onFrameLoad);
+      frame.addEventListener('error', onFrameError);
+      frame.setAttribute('src', 'index.html?theme=light&embed=1');
+    } else if (frameLoaded) {
+      // Каждое новое открытие окна — новый чат. Старые диалоги остаются
+      // в истории; продолжить нужный можно кнопкой «Полный чат».
+      try {
+        frame.contentWindow.postMessage({ type: 'partner-agent-new-chat' }, '*');
+      } catch (error) {
+        /* iframe недоступен */
+      }
+      sendPageContext();
+      flushPending();
+    }
+    window.setTimeout(focusFrame, 80);
+  }
+
+  function closeChat() {
+    if (!opened) return;
+    opened = false;
+    if (overlay) {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+    removeClass(root, 'is-chat-open');
+    removeClass(document.documentElement, 'paq-lock');
+    removeClass(document.body, 'paq-lock');
+
+    if (!questionVisible) {
+      checkReveal();
+    } else if (questionVisible && questionsReady && !questionLoading) {
+      scheduleRotation();
+    }
+
+    var focusTarget = (lastFocus && lastFocus !== document.body && lastFocus.focus)
+      ? lastFocus
+      : bubble;
+    try { focusTarget.focus(); } catch (error) { /* не критично */ }
+  }
+
+  function checkReveal() {
+    if (opened || questionVisible || !startedAt) return;
+    if (Date.now() - startedAt >= REVEAL_DELAY) revealQuestion();
+  }
+
+  if (bubble) {
+    bubble.addEventListener('click', function (event) {
+      event.preventDefault();
+      openChat('');
+    });
+  }
+
+  if (questionCard) {
+    questionCard.addEventListener('click', function (event) {
+      event.preventDefault();
+      if (questionLoading || questionCard.disabled) return;
+      var question = questions[questionIndex] || '';
+      openChat(question);
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', function (event) {
+      if (event.target === overlay) closeChat();
+    });
+  }
+
+  // Кнопка закрытия живёт в верхней панели самого чата (embed-режим),
+  // чтобы не занимать отдельную полосу над iframe.
+  window.addEventListener('message', function (event) {
+    var data = event.data || {};
+    if (data && data.type === 'partner-agent-close') closeChat();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && opened) {
+      event.preventDefault();
+      closeChat();
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    if (resizeTimer) window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(setupMarquee, 150);
+  });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(setupMarquee).catch(function () { /* не критично */ });
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) checkReveal();
+  });
+
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) checkReveal();
+  });
+
+  function start() {
+    var elapsed = (window.performance && typeof window.performance.now === 'function')
+      ? window.performance.now()
+      : 0;
+    startedAt = Date.now() - elapsed;
+    var remaining = Math.max(0, REVEAL_DELAY - elapsed);
+    revealTimer = window.setTimeout(revealQuestion, remaining);
+    window.setTimeout(function () {
+      if (!opened) fetchQuestions();
+    }, PREFETCH_DELAY);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
+  }
+})();
+
+</script>
+</body></html>

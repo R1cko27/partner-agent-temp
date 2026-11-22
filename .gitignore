@@ -5,6 +5,7 @@ agent.log
 __pycache__/
 *.pyc
 .venv/
+<<<<<<< HEAD
 fast_test/
 hacaton_data/
 .dsh-acl-report/
@@ -18,3 +19,6 @@ tools/_pdfs/
 data-temp/
 storage/backup-*
 storage/*-prev-*
+=======
+.agents/
+>>>>>>> d82befaad48685fcf4300240f759858d0795dad5

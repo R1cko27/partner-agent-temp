@@ -1,0 +1,3 @@
+
+        window.alsHost = 'usergate.com';
+    
