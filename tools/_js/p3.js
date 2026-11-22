@@ -1,0 +1,1 @@
+document.addEventListener("click",(function(t){var e=t.target.closest("a[href]");if(e){var r=e.getAttribute("href")||"",a=e.href||"";(/^\/ru\/.*/i.test(r)||/^https?:\/\/[^\/]*usergate\.com\/ru\/.*/i.test(a))&&(t.preventDefault(),t.stopImmediatePropagation(),window.location.assign(a))}}),!0);

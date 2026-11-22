@@ -1,0 +1,1 @@
+(function(a){window[a]=window[a]||function(){(window[a].a=window[a].a||[]).push(arguments)};var b=document.createElement("script");b.async=!0;b.src="https://static.a.mts.ru/web-sdk/analytics.js?name\x3d"+a;document.head.appendChild(b)})("ma");ma("create",{id:"0ad8fa4a-9f60-1bee-819f-7f15afa10006",sendPageView:!0});

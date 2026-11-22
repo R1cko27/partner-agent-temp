@@ -1,0 +1,1 @@
+(function(){document.addEventListener("UG:formSend",function(a){a.detail.eventStatus==="success"&&(a=a.detail.eventProduct,a==="webinar"&&window._tmr&&_tmr.push({type:"reachGoal",id:3739379,goal:"form_webinars"}))})})();
