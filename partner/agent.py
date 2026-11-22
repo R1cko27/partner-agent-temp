@@ -77,6 +77,14 @@ _TOPIC_SOURCES = (
     (("ldap", "коннектор", "сопоставл"), ("products/log-analyzer", "pol6zovateli")),
     (("платформ", "аппаратн", "модел"), ("docs/versions-and-platforms", "docs/hardware")),
     (("механизм", "аутентификац", "авторизац"), ("products/dcfw", "glossar")),
+    (("численност", "сотрудник", "клиент", "проект", "масштаб"), ("about/company",)),
+    (("trap", "snmp", "мониторинг"), ("products/dcfw", "funkcional6nye")),
+    (("основан", "год", "истори", "2006"), ("about/history",)),
+    (("node-sync", "delivery-mode", "vrid", "кластер"), ("products/dcfw",)),
+    (("экзамен", "курс", "академи", "ug.", "стоимость обучения"),
+     ("about/usergate_academy_prices", "about/academy", "faq/education")),
+    (("адрес", "телефон", "офис", "контакт"), ("about/contacts", "faq/contacts")),
+    (("lacp", "агрегир", "бонд", "канал"), ("products/ngfw", "products/swg")),
     (("x10", "характеристик", "пропускн", "температур", "портов", "din", "ip30"),
      ("docs/hardware", "products/usergate-x10")),
 )
@@ -94,6 +102,14 @@ _INJECTION_RE = re.compile(
     r"|ты\s+теперь|представь,?\s+что\s+ты|покажи\s+(историю|чуж)|base64|расшифруй\s+и\s+выполни)",
     re.I,
 )
+
+
+def _asks_certificate(question: str) -> bool:
+    """Вопрос про сертификат конкретного продукта."""
+    text = (question or "").lower()
+    return "сертификат" in text and any(
+        word in text for word in ("waf", "siem", "client", "dcfw", "swg", "ngfw")
+    )
 
 
 def _looks_like_injection(question: str) -> bool:
@@ -137,6 +153,39 @@ _ENUM_MARKERS = ("перечисли", "список", "все виды", "ка�
 def _is_enumeration(question: str) -> bool:
     text = (question or "").lower()
     return any(marker in text for marker in _ENUM_MARKERS) or bool(_ENUM_RE.search(text))
+
+
+def _list_items_from(text: str, limit: int = 12) -> List[str]:
+    """Элементы списка из фрагмента: строки таблицы и хвосты после двоеточия.
+
+    Нужно для перечислений: модели отдаём готовый перечень, а не «в материалах
+    что-то перечислено», иначе она называет один-два пункта.
+    """
+    items: List[str] = []
+    seen: set[str] = set()
+
+    def add(value: str) -> None:
+        clean = value.strip(" .;:—-«»\"'|")
+        if not clean or len(clean) < 2 or len(clean) > 60:
+            return
+        if clean.lower() in seen or clean.lower() in {"город", "адрес", "индекс", "платформа"}:
+            return
+        seen.add(clean.lower())
+        items.append(clean)
+
+    for line in (text or "").splitlines():
+        stripped = line.strip()
+        if stripped.startswith("|") and stripped.count("|") >= 2:
+            cells = [cell.strip() for cell in stripped.strip("|").split("|")]
+            if cells and not set(cells[0]) <= set("-: "):
+                add(cells[0])
+        elif ":" in stripped:
+            tail = stripped.split(":", 1)[1]
+            for part in tail.split(";"):
+                add(part)
+    for item in _enumeration_items(text):
+        add(item)
+    return items[:limit]
 
 
 def _enumeration_items(text: str) -> List[str]:
@@ -201,6 +250,10 @@ _DOC_REF_RE = re.compile(
 DOMAIN_ONLY_RE = re.compile(
     r"(?<!//)\b(?:[a-z0-9-]+\.)*(?:usergate\.com|usergate\.ru)/[^\s)\]>»«\"',;]*"
 )
+CODE_GUARD_RE = re.compile(r"\bUG\.[A-Za-z0-9._]{2,}")
+PRICE_GUARD_RE = re.compile(r"\b\d[\d\s]{2,}\s?₽")
+
+
 ANSWER_URL_RE = re.compile(r"https?://[^\s)\]>»«\"']+")
 MARKDOWN_LINK_RE = re.compile(r"\[([^\]]+)\]\((https?://[^\s)]+)\)")
 
@@ -368,6 +421,72 @@ def _strip_source_keys(value: Any) -> Any:
     return value
 
 
+_TABLE_SEP_RE = re.compile(r"^\|?[\s:|-]+\|?$")
+
+
+def _normalize_tables(text: str) -> str:
+    """Делает таблицы пригодными для markdown.
+
+    Две типичные поломки от модели:
+    1. таблица начинается сразу после абзаца без пустой строки — тогда markdown
+       считает её продолжением абзаца и склеивает строки в сплошной текст;
+    2. в разделителе другое число колонок, чем в заголовке — таблица не строится
+       и показывается сырыми «|---|».
+    """
+    if "|" not in (text or ""):
+        return text
+
+    lines = [line.rstrip() for line in text.split("\n")]
+    spaced: list[str] = []
+    for line in lines:
+        is_row = line.lstrip().startswith("|")
+        prev = spaced[-1].strip() if spaced else ""
+        if is_row and prev and not prev.startswith("|"):
+            spaced.append("")
+        elif prev.startswith("|") and line.strip() and not is_row:
+            spaced.append("")
+        spaced.append(line)
+
+    fixed: list[str] = []
+    index = 0
+    while index < len(spaced):
+        line = spaced[index]
+        is_row = line.lstrip().startswith("|")
+        next_line = spaced[index + 1] if index + 1 < len(spaced) else ""
+        is_sep = bool(_TABLE_SEP_RE.match(next_line.strip())) and "-" in next_line
+        if is_row and is_sep:
+            columns = max(1, len([cell for cell in line.strip().strip("|").split("|")]))
+            fixed.append(line)
+            fixed.append("|" + "|".join(["---"] * columns) + "|")
+            index += 2
+            continue
+        if _TABLE_SEP_RE.match(line.strip()) and "-" in line and fixed:
+            index += 1
+            continue
+        fixed.append(line)
+        index += 1
+
+    return "\n".join(fixed)
+
+
+_OTHER_LANG_RE = re.compile(
+    r"in english|english please|answer in|по-английски|на английском|на китайском",
+    re.I,
+)
+_SOURCES_HEAD_RE = re.compile(r"(?im)^\s*(#{1,4}\s*)?(источники|sources)\s*:?\s*$")
+
+
+def _wants_other_language(question: str) -> bool:
+    """Пользователь явно попросил ответить не по-русски."""
+    return bool(_OTHER_LANG_RE.search(question or ""))
+
+
+def _strip_sources_heading(text: str) -> str:
+    """Убирает «### Источники»: список источников интерфейс показывает сам."""
+    cleaned = _SOURCES_HEAD_RE.sub("", text or "")
+    return re.sub(r"\n{3,}", "\n\n", cleaned).strip()
+
+
 def _client_text(text: str) -> str:
     """Убирает из ответа служебные ссылки на файлы, когда включён клиентский режим."""
     cleaned = text or ""
@@ -383,6 +502,9 @@ def _client_text(text: str) -> str:
     cleaned = re.sub(r"\s+([.,;:!?])", r"\1", cleaned)
     # «… и.» после удаления цитаты
     cleaned = re.sub(r"\s+(?:и|или|а|но)\s*([.,;:!?])", r"\1", cleaned)
+    # После вырезанной ссылки остаётся «переменную:.» или «текст :.» — чистим.
+    cleaned = re.sub(r":\s*([.,;])", r"\1", cleaned)
+    cleaned = re.sub(r"\s+:\s*", ": ", cleaned)
     cleaned = re.sub(r"\[\s*\]", "", cleaned)
     cleaned = re.sub(r"\(\s*\)", "", cleaned)
     cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
@@ -695,16 +817,26 @@ class PartnerAgent:
         if _is_enumeration(question):
             base_hits = max(base_hits, 6)
         hits = self._search_hits(question, k=base_hits)
-        if _is_enumeration(question):
-            # Элементы ищем во фрагментах до ответа: модель сама встроит их в текст,
-            # а дописывание списка в конец ответа выглядело инородно.
-            enum_source = " ".join(
-                str(hit.chunk.get("text") or "") for hit in hits[:4]
+        hits = self._drop_foreign_platforms(question, hits)
+        if _asks_certificate(question):
+            lines.append(
+                "СЕРТИФИКАТ: в материалах подтверждён только сертификат UserGate NGFW "
+                "(№ 3905, 4-й уровень доверия). На другие продукты он не переносится: "
+                "если для WAF, SIEM, Client или DCFW номера в контексте нет — так и скажи."
             )
-            enum_items = _enumeration_items(enum_source)[:6]
-            hint = "ВОПРОС-ПЕРЕЧИСЛЕНИЕ: назови все элементы, не сокращая до одного примера."
+        if _is_enumeration(question):
+            # Собираем полный перечень из закреплённых и приоритетных фрагментов:
+            # модель получает готовый список и не сокращает его до примера.
+            enum_source = " ".join(
+                str(hit.chunk.get("text") or "") for hit in hits[:8]
+            )
+            enum_items = _list_items_from(enum_source)
+            hint = (
+                "ВОПРОС-ПЕРЕЧИСЛЕНИЕ: перечисли ВСЕ элементы из списка ниже, "
+                "не сокращая до одного примера."
+            )
             if enum_items:
-                hint += " В материалах перечислено: " + ", ".join(enum_items) + "."
+                hint += " Полный перечень из материалов: " + ", ".join(enum_items) + "."
             lines.append(hint)
         sources: List[Dict[str, Any]] = []
         # Жёсткий бюджет контекста: даже при длинных фрагментах промпт не раздувается.
@@ -749,7 +881,17 @@ class PartnerAgent:
                     "url": link,
                 }
             )
-        for hit in hits:
+        # Порядок в контексте: закреплённые фрагменты, затем таблицы, затем остальное.
+        # Таблица, обрезанная посередине, теряет смысл, поэтому такие фрагменты
+        # получают больший лимит и попадают в контекст раньше остальных.
+        ordered_hits = sorted(
+            hits,
+            key=lambda item: (
+                0 if "pinned" in getattr(item, "why", []) else 1,
+                0 if "|---" in str(item.chunk.get("text") or "") else 1,
+            ),
+        )
+        for hit in ordered_hits:
             text = str(hit.chunk.get("text") or "")
             if not text:
                 continue
@@ -766,6 +908,9 @@ class PartnerAgent:
             limit_chars = self.profile.retrieval.excerpt_chars
             if "pinned" in getattr(hit, "why", []):
                 limit_chars = max(limit_chars, 1100)
+            if "|---" in text or "\n|" in text:
+                # Таблицу отдаём целиком: обрезанная, она теряет смысл.
+                limit_chars = max(limit_chars, 1500)
             excerpt = _clip(_sanitize_excerpt(text), limit_chars)
             room = budget - used
             if room <= 120:
@@ -993,7 +1138,31 @@ class PartnerAgent:
             text = re.sub(r"\s+([.,;:])", r"\1", text)
             text = re.sub(r"[ \t]{2,}", " ", text)
             text = re.sub(r"\n{3,}", "\n\n", text)
-        return text.strip()
+        # Коды программ и цены, которых нет в источниках, — выдумка модели.
+        if self._source_texts:
+            body = " ".join(self._source_texts.values()).lower()
+            # Пробелы внутри цен и кодов не должны давать ложных срабатываний.
+            body_compact = re.sub(r"[\s\u00a0]", "", body)
+            invented_values: List[str] = []
+
+            def _guard(pattern: re.Pattern):
+                def repl(match: re.Match) -> str:
+                    value = match.group(0)
+                    if re.sub(r"[\s\u00a0]", "", value.lower()) in body_compact:
+                        return value
+                    invented_values.append(value)
+                    return ""
+
+                return repl
+
+            text = CODE_GUARD_RE.sub(_guard(CODE_GUARD_RE), text)
+            text = PRICE_GUARD_RE.sub(_guard(PRICE_GUARD_RE), text)
+            if invented_values:
+                text = re.sub(r"\s{2,}", " ", text)
+                text = re.sub(r"\s+([.,;:])", r"\1", text)
+                write_log(f"  ! убраны неподтверждённые коды и цены: {len(invented_values)}")
+
+        return _strip_sources_heading(_normalize_tables(text)).strip()
 
     # --- выбор режима ---------------------------------------------------
     # --- поиск с повторными попытками ------------------------------------
@@ -1122,7 +1291,7 @@ class PartnerAgent:
                         continue
                     seen.add(chunk_id)
                     found.append(hit)
-        return found[:2]
+        return found[:3]
 
     def _product_card_hits(self, question: str) -> List[SearchHit]:
         """Карточка упомянутого продукта: в ней версии, кластеры и параметры."""
@@ -1163,7 +1332,37 @@ class PartnerAgent:
         seen: set[str] = set()
         # Аппаратные вопросы: характеристики лежат в таблицах даташита,
         # поэтому берём именно табличные фрагменты, а не первые по словам.
-        if any(word in lowered for word in ("x10", "порт", "интерфейс", "пропускн", "производительн")):
+        if any(word in lowered for word in ("x10", "порт", "интерфейс", "пропускн", "производительн", "gb")):
+            # Если назван код платформы — берём её документы целиком, без
+            # требования табличных разделителей: в OCR-даташитах их нет.
+            codes = [
+                token for token in query_terms(question)
+                if token in {"b50", "c100", "c150", "c151", "d200", "d250", "d500",
+                             "e1000", "e1010", "e3000", "e3010", "f8000", "f8010",
+                             "fg", "x1", "x10"}
+            ]
+            for code in codes[:2]:
+                platform_hits = [
+                    hit
+                    for hit in self.retriever.chunks_by_source(f"docs/hardware/{code}", limit=40)
+                    if any(marker in str(hit.chunk.get("text") or "")
+                           for marker in ("SFP", "Гбит", "Мбит", "порт", "Процессор", "температур"))
+                ]
+                platform_hits.sort(
+                    key=lambda item: (
+                        0 if "datasheet" in str(item.chunk.get("source") or "") else 1,
+                        -sum(
+                            1
+                            for marker in ("SFP", "Гбит", "Мбит", "Процессор")
+                            if marker in str(item.chunk.get("text") or "")
+                        ),
+                    )
+                )
+                for hit in platform_hits[:3]:
+                    chunk_id = str(hit.chunk.get("id"))
+                    if chunk_id not in seen:
+                        seen.add(chunk_id)
+                        found.append(hit)
             tables = [
                 hit
                 for hit in self.retriever.chunks_by_source("docs/hardware", limit=40)
@@ -1225,6 +1424,32 @@ class PartnerAgent:
                 }
             )
         return result
+
+    _PRODUCT_WORDS = ("ngfw", "waf", "dcfw", "swg", "siem", "client", "ucmc", "ugmc")
+    _PLATFORM_RE = re.compile(
+        r"\b(b50|c100|c150|c151|d200|d250|d500|e1000|e1010|e3000|e3010|"
+        r"f8000|f8010|fg|x1|x10)\b",
+        re.I,
+    )
+
+    def _drop_foreign_platforms(
+        self, question: str, hits: Sequence[SearchHit]
+    ) -> List[SearchHit]:
+        """Вопрос про продукт не должен подмешивать даташиты платформ.
+
+        Иначе сертификат или характеристики чужой модели попадают в ответ про
+        WAF или SIEM: в даташитах те же слова «сертификат», «порты», «версия».
+        """
+        lowered = (question or "").lower()
+        if self._PLATFORM_RE.search(lowered):
+            return list(hits)
+        if not any(word in lowered for word in self._PRODUCT_WORDS):
+            return list(hits)
+        filtered = [
+            hit for hit in hits
+            if "docs/hardware" not in str(hit.chunk.get("source") or "")
+        ]
+        return filtered or list(hits)
 
     def _search_hits(self, question: str, k: int) -> List[SearchHit]:
         """Четыре попытки до отказа: вопрос → редкий термин → подзапросы → слова."""
@@ -1327,6 +1552,54 @@ class PartnerAgent:
         return hits[: max(k, 6)]
 
     # --- ссылки в тексте -------------------------------------------------
+    def _sources_without_cited(
+        self, sources: List[Dict[str, Any]], answer: str
+    ) -> List[Dict[str, Any]]:
+        """Убирает из списка источников те ссылки, что уже есть в тексте.
+
+        Тестировщик заметил дублирование: адрес назван в ответе и повторён в
+        блоке «Источники». Оставляем хотя бы один источник, чтобы блок не пустел.
+        """
+        if not sources:
+            return sources
+        cited = {_norm_url(url) for url in ANSWER_URL_RE.findall(answer or "")}
+        if not cited:
+            return sources
+        kept = [item for item in sources if _norm_url(str(item.get("url") or "")) not in cited]
+        return kept or sources[:1]
+
+    def _link_bare_hosts(
+        self, answer: str, sources: Optional[Sequence[Dict[str, Any]]]
+    ) -> str:
+        """Делает кликабельными голые домены, если знаем адрес источника.
+
+        Тестировщик справедливо заметил: «(static.usergate.com, стр. 14)» и
+        «(docs.usergate.com)» в тексте не нажимаются. Если для этого хоста есть
+        адрес в найденных источниках — превращаем упоминание в ссылку.
+        """
+        if not answer or not sources:
+            return answer
+        by_host: Dict[str, str] = {}
+        for item in sources:
+            url = str(item.get("url") or "")
+            host = _url_host(url)
+            if host and url.startswith("http"):
+                by_host.setdefault(host.removeprefix("www."), url)
+        if not by_host:
+            return answer
+
+        def repl(match: re.Match) -> str:
+            host = match.group(1)
+            url = by_host.get(host.removeprefix("www."))
+            if not url:
+                return match.group(0)
+            return f"[{host}]({url})"
+
+        pattern = re.compile(
+            r"(?<![\w/.@-])((?:[a-z0-9-]+\.)+(?:com|ru|org|net|io))", re.I
+        )
+        return pattern.sub(repl, answer)
+
     def _attach_doc_links(
         self, answer: str, sources: Optional[Sequence[Dict[str, Any]]]
     ) -> str:
@@ -1511,6 +1784,10 @@ class PartnerAgent:
         if requested not in ("auto", "fast", "thinking", "direct"):
             requested = "auto"
         lang = detect_lang(question)
+        # Клиент русскоязычный: по умолчанию отвечаем по-русски, даже если
+        # вопрос задан по-английски. Исключение — явная просьба о другом языке.
+        if not _wants_other_language(question):
+            lang = "ru"
         auto = requested == "auto"
         direct = requested == "direct"
         mode_usage: Dict[str, Any] = {}
@@ -1566,7 +1843,14 @@ class PartnerAgent:
             except Exception:  # noqa: BLE001
                 hit = None
             if hit:
-                yield from self._cached_answer(hit, show_notes=show_notes)
+                yield from self._rechecked_answer(
+                    hit,
+                    question,
+                    history,
+                    show_notes=show_notes,
+                    mode=mode,
+                    lang=lang,
+                )
                 return
 
         if not self.client:
@@ -1777,11 +2061,18 @@ class PartnerAgent:
             elif event.type == "done":
                 usage = event.usage or usage
 
-        answer = sanitize_text("".join(answer_parts).strip(), lang) or fallback_text(lang)
+        answer = sanitize_text("".join(answer_parts).strip(), lang)
+        if not answer:
+            answer = self._retry_answer(question, context, lang)
+        answer = answer or fallback_text(lang)
         answer = self._verified_answer(answer, context_sources)
         answer = self._attach_doc_links(answer, context_sources)
+        answer = self._link_bare_hosts(answer, context_sources)
         if not show_notes:
             answer = _client_text(answer)
+        # Финальная нормализация — после всех правок текста: любая из них могла
+        # склеить строки таблицы, а рендерер разбирает её построчно.
+        answer = _normalize_tables(answer)
         followups = (
             self._suggest_followups(
                 question, answer, context_sources, staff=show_notes, lang=lang
@@ -1795,9 +2086,15 @@ class PartnerAgent:
         # Источники отдаём всегда: по условиям кейса ссылки на материалы обязательны.
         # Клиентский режим убирает размышления и шаги, но не происхождение фактов.
         if context_sources:
-            yield {"type": "sources", "items": context_sources}
+            yield {"type": "sources", "items": self._sources_without_cited(list(context_sources), answer)}
 
-        if self.cache is not None and self.settings.answer_cache:
+        # В кеш попадают только дорогие ответы: экономия должна быть заметной.
+        if (
+            self.cache is not None
+            and self.settings.answer_cache
+            and int(usage_total.get("total_tokens") or 0)
+            >= self.settings.answer_cache_min_tokens
+        ):
             try:
                 self.cache.store(
                     question,
@@ -2050,7 +2347,7 @@ class PartnerAgent:
                     "steps": step,
                     "usage": usage,
                     "usage_total": usage_total,
-                    "sources": list(sources.values()),
+                    "sources": self._sources_without_cited(list(sources.values()), answer),
                     "attachments": [],
                     "tool_calls": tool_log,
                     "followups": [],
@@ -2060,7 +2357,14 @@ class PartnerAgent:
                 }
                 return
 
-            if self.cache is not None and self.settings.answer_cache and answer:
+            # В кеш попадают только дорогие ответы: экономия должна быть заметной.
+            if (
+                self.cache is not None
+                and self.settings.answer_cache
+                and answer
+                and int(usage_total.get("total_tokens") or 0)
+                >= self.settings.answer_cache_min_tokens
+            ):
                 try:
                     self.cache.store(
                         question,
@@ -2086,7 +2390,7 @@ class PartnerAgent:
                 "steps": step,
                 "usage": usage,
                 "usage_total": usage_total,
-                "sources": list(sources.values()),
+                "sources": self._sources_without_cited(list(sources.values()), answer),
                 "attachments": [],
                 "tool_calls": tool_log,
                 "followups": followups,
@@ -2104,8 +2408,10 @@ class PartnerAgent:
         answer = sanitize_text(
             hit.get("answer") or "", str(hit.get("lang") or "")
         )
+        answer = _normalize_tables(answer)
         if not show_notes:
             answer = _client_text(answer)
+        answer = _normalize_tables(answer)
         cached_sources = list(hit.get("sources") or [])
         cached_question = str(hit.get("question") or "")
         cached_lang = str(hit.get("lang") or "ru")
@@ -2151,6 +2457,131 @@ class PartnerAgent:
             "followups": followups,
             "cached": True,
             "mode": hit.get("kb_stamp", "").split("|")[-1] or "thinking",
+        }
+
+    def _retry_answer(self, question: str, context: str, lang: str) -> str:
+        """Один короткий повтор, если модель вернула пустой ответ.
+
+        Тестировщик получил «Не удалось сформулировать ответ» на сложный вопрос
+        про обход DPI. Вместо отказа пробуем ещё раз с простой инструкцией.
+        """
+        if not self.client:
+            return ""
+        prompt = build_system_prompt(
+            self.stats, self.profile, lang=lang, include_tools=False
+        )
+        prompt += (
+            "\n\nОтветь коротко и по делу: 2–4 абзаца, только факты из контекста. "
+            "Если фактов нет — скажи, что в материалах этого нет, и предложи канал связи."
+        )
+        messages: List[Dict[str, Any]] = [{"role": "system", "content": prompt}]
+        messages.append(
+            {"role": "user", "content": f"{question}\n{context}" if context else question}
+        )
+        parts: List[str] = []
+        try:
+            for event in self.client.stream_chat(
+                messages, None, allow_thinking=False, max_tokens=900
+            ):
+                if event.type == "delta":
+                    parts.append(event.text)
+        except Exception:  # noqa: BLE001
+            return ""
+        return sanitize_text("".join(parts).strip(), lang)
+
+    def _rechecked_answer(
+        self,
+        hit: Dict[str, Any],
+        question: str,
+        history: List[Dict[str, Any]],
+        *,
+        show_notes: bool,
+        mode: str,
+        lang: str,
+    ) -> Iterator[Dict[str, Any]]:
+        """Кеш отдаём через модель: сохранённый ответ адаптируется к диалогу."""
+        cached = sanitize_text(hit.get("answer") or "", str(hit.get("lang") or lang))
+        sources = list(hit.get("sources") or [])
+        if not cached or not self.settings.answer_cache_recheck or not self.client:
+            yield from self._cached_answer(hit, show_notes=show_notes)
+            return
+
+        prompt = build_system_prompt(
+            self.stats, self.profile, lang=lang, include_tools=False
+        )
+        prompt += (
+            "\n\nНиже — ответ, ранее сохранённый в кеше для похожего вопроса. "
+            "Перепиши его для текущего диалога: сохрани все факты, цифры и ссылки, "
+            "убери то, что не относится к уточнениям пользователя, и не добавляй новых фактов. "
+            "Если вопрос изменился по смыслу — ответь по существу, опираясь только на этот ответ."
+        )
+        messages: List[Dict[str, Any]] = [{"role": "system", "content": prompt}]
+        messages.extend(self._prepare_history(history))
+        messages.append(
+            {
+                "role": "user",
+                "content": f"Вопрос: {question}\n\nСохранённый ответ:\n{cached}",
+            }
+        )
+
+        yield {
+            "type": "cache",
+            "hit": True,
+            "question": hit.get("question"),
+            "similarity": hit.get("similarity"),
+            "exact": bool(hit.get("exact")),
+            "rechecked": True,
+        }
+        if sources:
+            yield {"type": "sources", "items": sources}
+
+        parts: List[str] = []
+        usage: Dict[str, Any] = {}
+        try:
+            for event in self.client.stream_chat(  # type: ignore[union-attr]
+                messages, None, allow_thinking=False, max_tokens=self.settings.max_tokens
+            ):
+                if event.type == "delta":
+                    chunk = sanitize_text(event.text, lang)
+                    parts.append(chunk)
+                    yield {"type": "delta", "text": chunk}
+                elif event.type == "done":
+                    usage = event.usage or usage
+        except Exception:  # noqa: BLE001
+            if not parts:
+                yield from self._cached_answer(hit, show_notes=show_notes)
+                return
+
+        text = sanitize_text("".join(parts).strip(), lang)
+        if not text:
+            yield from self._cached_answer(hit, show_notes=show_notes)
+            return
+        text = self._verified_answer(text, sources)
+        if not show_notes:
+            text = _client_text(text)
+        followups = self._review_followups(
+            _followups_from_calls(hit.get("tool_calls")),
+            question,
+            text,
+            sources,
+            staff=show_notes,
+            lang=lang,
+        )
+        yield {
+            "type": "done",
+            "text": text,
+            "reasoning": "",
+            "plan": None,
+            "steps": 0,
+            "usage": usage,
+            "usage_total": usage,
+            "sources": sources,
+            "attachments": [],
+            "tool_calls": hit.get("tool_calls") or [],
+            "followups": followups,
+            "cached": True,
+            "rechecked": True,
+            "mode": mode,
         }
 
     def _run_offline(self, question: str, lang: str) -> Iterator[Dict[str, Any]]:

@@ -119,9 +119,10 @@ def main(argv: list[str] | None = None) -> int:
                 if args.incremental
                 else VectorCache(index_dir, stamp)
             )
-            vectors = open_vector_store(settings.chroma_dir)
-        if vectors is not None and getattr(vectors, "supports_where", True) is False:
-            log("  ! Chroma недоступна — векторы читаются из vectors.npz")
+            vectors = open_vector_store(settings.chroma_dir, prefer_chroma=True)
+        if vectors is not None:
+            if getattr(vectors, "supports_where", True) is False:
+                log("  ! Chroma недоступна — векторы читаются из vectors.npz")
 
             # Первый инкрементальный запуск: забираем векторы из уже собранной Chroma,
             # чтобы не считать их заново.
@@ -173,7 +174,9 @@ def main(argv: list[str] | None = None) -> int:
             if missing:
                 log(f"  ! без вектора остались {missing} фрагментов — они не попадут в Chroma")
 
-            if ready_chunks:
+            if ready_chunks and getattr(vectors, "supports_where", True) is False:
+                log("  векторы записаны в кеш: Chroma недоступна, плотный поиск читает npz")
+            elif ready_chunks:
                 try:
                     if args.incremental:
                         vectors.upsert(ready_chunks, ready_vectors)
@@ -225,7 +228,7 @@ def main(argv: list[str] | None = None) -> int:
     meta = {
         "built_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "chunks": len(chunks),
-        "vectors": vectors.count() if vectors else 0,
+        "vectors": vector_total if "vector_total" in dir() else (vectors.count() if vectors else 0),
         "vectors_reused": reused_vectors,
         "vectors_embedded": embedded_vectors,
         "incremental": bool(args.incremental),

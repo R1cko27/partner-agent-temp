@@ -1,11 +1,12 @@
 ---
 заголовок: UserGate X10 — руководство по эксплуатации
 url: https://docs.usergate.com/hardware/instruction-usergate-x10.pdf
-источник: docs.usergate.com (PDF, 16 страниц)
-продукт: X10
+источник: docs.usergate.com / static.usergate.com (PDF)
+продукт: Платформа X10
 версия: 7.x
 раздел: Аппаратные платформы
 обновлено: 2026-08-19
+страниц: 16
 получено: 2026-11-21
 ---
 

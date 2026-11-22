@@ -1,11 +1,12 @@
 ---
-заголовок: UserGate NGFW X10 — технические характеристики (datasheet)
+заголовок: UserGate NGFW X10 — технические характеристики и возможности
 url: https://static.usergate.com/docs/overviews/usergate-x10-datasheet-ru.pdf
-источник: static.usergate.com (PDF, 15 страниц, OCR)
-продукт: X10
-версия: не указана (измерения на NGFW 7.5)
+источник: docs.usergate.com / static.usergate.com (PDF)
+продукт: Платформа X10
+версия: не указана (измерения на UserGate NGFW 7.5)
 раздел: Аппаратные платформы
-обновлено: 2026-09-01
+обновлено: не указана
+страниц: 15
 получено: 2026-11-21
 ---
 

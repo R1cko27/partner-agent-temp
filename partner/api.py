@@ -8,9 +8,9 @@ from contextlib import asynccontextmanager
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, Iterator, List, Optional
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
 from . import compat  # noqa: F401  (патчи временных каталогов под песочницу)
@@ -108,9 +108,9 @@ class Runtime:
                 self.db,
                 embedder=self.embedder,
                 threshold=self.settings.answer_cache_threshold,
-                kb_stamp=(
-                    f"{stats.get('built_at') or ''}|{data_stamp(self.settings.data_dir)}"
-                ),
+                # Только сборка индекса: правки файлов без пересборки не
+                # должны обнулять кеш — индекс всё равно остаётся прежним.
+                kb_stamp=f"{stats.get('built_at') or ''}",
                 ttl_days=self.settings.answer_cache_ttl_days,
                 max_entries=self.settings.answer_cache_max_entries,
             )
@@ -176,6 +176,25 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
         allow_headers=["*"],
     )
 
+    # --- доступ по токену ------------------------------------------------
+    @app.middleware("http")
+    async def token_guard(request: Request, call_next):
+        """Если задан API_TOKEN, /api/* закрыт заголовком X-Api-Token.
+
+        Нужно, когда интерфейс лежит на хостинге, а агент доступен через
+        публичный туннель: без токена любой мог бы жечь ваш ключ модели.
+        """
+        token = (settings.api_token or "").strip()
+        path = request.url.path
+        # Preflight браузера не несёт заголовков: его обрабатывает CORS.
+        if request.method == "OPTIONS":
+            return await call_next(request)
+        if token and path.startswith("/api/") and path != "/api/health":
+            supplied = request.headers.get("x-api-token") or request.query_params.get("token", "")
+            if supplied != token:
+                return JSONResponse({"detail": "Неверный или отсутствующий токен"}, status_code=401)
+        return await call_next(request)
+
     def runtime() -> Runtime:
         rt: Optional[Runtime] = getattr(app.state, "runtime", None)
         if rt is None or not rt.started:
@@ -189,12 +208,65 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
     # --- статика и интерфейс -------------------------------------------
     if WEB_DIR.is_dir():
         app.mount("/static", StaticFiles(directory=str(WEB_DIR)), name="static")
+    if (WEB_DIR / "usergate").is_dir():
+        app.mount(
+            "/usergate",
+            StaticFiles(directory=str(WEB_DIR / "usergate")),
+            name="usergate",
+        )
+
+    @app.get("/index.html", include_in_schema=False)
+    def index_alias():
+        """Тот же интерфейс: вторая страница открывает чат в iframe по index.html."""
+        return index()
 
     @app.get("/", include_in_schema=False)
     def index():
         path = WEB_DIR / "index.html"
         if not path.is_file():
             raise HTTPException(status_code=404, detail="partner/web/index.html не найден")
+        return FileResponse(path, headers={"Cache-Control": "no-store, max-age=0"})
+
+    @app.get("/config.js", include_in_schema=False)
+    def web_config():
+        """Настройка клиента: адрес API и токен.
+
+        Если страница открыта с этого же сервера (локально или через туннель),
+        отдаём токен из настроек — иначе клиент не сможет авторизоваться.
+        Если рядом лежит свой config.js с заполненным base, он имеет приоритет.
+        """
+        path = WEB_DIR / "config.js"
+        if path.is_file():
+            text = path.read_text(encoding="utf-8")
+            has_custom = "REPLACE-ME" not in text and "base:" in text and 'base: ""' not in text
+            if has_custom:
+                return Response(
+                    text,
+                    media_type="application/javascript; charset=utf-8",
+                    headers={"Cache-Control": "no-store, max-age=0"},
+                )
+        payload = {"base": "", "token": settings.api_token or ""}
+        body = "window.__AGENT_API__ = " + json.dumps(payload, ensure_ascii=False) + ";\n"
+        return Response(
+            body,
+            media_type="application/javascript; charset=utf-8",
+            headers={"Cache-Control": "no-store, max-age=0"},
+        )
+
+    @app.get("/site.html", include_in_schema=False)
+    def site_page():
+        """Сохранённая главная usergate.com с нашим чатом в меню."""
+        path = WEB_DIR / "site.html"
+        if not path.is_file():
+            raise HTTPException(status_code=404, detail="partner/web/site.html не найден")
+        return FileResponse(path, headers={"Cache-Control": "no-store, max-age=0"})
+
+    @app.get("/usergate.html", include_in_schema=False)
+    def usergate_page():
+        """Вторая страница: структура и палитра usergate.com + наш чат."""
+        path = WEB_DIR / "usergate.html"
+        if not path.is_file():
+            raise HTTPException(status_code=404, detail="partner/web/usergate.html не найден")
         return FileResponse(path, headers={"Cache-Control": "no-store, max-age=0"})
 
     @app.get("/favicon.ico", include_in_schema=False)
