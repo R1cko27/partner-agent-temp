@@ -50,6 +50,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--storage", help="Каталог индекса и истории (по умолчанию storage/)")
     parser.add_argument("--no-web", action="store_true", help="Не скачивать URL из urls.txt")
     parser.add_argument("--skip-embeddings", action="store_true", help="Только BM25, без Chroma")
+    parser.add_argument("--index-subdir", default="", help="каталог индекса (по умолчанию index)")
+    parser.add_argument("--chroma-subdir", default="", help="каталог Chroma (по умолчанию chroma)")
+    parser.add_argument("--collection", default="", help="имя коллекции Chroma")
     parser.add_argument("--chunk-size", type=int, help="Размер чанка в символах")
     parser.add_argument(
         "--incremental",
@@ -59,6 +62,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     settings = Settings.load()
+    if args.index_subdir:
+        settings.index_subdir = args.index_subdir
+    if args.chroma_subdir:
+        settings.chroma_subdir = args.chroma_subdir
     if args.data:
         settings.data_dir = Path(args.data)
     if args.storage:
@@ -119,7 +126,9 @@ def main(argv: list[str] | None = None) -> int:
                 if args.incremental
                 else VectorCache(index_dir, stamp)
             )
-            vectors = open_vector_store(settings.chroma_dir, prefer_chroma=True)
+            vectors = open_vector_store(
+            settings.chroma_dir, args.collection or "s2ze_kb", prefer_chroma=True
+        )
         if vectors is not None:
             if getattr(vectors, "supports_where", True) is False:
                 log("  ! Chroma недоступна — векторы читаются из vectors.npz")
@@ -199,8 +208,6 @@ def main(argv: list[str] | None = None) -> int:
             # Счётчик берём после сохранения кеша: при фолбэке на vectors.npz
             # он обновляется именно там, и старое значение вводило в заблуждение.
             vector_total = vectors.count() if vectors else 0
-            if cache_path_is_npz := (vectors is not None and not getattr(vectors, "supports_where", True)):
-                vector_total = max(vector_total, len(cache))
             if vectors is not None and getattr(vectors, "supports_where", True) is False:
                 vector_total = len(cache)
             log(f"  в хранилище: {vector_total} векторов")

@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import json
 import logging
+import uuid
 from contextlib import asynccontextmanager
-from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, Iterator, List, Optional
 
 from fastapi import FastAPI, HTTPException, Query, Request
@@ -15,18 +15,21 @@ from fastapi.staticfiles import StaticFiles
 
 from . import compat  # noqa: F401  (патчи временных каталогов под песочницу)
 from .agent import PartnerAgent
-from .config import WEB_DIR, Settings, data_stamp
+from .config import WEB_DIR, Settings
 from .engine.db import ChatDB, make_title
 from .domain.agent_profile import build_profile
 from .domain.retriever import Retriever
 from .engine.answers import AnswerCache
 from .engine.embeddings import Embedder
 from .engine.llm import DeepSeekClient, LLMError
-from .engine.logbook import log_path, write_log
+from .engine.logbook import write_log
+from .page_questions import PageQuestionService, format_chat_context
+from .studio import router as studio_router
 from .schemas import (
     ChatRequest,
     HealthOut,
     MessageOut,
+    PageQuestionsRequest,
     RetrieveRequest,
     SessionCreate,
     SessionDetail,
@@ -35,6 +38,8 @@ from .schemas import (
 )
 
 logger = logging.getLogger("partner.api")
+SESSION_COOKIE = "ug_session"
+CLIENT_COOKIE = "ug_client"
 SSE_HEADERS = {
     "Cache-Control": "no-cache",
     "Connection": "keep-alive",
@@ -57,6 +62,7 @@ class Runtime:
         self.agent: Optional[PartnerAgent] = None
         self.profile: Any = None
         self.cache: Optional[AnswerCache] = None
+        self.page_questions: Optional[PageQuestionService] = None
         self.client: Optional[DeepSeekClient] = None
         self.started = False
         self.load_error: Optional[str] = None
@@ -110,7 +116,7 @@ class Runtime:
                 threshold=self.settings.answer_cache_threshold,
                 # Только сборка индекса: правки файлов без пересборки не
                 # должны обнулять кеш — индекс всё равно остаётся прежним.
-                kb_stamp=f"{stats.get('built_at') or ''}",
+                kb_stamp=f"{stats.get('built_at') or ''}|logic-v6",
                 ttl_days=self.settings.answer_cache_ttl_days,
                 max_entries=self.settings.answer_cache_max_entries,
             )
@@ -119,6 +125,16 @@ class Runtime:
         )
         if self.cache is not None:
             self.cache.prune()
+
+        # Подсказки к страницам сайта живут в отдельном SQLite-файле и не
+        # пересекаются ни с историей чата, ни с индексом знаний.
+        try:
+            self.page_questions = PageQuestionService(
+                self.settings.storage_dir / "page_questions.db"
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Кеш вопросов страниц недоступен: %s", exc)
+            self.page_questions = None
 
         self.agent = PartnerAgent(
             self.retriever,
@@ -161,6 +177,8 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
         yield
         if runtime.client:
             runtime.client.close()
+        if runtime.page_questions:
+            runtime.page_questions.close()
         runtime.db.close()
 
     app = FastAPI(
@@ -261,6 +279,15 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
             raise HTTPException(status_code=404, detail="partner/web/site.html не найден")
         return FileResponse(path, headers={"Cache-Control": "no-store, max-age=0"})
 
+    @app.get("/docs.html", include_in_schema=False)
+    @app.get("/page3.html", include_in_schema=False)
+    def docs_page():
+        """Третья страница: статья документации UserGate с виджетом вопросов."""
+        path = WEB_DIR / "docs.html"
+        if not path.is_file():
+            raise HTTPException(status_code=404, detail="partner/web/docs.html не найден")
+        return FileResponse(path, headers={"Cache-Control": "no-store, max-age=0"})
+
     @app.get("/usergate.html", include_in_schema=False)
     def usergate_page():
         """Вторая страница: структура и палитра usergate.com + наш чат."""
@@ -268,6 +295,20 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
         if not path.is_file():
             raise HTTPException(status_code=404, detail="partner/web/usergate.html не найден")
         return FileResponse(path, headers={"Cache-Control": "no-store, max-age=0"})
+
+    app.include_router(studio_router)
+
+    @app.get("/studio", include_in_schema=False)
+    def studio_page():
+        """Пополнение базы: загрузка файлов и ссылок без пересборки."""
+        path = WEB_DIR / "studio.html"
+        if not path.is_file():
+            raise HTTPException(status_code=404, detail="partner/web/studio.html не найден")
+        return FileResponse(path, headers={"Cache-Control": "no-store, max-age=0"})
+
+    @app.get("/favicon-96x96.png", include_in_schema=False)
+    def favicon_png():
+        return FileResponse(WEB_DIR / "favicon-96x96.png", media_type="image/png")
 
     @app.get("/favicon.ico", include_in_schema=False)
     def favicon():
@@ -348,11 +389,48 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
             "faq": rt.retriever.find_faq(payload.query, limit=3),  # type: ignore[union-attr]
         }
 
+    @app.post("/api/page/questions")
+    def page_questions(payload: PageQuestionsRequest) -> Dict[str, Any]:
+        """3–4 вопроса по сжатому содержимому страницы, кеш по URL."""
+        rt = runtime()
+        if rt.page_questions is None:
+            raise HTTPException(status_code=503, detail="Кеш вопросов страниц недоступен")
+        try:
+            return rt.page_questions.suggest(
+                url=payload.url,
+                title=payload.title,
+                headings=payload.headings,
+                text=payload.text,
+                client=rt.client,
+                model=settings.effective_model,
+            )
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
+
     # --- сессии ---------------------------------------------------------
     @app.get("/api/sessions", response_model=List[SessionOut])
-    def list_sessions(limit: int = Query(100, ge=1, le=500)) -> List[SessionOut]:
+    def list_sessions(
+        request: Request,
+        response: Response,
+        limit: int = Query(100, ge=1, le=500),
+        mine: bool = Query(False),
+    ) -> List[SessionOut]:
         rt = runtime()
-        return [SessionOut(**row) for row in rt.db.list_sessions(limit)]
+        client_id = request.cookies.get(CLIENT_COOKIE) if mine else None
+        if mine and not client_id:
+            # Клиент ещё не писал в чат: выдаём постоянный id, иначе список
+            # чатов пуст и кажется, что история потеряна.
+            client_id = uuid.uuid4().hex[:12]
+            response.set_cookie(
+                CLIENT_COOKIE,
+                client_id,
+                max_age=60 * 60 * 24 * 365,
+                httponly=True,
+                samesite="lax",
+            )
+        return [
+            SessionOut(**row) for row in rt.db.list_sessions(limit, client_id=client_id)
+        ]
 
     @app.post("/api/sessions", response_model=SessionOut)
     def create_session(payload: SessionCreate) -> SessionOut:
@@ -391,20 +469,43 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
 
     # --- чат ------------------------------------------------------------
     @app.post("/api/chat")
-    def chat(payload: ChatRequest) -> StreamingResponse:
+    def chat(payload: ChatRequest, request: Request) -> StreamingResponse:
         rt = runtime()
         message = payload.message.strip()
         if not message:
             raise HTTPException(status_code=400, detail="Пустое сообщение")
 
-        session = rt.db.get_session(payload.session_id) if payload.session_id else None
+        # Клиент опознаётся по куке: один диалог на браузер. Если клиент
+        # прислал свой session_id (сайт, ссылка на чат) — он приоритетнее.
+        client_id = request.cookies.get(CLIENT_COOKIE) or uuid.uuid4().hex[:12]
+        cookie_session = (
+            request.cookies.get(SESSION_COOKIE) if payload.client != "site" else None
+        )
+        requested = None if payload.new_session else (payload.session_id or cookie_session)
+        session = rt.db.get_session(requested) if requested else None
         created = False
         if session is None:
             session = rt.db.create_session(
-                title=make_title(message), model=settings.effective_model
+                title=make_title(message),
+                model=settings.effective_model,
+                session_id=requested or None,
+                client_id=client_id,
             )
             created = True
         session_id = session["id"]
+
+        # В историю и в интерфейс попадает только исходный вопрос. Для модели
+        # добавляем короткий якорь страницы: её содержимое уже в индексе, а
+        # название помогает поиску поднять нужные фрагменты. Полный текст
+        # страницы в промпт не дублируется.
+        model_message = message
+        if payload.page_context is not None:
+            anchor = format_chat_context(
+                url=payload.page_context.url,
+                title=payload.page_context.title,
+            )
+            if anchor:
+                model_message = f"{message}\n\n{anchor}"
 
         history = rt.db.history_for_llm(session_id)[-8:]
         rt.db.add_message(session_id, "user", message, hidden=payload.hidden)
@@ -430,14 +531,17 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
                 # Ответы опроса уже содержат все параметры — не запускаем
                 # полный цикл инструментов, отвечаем одним коротким вызовом.
                 effective_mode = "direct" if payload.hidden else payload.mode
+                done_event = None
+                had_clarification = False
                 for event in rt.agent.run(
-                    message,
+                    model_message,
                     history=history,
                     show_notes=payload.show_notes,
                     use_cache=payload.use_cache,
                     mode=effective_mode,
                 ):
                     if event.get("type") == "done":
+                        done_event = dict(event)
                         answer = event.get("text", "")
                         reasoning = event.get("reasoning", "")
                         sources = event.get("sources", [])
@@ -469,7 +573,58 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
                             cached=bool(event.get("cached")),
                         )
                         saved = True
+                    if isinstance(event, dict):
+                        event = dict(event)
+                        if event.get("type") == "clarification":
+                            had_clarification = True
+                        event.setdefault("client", payload.client)
+                        event.setdefault("session_id", session_id)
+                        if event.get("type") == "clarification" and isinstance(
+                            event.get("clarification"), dict
+                        ):
+                            card = dict(event["clarification"])
+                            card.setdefault("client", payload.client)
+                            card.setdefault("session_id", session_id)
+                            event["clarification"] = card
+                    if (
+                        isinstance(event, dict)
+                        and event.get("type") == "done"
+                        and had_clarification
+                    ):
+                        # Под опросом кнопки не нужны.
+                        event["followups"] = []
+                    if (
+                        isinstance(event, dict)
+                        and event.get("type") == "done"
+                        and not event.get("followups")
+                    ):
+                        heading = str(event.get("text") or "").splitlines()
+                        title = heading[0].lstrip("# ").strip() if heading else ""
+                        if title:
+                            event["followups"] = ["Подробнее: " + title[:60]]
                     yield _sse(event)
+                if done_event is not None and not had_clarification:
+                    try:
+                        from .agent import _with_suggestions
+
+                        base_items = list(done_event.get("followups") or [])
+                        agent_client = getattr(rt.agent, "client", None)
+                        items = _with_suggestions(
+                            agent_client,
+                            message,
+                            str(done_event.get("text") or ""),
+                            base_items,
+                        )
+                        if len(items) > len(base_items):
+                            yield _sse(
+                                {
+                                    "type": "followups",
+                                    "items": items,
+                                    "client": payload.client,
+                                }
+                            )
+                    except Exception:  # noqa: BLE001
+                        logger.debug("не удалось добрать кнопки", exc_info=True)
             except GeneratorExit:
                 raise
             except Exception as exc:  # noqa: BLE001
@@ -486,10 +641,46 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
                         tool_calls=tool_log,
                     )
 
-        return StreamingResponse(
+        response = StreamingResponse(
             event_stream(),
             media_type="text/event-stream",
             headers={**SSE_HEADERS, "X-Session-Id": session_id},
+        )
+        if payload.client != "site":
+            # Общие куки — только для index: сайт не должен перетирать
+            # сессию сотрудника и наоборот.
+            response.set_cookie(
+                CLIENT_COOKIE,
+                client_id,
+                max_age=60 * 60 * 24 * 365,
+                httponly=True,
+                samesite="lax",
+            )
+            response.set_cookie(
+                SESSION_COOKIE,
+                session_id,
+                max_age=60 * 60 * 24 * 30,
+                httponly=True,
+                samesite="lax",
+            )
+        return response
+
+    @app.get("/api/session/current")
+    def current_session(request: Request) -> JSONResponse:
+        """Кто я по куке и что уже в диалоге."""
+        session_id = request.cookies.get(SESSION_COOKIE)
+        if not session_id:
+            return JSONResponse({"session_id": None, "messages": []})
+        rt = runtime()
+        session = rt.db.get_session(session_id)
+        if session is None:
+            return JSONResponse({"session_id": None, "messages": []})
+        return JSONResponse(
+            {
+                "session_id": session_id,
+                "title": session.get("title"),
+                "messages": rt.db.history_for_llm(session_id),
+            }
         )
 
     return app

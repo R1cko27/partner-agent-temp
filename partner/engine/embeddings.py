@@ -16,7 +16,7 @@ from __future__ import annotations
 import math
 import os
 from pathlib import Path
-from typing import Iterable, List, Optional, Sequence
+from typing import List, Optional, Sequence
 
 
 def _normalize(vector: Sequence[float]) -> List[float]:

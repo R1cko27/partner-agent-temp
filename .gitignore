@@ -12,3 +12,9 @@ chroma-probe/
 chrome-diag/
 _batch_work/
 deploy/
+*.log.*
+tools/_*
+tools/_pdfs/
+data-temp/
+storage/backup-*
+storage/*-prev-*

@@ -24,7 +24,7 @@ from typing import Any, Dict, List, Optional, Sequence, Set
 
 # Меняйте версию при изменении промптов/правил ответа: старые ответы
 # перестанут попадать в кэш, даже если база знаний не пересобиралась.
-CACHE_VERSION = "2026-11-21.1"
+CACHE_VERSION = "2026-11-22.3"
 
 _PUNCT_RE = re.compile(r"[^\w\s]+", re.UNICODE)
 STOP_WORDS = {

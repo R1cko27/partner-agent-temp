@@ -4,6 +4,7 @@
 
 Результат в `deploy/host/` — обычная статика без сервера:
     index.html  app.js  app.css  config.js  favicon.svg
+    site.html   docs.html
 
 Все пути относительные, поэтому папку можно положить как в корень сайта,
 так и в любой подкаталог (`example.com/ai/`). Запросы к агенту идут на адрес
@@ -45,17 +46,24 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
 
     # 1. Вторая страница с импортированными стилями сайта
-    shutil.copy2(WEB / "usergate.html", OUT / "usergate.html")
+    try:
+        shutil.copy2(WEB / "usergate.html", OUT / "usergate.html")
+    except FileNotFoundError:
+        pass
     shutil.copy2(WEB / "site.html", OUT / "site.html")
+    if (WEB / "docs.html").is_file():
+        shutil.copy2(WEB / "docs.html", OUT / "docs.html")
+        print("скопирована: docs.html (третья страница с виджетом)")
     target_dir = OUT / "usergate"
     target_dir.mkdir(parents=True, exist_ok=True)
-    for item in (WEB / "usergate").iterdir():
-        if item.is_file() and not item.name.startswith("_"):
-            shutil.copy2(item, target_dir / item.name)
+    if (WEB / "usergate").is_dir():
+        for item in (WEB / "usergate").iterdir():
+            if item.is_file() and not item.name.startswith("_"):
+                shutil.copy2(item, target_dir / item.name)
     print("скопирована: usergate.html + usergate/")
 
     # 2. Статика как есть
-    for name in ("app.js", "app.css", "favicon.svg"):
+    for name in ("app.js", "app.css", "favicon.svg", "favicon-96x96.png", "studio.html"):
         source = WEB / name
         if not source.is_file():
             print("пропущен (нет файла):", name)

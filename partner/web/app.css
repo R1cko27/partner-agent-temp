@@ -102,7 +102,12 @@ body.sidebar-hidden .sidebar { padding-inline: 0; border-right-width: 0; }
   padding: 0 4px 14px;
 }
 
+.fn-mark { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.fn-mark:hover { color: var(--accent); }
+
 .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-mark--img { object-fit: cover; background: transparent; }
+.msg.assistant .avatar { object-fit: cover; background: transparent; }
 
 .brand-mark {
   display: grid;
@@ -118,15 +123,19 @@ body.sidebar-hidden .sidebar { padding-inline: 0; border-right-width: 0; }
   flex: none;
 }
 
+.brand .brand-mark--img { background: transparent; box-shadow: none; }
+
 .brand-name {
-  font-size: 14.5px;
-  font-weight: 600;
+  font-size: clamp(21px, 1.7vw, 25px);
+  font-weight: 400;
   letter-spacing: -0.01em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--ink);
 }
+
+.brand-name::first-letter { text-transform: uppercase; }
 
 .sidebar-actions {
   display: flex;
@@ -155,6 +164,34 @@ body.sidebar-hidden .sidebar { padding-inline: 0; border-right-width: 0; }
 .icon-btn:active { transform: scale(0.94); }
 .icon-btn.copied { color: var(--ok); }
 
+/* Кнопка закрытия появляется только когда чат открыт внутри site-виджета. */
+.embed-close { display: none; }
+body.embed .embed-close { display: inline-grid; }
+
+/* Переход из встроенного окна в полноценный чат с той же сессией. */
+.embed-full {
+  display: none;
+  align-items: center;
+  flex: 0 0 auto;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background var(--t-fast) var(--ease-out),
+    border-color var(--t-fast) var(--ease-out),
+    color var(--t-fast) var(--ease-out);
+}
+body.embed .embed-full { display: inline-flex; }
+.embed-full:hover { border-color: var(--muted); color: var(--ink); }
+.embed-full:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
 .new-chat {
   display: flex;
   align-items: center;
@@ -182,7 +219,7 @@ body.sidebar-hidden .sidebar { padding-inline: 0; border-right-width: 0; }
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding: 2px 2px 8px;
+  padding: 2px 2px 2px;
   scrollbar-width: thin;
   scrollbar-color: var(--line-strong) transparent;
 }
@@ -239,7 +276,7 @@ body.sidebar-hidden .sidebar { padding-inline: 0; border-right-width: 0; }
 .session .actions .icon-btn { width: 24px; height: 24px; }
 
 .sidebar-foot {
-  padding-top: 12px;
+  padding-top: 4px;
   border-top: 1px solid var(--line);
   display: flex;
   flex-direction: column;
@@ -1464,3 +1501,44 @@ body.clarifying .composer-wrap { display: none; }
 @media (max-width: 560px) {
   .question-nav { display: none; }
 }
+
+.session--editing { background: var(--surface-2, rgba(0,0,0,.04)); }
+.session-rename {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font: inherit;
+  color: inherit;
+  background: var(--surface, #fff);
+  outline: none;
+}
+
+.dev-panel { margin-top: 10px; border-top: 1px solid var(--line, rgba(0,0,0,.08)); }
+.dev-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 2px 6px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: 600 12.5px/1.2 inherit;
+  letter-spacing: .01em;
+  cursor: pointer;
+  opacity: .85;
+}
+.dev-toggle:hover { opacity: 1; }
+.dev-toggle .chevron { transition: transform .18s ease; }
+.dev-panel.open .dev-toggle .chevron { transform: rotate(180deg); }
+.dev-body {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-top: 0;
+  transition: max-height .26s ease, opacity .2s ease, padding-top .26s ease;
+}
+.dev-panel.open .dev-body { max-height: 560px; opacity: 1; padding-top: 4px; }

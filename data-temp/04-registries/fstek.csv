@@ -1,9 +1,0 @@
-id;продукт;версия;номер_сертификата;уровень_доверия;область_действия;дата_сертификата;действует_до;url_проверки;что_подтверждает;статус;дата_проверки
-ПРИМЕР-01;UserGate NGFW;6.1.9;3905;4;-;—;—;https://usergate.com/registry-entry;соответствие требованиям ФСТЭК; требует_проверки;2026-11-20
-ПРИМЕР-02;UserGate NGFW;7.x;уточнить;4;-;—;—;https://usergate.com/registry-entry;уточнить, распространяется ли на 7.x;не_начат;;
-ПРИМЕР-03;UserGate DCFW;8.x;уточнить;—;-;—;—;https://usergate.com/registry-entry;уточнить наличие сертификата;не_начат;;
-ПРИМЕР-04;UserGate WAF;7.7.x;уточнить;—;-;—;—;https://usergate.com/registry-entry;уточнить наличие сертификата;не_начат;;
-ПРИМЕР-05;UserGate SIEM;7.x;уточнить;—;-;—;—;https://usergate.com/registry-entry;уточнить наличие сертификата;не_начат;;
-ПРИМЕР-06;UserGate Management Center;7.x;уточнить;—;-;—;—;https://usergate.com/registry-entry;уточнить наличие сертификата;не_начат;;
-ПРИМЕР-07;UserGate Log Analyzer;7.x;уточнить;—;-;—;—;https://usergate.com/registry-entry;уточнить наличие сертификата;не_начат;;
-ПРИМЕР-08;UserGate Client;—;уточнить;—;-;—;—;https://usergate.com/registry-entry;уточнить наличие сертификата;не_начат;;

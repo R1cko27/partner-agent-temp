@@ -12,15 +12,16 @@
       }
     } catch (e) {}
   </script>
-  <link rel="stylesheet" href="/static/app.css?v=48" />
+  <link rel="stylesheet" href="/static/app.css?v=50" />
   <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon-96x96.png" />
 </head>
 <body>
   <div class="app">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-top">
         <div class="brand">
-          <span class="brand-mark">PA</span>
+          <img class="brand-mark brand-mark--img" src="/static/favicon-96x96.png" alt="UserGate" />
           <span class="brand-name">Partner&nbsp;agent</span>
         </div>
         <button class="icon-btn" id="collapseBtn" title="Свернуть панель" aria-label="Свернуть панель">
@@ -40,29 +41,38 @@
       <nav class="sessions" id="sessions" aria-label="История чатов"></nav>
 
       <div class="sidebar-foot">
-        <div class="mode-switch" id="modeSwitch" role="group" aria-label="Режим ответа">
-          <button type="button" class="mode-option active" data-mode="auto" title="Сложность определит модель: простой вопрос — быстро, сложный — с размышлением">Авто</button>
-          <button type="button" class="mode-option" data-mode="thinking">Мышление</button>
-          <button type="button" class="mode-option" data-mode="fast" title="Быстрый ответ без размышлений и плана, с экономией токенов">Быстро</button>
-        </div>
-        <label class="switch-row" for="notesToggle" title="Выключить — клиентский режим: без источников, размышлений и действий">
-          <span>Служебные примечания</span>
-          <span class="switch">
-            <input type="checkbox" id="notesToggle" checked />
-            <span class="slider"></span>
-          </span>
-        </label>
-        <label class="switch-row" for="cacheToggle" title="Выключить — каждый вопрос заново идёт в модель, без готовых ответов из кэша">
-          <span>Кэш ответов</span>
-          <span class="switch">
-            <input type="checkbox" id="cacheToggle" checked />
-            <span class="slider"></span>
-          </span>
-        </label>
-        <div class="kb-line" id="kbLine">загрузка…</div>
-        <div class="mode-line">
-          <span class="dot" id="modeDot"></span>
-          <span id="modeText">проверка…</span>
+        <div class="dev-panel" id="devPanel">
+          <button type="button" class="dev-toggle" id="devToggle" aria-expanded="false" aria-controls="devBody">
+            <span>Панель разработчика</span>
+            <svg class="chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="dev-body" id="devBody">
+                <div class="mode-switch" id="modeSwitch" role="group" aria-label="Режим ответа">
+                  <button type="button" class="mode-option active" data-mode="auto" title="Сложность определит модель: простой вопрос — быстро, сложный — с размышлением">Авто</button>
+                  <button type="button" class="mode-option" data-mode="thinking">Мышление</button>
+                  <button type="button" class="mode-option" data-mode="fast" title="Быстрый ответ без размышлений и плана, с экономией токенов">Быстро</button>
+                </div>
+                <label class="switch-row" for="notesToggle" title="Выключить — клиентский режим: без источников, размышлений и действий">
+                  <span>Служебные примечания</span>
+                  <span class="switch">
+                    <input type="checkbox" id="notesToggle" checked />
+                    <span class="slider"></span>
+                  </span>
+                </label>
+                <label class="switch-row" for="cacheToggle" title="Выключить — каждый вопрос заново идёт в модель, без готовых ответов из кэша">
+                  <span>Кэш ответов</span>
+                  <span class="switch">
+                    <input type="checkbox" id="cacheToggle" checked />
+                    <span class="slider"></span>
+                  </span>
+                </label>
+                <div class="kb-line" id="kbLine">загрузка…</div>
+                <div class="mode-line">
+                  <span class="dot" id="modeDot"></span>
+                  <span id="modeText">проверка…</span>
+                </div>
+      
+          </div>
         </div>
       </div>
     </aside>
@@ -86,6 +96,13 @@
             </svg>
           </button>
           <span class="chip" id="modelChip">—</span>
+          <button class="embed-full" id="embedFullChat" type="button"
+                  title="Открыть этот чат в полном интерфейсе">Полный чат</button>
+          <button class="icon-btn embed-close" id="embedClose" type="button" title="Закрыть чат" aria-label="Закрыть чат">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
         </div>
       </header>
 
@@ -138,6 +155,6 @@
     <img id="lightboxImg" alt="" />
   </div>
   <script src="/config.js"></script>
-<script src="/static/app.js?v=48"></script>
+<script src="/static/app.js?v=56"></script>
 </body>
 </html>

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import math
 import re
 from dataclasses import dataclass
 from difflib import SequenceMatcher
@@ -142,9 +141,42 @@ class Retriever:
             except Exception:  # noqa: BLE001
                 vectors = None
 
+        # Инкрементальные документы: чанки из delta + отдельный BM25 по ним.
+        try:
+            from .delta import load_delta
+
+            extra = load_delta(index_dir)
+        except Exception:  # noqa: BLE001
+            extra = []
+        if extra:
+            chunks = chunks + [
+                {
+                    "id": item.get("id"),
+                    "doc_id": item.get("source") or item.get("id"),
+                    "index": 0,
+                    "text": item.get("text") or "",
+                    "kind": item.get("kind") or "doc",
+                    "title": item.get("title") or "",
+                    "source": item.get("source") or "",
+                }
+                for item in extra
+                if item.get("text")
+            ]
+
+        if extra:
+            # Лексический поиск тоже должен видеть новые документы:
+            # BM25 собирается по базе и дельте один раз при загрузке.
+            from ..engine.tokenize import tokenize
+
+            bm25_index = BM25().fit(
+                [tokenize(str(item.get("text") or ""), unique=False) for item in chunks]
+            )
+        else:
+            bm25_index = BM25.from_dict(bm25_payload)
+
         return cls(
             chunks=chunks,
-            bm25=BM25.from_dict(bm25_payload),
+            bm25=bm25_index,
             entities=entities,
             meta=meta,
             embedder=embedder,

@@ -3,7 +3,7 @@
 Источник: справка партнёра (`UserGate.docx`), портал документации https://docs.usergate.com/dokumentaciya-120/. Формат пар «вопрос — ответ» читается ассистентом как отдельные карточки FAQ.
 
 Q: Какие продукты есть у UserGate?
-A: В экосистеме UserGate SUMMA: UserGate NGFW (межсетевой экран нового поколения), UserGate DCFW (защита ЦОД), UserGate SWG (шлюз веб-безопасности), UserGate WAF (защита веб-приложений), UserGate SIEM (управление событиями ИБ), UserGate Client (защита конечных точек), UserGate Management Center (централизованное управление), UserGate Log Analyzer (сбор и анализ журналов). Отдельное направление — UserGate Security Services.
+A: В экосистеме UserGate SUMMA: UserGate NGFW (межсетевой экран нового поколения), UserGate DCFW (защита ЦОД), UserGate SWG (шлюз веб-безопасности), UserGate WAF (защита веб-приложений), UserGate SIEM (управление событиями ИБ), UserGate Client (защита конечных точек), UserGate Management Center (централизованное управление), UserGate Log Analyzer (сбор и анализ журналов), UserGate InfraTwin (цифровой двойник для управления и тестирования), UserGate ГОСТ VPN (межсетевой экран и криптографический шлюз). Отдельное направление — UserGate Security Services.
 
 Q: Чем NGFW отличается от WAF?
 A: NGFW защищает корпоративную сеть в целом: DPI, IPS, контроль приложений, SSL-инспекция, антивирус, VPN. WAF защищает конкретное веб-приложение или сайт: анализирует HTTP/HTTPS-запросы к приложению. Это разные задачи, и обычно продукты применяются вместе.

@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS sessions (
     created_at    TEXT NOT NULL,
     updated_at    TEXT NOT NULL,
     model         TEXT,
-    message_count INTEGER NOT NULL DEFAULT 0
+    message_count INTEGER NOT NULL DEFAULT 0,
+    client_id     TEXT
 );
 
 CREATE TABLE IF NOT EXISTS messages (
@@ -116,6 +117,10 @@ class ChatDB:
             self._conn.executescript(SCHEMA)
             self._migrate()
             self._conn.commit()
+            columns = {row[1] for row in self._conn.execute("PRAGMA table_info(sessions)")}
+            if "client_id" not in columns:
+                self._conn.execute("ALTER TABLE sessions ADD COLUMN client_id TEXT")
+            self._conn.commit()
 
     def _migrate(self) -> None:
         """Досоздаёт колонки, появившиеся в новых версиях (старые БД не теряются)."""
@@ -150,14 +155,20 @@ class ChatDB:
             self._conn.close()
 
     # --- сессии ---------------------------------------------------------
-    def create_session(self, title: Optional[str] = None, model: Optional[str] = None) -> Dict[str, Any]:
-        session_id = uuid.uuid4().hex[:12]
+    def create_session(
+        self,
+        title: Optional[str] = None,
+        model: Optional[str] = None,
+        session_id: Optional[str] = None,
+        client_id: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        session_id = session_id or uuid.uuid4().hex[:12]
         now = utcnow()
         with self._lock:
             self._conn.execute(
-                "INSERT INTO sessions (id, title, created_at, updated_at, model, message_count) "
-                "VALUES (?, ?, ?, ?, ?, 0)",
-                (session_id, title or "Новый чат", now, now, model),
+                "INSERT INTO sessions (id, title, created_at, updated_at, model, message_count, client_id) "
+                "VALUES (?, ?, ?, ?, ?, 0, ?)",
+                (session_id, title or "Новый чат", now, now, model, client_id),
             )
             self._conn.commit()
         return self.get_session(session_id)  # type: ignore[return-value]
@@ -169,11 +180,20 @@ class ChatDB:
             ).fetchone()
         return dict(row) if row else None
 
-    def list_sessions(self, limit: int = 100) -> List[Dict[str, Any]]:
+    def list_sessions(
+        self, limit: int = 100, client_id: Optional[str] = None
+    ) -> List[Dict[str, Any]]:
         with self._lock:
-            rows = self._conn.execute(
-                "SELECT * FROM sessions ORDER BY updated_at DESC LIMIT ?", (limit,)
-            ).fetchall()
+            if client_id:
+                rows = self._conn.execute(
+                    "SELECT * FROM sessions WHERE client_id = ? "
+                    "ORDER BY updated_at DESC LIMIT ?",
+                    (client_id, limit),
+                ).fetchall()
+            else:
+                rows = self._conn.execute(
+                    "SELECT * FROM sessions ORDER BY updated_at DESC LIMIT ?", (limit,)
+                ).fetchall()
         return [dict(row) for row in rows]
 
     def rename_session(self, session_id: str, title: str) -> bool:

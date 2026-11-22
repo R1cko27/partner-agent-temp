@@ -239,7 +239,7 @@ def _glossary_entries(text: str) -> List[Dict[str, str]]:
     buffer: List[str] = []
 
     def flush() -> None:
-        nonlocal term, buffer
+        nonlocal buffer
         definition = " ".join(part.strip() for part in buffer).strip()
         if term and len(definition) > 20 and len(term) > 1:
             entries.append({"term": term, "definition": definition[:600]})

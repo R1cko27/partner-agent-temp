@@ -2,6 +2,7 @@
 
 const state = {
   sessionId: null,
+  newSession: false,
   sessions: [],
   streaming: false,
   controller: null,
@@ -17,11 +18,14 @@ const state = {
   chatStarted: false,
   questionLockIndex: null,
   questionLockTimer: null,
+  pageContext: null,
 };
 
 const NOTES_KEY = 'partner.notes';
 const CACHE_KEY = 'partner.cache';
 const MODE_KEY = 'partner.mode.v2';
+const EMBED = new URLSearchParams(location.search).get('embed') === '1';
+if (EMBED && document.body) document.body.classList.add('embed');
 
 const $ = (sel) => document.querySelector(sel);
 const threadEl = $('#thread');
@@ -40,11 +44,18 @@ const questionToggleEl = $('#questionToggle');
 
 let BRAND_AVATAR = 'PA';
 
+  function avatarNode() {
+    const img = el('img', 'avatar');
+    img.src = '/static/favicon-96x96.png';
+    img.alt = 'UserGate';
+    return img;
+  }
+
 function applyBranding(profile) {
   const branding = (profile && profile.branding) || {};
   if (branding.title) document.title = branding.title;
   const mark = document.querySelector('.brand-mark');
-  if (mark && branding.avatar) mark.textContent = branding.avatar;
+  if (mark && branding.avatar && mark.tagName !== 'IMG') mark.textContent = branding.avatar;
   const name = document.querySelector('.brand-name');
   if (name && branding.brand) name.textContent = branding.brand;
   const heading = document.querySelector('#empty h1');
@@ -408,7 +419,21 @@ function renderProse(block) {
   return out.join('');
 }
 
-function renderMarkdown(text) {
+
+  function linkifyMarkers(html, sources) {
+    var urls = (sources || []).map(function (item) { return item && item.url; }).filter(Boolean);
+    if (!urls.length) return html;
+    return String(html).split(/(<[^>]+>)/).map(function (part) {
+      if (!part || part.charAt(0) === '<') return part;
+      return part.replace(/\[(\d{1,2})\]/g, function (match, num) {
+        var index = parseInt(num, 10);
+        if (index < 1 || index > urls.length) return match;
+        return '<a class="fn-mark" href="' + urls[index - 1] + '" target="_blank" rel="noopener">[' + num + ']</a>';
+      });
+    }).join('');
+  }
+
+  function renderMarkdown(text, sources) {
   if (!text) return '';
   const parts = String(text).split(/```/);
   let html = '';
@@ -420,6 +445,7 @@ function renderMarkdown(text) {
       html += renderProse(part);
     }
   });
+  html = linkifyMarkers(html, sources);
   return html;
 }
 
@@ -554,6 +580,53 @@ function groupLabel(iso) {
   return 'Ранее';
 }
 
+function startInlineRename(row, session) {
+  if (!row || row.classList.contains('session--editing')) return;
+  const titleEl = row.querySelector('.title');
+  if (!titleEl) return;
+  const input = document.createElement('input');
+  input.className = 'session-rename';
+  input.type = 'text';
+  input.value = session.title;
+  input.maxLength = 120;
+  input.setAttribute('aria-label', 'Название чата');
+  row.classList.add('session--editing');
+  titleEl.replaceWith(input);
+  input.focus();
+  input.select();
+  let finished = false;
+  const finish = async (save) => {
+    if (finished) return;
+    finished = true;
+    const value = (input.value || '').trim();
+    input.replaceWith(titleEl);
+    row.classList.remove('session--editing');
+    if (!save || !value || value === session.title) return;
+    try {
+      await api(`/api/sessions/${session.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ title: value }),
+      });
+      session.title = value;
+      await loadSessions();
+      if (session.id === state.sessionId) $('#topbarTitle').textContent = value;
+    } catch (err) {
+      window.alert(`Не удалось переименовать: ${err.message}`);
+    }
+  };
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      finish(true);
+    } else if (event.key === 'Escape') {
+      event.preventDefault();
+      finish(false);
+    }
+  });
+  input.addEventListener('blur', () => finish(true));
+  input.addEventListener('click', (event) => event.stopPropagation());
+}
+
 function renderSessions() {
   sessionsEl.innerHTML = '';
   if (!state.sessions.length) {
@@ -573,7 +646,12 @@ function renderSessions() {
     row.type = 'button';
     if (session.id === state.sessionId) row.classList.add('active');
     row.title = session.title;
-    row.appendChild(el('span', 'title', session.title));
+    const titleSpan = el('span', 'title', session.title);
+    titleSpan.addEventListener('dblclick', (event) => {
+      event.stopPropagation();
+      startInlineRename(row, session);
+    });
+    row.appendChild(titleSpan);
 
     const actions = el('span', 'actions');
 
@@ -581,20 +659,9 @@ function renderSessions() {
     renameBtn.type = 'button';
     renameBtn.title = 'Переименовать';
     renameBtn.appendChild(icon('M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z', 14));
-    renameBtn.addEventListener('click', async (event) => {
+    renameBtn.addEventListener('click', (event) => {
       event.stopPropagation();
-      const title = window.prompt('Название чата', session.title);
-      if (!title || title.trim() === session.title) return;
-      try {
-        await api(`/api/sessions/${session.id}`, {
-          method: 'PATCH',
-          body: JSON.stringify({ title: title.trim() }),
-        });
-        await loadSessions();
-        if (session.id === state.sessionId) $('#topbarTitle').textContent = title.trim();
-      } catch (err) {
-        window.alert(`Не удалось переименовать: ${err.message}`);
-      }
+      startInlineRename(row, session);
     });
 
     const deleteBtn = el('button', 'icon-btn');
@@ -622,18 +689,40 @@ function renderSessions() {
 
 async function loadSessions() {
   try {
-    state.sessions = await api('/api/sessions');
+    state.sessions = await api('/api/sessions?mine=1');
   } catch {
     state.sessions = [];
   }
   renderSessions();
 }
 
+function abortActiveStream() {
+  if (state.controller) {
+    try { state.controller.abort(); } catch (error) { /* уже закрыт */ }
+    state.controller = null;
+  }
+  state.streaming = false;
+}
+
 function startNewChat() {
+  // Старый поток не должен дописать ответ в новый чат.
+  abortActiveStream();
   setClarificationActive(false);
   state.chatStarted = false;
   state.sessionId = null;
+  state.newSession = true;
   state.stickToBottom = true;
+  // В клиентском окне каждый новый чат начинается без служебных примечаний
+  // и без кэша ответов, даже если пользователь включал их в прошлый раз.
+  if (EMBED) {
+    state.showNotes = false;
+    state.useCache = false;
+    const notes = document.getElementById('notesToggle');
+    if (notes) notes.checked = false;
+    const cache = document.getElementById('cacheToggle');
+    if (cache) cache.checked = false;
+    applyNotesMode();
+  }
   // Не очищаем threadEl целиком: пустое состояние с примерами должно остаться.
   threadEl.querySelectorAll('.msg, .thread-error').forEach((node) => node.remove());
   if (!threadEl.contains(emptyEl)) threadEl.appendChild(emptyEl);
@@ -798,7 +887,7 @@ function addUserMessage(text) {
 
 function buildAssistantMessage() {
   const wrap = el('div', 'msg assistant');
-  wrap.appendChild(el('div', 'avatar', BRAND_AVATAR));
+  wrap.appendChild(avatarNode());
 
   const body = el('div', 'body');
 
@@ -1289,7 +1378,7 @@ function renderStoredMessage(message, meta = {}) {
   }
 
   const visible = state.showNotes ? message.content : clientText(message.content);
-  ui.answer.innerHTML = renderMarkdown(visible);
+  ui.answer.innerHTML = renderMarkdown(visible, ui._sources || []);
   bindInlineImages(ui.answer);
   renderGallery(ui.gallery, galleryItems(message.attachments, message.content));
   const storedFollowups = [];
@@ -1299,7 +1388,8 @@ function renderStoredMessage(message, meta = {}) {
     (args.items || []).forEach((item) => storedFollowups.push(item));
   });
   renderFollowups(ui, storedFollowups);
-  renderSources(ui.sources, message.sources);
+  ui._sources = message.sources || [];
+      renderSources(ui.sources, message.sources);
   if (message.tokens) setTokenBadge(ui, Number(message.tokens));
   if (message.cached) showCacheBadge(ui, null);
   scrollToBottom(true);
@@ -1426,7 +1516,7 @@ async function sendMessage(text, options = {}) {
     const visible = state.showNotes ? answerText : clientText(answerText);
     ui._rendered = visible;
     ui.answer.innerHTML =
-      renderMarkdown(visible) + '<span class="stream-caret" aria-hidden="true"></span>';
+      renderMarkdown(visible, ui._sources || []) + '<span class="stream-caret" aria-hidden="true"></span>';
     bindInlineImages(ui.answer);
     const items = galleryItems(attachmentsBuffer, answerText);
     if (items.length) renderGallery(ui.gallery, items);
@@ -1479,10 +1569,13 @@ async function sendMessage(text, options = {}) {
       body: JSON.stringify({
         message: question,
         session_id: state.sessionId,
+        new_session: !!state.newSession,
         show_notes: state.showNotes,
         use_cache: state.useCache,
         mode: state.mode,
+        client: 'index',
         hidden,
+        page_context: state.pageContext || null,
       }),
       signal: state.controller.signal,
     });
@@ -1516,6 +1609,8 @@ async function sendMessage(text, options = {}) {
           let event;
           try {
             event = JSON.parse(raw);
+        // Опрос рисует только тот интерфейс, где задан вопрос.
+        if (event && event.client && event.client !== 'index') continue;
           } catch {
             continue;
           }
@@ -1550,7 +1645,7 @@ async function sendMessage(text, options = {}) {
         // Ответ уже отрисован стримом — убираем каретку без повторного рендера.
         ui.answer.querySelectorAll('.stream-caret').forEach((node) => node.remove());
       } else {
-        ui.answer.innerHTML = renderMarkdown(visible);
+        ui.answer.innerHTML = renderMarkdown(visible, ui._sources || []);
         bindInlineImages(ui.answer);
         ui.answer.classList.add('settled');
       }
@@ -1567,11 +1662,27 @@ async function sendMessage(text, options = {}) {
   }
 
   function handleEvent(event) {
+    // Отвечает только та сессия, в которой задан вопрос.
+    if (event.session_id && state.sessionId && event.session_id !== state.sessionId) return;
     switch (event.type) {
       case 'clarification': {
+        // Опрос рисует только тот интерфейс, где задан вопрос.
+        const card = event.clarification || {};
+        const foreign =
+          (event.client && event.client !== 'index') ||
+          (card.client && card.client !== 'index') ||
+          String(card.session_id || '').startsWith('site-');
+        if (foreign) break;
         setGenStatus(ui, 'Уточняю пару деталей…');
         ui._clarified = true;
         renderClarification(ui, event);
+        break;
+      }
+      case 'followups': {
+        if (state.clarificationActive || ui._clarified) break;
+        if (event.items && event.items.length) {
+          renderFollowups(ui, event.items);
+        }
         break;
       }
       case 'start': {
@@ -1596,6 +1707,7 @@ async function sendMessage(text, options = {}) {
         setGenStatus(ui, 'Думаю…');
         const isNew = !state.sessionId;
         state.sessionId = event.id;
+        state.newSession = false;
         $('#topbarTitle').textContent = event.title || 'Чат';
         history.replaceState({}, '', `?session=${event.id}`);
         if (isNew) loadSessions();
@@ -1638,7 +1750,8 @@ async function sendMessage(text, options = {}) {
         if (event.name === 'plan' || event.name === 'offer_followups') break;
         const failed = /ошибка|не найден/i.test(event.summary || '');
         finishStep(ui, event.id, event.summary, failed);
-        if (event.sources && event.sources.length) renderSources(ui.sources, event.sources);
+        if (event.sources && event.sources.length) ui._sources = event.sources || [];
+      renderSources(ui.sources, event.sources);
         break;
       }
       case 'delta': {
@@ -1651,7 +1764,8 @@ async function sendMessage(text, options = {}) {
         break;
       }
       case 'sources': {
-        if (event.items && event.items.length) renderSources(ui.sources, event.items);
+        if (event.items && event.items.length) ui._sources = event.items || [];
+      renderSources(ui.sources, event.items);
         break;
       }
       case 'attachments': {
@@ -1671,7 +1785,8 @@ async function sendMessage(text, options = {}) {
         setReasoning();
         const items = galleryItems(attachmentsBuffer, answerText);
         if (items.length) renderGallery(ui.gallery, items);
-        if (event.sources && event.sources.length) renderSources(ui.sources, event.sources);
+        if (event.sources && event.sources.length) ui._sources = event.sources || [];
+      renderSources(ui.sources, event.sources);
         setTokenBadge(ui, event.usage_total || event.usage);
         renderFollowups(ui, event.followups);
         break;
@@ -1690,13 +1805,14 @@ async function sendMessage(text, options = {}) {
 /* session loading                                                     */
 /* ------------------------------------------------------------------ */
 async function openSession(sessionId) {
-  if (state.streaming) return;
+  if (state.streaming) abortActiveStream();
   setClarificationActive(false);
   // Флаг читаем до replaceState: ниже URL перезаписывается и параметр бы потерялся.
   const wantExpand = new URLSearchParams(location.search).get('expand') === '1';
   try {
     const session = await api(`/api/sessions/${sessionId}`);
     state.sessionId = session.id;
+    state.newSession = false;
     clearThread();
     $('#topbarTitle').textContent = session.title;
     history.replaceState({}, '', `?session=${session.id}`);
@@ -1853,6 +1969,19 @@ document.getElementById('themeToggle')?.addEventListener('click', () => {
   setTheme(current === 'dark' ? 'light' : 'dark');
 });
 
+document.getElementById('embedClose')?.addEventListener('click', () => {
+  try {
+    window.parent.postMessage({ type: 'partner-agent-close' }, '*');
+  } catch { /* обычная вкладка, не iframe */ }
+});
+
+document.getElementById('embedFullChat')?.addEventListener('click', () => {
+  const target = state.sessionId
+    ? `index.html?session=${encodeURIComponent(state.sessionId)}`
+    : 'index.html';
+  window.open(new URL(target, location.href).href, '_blank', 'noopener');
+});
+
 if (typeof darkQuery.addEventListener === 'function') {
   darkQuery.addEventListener('change', () => {
     if (!THEME_PARAM && !localStorage.getItem(THEME_KEY)) applyTheme();
@@ -1863,24 +1992,39 @@ applyTheme();
 /* ------------------------------------------------------------------ */
 /* init                                                                */
 /* ------------------------------------------------------------------ */
+const devPanel = document.getElementById('devPanel');
+const devToggle = document.getElementById('devToggle');
+const devBody = document.getElementById('devBody');
+if (devToggle && devBody) {
+  devToggle.addEventListener('click', () => {
+    const open = !devPanel.classList.contains('open');
+    devPanel.classList.toggle('open', open);
+    devToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+}
+
 const notesToggle = $('#notesToggle');
-state.showNotes = localStorage.getItem(NOTES_KEY) !== '0';
+// По умолчанию выключены. В embed-окне всегда выключены при открытии:
+// это клиентский режим без служебных примечаний. Пользователь может
+// включить их вручную, но следующее открытие виджета снова начнёт с off.
+state.showNotes = !EMBED && localStorage.getItem(NOTES_KEY) === '1';
 notesToggle.checked = state.showNotes;
 applyNotesMode();
 notesToggle.addEventListener('change', () => {
   state.showNotes = notesToggle.checked;
-  localStorage.setItem(NOTES_KEY, state.showNotes ? '1' : '0');
+  if (!EMBED) localStorage.setItem(NOTES_KEY, state.showNotes ? '1' : '0');
   applyNotesMode();
   if (!state.streaming && state.sessionId) openSession(state.sessionId);
 });
 
 const cacheToggle = $('#cacheToggle');
-state.useCache = localStorage.getItem(CACHE_KEY) !== '0';
+// Кэш ответов тоже по умолчанию выключен; в embed-окне — всегда off.
+state.useCache = !EMBED && localStorage.getItem(CACHE_KEY) === '1';
 if (cacheToggle) {
   cacheToggle.checked = state.useCache;
   cacheToggle.addEventListener('change', () => {
     state.useCache = cacheToggle.checked;
-    localStorage.setItem(CACHE_KEY, state.useCache ? '1' : '0');
+    if (!EMBED) localStorage.setItem(CACHE_KEY, state.useCache ? '1' : '0');
   });
 }
 
@@ -1942,7 +2086,7 @@ document.getElementById('scrollBottom')?.addEventListener('click', () => {
 });
 
 $('#newChatBtn').addEventListener('click', () => {
-  if (state.streaming) return;
+  abortActiveStream();
   startNewChat();
   closeSidebar();
 });
@@ -1989,6 +2133,8 @@ document.addEventListener('keydown', (event) => {
     return;
   }
 
+  // Загрузка без ?session — это новый чат, а не продолжение cookie-сессии.
+  startNewChat();
   threadEl.appendChild(emptyEl);
   const preset = params.get('q');
   if (preset && preset.trim()) {
@@ -2003,6 +2149,19 @@ document.addEventListener('keydown', (event) => {
 // Приём вопроса из внешней страницы (site.html / usergate.html).
 window.addEventListener('message', (event) => {
   const data = event.data || {};
+  if (data && data.type === 'partner-agent-new-chat') {
+    startNewChat();
+    return;
+  }
+  if (data && data.type === 'partner-agent-context' && data.page && typeof data.page === 'object') {
+    const page = data.page;
+    const context = {
+      url: String(page.url || '').slice(0, 2000),
+      title: String(page.title || '').slice(0, 300),
+    };
+    state.pageContext = (context.url || context.title) ? context : null;
+    return;
+  }
   if (!data || data.type !== 'partner-agent-ask' || typeof data.text !== 'string') return;
   const value = data.text.trim();
   if (!value) return;

@@ -1,3 +1,0 @@
-[19476:3188:1120/170223.443:ERROR:chrome\installer\util\google_update_settings_win.cc:270] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
-[19476:23828:1120/170226.325:ERROR:services\device\public\cpp\geolocation\system_geolocation_source_win.cc:124] Failed to create IAppCapability: Отказано в доступе. (0x80070005)
-[19476:30424:1120/170229.257:ERROR:components\device_event_log\device_event_log_impl.cc:211] [17:02:29.257] Bluetooth: bluetooth_adapter_winrt.cc:1172 RequestRadioAccessAsync failed: RadioAccessStatus::DeniedByUserWill not be able to change radio power.

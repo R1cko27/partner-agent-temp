@@ -8,10 +8,11 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
-COLLECTION = "s2ze_kb"
+COLLECTION = os.environ.get("CHROMA_COLLECTION") or "s2ze_kb"
 
 
 def _plain_vector(vector: Any) -> List[float]:

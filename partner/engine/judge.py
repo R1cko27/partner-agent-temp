@@ -16,10 +16,8 @@
 
 from __future__ import annotations
 
-import io
 import json
 import re
-import sys
 from pathlib import Path
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
@@ -271,7 +269,13 @@ class Judge:
                     parts.append(getattr(event, "text", "") or "")
         except Exception:  # noqa: BLE001 — судья не должен ронять ответ
             return {}
-        return _json_block("".join(parts))
+        raw = "".join(parts)
+        parsed = _json_block(raw)
+        if not parsed:
+            # Сохраняем сырой ответ судьи: без него непонятно, почему низкая оценка.
+            return {"reason": raw.strip()[:400]}
+        parsed.setdefault("reason", str(parsed.get("comment") or raw.strip()[:400]))
+        return parsed
 
     def judge_answer(
         self,
@@ -345,6 +349,62 @@ class Judge:
             invented=invented,
             comment=str(payload.get("comment") or "")[:200],
         )
+
+    def judge_full(
+        self,
+        question: str,
+        reference: str,
+        answer: str,
+        sources,
+        followups,
+        context: str,
+    ) -> Dict[str, Any]:
+        """Одна оценка по всем критериям: от 0 до 1 каждому пункту."""
+        titles = "; ".join(
+            f"{(item.get('title') or '')[:80]} {item.get('url') or ''}" for item in sources
+        ) or "нет"
+        buttons = " | ".join(str(item) for item in followups) or "нет"
+        system = (
+            "Ты — судья ответов ИИ-консультанта. Проверь ответ по критериям "
+            "и верни ТОЛЬКО JSON: "
+            '{"completeness":0..1,"sources":0..1,"format":0..1,'
+            '"followups":0..1,"context":0..1,"overall":0..1,'
+            '"problems":["..."]}. '
+            "completeness — все ли ключевые факты эталона переданы; "
+            "sources — все ли ссылки официальные и по теме, нет ли лишних; "
+            "format — заголовок ##, абзацы, корректные таблицы и выделения; "
+            "followups — соответствуют ли кнопки теме вопроса; "
+            "context — нет ли в контексте лишних, дублирующих или противоречащих фрагментов. "
+            "Ставь 1.0 только если придраться не к чему. problems — короткие пункты на русском. "
+            "Не рассуждай, верни только JSON."
+        )
+        user = (
+            f"ВОПРОС:\n{question}\n\n"
+            f"ЭТАЛОН:\n{reference[:1500]}\n\n"
+            f"ОТВЕТ:\n{answer[:2500]}\n\n"
+            f"ИСТОЧНИКИ:\n{titles[:600]}\n\n"
+            f"КНОПКИ:\n{buttons[:300]}\n\n"
+            f"КОНТЕКСТ:\n{context[:2500]}"
+        )
+        previous_limit = self.max_tokens
+        self.max_tokens = max(self.max_tokens, 2500)
+        try:
+            data = {}
+            # Модель иногда отвечает не JSON: до трёх попыток, иначе пустая
+            # оценка превращается в несправедливый ноль.
+            for _attempt in range(3):
+                data = self._ask(system, user)
+                if data and "overall" in data:
+                    break
+        finally:
+            self.max_tokens = previous_limit
+        if not data:
+            return {}
+        try:
+            data["overall"] = float(data.get("overall") or 0)
+        except (TypeError, ValueError):
+            data["overall"] = 0.0
+        return data
 
     def judge_context(self, question: str, context: str, expect_absent: bool = False) -> ContextVerdict:
         user = (

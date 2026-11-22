@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import os
 
 import os
 from dataclasses import dataclass, field
@@ -106,6 +105,7 @@ class Settings:
     auto_context: bool = True
     judge_enabled: bool = False
     chroma_subdir: str = "chroma"
+    index_subdir: str = "index"
     api_token: str = ""
     top_k: int = 6
     max_steps: int = 3
@@ -157,6 +157,7 @@ class Settings:
             auto_context=_get_bool("AUTO_CONTEXT", True),
             judge_enabled=_get_bool("JUDGE_ENABLED", False),
             chroma_subdir=(os.environ.get("CHROMA_SUBDIR") or "chroma"),
+            index_subdir=(os.environ.get("INDEX_SUBDIR") or "index"),
             api_token=(os.environ.get("API_TOKEN") or ""),
             top_k=max(1, _get_int("RAG_TOP_K", 6)),
             max_steps=max(2, _get_int("AGENT_MAX_STEPS", 6)),
@@ -202,7 +203,7 @@ class Settings:
 
     @property
     def index_dir(self) -> Path:
-        return self.storage_dir / "index"
+        return self.storage_dir / (self.index_subdir or "index")
 
     @property
     def chroma_dir(self) -> Path:

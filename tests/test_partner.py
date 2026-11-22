@@ -334,6 +334,7 @@ class TestApi(unittest.TestCase):
         self.assertIn("session", body)
 
     def test_session_history(self):
+        self.client.cookies.clear()
         response = self.client.post(
             "/api/chat", json={"message": "Кто отвечает за продажи?", "show_notes": False}
         )
@@ -343,6 +344,41 @@ class TestApi(unittest.TestCase):
         self.assertEqual(detail.status_code, 200)
         messages = detail.json()["messages"]
         self.assertEqual(len(messages), 2)
+
+    def test_new_session_ignores_cookie(self):
+        self.client.cookies.set('ug_session', 'cookie-chat-old')
+        first = self.client.post(
+            '/api/chat',
+            json={'message': 'Кто отвечает за продажи?', 'show_notes': False, 'new_session': True},
+        )
+        sid_first = first.headers.get('X-Session-Id')
+        second = self.client.post(
+            '/api/chat',
+            json={'message': 'А кто отвечает за обучение?', 'show_notes': False, 'new_session': True},
+        )
+        sid_second = second.headers.get('X-Session-Id')
+        self.assertTrue(sid_first and sid_second)
+        self.assertNotEqual(sid_first, sid_second)
+        self.assertNotEqual(sid_first, 'cookie-chat-old')
+
+    def test_explicit_session_id_is_used(self):
+        response = self.client.post(
+            '/api/chat',
+            json={
+                'message': 'Сколько стоит Тест WMS?',
+                'show_notes': False,
+                'session_id': 'explicit-chat-1',
+            },
+        )
+        self.assertEqual(response.headers.get('X-Session-Id'), 'explicit-chat-1')
+        detail = self.client.get('/api/sessions/explicit-chat-1')
+        self.assertEqual(detail.status_code, 200)
+
+    def test_sessions_mine_sets_client_cookie(self):
+        self.client.cookies.clear()
+        response = self.client.get('/api/sessions?mine=1')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.cookies.get('ug_client'))
 
     def test_empty_message_rejected(self):
         self.assertEqual(self.client.post("/api/chat", json={"message": ""}).status_code, 422)
